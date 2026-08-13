@@ -33,6 +33,7 @@ Prompts for understanding the customer, project, objectives,
 requirements, and constraints.
 
 - [STR-001 — Customer Analysis](01_strategy/customer_analysis.md)
+- [STR-002 — Brief Analysis](01_strategy/brief_analysis.md)
 
 ### 02 — Research
 
