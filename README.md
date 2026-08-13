@@ -67,7 +67,7 @@ creative concepts and art direction.
 
 - [ART-001 — Creative Concept Generation](05_art_direction/concept_generation.md)
 - [ART-002 — Concept Evaluation & Selection](05_art_direction/concept_evaluation.md)
-
+- [ART-003 — Art Direction Development](05_art_direction/art_direction_development.md)
 ### 06 — Generation
 
 Prompts for generating visual outputs.
