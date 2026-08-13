@@ -36,7 +36,7 @@ requirements, and constraints.
 - [STR-002 — Brief Analysis](01_strategy/brief_analysis.md)
 - [STR-003 — Requirement Extraction](01_strategy/requirement_extraction.md)
 - [STR-004 — Clarification Questions](01_strategy/clarification_questions.md)
-- [STR-005_  Project Reconciliation](01_strategy/project_reconciliation.md)
+- [STR-005 — Project Reconciliation](01_strategy/project_reconciliation.md)
 ### 02 — Research
 
 Prompts for researching and collecting references.
@@ -118,3 +118,37 @@ Prompts use version numbers.
 - Active
 - Deprecated
 - Archived
+
+---
+
+## Project Execution
+
+Prompts are executed sequentially.
+
+Each stage should:
+
+1. Load the required input.
+2. Execute the corresponding prompt.
+3. Review the output.
+4. Save the output.
+5. Assign a version.
+6. Pass the approved output to the next stage.
+
+No downstream stage should silently modify
+or overwrite upstream information.
+
+---
+
+## Core Principle
+
+**Analyze → Structure → Research → Synthesize → Direct → Generate → Evaluate**
+
+The system should separate:
+
+- Customer information
+- Research
+- Analysis
+- Interpretation
+- Creative decisions
+- Generated outputs
+- Evaluation
