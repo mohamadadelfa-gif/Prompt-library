@@ -69,9 +69,10 @@ Prompts for extracting and synthesizing visual principles.
 
 ### 07 — Quality Control
 
-Prompts for evaluating and improving outputs.
+Prompts for evaluating generated visual outputs and
+creating structured revision instructions.
 
-Coming soon.
+- [QC-001 — Generated Image Evaluation](07_quality_control/image_evaluation.md)
 
 ---
 
