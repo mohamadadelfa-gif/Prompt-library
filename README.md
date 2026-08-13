@@ -46,7 +46,7 @@ Prompts for researching and collecting references.
 
 Prompts for analyzing visual references.
 
-Coming soon.
+- [VIS-001 — Composition Analysis](03_visual_analysis/composition_analysis.md)
 
 ### 04 — Visual DNA
 
