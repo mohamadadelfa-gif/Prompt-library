@@ -40,8 +40,13 @@ requirements, and constraints.
 ### 02 — Research
 
 Prompts for researching and collecting references.
+
 - [RES-001 — Research Strategy](02_research/research_strategy.md)
+- [RES-002 — Audience Research](02_research/audience_research.md)
+- [RES-003 — Competitor & Market Research](02_research/competitor_market_research.md)
+- [RES-004 — Cultural & Context Research](02_research/cultural_context_research.md)
 - [RES-005 — Visual Reference Research](02_research/visual_reference_research.md)
+- [RES-006 — Research Synthesis](02_research/research_synthesis.md)
 
 ### 03 — Visual Analysis
 
