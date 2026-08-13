@@ -1,12 +1,19 @@
 # Prompt Library v2
 
-A version-controlled library of prompts for creative strategy, visual research, art direction, AI generation, and quality control.
+A version-controlled prompt system for creative strategy, research, visual analysis, Visual DNA, art direction, AI generation, and quality control.
 
 ## Workflow
 
-Customer Information → Strategy → Research → Visual Analysis → Visual DNA → Art Direction → Generation → Quality Control
+Customer Information
+→ Strategy
+→ Research
+→ Visual Analysis
+→ Visual DNA
+→ Art Direction
+→ Generation
+→ Quality Control
 
-## Categories
+## Active Prompt Sequence
 
 ### 01 — Strategy
 - STR-001 — Customer Analysis
@@ -47,36 +54,49 @@ Customer Information → Strategy → Research → Visual Analysis → Visual DN
 - QC-001 — Generated Image Evaluation
 - QC-002 — Revision Strategy
 
+## Deprecated
+
+`02_research/reference_selection.md` is retained only as a migration note. It is not an active execution stage. Its old duplicate `RES-002` identity is retired.
+
 ## v2 Execution Contract
 
-Every prompt must define:
+Every active prompt must define, explicitly or operationally:
 
 1. **Input Contract** — required inputs and missing-input behavior.
 2. **Transformation Boundary** — what the prompt may infer, transform, or decide.
-3. **Output Contract** — structured outputs required by downstream stages.
-4. **Provenance** — source of important claims, requirements, and decisions.
-5. **Confidence** — uncertainty must remain explicit.
-6. **Handoff** — unresolved items and approved outputs passed to the next stage.
+3. **Output Contract** — structured outputs required downstream.
+4. **Provenance** — source of material claims, requirements, findings, and decisions.
+5. **Confidence** — uncertainty remains explicit.
+6. **Handoff** — approved outputs, unresolved items, and blockers passed forward.
 
-Downstream prompts must not silently rewrite upstream facts, requirements, research findings, Visual DNA, or approved Art Direction.
+Downstream stages must not silently rewrite upstream facts, requirements, research findings, Visual DNA, selected concepts, or approved Art Direction.
 
 ## Evidence Rules
 
-Use these labels where relevant:
+Use the appropriate evidence label:
 
-- Confirmed / Fact
+- Fact / Confirmed
 - Observation
 - Interpretation
 - Hypothesis
 - Assumption
 - Unknown
 - Unresolved
+- Superseded
 
-Never promote an inference to a confirmed requirement without evidence.
+Never promote an inference or hypothesis to a confirmed requirement without supporting evidence.
 
 ## Decision Gates
 
-A stage may proceed only when its required inputs exist and no unresolved critical dependency blocks the next stage. If a critical dependency is unresolved, explicitly return **DO NOT PROCEED** or **PROCEED WITH CONDITIONS**.
+A stage may proceed only when required inputs exist and no unresolved critical dependency blocks the next stage.
+
+Use explicit outcomes where applicable:
+- PROCEED
+- PROCEED WITH CONDITIONS
+- DO NOT PROCEED
+- READY FOR GENERATION
+- REVISE
+- REGENERATE
 
 ## Versioning
 
