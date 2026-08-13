@@ -35,7 +35,7 @@ requirements, and constraints.
 - [STR-001 — Customer Analysis](01_strategy/customer_analysis.md)
 - [STR-002 — Brief Analysis](01_strategy/brief_analysis.md)
 - [STR-003 — Requirement Extraction](01_strategy/requirement_extraction.md)
--  [STR-004 — Clarification Questions](01_strategy/clarification_questions.md)
+- [STR-004 — Clarification Questions](01_strategy/clarification_questions.md)
 ### 02 — Research
 
 Prompts for researching and collecting references.
