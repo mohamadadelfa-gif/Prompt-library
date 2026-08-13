@@ -73,6 +73,7 @@ Prompts for evaluating generated visual outputs and
 creating structured revision instructions.
 
 - [QC-001 — Generated Image Evaluation](07_quality_control/image_evaluation.md)
+- [QC-002 — Revision Strategy](07_quality_control/revision_strategy.md)
 
 ---
 
