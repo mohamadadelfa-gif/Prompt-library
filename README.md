@@ -44,9 +44,8 @@ Prompts for researching and collecting references.
 
 ### 03 — Visual Analysis
 
-Prompts for analyzing visual references.
-
 - [VIS-001 — Composition Analysis](03_visual_analysis/composition_analysis.md)
+- [VIS-002 — Color Analysis](03_visual_analysis/color_analysis.md)
 
 ### 04 — Visual DNA
 
