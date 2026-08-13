@@ -56,26 +56,16 @@ Prompts for extracting and synthesizing visual principles.
 
 - [VDNA-001 — Visual DNA Extraction & Synthesis](04_visual_dna/visual_dna_extraction.md)
 
-Coming soon.
-
-### 05 — Art Direction
-
-Prompts for transforming Visual DNA and strategy into
-creative concepts and art direction.
-
 ### 05 — Art Direction
 
 - [ART-001 — Creative Concept Generation](05_art_direction/concept_generation.md)
 - [ART-002 — Concept Evaluation & Selection](05_art_direction/concept_evaluation.md)
 - [ART-003 — Art Direction Development](05_art_direction/art_direction_development.md)
+
 ### 06 — Generation
 
-Prompts for translating Art Direction into controlled
-AI-generation specifications and prompts.
-
 - [GEN-001 — Generation Specification](06_generation/generation_specification.md)
-
-Coming soon.
+- [GEN-002 — Prompt Construction](06_generation/prompt_construction.md)
 
 ### 07 — Quality Control
 
