@@ -70,7 +70,10 @@ creative concepts and art direction.
 - [ART-003 — Art Direction Development](05_art_direction/art_direction_development.md)
 ### 06 — Generation
 
-Prompts for generating visual outputs.
+Prompts for translating Art Direction into controlled
+AI-generation specifications and prompts.
+
+- [GEN-001 — Generation Specification](06_generation/generation_specification.md)
 
 Coming soon.
 
