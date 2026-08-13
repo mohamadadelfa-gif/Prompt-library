@@ -36,7 +36,7 @@ requirements, and constraints.
 - [STR-002 — Brief Analysis](01_strategy/brief_analysis.md)
 - [STR-003 — Requirement Extraction](01_strategy/requirement_extraction.md)
 - [STR-004 — Clarification Questions](01_strategy/clarification_questions.md)
-- [STR-005_  Project Reconciliation] (01_strategy/project_reconciliation.md)STR-005_project_reconciliation.md)
+- [STR-005_  Project Reconciliation] (01_strategy/project_reconciliation.md)
 ### 02 — Research
 
 Prompts for researching and collecting references.
