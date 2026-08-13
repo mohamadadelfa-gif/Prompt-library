@@ -6,9 +6,7 @@ STR-004
 
 ## Purpose
 
-Identify the most important missing information, ambiguities,
-and contradictions in the project and convert them into
-clear questions for the customer.
+Identify the most important missing information, ambiguities, contradictions, and unverified assumptions and convert only the necessary issues into clear customer questions.
 
 ## Role
 
@@ -22,12 +20,6 @@ The project has already passed through:
 - STR-002 — Brief Analysis
 - STR-003 — Requirement Extraction
 
-The previous prompts identified missing information,
-assumptions, and contradictions.
-
-Your task is to determine what must be clarified before
-the project can proceed.
-
 ## Input
 
 - Customer Analysis
@@ -39,47 +31,40 @@ the project can proceed.
 
 ## Instructions
 
-Review the available project information.
-
 Identify:
 
 1. Critical missing information
 2. Ambiguous requirements
 3. Contradictory requirements
 4. Unverified assumptions
-5. Decisions that require customer approval
+5. Decisions requiring customer approval
 
-Convert these issues into concise customer questions.
+Do not ask for information that is already available.
 
-Prioritize questions according to their impact on the project.
+Prioritize by project impact:
 
-Use three priority levels:
+- **Critical** — blocks a downstream decision or can materially change scope, audience, requirements, positioning, or visual direction.
+- **Important** — affects quality or efficiency but does not block safe continuation.
+- **Optional** — useful for refinement but not necessary for the next stage.
 
-- Critical
-- Important
-- Optional
+Critical questions must be answered before the dependent stage can safely proceed.
 
-Critical questions must be answered before the project
-can safely proceed.
+## Decision Gate
 
-Do not ask questions when the required information is
-already clearly available.
+Return:
 
-## Constraints
+- **PROCEED** — no critical unresolved dependency remains.
+- **PROCEED WITH CONDITIONS** — only non-blocking issues remain, and list those conditions.
+- **DO NOT PROCEED** — at least one critical dependency remains unresolved.
 
-- Do not invent information.
-- Do not assume the customer's intention.
-- Do not ask unnecessary questions.
-- Keep questions clear and easy for the customer to answer.
-- Avoid technical language when communicating with the customer.
-- Preserve the original project context.
+A Critical question automatically produces **DO NOT PROCEED** unless the available evidence already provides an acceptable answer.
 
 ## Output Format
 
 ### Critical Questions
 
-| ID | Question | Reason | Related Requirement |
-|---|---|---|---|
+| ID | Question | Reason | Related Requirement | Blocking Stage |
+|---|---|---|---|---|
 
 ### Important Questions
 
@@ -98,19 +83,25 @@ already clearly available.
 
 ### Contradictions Requiring Resolution
 
-| ID | Issue | Question |
-|---|---|---|
+| ID | Issue | Question | Blocking? |
+|---|---|---|---|
 
 ### Proceed / Do Not Proceed
 
-State whether the project has enough information
-to proceed to the next stage.
+State the decision and justify it using the unresolved dependencies.
 
-Choose one:
+### Handoff
 
-- PROCEED
-- PROCEED WITH CONDITIONS
-- DO NOT PROCEED
+List the exact answers or decisions required by the next stage.
+
+## Constraints
+
+- Do not invent information.
+- Do not assume the customer's intention.
+- Do not ask unnecessary questions.
+- Keep questions clear and easy for the customer to answer.
+- Avoid technical language when communicating with the customer.
+- Preserve the original project context.
 
 ## Quality Criteria
 
@@ -122,13 +113,12 @@ The questions must be:
 - Non-redundant
 - Prioritized
 - Directly connected to project requirements
-
-The final decision must be justified by the available information.
+- Explicit about blocking impact
 
 ## Version
 
-1.0
+2.0
 
 ## Status
 
-Draft
+Testing
