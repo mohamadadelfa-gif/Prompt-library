@@ -63,7 +63,10 @@ Coming soon.
 Prompts for transforming Visual DNA and strategy into
 creative concepts and art direction.
 
+### 05 — Art Direction
+
 - [ART-001 — Creative Concept Generation](05_art_direction/concept_generation.md)
+- [ART-002 — Concept Evaluation & Selection](05_art_direction/concept_evaluation.md)
 
 ### 06 — Generation
 
