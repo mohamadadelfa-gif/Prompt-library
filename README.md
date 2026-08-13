@@ -40,7 +40,7 @@ requirements, and constraints.
 
 Prompts for researching and collecting references.
 
-Coming soon.
+- [RES-001 — Visual Reference Research](02_research/visual_reference_research.md)
 
 ### 03 — Visual Analysis
 
