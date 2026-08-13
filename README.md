@@ -60,9 +60,10 @@ Coming soon.
 
 ### 05 — Art Direction
 
-Prompts for developing concepts and visual directions.
+Prompts for transforming Visual DNA and strategy into
+creative concepts and art direction.
 
-Coming soon.
+- [ART-001 — Creative Concept Generation](05_art_direction/concept_generation.md)
 
 ### 06 — Generation
 
