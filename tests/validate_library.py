@@ -25,7 +25,8 @@ for directory in ACTIVE_DIRS:
         continue
     for path in sorted(directory.glob("*.md")):
         rel = path.relative_to(ROOT)
-        if path.name.startswith("README") or str(rel).replace("\\", "/") in DEPRECATED_FILES:
+        rel_string = str(rel).replace("\\", "/")
+        if path.name.startswith("README") or rel_string in DEPRECATED_FILES:
             continue
         files_checked += 1
         text = path.read_text(encoding="utf-8")
@@ -65,7 +66,7 @@ expected_prefixes = {
 }
 
 for prompt_id, path in ids.items():
-    directory = path.parts[1]
+    directory = path.parts[0]
     prefix = expected_prefixes[directory]
     if not prompt_id.startswith(prefix):
         errors.append(f"{path}: ID {prompt_id} does not match stage prefix {prefix}")
