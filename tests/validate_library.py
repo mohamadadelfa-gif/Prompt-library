@@ -7,6 +7,7 @@ ACTIVE_DIRS = [ROOT / f"{i:02d}_{name}" for i, name in enumerate([
     "strategy", "research", "visual_analysis", "visual_dna",
     "art_direction", "generation", "quality_control"
 ], start=1)]
+DEPRECATED_FILES = {"02_research/reference_selection.md"}
 
 ID_RE = re.compile(r"^##\s+ID\s*$", re.M)
 VERSION_RE = re.compile(r"^##\s+Version\s*$", re.M)
@@ -23,16 +24,15 @@ for directory in ACTIVE_DIRS:
         errors.append(f"Missing active stage directory: {directory.relative_to(ROOT)}")
         continue
     for path in sorted(directory.glob("*.md")):
-        if path.name.startswith("README"):
+        rel = path.relative_to(ROOT)
+        if path.name.startswith("README") or str(rel).replace("\\", "/") in DEPRECATED_FILES:
             continue
         files_checked += 1
         text = path.read_text(encoding="utf-8")
-        rel = path.relative_to(ROOT)
 
         if not ID_RE.search(text):
             errors.append(f"{rel}: missing ## ID")
         else:
-            # Only take the first ID immediately following the ID heading.
             m = re.search(r"^##\s+ID\s*\n+\s*([^\n]+)", text, re.M)
             if not m:
                 errors.append(f"{rel}: ID heading has no value")
@@ -50,9 +50,7 @@ for directory in ACTIVE_DIRS:
         if not STATUS_RE.search(text):
             errors.append(f"{rel}: missing ## Status")
 
-        # Every active prompt must explicitly define operational boundaries.
-        required_terms = ["Input", "Output", "Constraints"]
-        for term in required_terms:
+        for term in ["Input", "Output", "Constraints"]:
             if not re.search(rf"^##\s+.*{re.escape(term)}.*$", text, re.M | re.I):
                 warnings.append(f"{rel}: no explicit section matching '{term}'")
 
@@ -66,11 +64,11 @@ expected_prefixes = {
     "07_quality_control": "QC-",
 }
 
-for directory in ACTIVE_DIRS:
-    prefix = expected_prefixes[directory.name]
-    for prompt_id, path in ids.items():
-        if path.parts[1] == directory.name and not prompt_id.startswith(prefix):
-            errors.append(f"{path}: ID {prompt_id} does not match stage prefix {prefix}")
+for prompt_id, path in ids.items():
+    directory = path.parts[1]
+    prefix = expected_prefixes[directory]
+    if not prompt_id.startswith(prefix):
+        errors.append(f"{path}: ID {prompt_id} does not match stage prefix {prefix}")
 
 print(f"Checked {files_checked} active prompt files")
 print(f"Unique IDs: {len(ids)}")
