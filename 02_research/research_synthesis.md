@@ -1,55 +1,17 @@
 # Research Synthesis
 
 ## ID
-
 RES-006
 
 ## Purpose
+Synthesize the completed research into one evidence-based project understanding that can safely inform visual analysis and later creative decisions.
 
-Synthesize the findings from the research phase into one
-structured, evidence-based understanding of the project.
-
-The purpose is to identify the most important patterns,
-insights, opportunities, risks, and unanswered questions
-that should inform the subsequent visual analysis and
-art direction phases.
-
-This prompt does not generate visual concepts or define
-the final visual identity.
-
----
+This prompt synthesizes; it does not invent research, create concepts, or define a final visual style.
 
 ## Role
+Senior Art Director, Research Strategist, and Design Researcher.
 
-You are a Senior Art Director, Research Strategist, and
-Design Researcher.
-
-Your responsibility is to synthesize research into clear
-strategic knowledge that can be used by the next stage.
-
----
-
-## Context
-
-The project has completed:
-
-- STR-001 — Customer Analysis
-- STR-002 — Brief Analysis
-- STR-003 — Requirement Extraction
-- STR-004 — Clarification Questions
-- STR-005 — Project Reconciliation
-- RES-001 — Research Strategy
-- RES-002 — Audience Research
-- RES-003 — Competitor & Market Research
-- RES-004 — Cultural & Context Research
-- RES-005 — Visual Reference Research
-
-The research phase is now being consolidated.
-
----
-
-## Input
-
+## Required Inputs
 - Authoritative Project Brief
 - RES-001 — Research Strategy
 - RES-002 — Audience Research
@@ -57,295 +19,112 @@ The research phase is now being consolidated.
 - RES-004 — Cultural & Context Research
 - RES-005 — Visual Reference Research
 
----
+If an input is missing, mark the affected area **Unknown**. Do not reconstruct missing evidence.
+
+## Evidence Rules
+Classify conclusions as:
+- Fact / Confirmed
+- Observation
+- Interpretation
+- Hypothesis
+- Unknown
+- Contradiction / Unresolved
+
+Never promote an interpretation or hypothesis to a confirmed finding.
+Every material insight must identify its supporting source(s).
 
 ## Instructions
-
-Synthesize the available research.
-
+Synthesize relationships across the research rather than repeating it.
 Identify:
+1. Audience insights
+2. Market/category insights
+3. Cultural/context insights
+4. Visual landscape insights
+5. Recurring conventions
+6. Differences and tensions
+7. Evidence-supported opportunities
+8. Risks
+9. Visual research implications
+10. Remaining unknowns
 
-1. Key audience insights
-2. Key market insights
-3. Key cultural insights
-4. Key visual landscape insights
-5. Common patterns
-6. Important differences
-7. Market conventions
-8. Potential opportunities
-9. Potential risks
-10. Strategic tensions
-11. Visual research implications
-12. Remaining unknowns
+Do not resolve strategic tensions automatically. State the competing evidence and what remains undecided.
 
-Do not simply repeat the previous research outputs.
+Do not use domain-specific examples unless the project evidence establishes that domain.
 
-Identify relationships between findings.
+## Output
+### 1. Research Objective
+### 2. Executive Summary
+### 3. Audience Insights
+| ID | Insight | Evidence / Source | Evidence Type | Confidence | Implication |
+|---|---|---|---|---|---|
 
----
+### 4. Market Insights
+| ID | Insight | Evidence / Source | Evidence Type | Confidence | Implication |
+|---|---|---|---|---|---|
 
-## Evidence Hierarchy
+### 5. Cultural & Context Insights
+| ID | Insight | Evidence / Source | Evidence Type | Confidence | Implication |
+|---|---|---|---|---|---|
 
-Prioritize:
+### 6. Visual Landscape Insights
+| ID | Insight | Evidence / Source | Evidence Type | Confidence | Implication |
+|---|---|---|---|---|---|
 
-1. Explicit customer information
-2. Strong research evidence
-3. Consistent patterns across multiple sources
-4. Reasonable interpretation
-5. Hypotheses
-
-Clearly label conclusions that are not directly supported
-by strong evidence.
-
----
-
-## Synthesis Principles
-
-Look for relationships such as:
-
-Audience need
-+
-Market convention
-+
-Cultural context
-=
-Potential opportunity
-
-Also identify conflicts such as:
-
-Audience expectation
-vs.
-Market convention
-
-or:
-
-Brand ambition
-vs.
-Current product reality
-
-Do not resolve these conflicts automatically.
-
----
-
-## Output Format
-
-# Research Synthesis
-
-## 1. Research Objective
-
-Restate what the research was intended to understand.
-
----
-
-## 2. Executive Summary
-
-Provide a concise synthesis of the most important findings.
-
----
-
-## 3. Audience Insights
-
-| ID | Insight | Evidence | Confidence | Implication |
+### 7. Conventions & Saturation
+| ID | Pattern | Evidence | Confidence | Relevance |
 |---|---|---|---|---|
 
----
-
-## 4. Market Insights
-
-| ID | Insight | Evidence | Confidence | Implication |
+### 8. Opportunities
+| ID | Opportunity | Supporting Evidence | Confidence | Why It Matters |
 |---|---|---|---|---|
 
----
+Opportunities are research findings, not final creative recommendations.
 
-## 5. Cultural & Context Insights
-
-| ID | Insight | Evidence | Confidence | Implication |
+### 9. Risks
+| ID | Risk | Evidence | Impact | Confidence |
 |---|---|---|---|---|
 
----
-
-## 6. Visual Landscape Insights
-
-| ID | Insight | Evidence | Confidence | Implication |
+### 10. Strategic Tensions
+| ID | Tension | Evidence on Side A | Evidence on Side B | Unresolved Decision |
 |---|---|---|---|---|
 
-Do not define a final visual style.
+### 11. Visual Implications
+Translate research into questions and territories for the VIS stage. Do not provide the visual solution.
 
----
-
-## 7. Common Market Conventions
-
-Identify patterns that appear frequently across the
-research.
-
-Explain:
-
-- What the convention is.
-- Why it matters.
-- Whether it appears relevant to the project.
-
----
-
-## 8. Differentiation Opportunities
-
-| ID | Opportunity | Supporting Evidence | Confidence | Potential Impact |
+### 12. Recommended Visual Analysis
+| ID | Reference / Territory | Question | Reason | Priority |
 |---|---|---|---|---|
 
-These are opportunities, not final creative concepts.
-
----
-
-## 9. Risks
-
-| ID | Risk | Evidence | Potential Impact |
-|---|---|---|---|
-
----
-
-## 10. Strategic Tensions
-
-Identify important tensions such as:
-
-- Academic vs. communicative
-- Traditional vs. contemporary
-- Institutional vs. personal
-- Local vs. international
-- Educational vs. cultural
-
-Only include tensions supported by the research.
-
----
-
-## 11. Visual Implications
-
-Translate research into questions for the upcoming visual
-analysis phase.
-
-For example:
-
-- What visual conventions should be examined?
-- What visual territories appear saturated?
-- What references require deeper analysis?
-- What visual characteristics may communicate the desired
-  audience perception?
-
-Do not provide the visual solution.
-
----
-
-## 12. Recommended Visual Analysis
-
-Identify which references or visual territories should be
-examined during the VIS phase.
-
-| ID | Reference / Territory | Question to Investigate | Reason |
-|---|---|---|---|
-
----
-
-## 13. Unresolved Questions
-
-Identify questions that remain unanswered.
-
+### 13. Unresolved Questions
 Separate:
+- Customer decisions
+- Research questions
+- Creative questions
 
-### Customer Decisions
+### 14. Limitations
+Document missing evidence, source limitations, geographic/sample limitations, bias, and conflicting findings.
 
-Questions requiring customer clarification.
+### 15. Handoff to VIS Stage
+Include:
+- What is known
+- What is uncertain
+- References to analyze
+- Visual questions
+- Constraints / things not to assume
+- Remaining blockers
 
-### Research Questions
+The handoff must be usable by VIS-001 through VIS-006 and must not imply that VIS-001 alone receives the complete synthesis.
 
-Questions that could be answered through additional
-research.
-
-### Creative Questions
-
-Questions that should be explored during art direction.
-
----
-
-## 14. Research Limitations
-
-Describe:
-
-- Missing evidence
-- Source limitations
-- Geographic limitations
-- Sample limitations
-- Potential bias
-- Conflicting findings
-
----
-
-## 15. Research Conclusion
-
-Write a concise conclusion describing the current
-understanding of the project after research.
-
-The conclusion must be:
-
-- Evidence-based
-- Strategic
-- Clear
-- Neutral
-- Useful for visual analysis
-
----
-
-## 16. Handoff to Visual Analysis
-
-Create a structured handoff containing:
-
-### What We Know
-
-### What We Need to Investigate Visually
-
-### References to Analyze
-
-### Visual Questions
-
-### Things to Avoid Assuming
-
-### Remaining Unknowns
-
-This section becomes the primary research input for
-VIS-001.
-
----
-
-## Constraints
-
-- Do not invent conclusions.
-- Do not create visual concepts.
-- Do not define the final visual identity.
-- Do not turn opportunities into recommendations.
-- Do not hide contradictions.
-- Do not treat hypotheses as facts.
-- Do not repeat research without synthesis.
-- Preserve uncertainty.
-
----
-
-## Quality Criteria
-
-The synthesis must be:
-
-- Evidence-based
-- Concise
-- Connected
-- Strategic
-- Traceable
-- Non-redundant
-- Actionable
-- Explicit about uncertainty
-- Useful for visual analysis
-
----
+## Quality Gate
+The synthesis passes only if:
+- Every major conclusion is traceable.
+- Unknowns remain visible.
+- Contradictions are not hidden.
+- No unsupported creative direction is introduced.
+- The VIS handoff contains actionable research questions.
 
 ## Version
-
-1.0
+2.0
 
 ## Status
-
-Draft
+Testing
