@@ -40,7 +40,7 @@ requirements, and constraints.
 ### 02 — Research
 
 Prompts for researching and collecting references.
-
+- [RES-001 — Research Strategy](02_research/research_strategy.md)
 - [RES-001 — Visual Reference Research](02_research/visual_reference_research.md)
 
 ### 03 — Visual Analysis
