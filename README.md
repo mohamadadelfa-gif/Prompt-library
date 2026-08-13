@@ -1,6 +1,6 @@
-# Prompt Library v2
+# Prompt Library v3 — Controlled Creative Production System
 
-A version-controlled prompt system for creative strategy, research, visual analysis, Visual DNA, art direction, AI generation, and quality control.
+A version-controlled creative-production system in which prompts are executable tasks with defined inputs, boundaries, outputs, provenance, confidence, handoffs, and decision gates.
 
 ## Workflow
 
@@ -12,6 +12,18 @@ Customer Information
 → Art Direction
 → Generation
 → Quality Control
+→ Approval / Root-Cause Revision
+
+## Control Layer
+
+The orchestration rules live in `00_workflow/`:
+
+- `workflow.md` — execution pipeline and revision routing
+- `task_contract.md` — executable task standard
+- `stage_registry.md` — stage responsibilities and active tasks
+- `handoff_contract.md` — controlled transfer between stages
+- `decision_gates.md` — pass/block/revise rules
+- `information_model.md` — SOURCE / DERIVED / DECISION / OUTPUT states
 
 ## Active Prompt Sequence
 
@@ -56,57 +68,46 @@ Customer Information
 
 ## Deprecated
 
-`02_research/reference_selection.md` is retained only as a migration note. It is not an active execution stage. Its old duplicate `RES-002` identity is retired.
+`02_research/reference_selection.md` is retained only as a migration note. It is not an active task and is excluded from validation.
 
-## v2 Execution Contract
+## Information Rules
 
-Every active prompt must define, explicitly or operationally:
+Every important item must remain identifiable as one of:
 
-1. **Input Contract** — required inputs and missing-input behavior.
-2. **Transformation Boundary** — what the prompt may infer, transform, or decide.
-3. **Output Contract** — structured outputs required downstream.
-4. **Provenance** — source of material claims, requirements, findings, and decisions.
-5. **Confidence** — uncertainty remains explicit.
-6. **Handoff** — approved outputs, unresolved items, and blockers passed forward.
+- SOURCE — supplied or observed evidence
+- DERIVED — analysis or inference supported by source
+- DECISION — explicit approved project or creative choice
+- OUTPUT — generated execution result
 
-Downstream stages must not silently rewrite upstream facts, requirements, research findings, Visual DNA, selected concepts, or approved Art Direction.
+Forbidden silent transitions include:
 
-## Evidence Rules
+- DERIVED → SOURCE
+- ASSUMPTION → FACT
+- OUTPUT → REQUIREMENT
+- SOURCE → DECISION without an explicit decision step
 
-Use the appropriate evidence label:
+## Quality Gates
 
-- Fact / Confirmed
-- Observation
-- Interpretation
-- Hypothesis
-- Assumption
-- Unknown
-- Unresolved
-- Superseded
+A task cannot pass when a required input is missing, contradictory, or unsupported. Unknown information remains UNKNOWN.
 
-Never promote an inference or hypothesis to a confirmed requirement without supporting evidence.
+A numerical score never overrides a critical failure.
 
-## Decision Gates
+QC routes failures to the earliest responsible stage rather than automatically regenerating.
 
-A stage may proceed only when required inputs exist and no unresolved critical dependency blocks the next stage.
+## Automated Validation
 
-Use explicit outcomes where applicable:
-- PROCEED
-- PROCEED WITH CONDITIONS
-- DO NOT PROCEED
-- READY FOR GENERATION
-- REVISE
-- REGENERATE
+`tests/validate_library.py` validates active prompt IDs, versions, statuses, stage prefixes, duplicates, and required operational sections.
 
-## Versioning
-
-`2.0` = structural revision
-`2.1` = minor improvement
+GitHub Actions runs the validator on changes to the v3 branch and pull requests.
 
 ## Status
 
-Testing
+Active — validation and end-to-end testing
+
+## Version
+
+3.0
 
 ## Core Principle
 
-**Analyze → Structure → Research → Synthesize → Direct → Generate → Evaluate**
+**Analyze → Structure → Research → Synthesize → Direct → Generate → Evaluate → Revise**
