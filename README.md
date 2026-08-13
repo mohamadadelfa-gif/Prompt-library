@@ -47,7 +47,7 @@ Prompts for researching and collecting references.
 - [VIS-001 — Composition Analysis](03_visual_analysis/composition_analysis.md)
 - [VIS-002 — Color Analysis](03_visual_analysis/color_analysis.md)
 - [VIS-003 — Shape & Form Analysis](03_visual_analysis/shape_form_analysis.md)
-
+- [VIS-005 — Typography & Graphic Language](03_visual_analysis/typography_graphic_language.md)
 ### 04 — Visual DNA
 
 Prompts for extracting and synthesizing visual principles.
