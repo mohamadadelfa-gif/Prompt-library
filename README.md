@@ -1,160 +1,92 @@
-# Prompt Library
+# Prompt Library v2
 
-A version-controlled library of prompts for creative strategy,
-visual research, art direction, AI generation, and quality control.
+A version-controlled library of prompts for creative strategy, visual research, art direction, AI generation, and quality control.
 
----
+## Workflow
 
-## Prompt Workflow
-
-Customer Information
-↓
-Strategy
-↓
-Research
-↓
-Visual Analysis
-↓
-Visual DNA
-↓
-Art Direction
-↓
-Generation
-↓
-Quality Control
-
----
+Customer Information → Strategy → Research → Visual Analysis → Visual DNA → Art Direction → Generation → Quality Control
 
 ## Categories
 
 ### 01 — Strategy
+- STR-001 — Customer Analysis
+- STR-002 — Brief Analysis
+- STR-003 — Requirement Extraction
+- STR-004 — Clarification Questions
+- STR-005 — Project Reconciliation
 
-Prompts for understanding the customer, project, objectives,
-requirements, and constraints.
-
-- [STR-001 — Customer Analysis](01_strategy/customer_analysis.md)
-- [STR-002 — Brief Analysis](01_strategy/brief_analysis.md)
-- [STR-003 — Requirement Extraction](01_strategy/requirement_extraction.md)
-- [STR-004 — Clarification Questions](01_strategy/clarification_questions.md)
-- [STR-005 — Project Reconciliation](01_strategy/project_reconciliation.md)
 ### 02 — Research
-
-Prompts for researching and collecting references.
-
-- [RES-001 — Research Strategy](02_research/research_strategy.md)
-- [RES-002 — Audience Research](02_research/audience_research.md)
-- [RES-003 — Competitor & Market Research](02_research/competitor_market_research.md)
-- [RES-004 — Cultural & Context Research](02_research/cultural_context_research.md)
-- [RES-005 — Visual Reference Research](02_research/visual_reference_research.md)
-- [RES-006 — Research Synthesis](02_research/research_synthesis.md)
+- RES-001 — Research Strategy
+- RES-002 — Audience Research
+- RES-003 — Competitor & Market Research
+- RES-004 — Cultural & Context Research
+- RES-005 — Visual Reference Research
+- RES-006 — Research Synthesis
 
 ### 03 — Visual Analysis
+- VIS-001 — Composition Analysis
+- VIS-002 — Color Analysis
+- VIS-003 — Shape & Form Analysis
+- VIS-004 — Texture & Material Analysis
+- VIS-005 — Typography & Graphic Language
+- VIS-006 — Lighting, Mood & Atmosphere Analysis
 
-- [VIS-001 — Composition Analysis](03_visual_analysis/composition_analysis.md)
-- [VIS-002 — Color Analysis](03_visual_analysis/color_analysis.md)
-- [VIS-003 — Shape & Form Analysis](03_visual_analysis/shape_form_analysis.md)
-- [VIS-004 — Texture & Material Analysis](03_visual_analysis/texture_material_analysis.md)
-- [VIS-005 — Typography & Graphic Language](03_visual_analysis/typography_graphic_language.md)
-- [VIS-006 — Lighting, Mood & Atmosphere Analysis](03_visual_analysis/lighting_mood_atmosphere.md)
-  
 ### 04 — Visual DNA
-
-Prompts for extracting and synthesizing visual principles.
-
-- [VDNA-001 — Visual DNA Extraction & Synthesis](04_visual_dna/visual_dna_extraction.md)
+- VDNA-001 — Visual DNA Extraction & Synthesis
 
 ### 05 — Art Direction
-
-- [ART-001 — Creative Concept Generation](05_art_direction/concept_generation.md)
-- [ART-002 — Concept Evaluation & Selection](05_art_direction/concept_evaluation.md)
-- [ART-003 — Art Direction Development](05_art_direction/art_direction_development.md)
+- ART-001 — Creative Concept Generation
+- ART-002 — Concept Evaluation & Selection
+- ART-003 — Art Direction Development
 
 ### 06 — Generation
-
-- [GEN-001 — Generation Specification](06_generation/generation_specification.md)
-- [GEN-002 — Prompt Construction](06_generation/prompt_construction.md)
+- GEN-001 — Generation Specification
+- GEN-002 — Prompt Construction
 
 ### 07 — Quality Control
+- QC-001 — Generated Image Evaluation
+- QC-002 — Revision Strategy
 
-Prompts for evaluating generated visual outputs and
-creating structured revision instructions.
+## v2 Execution Contract
 
-- [QC-001 — Generated Image Evaluation](07_quality_control/image_evaluation.md)
-- [QC-002 — Revision Strategy](07_quality_control/revision_strategy.md)
+Every prompt must define:
 
----
+1. **Input Contract** — required inputs and missing-input behavior.
+2. **Transformation Boundary** — what the prompt may infer, transform, or decide.
+3. **Output Contract** — structured outputs required by downstream stages.
+4. **Provenance** — source of important claims, requirements, and decisions.
+5. **Confidence** — uncertainty must remain explicit.
+6. **Handoff** — unresolved items and approved outputs passed to the next stage.
 
-## Prompt ID System
+Downstream prompts must not silently rewrite upstream facts, requirements, research findings, Visual DNA, or approved Art Direction.
 
-| Prefix | Category |
-|---|---|
-| STR | Strategy |
-| RES | Research |
-| VIS | Visual Analysis |
-| VDNA | Visual DNA |
-| ART | Art Direction |
-| GEN | Generation |
-| QC | Quality Control |
+## Evidence Rules
 
-Example:
+Use these labels where relevant:
 
-`STR-001`
+- Confirmed / Fact
+- Observation
+- Interpretation
+- Hypothesis
+- Assumption
+- Unknown
+- Unresolved
 
-STR = Strategy  
-001 = Prompt number
+Never promote an inference to a confirmed requirement without evidence.
 
----
+## Decision Gates
 
-## Version System
+A stage may proceed only when its required inputs exist and no unresolved critical dependency blocks the next stage. If a critical dependency is unresolved, explicitly return **DO NOT PROCEED** or **PROCEED WITH CONDITIONS**.
 
-Prompts use version numbers.
+## Versioning
 
-`1.0` = First stable version
-
-`1.1` = Minor improvement
-
-`2.0` = Major restructuring
-
----
+`2.0` = structural revision
+`2.1` = minor improvement
 
 ## Status
 
-- Draft
-- Testing
-- Active
-- Deprecated
-- Archived
-
----
-
-## Project Execution
-
-Prompts are executed sequentially.
-
-Each stage should:
-
-1. Load the required input.
-2. Execute the corresponding prompt.
-3. Review the output.
-4. Save the output.
-5. Assign a version.
-6. Pass the approved output to the next stage.
-
-No downstream stage should silently modify
-or overwrite upstream information.
-
----
+Testing
 
 ## Core Principle
 
 **Analyze → Structure → Research → Synthesize → Direct → Generate → Evaluate**
-
-The system should separate:
-
-- Customer information
-- Research
-- Analysis
-- Interpretation
-- Creative decisions
-- Generated outputs
-- Evaluation
