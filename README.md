@@ -19,12 +19,21 @@ Customer Information
 The orchestration rules live in `00_workflow/`:
 
 - `workflow.md` — execution pipeline and revision routing
-- `task_contract.md` — executable task standard
+- `task_contract.md` — universal executable-task standard
+- `task_contracts.json` — canonical task-level dependencies, gates, approvals, and revision policy
 - `stage_registry.md` — stage responsibilities and active tasks
 - `handoff_contract.md` — controlled transfer between stages
-- `decision_gates.md` — pass/block/revise rules
+- `decision_gates.md` — canonical gate vocabulary and approval rules
 - `information_model.md` — SOURCE / DERIVED / DECISION / OUTPUT states
-- `task_registry.json` — machine-readable stages, tasks, dependencies, and gate vocabulary
+- `task_registry.json` — machine-readable stage/task index
+
+## Canonical Gate Vocabulary
+
+All active prompts and task contracts use only:
+
+`PASS` · `CONDITIONAL` · `BLOCKED` · `APPROVE` · `REVISE` · `REJECT` · `READY` · `REGENERATE`
+
+Natural-language explanations may accompany a gate, but the final status must use the canonical value.
 
 ## Active Prompt Sequence
 
@@ -69,28 +78,28 @@ The orchestration rules live in `00_workflow/`:
 
 ## Runtime
 
-The `runtime/` package turns a prompt file into an auditable model execution.
-
-- `runtime/runner.py` — provider abstraction for OpenAI and Gemini
-- `runtime/run_task.py` — execute one task and persist a run artifact
-- `runtime/evaluate_task.py` — LLM-based semantic evaluation using the project rubric
-- `runtime/README.md` — setup and execution instructions
-
-Provider credentials are supplied through environment variables. No credentials are stored in the repository.
+The optional `runtime/` package turns a prompt file into an auditable model execution. It is not required for structural consistency validation.
 
 ## Testing
 
 ### Structural CI
 
-`tests/validate_library.py` validates active prompt IDs, versions, statuses, stage prefixes, duplicates, deprecated files, and operational contract sections.
+`tests/validate_library.py` validates:
 
-GitHub Actions also compiles runtime/test modules and validates the synthetic semantic-test assets.
+- active prompt IDs and stage prefixes
+- exact match between active prompts and task contracts
+- task-level dependencies and next-task references
+- canonical gate vocabulary
+- lifecycle status
+- deprecated/retired references
+- domain-specific leakage
+- required task-contract metadata
 
 ### Semantic validation
 
-The semantic framework uses the controlled Noura Coffee fixture and rubric in `tests/`. A production prompt change requires a semantic run with the selected model/runtime in addition to passing structural CI.
+The semantic framework in `tests/` evaluates task adherence, source fidelity, unknown handling, completeness, classification, traceability, contract compliance, and handoff quality against controlled fixtures.
 
-Semantic tests evaluate task adherence, source fidelity, unknown handling, completeness, classification, traceability, contract compliance, and handoff quality.
+Semantic execution remains a separate release gate because it depends on a selected model/runtime.
 
 ## Deprecated
 
@@ -112,13 +121,9 @@ Forbidden silent transitions include:
 - OUTPUT → REQUIREMENT
 - SOURCE → DECISION without an explicit decision step
 
-## Quality Gates
+## Revision Control
 
-A task cannot pass when a required input is missing, contradictory, or unsupported. Unknown information remains UNKNOWN.
-
-A numerical score never overrides a critical failure.
-
-QC routes failures to the earliest responsible stage rather than automatically regenerating.
+Maximum automatic revision cycles: **3**. After the third unsuccessful cycle, route to **HUMAN_REVIEW** rather than continuing automatically.
 
 ## Production Release Rule
 
@@ -126,19 +131,20 @@ A production release requires:
 
 1. Structural CI PASS.
 2. No duplicate or invalid IDs.
-3. No unresolved critical workflow dependency.
-4. Prompt version/status present.
-5. Relevant semantic tests PASS with the selected model/runtime.
-6. Human approval for strategic/creative decision gates.
-7. Release artifact records the model, prompt versions, and test results.
+3. Exact task-contract alignment.
+4. No unresolved critical workflow dependency.
+5. Production-eligible prompt version/status.
+6. Relevant semantic tests PASS with the selected model/runtime.
+7. Required human approvals recorded.
+8. Release artifact records prompt versions, model/runtime, and test results.
 
 ## Status
 
-Production Candidate — structural runtime validation enabled; semantic release gate required.
+Production Candidate — consistency controls hardened; semantic release gate remains separate.
 
 ## Version
 
-3.0-production-candidate.1
+3.0-production-candidate.2
 
 ## Core Principle
 
