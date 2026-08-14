@@ -2,17 +2,20 @@ name: Prompt Library Validation
 
 on:
   push:
-    branches: ["v3-controlled-system"]
+    branches: ["production-candidate-v1"]
   pull_request:
-    branches: ["v3-controlled-system", "main"]
+    branches: ["production-candidate-v1", "main"]
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Validate active prompts
         run: python tests/validate_library.py
