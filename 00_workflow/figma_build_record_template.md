@@ -1,0 +1,116 @@
+# Figma Build Record Template
+
+Use one record for every approved content output converted into Figma.
+
+## Identity
+
+```text
+FIGMA_PACKAGE_ID:
+CONTENT_ID:
+OUTPUT_ID:
+CONTENT_VERSION:
+FIGMA_VERSION:
+STATUS:
+```
+
+## Figma Location
+
+```text
+FIGMA_FILE_KEY:
+FIGMA_FILE_URL:
+PAGE_NAME:
+SECTION_NAME:
+FRAME_IDS:
+FRAME_NAMES:
+```
+
+## Platform
+
+```text
+PLATFORM:
+CONTENT_TYPE:
+FORMAT:
+CANVAS_WIDTH:
+CANVAS_HEIGHT:
+SLIDE_COUNT:
+```
+
+## Build Specification
+
+```text
+COMPONENTS:
+VARIANTS:
+LOCAL_STYLES:
+VARIABLES:
+GRID:
+AUTO_LAYOUT:
+SPACING_TOKENS:
+SAFE_AREAS:
+TYPOGRAPHY:
+COLOR_STYLES:
+ASSET_PLACEMENT:
+LAYER_NAMING:
+EXPORT_SETTINGS:
+```
+
+## Editable / Controlled / Locked
+
+```text
+EDITABLE_FIELDS:
+CONTROLLED_ELEMENTS:
+LOCKED_ELEMENTS:
+```
+
+## Traceability
+
+```text
+SOURCE_CONTENT_PACKAGE:
+SOURCE_GENERATION_OUTPUT:
+HUMAN_REVISION_ID:
+STYLE_REFERENCE_IDS:
+STYLE_RULE_IDS:
+TEMPLATE_ID:
+```
+
+## QA
+
+```text
+DIMENSIONS_CHECK:
+CONTENT_CHECK:
+EDITABILITY_CHECK:
+VISUAL_FIDELITY_CHECK:
+EXPORT_CHECK:
+PROVENANCE_CHECK:
+GATE:
+```
+
+## Approval
+
+```text
+APPROVER:
+APPROVED_AT:
+APPROVAL_STATUS:
+```
+
+## Template Promotion
+
+```text
+TEMPLATE_CANDIDATE:
+TEMPLATE_ID:
+PROMOTION_SCOPE:
+PROMOTION_DECISION:
+```
+
+## Revision History
+
+Every subsequent Figma change must record:
+
+```text
+REVISION_ID:
+CHANGED_FIELDS:
+REASON:
+PREVIOUS_VERSION:
+NEW_VERSION:
+APPROVER:
+APPROVED_AT:
+```
