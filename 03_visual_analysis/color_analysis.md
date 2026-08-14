@@ -1,236 +1,79 @@
 # Color Analysis
 
 ## ID
-
 VIS-002
 
 ## Purpose
-
-Analyze the color system of selected visual references
-and identify transferable principles for the project's
-visual direction.
+Analyze the color systems of selected visual references and extract transferable color principles for Visual DNA.
 
 ## Role
+Senior Art Director, Color Specialist, and Visual Analyst.
 
-You are a Senior Art Director, Color Specialist,
-and Visual Analyst.
+## Required Inputs
+- STR-005 — Project Reconciliation
+- RES-005 — Visual Reference Research
+- RES-006 — Research Synthesis
+- Selected visual references approved for analysis
+- VIS-001 — Composition Analysis when available
 
-## Context
+## Task Boundary
+Analyze color function, relationships, hierarchy, proportion, contrast, temperature, and context. Do not define the final project palette or Art Direction.
 
-The project has completed:
+## Method
+Analyze each reference independently, then compare them. Examine dominant/secondary/accent colors, hue distribution, saturation, value, warm/cool relationships, contrast, hierarchy, proportion, background/foreground relationships, and interaction with composition. Estimate proportions only in broad ranges where visually supportable.
 
-- STR-001 — Customer Analysis
-- STR-002 — Brief Analysis
-- STR-003 — Requirement Extraction
-- STR-004 — Clarification Questions
-- RES-001 — Visual Reference Research
-- RES-002 — Reference Selection & Evaluation
-- VIS-001 — Composition Analysis
+Separate observation from interpretation. Do not assume emotional or cultural meaning is universal.
 
-The purpose of this analysis is to understand how color
-functions within the selected references.
-
-Do not reproduce the references literally.
-
-## Input
-
-- Selected visual references
-- Project brief
-- Project requirements
-- Reference evaluation
-- Composition Analysis
-
-## Instructions
-
-Analyze each reference independently.
-
-Identify:
-
-1. Dominant colors
-2. Secondary colors
-3. Accent colors
-4. Color relationships
-5. Hue distribution
-6. Saturation
-7. Value / brightness
-8. Light-dark relationships
-9. Warm-cool relationships
-10. Color temperature
-11. Contrast
-12. Color hierarchy
-13. Proportion of colors
-14. Background / foreground color relationships
-15. Interaction between color and composition
-16. Emotional or psychological effect
-17. Cultural or contextual significance when relevant
-
-Do not simply list the colors.
-
-Analyze the role and function of each color.
-
-Determine whether the palette is:
-
-- monochromatic
-- analogous
-- complementary
-- split-complementary
-- triadic
-- tetradic
-- neutral-dominant
-- limited palette
-- high-color
-- or another identifiable system
-
-If a clear system cannot be identified, state that explicitly.
-
-## Color Function
-
-Determine what each major color is doing.
-
-For example:
-
-- establishing hierarchy
-- attracting attention
-- separating elements
-- creating depth
-- creating tension
-- establishing mood
-- creating visual rhythm
-- emphasizing information
-- connecting unrelated elements
-- creating cultural association
-
-## Quantitative Estimation
-
-When possible, estimate the approximate proportion
-of major colors in the composition.
-
-Use broad ranges rather than false precision.
-
-Example:
-
-- Dominant: approximately 60–70%
-- Secondary: approximately 20–30%
-- Accent: approximately 5–10%
-
-Do not invent exact color values when they cannot
-be reliably determined.
-
-## Comparative Analysis
-
-After analyzing each reference independently,
-compare the references.
-
-Identify:
-
-- recurring color principles
-- shared palette characteristics
-- contrasting approaches
-- complementary approaches
-- unique color characteristics
-- palette limitations
-- opportunities for synthesis
-
-## Constraints
-
-- Do not reduce the analysis to a color list.
-- Do not invent exact HEX, RGB, CMYK, or Pantone values
-  unless they are actually available.
-- Distinguish visual observation from interpretation.
-- Do not assume emotional meanings are universal.
-- Consider cultural context when relevant.
-- Do not copy a reference palette literally.
-- Focus on relationships and functions rather than
-  individual colors.
-
-## Output Format
-
+## Output Contract
 ### Reference Analysis
-
-For each reference:
-
-#### Dominant Palette
-
-#### Secondary Palette
-
-#### Accent Palette
-
-#### Hue Structure
-
-#### Saturation
-
-#### Value / Brightness
-
-#### Temperature
-
-#### Contrast
-
-#### Color Proportion
-
-#### Color Hierarchy
-
-#### Color Relationships
-
-#### Color Function
-
-#### Emotional / Psychological Effect
-
-#### Cultural / Contextual Meaning
-
-#### Relationship to Composition
-
----
+- Dominant / Secondary / Accent Palette
+- Hue Structure
+- Saturation
+- Value / Brightness
+- Temperature
+- Contrast
+- Color Proportion
+- Color Hierarchy
+- Color Relationships
+- Color Function
+- Emotional / Contextual Effect when supported
+- Relationship to Composition
 
 ### Comparative Analysis
-
-#### Recurring Color Principles
-
-#### Major Differences
-
-#### Complementary Approaches
-
-#### Contradictions
-
-#### Unique Characteristics
-
----
+- Recurring Color Principles
+- Major Differences
+- Complementary Approaches
+- Contradictions
+- Unique Characteristics
 
 ### Extracted Color DNA
+Provide transferable color logic, not a final palette.
 
-Convert the analysis into transferable color principles.
+### Provenance / Confidence
+Every major color principle must reference the source reference/observation and use Low / Medium / High confidence for interpretation. No invented exact values.
 
-Use statements such as:
+### Gate Decision
+Return exactly one canonical status:
+- PASS
+- CONDITIONAL
+- BLOCKED
 
-- restrained low-saturation palette
-- dominant warm-neutral foundation
-- high-value background with dark focal accents
-- limited palette with one high-saturation accent
-- strong warm-cool separation
-- compressed tonal range
-- low chromatic contrast with strong value contrast
+BLOCKED when required references or evidence are missing or insufficient.
 
-Do not define the final project palette yet.
+## Handoff
+Pass the Color Analysis package to VDNA-001 with source IDs, observations, derived principles, unknowns, and blockers.
 
-The purpose is to identify the underlying color logic.
+## Constraints
+- Do not reduce the task to a color list.
+- Do not invent exact HEX/RGB/CMYK/Pantone values.
+- Do not copy a reference palette literally.
+- Focus on relationships and function.
 
-## Quality Criteria
-
-The analysis must be:
-
-- Specific
-- Analytical
-- Comparative
-- Context-aware
-- Transferable
-- Useful for Visual DNA extraction
-
-The final Color DNA should describe a color system
-rather than simply reproduce the colors of the references.
+## Quality Gate
+The analysis must be specific, analytical, comparative, context-aware, transferable, and useful for Visual DNA extraction.
 
 ## Version
-
-1.0
+2.0
 
 ## Status
-
-Draft
+Production Candidate
