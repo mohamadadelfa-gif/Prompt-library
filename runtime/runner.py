@@ -56,12 +56,11 @@ class GeminiProvider:
         self.client = genai.Client(api_key=_require_env("GEMINI_API_KEY"))
 
     def generate(self, *, instructions: str, input_text: str, model: str) -> str:
-        # Keep instructions explicit inside the stateless input for portability.
         combined = f"SYSTEM TASK INSTRUCTIONS:\n{instructions}\n\nTASK INPUT:\n{input_text}"
-        response = self.client.models.generate_content(model=model, contents=combined)
-        text = getattr(response, "text", None)
+        interaction = self.client.interactions.create(model=model, input=combined)
+        text = getattr(interaction, "output_text", None)
         if not text:
-            raise RunnerError("Gemini returned no text output")
+            raise RunnerError("Gemini returned no output_text")
         return str(text)
 
 
