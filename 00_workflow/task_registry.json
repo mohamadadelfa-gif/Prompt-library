@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "pipeline_version": "3.0-production-candidate.1",
+  "stages": [
+    {"id": "01", "name": "strategy", "prefix": "STR-", "tasks": ["STR-001", "STR-002", "STR-003", "STR-004", "STR-005"]},
+    {"id": "02", "name": "research", "prefix": "RES-", "tasks": ["RES-001", "RES-002", "RES-003", "RES-004", "RES-005", "RES-006"]},
+    {"id": "03", "name": "visual_analysis", "prefix": "VIS-", "tasks": ["VIS-001", "VIS-002", "VIS-003", "VIS-004", "VIS-005", "VIS-006"]},
+    {"id": "04", "name": "visual_dna", "prefix": "VDNA-", "tasks": ["VDNA-001"]},
+    {"id": "05", "name": "art_direction", "prefix": "ART-", "tasks": ["ART-001", "ART-002", "ART-003"]},
+    {"id": "06", "name": "generation", "prefix": "GEN-", "tasks": ["GEN-001", "GEN-002"]},
+    {"id": "07", "name": "quality_control", "prefix": "QC-", "tasks": ["QC-001", "QC-002"]}
+  ],
+  "stage_dependencies": {
+    "02": ["01"],
+    "03": ["01", "02"],
+    "04": ["01", "02", "03"],
+    "05": ["01", "02", "03", "04"],
+    "06": ["01", "04", "05"],
+    "07": ["01", "04", "05", "06"]
+  },
+  "artifact_states": ["SOURCE", "DERIVED", "DECISION", "OUTPUT"],
+  "gates": ["PASS", "CONDITIONAL", "BLOCKED", "APPROVE", "REVISE", "REJECT", "READY", "REGENERATE"]
+}
