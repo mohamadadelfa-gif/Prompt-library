@@ -24,107 +24,84 @@ A downstream stage may transform information only within its task boundary.
 1. Strategy — define the problem and requirements.
 2. Research — establish evidence and context.
 3. Visual Analysis — extract visual evidence from references.
-4. Visual DNA — convert evidence into transferable visual rules.
-5. Art Direction — make and select creative decisions.
-6. Generation — operationalize approved direction for visual generation.
-7. Quality Control — evaluate results, diagnose failures, and route revision.
-8. Content Packaging — assemble the complete platform-ready content package.
-9. Figma Implementation — convert approved visual content into an editable production master and, when appropriate, a reusable platform template.
-10. Final Production Approval — approve the complete package for export and publishing.
+4. Reference Style Synthesis — analyze formal language, mark-making, materiality, shape language, composition, emotional effect, communication effect, and transferable principles.
+5. Visual DNA — convert validated visual evidence and approved style synthesis into transferable visual rules.
+6. Instagram Template Synthesis — when the destination is Instagram, translate approved visual language and Visual DNA into an original reusable platform template.
+7. Art Direction — make and select creative decisions.
+8. Generation — operationalize approved direction for image generation.
+9. Content Package — assemble visual, copy, caption, CTA, accessibility, and publishing outputs.
+10. Figma Implementation — build the approved content as an editable production file and reusable template candidate.
+11. Quality Control — evaluate results, diagnose failures, and route revision.
 
-## Content Production Loop
+## Reference Style Synthesis Checkpoint
 
-For social/content outputs, the post is treated as a controlled Content Package rather than a single image.
+Reference analysis must answer two separate questions:
+
+1. **What does the reference look like?**
+2. **What does the reference make the viewer feel and why?**
+
+The second question is mandatory. Style must be translated through emotional and communication effects rather than through superficial copying of shapes or brush marks.
+
+For the English Beyond Language Instagram system, the approved reference direction emphasizes a human, curious, thoughtful, warm, culturally aware, artistic, exploratory, and intelligent feeling; this is treated as a hypothesis derived from supplied references and must remain traceable to the reference set and customer direction.
+
+See `reference_style_synthesis.md`.
+
+## Instagram Template Synthesis Checkpoint
+
+When Instagram is the target platform, the visual language must be combined with platform constraints before generation.
+
+The template synthesis step defines:
+
+- format and dimensions
+- mobile-first readability
+- communication hierarchy
+- content zones
+- slide roles
+- shape and line vocabulary
+- texture behavior
+- reusable components
+- editable / controlled / locked elements
+- Figma implementation requirements
+
+The reference is used as a style source, not as a layout to reproduce.
+
+See `instagram_template_synthesis.md` and `figma_output_contract.md`.
+
+## Human Feedback & Style Learning Loop
+
+After a generated output is reviewed by a human, the system may capture the result as controlled style knowledge.
 
 ```text
-CONTENT STRATEGY
-      ↓
-CONTENT ARTIFACT
-      ├── On-Canvas Copy
-      ├── Caption
-      ├── CTA
-      ├── Alt Text
-      └── Publishing Metadata
-      ↓
 GEN-002
-      ↓
-Generated Visual
-      ↓
+  ↓
+Generated Output
+  ↓
 Human Revision
-      ↓
-Approved Visual
-      ↓
-CONTENT PACKAGE APPROVAL
-      ├── Approved Visual
-      ├── Approved Caption
-      └── Approved Metadata
-      ↓
-FIGMA IMPLEMENTATION
-      ↓
-Figma QA
-      ↓
-Approved Figma Master
-      ↓
-Template Review
-      ├── No promotion
-      ├── Project Template
-      └── Published Platform Template
-      ↓
-FINAL PRODUCTION APPROVAL
-      ↓
-EXPORT / PUBLISH
+  ↓
+Approved Output
+  ↓
+Revision Record
+  ↓
+Style Knowledge Extraction
+  ↓
+Approved Style Reference / Style Rule
+  ↓
+Future GEN / VDNA / Instagram Template / QC inputs when explicitly approved
 ```
 
-## Figma Implementation Principle
+The generated output, revised output, and approved output are separate artifacts.
 
-The Figma layer is the editable production layer. It does not replace the original generated output or the approved visual artifact.
+A human revision is not automatically a prompt correction and is not automatically a style rule.
 
-Every approved visual content output that requires editable production must produce a Figma Implementation Package containing the exact file, page, section, frame, component, style, variable, editable/locked fields, export specification, and provenance needed to reproduce the production state.
+Style knowledge must be explicitly classified as:
 
-The Figma master must remain traceable to:
+- PROJECT STYLE REFERENCE
+- PROJECT STYLE RULE
+- SYSTEM STYLE RULE
 
-- the Content Package;
-- the generation output;
-- the approved human revision;
-- approved style references and rules;
-- the template version used, if any.
+Project-specific preferences must not silently become system-wide rules.
 
-See `figma_output_contract.md` and `figma_build_record_template.md` for the required package and audit record.
-
-## Template Promotion
-
-A Figma implementation becomes a reusable template only after explicit review.
-
-```text
-CONTENT INSTANCE
-      ↓
-FIGMA MASTER
-      ↓
-TEMPLATE CANDIDATE
-      ↓
-HUMAN REVIEW
-      ↓
-PROMOTION DECISION
-      ├── NO PROMOTION
-      ├── PROJECT TEMPLATE
-      └── PUBLISHED PLATFORM TEMPLATE
-```
-
-A template captures reusable structure, components, variables, safe areas, and editable zones. It must not silently absorb campaign-specific content.
-
-## Human Feedback and Style Learning
-
-After human revision, preserve:
-
-1. generated output;
-2. human revision;
-3. approved output;
-4. revision record;
-5. style-reference decision;
-6. style-rule decision;
-7. template decision.
-
-A single correction must not automatically become a global style rule.
+See `human_feedback_style_learning.md` and `style_memory_schema.json` for the controlled artifact model.
 
 ## Execution Loop
 
@@ -138,8 +115,7 @@ For every task:
 6. Run the decision gate.
 7. If blocked, stop and identify the missing or conflicting input.
 8. If passed, create the handoff package for the next task.
-9. If the output is production-bound, validate the required downstream artifact package before final approval.
-10. When a human revises an output, preserve both the original and revised artifacts and record the revision before extracting reusable style or template knowledge.
+9. When a human revises an output, preserve both the original and revised artifacts and record the revision before extracting reusable style knowledge.
 
 ## Failure Policy
 
@@ -153,14 +129,14 @@ When QC identifies a failure, route the failure to the earliest responsible stag
 
 - Source / requirement failure → Strategy
 - Evidence / research failure → Research
-- Reference interpretation failure → Visual Analysis
+- Reference interpretation failure → Visual Analysis / Reference Style Synthesis
 - Visual rule failure → Visual DNA
+- Template structure failure → Instagram Template Synthesis
 - Creative decision failure → Art Direction
 - Specification / prompt failure → Generation
 - Model execution failure → Generation
-- Content/copy failure → Content Packaging
+- Content packaging failure → Content Package
 - Figma implementation failure → Figma Implementation
-- Template failure → Template Review
 - Human preference discovered during approved revision → Human Feedback & Style Learning
 - Acceptable variation → no revision
 
@@ -168,9 +144,9 @@ When QC identifies a failure, route the failure to the earliest responsible stag
 
 A stage is complete only when its decision gate is satisfied and its handoff package is complete.
 
-A Figma production package is complete only when its QA gate passes and its file/node provenance is recorded.
-
 A style reference or style rule is complete only when its approval metadata, scope, provenance, and version are complete.
+
+A reusable Instagram template is complete only when its platform structure, content zones, component behavior, editable/controlled/locked fields, Figma implementation, provenance, and approval status are complete.
 
 A high numerical score never overrides a critical failure.
 
