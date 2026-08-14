@@ -96,17 +96,21 @@ QC routes failures to the earliest responsible stage rather than automatically r
 
 ## Automated Validation
 
-`tests/validate_library.py` validates active prompt IDs, versions, statuses, stage prefixes, duplicates, and required operational sections.
+`tests/validate_library.py` validates active prompt IDs, versions, statuses, stage prefixes, duplicates, deprecated files, and operational contract sections.
 
-GitHub Actions runs the validator on changes to the v3 branch and pull requests.
+GitHub Actions runs structural validation for pushes to the production candidate branch and for pull requests targeting the production candidate or `main`.
+
+## Semantic Validation Boundary
+
+Structural CI does not prove the semantic quality of LLM responses. Before a prompt change is released to production, the relevant semantic tests must be executed with the selected LLM runtime using the controlled fixtures in `tests/`.
 
 ## Status
 
-Active — validation and end-to-end testing
+Production Candidate — structural validation passing; semantic runtime validation required per release.
 
 ## Version
 
-3.0
+3.0-production-candidate.1
 
 ## Core Principle
 
