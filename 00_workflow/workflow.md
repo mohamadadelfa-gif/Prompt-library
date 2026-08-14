@@ -29,6 +29,42 @@ A downstream stage may transform information only within its task boundary.
 6. Generation — operationalize approved direction for image generation.
 7. Quality Control — evaluate results, diagnose failures, and route revision.
 
+## Human Feedback & Style Learning Loop
+
+After a generated output is reviewed by a human, the system may capture the result as controlled style knowledge.
+
+```text
+GEN-002
+  ↓
+Generated Output
+  ↓
+Human Revision
+  ↓
+Approved Output
+  ↓
+Revision Record
+  ↓
+Style Knowledge Extraction
+  ↓
+Approved Style Reference / Style Rule
+  ↓
+Future GEN / VDNA / QC inputs when explicitly approved
+```
+
+The generated output, revised output, and approved output are separate artifacts.
+
+A human revision is not automatically a prompt correction and is not automatically a style rule.
+
+Style knowledge must be explicitly classified as:
+
+- PROJECT STYLE REFERENCE
+- PROJECT STYLE RULE
+- SYSTEM STYLE RULE
+
+Project-specific preferences must not silently become system-wide rules.
+
+See `human_feedback_style_learning.md` and `style_memory_schema.json` for the controlled artifact model.
+
 ## Execution Loop
 
 For every task:
@@ -41,6 +77,7 @@ For every task:
 6. Run the decision gate.
 7. If blocked, stop and identify the missing or conflicting input.
 8. If passed, create the handoff package for the next task.
+9. When a human revises an output, preserve both the original and revised artifacts and record the revision before extracting reusable style knowledge.
 
 ## Failure Policy
 
@@ -59,17 +96,20 @@ When QC identifies a failure, route the failure to the earliest responsible stag
 - Creative decision failure → Art Direction
 - Specification / prompt failure → Generation
 - Model execution failure → Generation
+- Human preference discovered during approved revision → Human Feedback & Style Learning
 - Acceptable variation → no revision
 
 ## Approval Rule
 
 A stage is complete only when its decision gate is satisfied and its handoff package is complete.
 
+A style reference or style rule is complete only when its approval metadata, scope, provenance, and version are complete.
+
 A high numerical score never overrides a critical failure.
 
 ## Version
 
-3.0
+3.0-production-candidate.3
 
 ## Status
 
