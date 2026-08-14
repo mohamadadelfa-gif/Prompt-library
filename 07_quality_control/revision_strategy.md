@@ -45,7 +45,7 @@ Do not assume every failure is a prompt failure.
 - MICRO
 - LOCAL
 - STRUCTURAL
-- FULL REGENERATION
+- REGENERATE
 
 ## Preservation Lock
 List characteristics that must remain stable during revision.
@@ -107,10 +107,13 @@ QC-002 → GEN-002 / GEN-001 → New Generation → QC-001 → Compare
 
 Do not skip QC-001 after revision.
 
-Maximum automatic revision cycles: **3**. After the limit, return **BLOCKED** and route to **HUMAN_REVIEW**.
+Maximum automatic revision cycles: **3**. After the limit, return **BLOCKED** and route to HUMAN_REVIEW.
 
 ## Provenance / Confidence
 Every revision must trace back to one or more QC-001 findings and the upstream requirement/decision affected. Use Low / Medium / High confidence for root-cause diagnosis.
+
+## Handoff
+Pass the revision strategy, preservation lock, root-cause evidence, prioritized changes, gate status, and next-task recommendation to the appropriate generation task.
 
 ## Constraints
 - Do not create a new concept.
@@ -122,7 +125,7 @@ Every revision must trace back to one or more QC-001 findings and the upstream r
 - Do not use retired or superseded pipeline stages.
 
 ## Quality Criteria
-Minimal when possible, precise, prioritized, evidence-based, traceable, protective of successful characteristics, actionable, and suitable for GEN-002.
+Minimal when possible, precise, prioritized, evidence-based, traceable, protective of successful characteristics, actionable, and suitable for generation revision.
 
 ## Version
 2.1
