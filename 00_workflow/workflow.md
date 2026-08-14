@@ -30,23 +30,25 @@ A downstream stage may transform information only within its task boundary.
    ↓
 04 Named Style Study (when applicable)
    ↓
-05 Reference Style Synthesis
+05 Motif & Sign Extraction (when applicable)
    ↓
-06 Visual DNA
+06 Reference Style Synthesis
    ↓
-07 Platform / Instagram Template Synthesis
+07 Visual DNA
    ↓
-08 Art Direction
+08 Platform / Instagram Template Synthesis
    ↓
-09 Generation
+09 Art Direction
    ↓
-10 Content Package
+10 Generation
    ↓
-11 Human Revision + Style Learning
+11 Content Package
    ↓
-12 Figma Implementation
+12 Human Revision + Style Learning
    ↓
-13 Quality Control / Final Approval
+13 Figma Implementation
+   ↓
+14 Quality Control / Final Approval
 ```
 
 ## Style-Learning Rule
@@ -60,9 +62,33 @@ Use:
 The Named Style Study and Reference Style Synthesis are separate layers:
 
 - **Named Style Study** learns the underlying artistic language and perceptual logic.
+- **Motif & Sign Extraction** builds an evidence-backed vocabulary of recurring signs, shapes, objects, marks, and material behaviors.
 - **Reference Style Synthesis** determines what is actually present in the supplied project references and what can transfer responsibly.
 
-Do not skip the study merely because the supplied references appear visually clear.
+Do not skip the study or motif extraction merely because the supplied references appear visually clear.
+
+## Motif & Sign Extraction Checkpoint
+
+When a named style is applicable, extract its recurring visual vocabulary before creating an Instagram template.
+
+The extraction must identify:
+
+- recurring signs and symbols
+- recurring shape families
+- significant recurring objects or object-like forms
+- mark types and gesture behavior
+- material / brush behaviors that function as visual motifs
+- frequency across the reference set
+- formal role
+- semantic role only when supported by evidence
+- emotional effect only when supported by evidence
+- transferability and risk
+
+The extraction must preserve the observed formal character without reproducing a specific artwork or composition.
+
+The output is a controlled motif library, not a final brand library.
+
+See `motif_extraction.md` and `motif_library_schema.json`.
 
 ## Reference Style Synthesis Checkpoint
 
@@ -79,7 +105,7 @@ See `reference_style_synthesis.md`.
 
 ## Platform / Instagram Translation Checkpoint
 
-When Instagram is the destination, approved style principles and Visual DNA must be translated into the medium before art direction or generation.
+When Instagram is the destination, approved style principles, the motif library, and Visual DNA must be translated into the medium before art direction or generation.
 
 The platform synthesis must define:
 
@@ -89,6 +115,7 @@ The platform synthesis must define:
 - content zones
 - slide roles
 - shape and line vocabulary
+- approved motif usage
 - texture and brush behavior
 - color behavior
 - spacing and safe areas
@@ -108,14 +135,15 @@ Creative work must be inspectable at controlled checkpoints. Do not generate the
 
 ```text
 CHECKPOINT 01  Named Style Study
-CHECKPOINT 02  Reference Style Synthesis
-CHECKPOINT 03  Platform Translation
-CHECKPOINT 04  Template Candidate
-CHECKPOINT 05  Art Direction
-CHECKPOINT 06  Generation Output
-CHECKPOINT 07  Human Revision / Style Learning
-CHECKPOINT 08  Figma Implementation
-CHECKPOINT 09  Final Content Package
+CHECKPOINT 02  Motif & Sign Extraction
+CHECKPOINT 03  Reference Style Synthesis
+CHECKPOINT 04  Platform Translation
+CHECKPOINT 05  Template Candidate
+CHECKPOINT 06  Art Direction
+CHECKPOINT 07  Generation Output
+CHECKPOINT 08  Human Revision / Style Learning
+CHECKPOINT 09  Figma Implementation
+CHECKPOINT 10  Final Content Package
 ```
 
 Use `stepwise_creative_review.md` for checkpoint criteria and gate states.
@@ -164,6 +192,8 @@ The template stores reusable structure, not post-specific content.
 A style reference stores an approved visual example.
 
 A style rule stores a generalized aesthetic principle.
+
+A motif library stores recurring visual vocabulary extracted from source/style evidence.
 
 Do not collapse these artifact types.
 
@@ -219,7 +249,8 @@ When QC identifies a failure, route the failure to the earliest responsible stag
 
 - Source / requirement failure → Strategy
 - Evidence / research failure → Research
-- Reference interpretation failure → Visual Analysis / Named Style Study / Reference Style Synthesis
+- Reference interpretation failure → Visual Analysis / Named Style Study / Motif & Sign Extraction / Reference Style Synthesis
+- Motif extraction failure → Motif & Sign Extraction
 - Visual rule failure → Visual DNA
 - Platform/template structure failure → Platform / Instagram Template Synthesis
 - Creative decision failure → Art Direction
@@ -237,9 +268,11 @@ A stage is complete only when its gate is satisfied and its handoff package is c
 
 A Named Style Study is complete only when source, observation, interpretation, transferable principles, and confidence are separated.
 
+A Motif & Sign Extraction is complete only when the motif library is evidence-backed, frequency is recorded, formal character is preserved, and provenance/confidence are captured.
+
 A style reference or style rule is complete only when approval metadata, scope, provenance, and version are complete.
 
-A reusable Instagram template is complete only when its platform structure, communication hierarchy, component behavior, editable/controlled/locked fields, Figma implementation, provenance, and approval status are complete.
+A reusable Instagram template is complete only when its platform structure, communication hierarchy, component behavior, approved motif usage, editable/controlled/locked fields, Figma implementation, provenance, and approval status are complete.
 
 A Content Package is complete only when all required publishable assets are present and approved.
 
@@ -247,7 +280,7 @@ A high numerical score never overrides a critical failure.
 
 ## Version
 
-3.0-production-candidate.5
+3.0-production-candidate.6
 
 ## Status
 
