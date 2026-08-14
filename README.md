@@ -24,6 +24,7 @@ The orchestration rules live in `00_workflow/`:
 - `handoff_contract.md` — controlled transfer between stages
 - `decision_gates.md` — pass/block/revise rules
 - `information_model.md` — SOURCE / DERIVED / DECISION / OUTPUT states
+- `task_registry.json` — machine-readable stages, tasks, dependencies, and gate vocabulary
 
 ## Active Prompt Sequence
 
@@ -66,6 +67,31 @@ The orchestration rules live in `00_workflow/`:
 - QC-001 — Generated Image Evaluation
 - QC-002 — Revision Strategy
 
+## Runtime
+
+The `runtime/` package turns a prompt file into an auditable model execution.
+
+- `runtime/runner.py` — provider abstraction for OpenAI and Gemini
+- `runtime/run_task.py` — execute one task and persist a run artifact
+- `runtime/evaluate_task.py` — LLM-based semantic evaluation using the project rubric
+- `runtime/README.md` — setup and execution instructions
+
+Provider credentials are supplied through environment variables. No credentials are stored in the repository.
+
+## Testing
+
+### Structural CI
+
+`tests/validate_library.py` validates active prompt IDs, versions, statuses, stage prefixes, duplicates, deprecated files, and operational contract sections.
+
+GitHub Actions also compiles runtime/test modules and validates the synthetic semantic-test assets.
+
+### Semantic validation
+
+The semantic framework uses the controlled Noura Coffee fixture and rubric in `tests/`. A production prompt change requires a semantic run with the selected model/runtime in addition to passing structural CI.
+
+Semantic tests evaluate task adherence, source fidelity, unknown handling, completeness, classification, traceability, contract compliance, and handoff quality.
+
 ## Deprecated
 
 `02_research/reference_selection.md` is retained only as a migration note. It is not an active task and is excluded from validation.
@@ -94,19 +120,21 @@ A numerical score never overrides a critical failure.
 
 QC routes failures to the earliest responsible stage rather than automatically regenerating.
 
-## Automated Validation
+## Production Release Rule
 
-`tests/validate_library.py` validates active prompt IDs, versions, statuses, stage prefixes, duplicates, deprecated files, and operational contract sections.
+A production release requires:
 
-GitHub Actions runs structural validation for pushes to the production candidate branch and for pull requests targeting the production candidate or `main`.
-
-## Semantic Validation Boundary
-
-Structural CI does not prove the semantic quality of LLM responses. Before a prompt change is released to production, the relevant semantic tests must be executed with the selected LLM runtime using the controlled fixtures in `tests/`.
+1. Structural CI PASS.
+2. No duplicate or invalid IDs.
+3. No unresolved critical workflow dependency.
+4. Prompt version/status present.
+5. Relevant semantic tests PASS with the selected model/runtime.
+6. Human approval for strategic/creative decision gates.
+7. Release artifact records the model, prompt versions, and test results.
 
 ## Status
 
-Production Candidate — structural validation passing; semantic runtime validation required per release.
+Production Candidate — structural runtime validation enabled; semantic release gate required.
 
 ## Version
 
