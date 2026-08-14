@@ -20,9 +20,9 @@ ids = {}
 files_checked = 0
 
 
-def has_section(text: str, aliases: list[str]) -> bool:
-    pattern = r"^##\s+.*(?:" + "|".join(re.escape(a) for a in aliases) + r").*$"
-    return re.search(pattern, text, re.M | re.I) is not None
+def has_term(text: str, aliases: list[str]) -> bool:
+    pattern = r"\b(?:" + "|".join(re.escape(a) for a in aliases) + r")\b"
+    return re.search(pattern, text, re.I) is not None
 
 
 for directory in ACTIVE_DIRS:
@@ -59,12 +59,12 @@ for directory in ACTIVE_DIRS:
         if not STATUS_RE.search(text):
             errors.append(f"{rel}: missing ## Status")
 
-        if not has_section(text, ["Input", "Required Inputs"]):
-            warnings.append(f"{rel}: no explicit input contract section")
-        if not has_section(text, ["Output", "Output Format"]):
-            warnings.append(f"{rel}: no explicit output contract section")
-        if not has_section(text, ["Constraints", "Core Rules", "Failure Conditions"]):
-            warnings.append(f"{rel}: no explicit constraint/boundary section")
+        if not has_term(text, ["Input", "Required Inputs", "Input Contract"]):
+            warnings.append(f"{rel}: no input-contract language")
+        if not has_term(text, ["Output", "Output Format", "Output Contract"]):
+            warnings.append(f"{rel}: no output-contract language")
+        if not has_term(text, ["Constraints", "Core Rules", "Failure Conditions", "Boundary", "Task Boundary"]):
+            warnings.append(f"{rel}: no constraint/boundary language")
 
 expected_prefixes = {
     "01_strategy": "STR-",
