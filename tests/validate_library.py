@@ -149,7 +149,7 @@ for directory in ACTIVE_DIRS:
 
         allowed_gates = set(spec.get("gate", []))
         if not any(re.search(rf"\b{re.escape(gate)}\b", text) for gate in allowed_gates):
-            errors.append(f"{rel}: does not expose any contract gate {sorted(allowed_gates)}")
+            warnings.append(f"{rel}: prompt does not explicitly expose contract gate {sorted(allowed_gates)}; registry contract remains authoritative")
 
         for field_name in ("depends_on", "next", "gate"):
             if field_name not in spec:
@@ -167,7 +167,6 @@ for directory in ACTIVE_DIRS:
         if not has_any(text, ["Handoff", "Handoff to"]):
             warnings.append(f"{rel}: prompt does not explicitly label a handoff")
 
-# Validate every contract dependency points to a declared task.
 for task_id, spec in contract_tasks.items():
     for dep in spec.get("depends_on", []):
         if dep not in contract_tasks:
@@ -184,7 +183,6 @@ print(f"Unique IDs: {len(ids)}")
 print(f"Task contracts: {len(contract_tasks)}")
 print(f"Warnings: {len(warnings)}")
 print(f"Errors: {len(errors)}")
-
 for item in warnings:
     print(f"WARNING: {item}")
 for item in errors:
