@@ -10,9 +10,9 @@ Research the competitive and market environment surrounding
 the project.
 
 The purpose is to understand existing alternatives,
-competitor positioning, communication approaches,
-educational models, audience promises, and relevant market
-patterns.
+competitor positioning, communication approaches, audience
+promises, relevant market patterns, and potential
+opportunities for differentiation.
 
 This research supports strategic differentiation and later
 art direction.
@@ -64,29 +64,30 @@ the primary inputs.
 
 Research the market relevant to the project.
 
-Identify and analyze:
+Identify and analyze, when relevant to the established project domain:
 
 1. Direct competitors
 2. Indirect competitors
 3. Alternative solutions
-4. Educational models
-5. Market positioning
-6. Audience promises
-7. Communication strategies
-8. Product / service structure
-9. Pricing or access model when relevant
-10. Brand personality
-11. Visual positioning
-12. Content strategy
-13. Differentiation claims
-14. Common market patterns
-15. Potential gaps and opportunities
+4. Market positioning
+5. Audience promises
+6. Communication strategies
+7. Product / service structure
+8. Pricing or access model when relevant
+9. Brand personality
+10. Visual positioning
+11. Content strategy
+12. Differentiation claims
+13. Common market patterns
+14. Potential gaps and opportunities
 
-Do not assume that every English-learning organization is a
-competitor.
+Do not assume that organizations are competitors merely because they operate in the same broad category.
 
 A competitor or alternative must be relevant to the project
 and supported by evidence.
+
+Do not import domain-specific categories that have not been
+established by the authoritative project brief.
 
 ---
 
@@ -102,12 +103,13 @@ similar audience.
 ### Indirect Competitor
 
 Solves a similar problem through a different product,
-service, or educational model.
+service, or business model.
 
 ### Alternative
 
-A different activity or solution that competes for the same
-audience's time, attention, or learning goal.
+A different activity, product, service, or solution that
+competes for the same audience need, time, attention, or
+budget.
 
 ### Reference
 
@@ -149,7 +151,7 @@ For each selected competitor, explain:
 
 - Why it is relevant.
 - Which audience it serves.
-- What problem it addresses.
+- What problem or need it addresses.
 - What it offers.
 - How it communicates its value.
 - What makes it different.
@@ -167,8 +169,7 @@ Analyze relevant competitors using consistent criteria.
 Possible criteria include:
 
 - Audience
-- Product
-- Educational model
+- Product / service
 - Core promise
 - Positioning
 - Communication tone
@@ -191,12 +192,12 @@ available.
 Identify recurring patterns such as:
 
 - Common promises
-- Common educational approaches
 - Common audience language
 - Common communication styles
 - Common visual approaches
 - Common content formats
 - Common brand positioning
+- Common product or service structures, when relevant
 
 Do not treat frequency as proof of effectiveness.
 
@@ -231,6 +232,24 @@ Only identify evidence-supported strategic opportunities.
 
 ---
 
+# Output Contract
+
+The output must contain:
+
+- Research scope and market definition
+- Direct, indirect, alternative, and reference entities when supported
+- Evidence-based competitor profiles
+- Market and communication patterns
+- Visual market patterns
+- Potential gaps and differentiation opportunities
+- Competitive risks
+- Unknown information
+- Research limitations
+- Concise market summary
+- Source/evidence references and confidence for material findings
+
+---
+
 # Output Format
 
 # Competitor & Market Research
@@ -250,7 +269,7 @@ project brief.
 
 ## 3. Direct Competitors
 
-| ID | Competitor | Audience | Product | Core Promise | Relevance |
+| ID | Competitor | Audience | Product / Service | Core Promise | Relevance |
 |---|---|---|---|---|---|
 
 ---
@@ -278,8 +297,6 @@ For each significant competitor:
 #### Audience
 
 #### Product / Service
-
-#### Educational Model
 
 #### Core Promise
 
@@ -325,7 +342,7 @@ Identify recurring patterns in:
 
 Identify recurring visual characteristics in the category.
 
-Analyze:
+Analyze, when relevant:
 
 - Color
 - Typography
@@ -403,6 +420,16 @@ Do not provide the final brand strategy.
 
 ---
 
+## Decision Gate
+
+Return one status:
+
+- **PASS** — research is sufficient for the intended downstream use.
+- **CONDITIONAL** — usable with explicit limitations or unresolved questions.
+- **BLOCKED** — required market evidence is insufficient or materially unsupported.
+
+A high confidence score does not override a material evidence gap.
+
 ## Constraints
 
 - Do not invent competitors.
@@ -413,6 +440,7 @@ Do not provide the final brand strategy.
 - Do not generate creative concepts.
 - Do not determine the final visual identity.
 - Do not create slogans or campaigns.
+- Do not import a domain-specific analysis framework unless the project establishes that domain.
 - Clearly separate facts from interpretation.
 
 ---
@@ -431,12 +459,10 @@ The research must be:
 - Explicit about uncertainty
 - Useful for strategic differentiation
 
----
-
 ## Version
 
-1.0
+2.0
 
 ## Status
 
-Draft
+Testing
