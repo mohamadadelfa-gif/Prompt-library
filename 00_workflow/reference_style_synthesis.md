@@ -6,6 +6,19 @@ Analyze supplied visual references at the level of **visual language, material b
 
 The task is not to copy a painting, illustration, or existing layout. The task is to extract the characteristics that create its recognizable feeling and translate those characteristics into an original communication system.
 
+## Preconditions
+
+If the brief names a specific artist, movement, school, historical style, or other recognizable named visual source, an approved **Named Style Study** must exist before this synthesis passes.
+
+Use `named_style_study.md` as the preceding protocol.
+
+The Named Style Study and the supplied Reference Style Synthesis serve different purposes:
+
+- Named Style Study — understands the underlying artistic language and its perceptual logic.
+- Reference Style Synthesis — determines what is actually present in the supplied reference set and what can responsibly transfer to the project.
+
+Do not collapse these into one step.
+
 ## Why This Step Exists
 
 A reference can influence a project in several different ways:
@@ -139,7 +152,9 @@ Never translate the reference directly into a template.
 Use:
 
 ```text
-REFERENCE
+NAMED STYLE STUDY (when applicable)
+   ↓
+REFERENCE SET
    ↓
 STYLE ANALYSIS
    ↓
@@ -195,6 +210,7 @@ The result should define:
 
 Do not confuse:
 
+- Named Style Study with Reference Style Synthesis
 - Reference Style with Brand Identity
 - Emotional Effect with Decoration
 - Style Rule with Customer Requirement
@@ -205,6 +221,7 @@ Do not confuse:
 
 ```text
 STYLE_REFERENCE_SET
+NAMED_STYLE_STUDY_REFERENCE
 FORMAL_LANGUAGE
 MARK_MAKING_LANGUAGE
 MATERIAL_LANGUAGE
