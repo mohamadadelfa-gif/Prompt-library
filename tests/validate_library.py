@@ -19,26 +19,34 @@ warnings = []
 ids = {}
 files_checked = 0
 
+
+def has_section(text: str, aliases: list[str]) -> bool:
+    pattern = r"^##\s+.*(?:" + "|".join(re.escape(a) for a in aliases) + r").*$"
+    return re.search(pattern, text, re.M | re.I) is not None
+
+
 for directory in ACTIVE_DIRS:
     if not directory.exists():
         errors.append(f"Missing active stage directory: {directory.relative_to(ROOT)}")
         continue
+
     for path in sorted(directory.glob("*.md")):
         rel = path.relative_to(ROOT)
         rel_string = str(rel).replace("\\", "/")
         if path.name.startswith("README") or rel_string in DEPRECATED_FILES:
             continue
+
         files_checked += 1
         text = path.read_text(encoding="utf-8")
 
         if not ID_RE.search(text):
             errors.append(f"{rel}: missing ## ID")
         else:
-            m = re.search(r"^##\s+ID\s*\n+\s*([^\n]+)", text, re.M)
-            if not m:
+            match = re.search(r"^##\s+ID\s*\n+\s*([^\n]+)", text, re.M)
+            if not match:
                 errors.append(f"{rel}: ID heading has no value")
             else:
-                prompt_id = m.group(1).strip()
+                prompt_id = match.group(1).strip()
                 if not ID_VALUE_RE.fullmatch(prompt_id):
                     errors.append(f"{rel}: invalid ID '{prompt_id}'")
                 elif prompt_id in ids:
@@ -51,9 +59,12 @@ for directory in ACTIVE_DIRS:
         if not STATUS_RE.search(text):
             errors.append(f"{rel}: missing ## Status")
 
-        for term in ["Input", "Output", "Constraints"]:
-            if not re.search(rf"^##\s+.*{re.escape(term)}.*$", text, re.M | re.I):
-                warnings.append(f"{rel}: no explicit section matching '{term}'")
+        if not has_section(text, ["Input", "Required Inputs"]):
+            warnings.append(f"{rel}: no explicit input contract section")
+        if not has_section(text, ["Output", "Output Format"]):
+            warnings.append(f"{rel}: no explicit output contract section")
+        if not has_section(text, ["Constraints", "Core Rules", "Failure Conditions"]):
+            warnings.append(f"{rel}: no explicit constraint/boundary section")
 
 expected_prefixes = {
     "01_strategy": "STR-",
@@ -70,6 +81,9 @@ for prompt_id, path in ids.items():
     prefix = expected_prefixes[directory]
     if not prompt_id.startswith(prefix):
         errors.append(f"{path}: ID {prompt_id} does not match stage prefix {prefix}")
+
+if warnings:
+    errors.extend(warnings)
 
 print(f"Checked {files_checked} active prompt files")
 print(f"Unique IDs: {len(ids)}")
