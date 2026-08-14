@@ -27,28 +27,22 @@ generation.
 
 ## Context
 
-The project has completed:
+QC-001 is the authoritative quality evaluation for the
+current generated output.
+
+The revision must use the current approved pipeline state:
 
 ### Strategy
 
-- STR-001 — Customer Analysis
-- STR-002 — Brief Analysis
-- STR-003 — Requirement Extraction
-- STR-004 — Clarification Questions
+- STR-005 — Project Reconciliation
 
 ### Research
 
-- RES-001 — Visual Reference Research
-- RES-002 — Reference Selection & Evaluation
+- RES-006 — Research Synthesis
 
 ### Visual Analysis
 
-- VIS-001 — Composition Analysis
-- VIS-002 — Color Analysis
-- VIS-003 — Shape & Form Analysis
-- VIS-004 — Texture & Material Analysis
-- VIS-005 — Typography & Graphic Language
-- VIS-006 — Lighting, Mood & Atmosphere Analysis
+- VIS-001 through VIS-006 — Visual Analysis
 
 ### Visual DNA
 
@@ -69,20 +63,26 @@ The project has completed:
 
 - QC-001 — Generated Image Evaluation
 
-QC-001 has identified problems in the current
-generated image.
+QC-002 must not reconstruct or use retired pipeline stages.
 
-QC-002 converts those findings into a revision plan.
-
-## Input
+## Required Inputs
 
 - QC-001 Quality Control Report
 - Current Generated Image
 - Current Generation Prompt
 - Generation Specification
-- Art Direction
+- Approved Art Direction
 - Visual DNA
 - Selected Concept
+
+If a required input is unavailable, mark the affected area
+Unknown and do not reconstruct it.
+
+## Preconditions
+
+- QC-001 must have completed.
+- The current Art Direction and Generation Specification must be identifiable.
+- The current output must be available for comparison.
 
 ## Core Principle
 
@@ -94,13 +94,11 @@ prompt.
 Do not modify successful characteristics merely because
 a different result is possible.
 
-Every revision must have a reason.
+Every revision must have a reason and evidence from QC-001.
 
----
+## Revision Process
 
-# Revision Process
-
-## Step 1 — Separate Successes from Failures
+### Step 1 — Separate Successes from Failures
 
 Identify:
 
@@ -124,269 +122,117 @@ Unwanted elements.
 
 Missing required elements.
 
----
-
-# Step 2 — Identify Root Cause
+### Step 2 — Identify Root Cause
 
 For every problem determine the most likely cause.
 
 Classify as:
 
-### PROMPT
+- PROMPT — wording of GEN-002 is insufficient.
+- SPECIFICATION — GEN-001 does not define the requirement clearly enough.
+- ART DIRECTION — visual direction is ambiguous.
+- VISUAL DNA — underlying visual system is unclear.
+- MODEL — the model failed to execute a clear instruction.
+- COMPOSITION — primarily spatial.
+- SUBJECT — concerns the subject itself.
+- STYLE — concerns visual treatment.
+- RANDOM VARIATION — undesirable variation without a clear systemic cause.
 
-The wording of GEN-002 is insufficient.
+Do not assume every failure requires a prompt change.
 
-### SPECIFICATION
+### Step 3 — Determine Revision Scope
 
-GEN-001 does not define the requirement clearly enough.
+Choose the smallest realistic intervention:
 
-### ART DIRECTION
+- MICRO
+- LOCAL
+- STRUCTURAL
+- FULL REGENERATION
 
-The visual direction is ambiguous.
+### Step 4 — Protect Successful Characteristics
 
-### VISUAL DNA
+Create a PRESERVATION LOCK listing characteristics that
+must remain stable during revision.
 
-The underlying visual system is unclear.
+### Step 5 — Create Revision Priorities
 
-### MODEL
+- P0 — Critical
+- P1 — Major
+- P2 — Minor
+- P3 — Experimental
 
-The model failed to execute a clear instruction.
-
-### COMPOSITION
-
-The problem is primarily spatial.
-
-### SUBJECT
-
-The problem concerns the subject itself.
-
-### STYLE
-
-The problem concerns visual treatment.
-
-### RANDOM VARIATION
-
-The result is an undesirable generation variation
-without a clear systemic cause.
-
-Do not assume every failure requires a change to
-the prompt.
-
----
-
-# Step 3 — Determine Revision Scope
-
-Classify the revision as:
-
-## MICRO
-
-Only a small detail should change.
-
-Examples:
-
-- remove one object
-- adjust a small color
-- correct a minor artifact
-- slightly increase negative space
-
-## LOCAL
-
-One visual system requires adjustment.
-
-Examples:
-
-- composition
-- lighting
-- texture
-- typography
-- color
-
-## STRUCTURAL
-
-A major part of the image requires reconstruction.
-
-Examples:
-
-- subject placement
-- composition
-- visual hierarchy
-- concept execution
-
-## FULL REGENERATION
-
-The generation fundamentally fails.
-
-Examples:
-
-- wrong concept
-- wrong subject
-- severe style drift
-- severe Visual DNA contradiction
-
-Choose the smallest scope that can realistically
-solve the problem.
-
----
-
-# Step 4 — Protect Successful Characteristics
-
-Explicitly identify what must NOT change.
-
-Create:
-
-### PRESERVATION LOCK
-
-List characteristics that should remain stable
-during revision.
-
-Examples:
-
-- composition
-- color palette
-- texture
-- lighting
-- subject
-- atmosphere
-
-Do not change a successful characteristic unless
-there is a demonstrated reason.
-
----
-
-# Step 5 — Create Revision Priorities
-
-Rank changes:
-
-### P0 — Critical
-
-Must be corrected.
-
-### P1 — Major
-
-Strongly recommended.
-
-### P2 — Minor
-
-Useful but optional.
-
-### P3 — Experimental
-
-Do not implement unless necessary.
-
----
-
-# Step 6 — Define Each Revision
+### Step 6 — Define Each Revision
 
 For every revision specify:
 
-### Problem
+- Problem
+- Current State
+- Target State
+- Action
+- Scope
+- Priority
+- Preservation
+- Expected Effect
+- QC Evidence
 
-What is wrong?
-
-### Current State
-
-What is currently happening?
-
-### Target State
-
-What should happen instead?
-
-### Action
-
-What should change?
-
-### Scope
-
-Micro / Local / Structural / Full
-
-### Priority
-
-P0 / P1 / P2 / P3
-
-### Preservation
-
-What must remain unchanged?
-
-### Expected Effect
-
-What improvement should this create?
-
----
-
-# Step 7 — Prompt Modification Strategy
-
-Determine how GEN-002 should be modified.
+### Step 7 — Prompt Modification Strategy
 
 Choose one or more:
 
-### ADD
+- ADD
+- REMOVE
+- CLARIFY
+- STRENGTHEN
+- DE-EMPHASIZE
+- REORDER
+- CONSTRAIN
+- REPLACE
+- NO PROMPT CHANGE
 
-Add a missing requirement.
+### Step 8 — Prevent Overcorrection
 
-### REMOVE
+Before finalizing, check:
 
-Remove a conflicting or unnecessary requirement.
-
-### CLARIFY
-
-Make an ambiguous instruction more explicit.
-
-### STRENGTHEN
-
-Increase emphasis on an important requirement.
-
-### DE-EMPHASIZE
-
-Reduce the influence of an over-dominant element.
-
-### REORDER
-
-Move a requirement earlier in the prompt hierarchy.
-
-### CONSTRAIN
-
-Add a specific limitation.
-
-### REPLACE
-
-Replace a problematic instruction.
-
-### NO PROMPT CHANGE
-
-The problem is likely model variation and should
-be addressed through regeneration rather than
-prompt modification.
-
----
-
-# Step 8 — Prevent Overcorrection
-
-Before finalizing the revision strategy, check:
-
-- Are we changing too many variables at once?
-- Are we modifying successful characteristics?
-- Are we introducing new creative ideas?
-- Are we solving one problem by creating another?
-- Are we making the prompt unnecessarily complex?
-- Are we changing the Visual DNA?
-- Are we changing the approved Art Direction?
+- Are too many variables changing at once?
+- Are successful characteristics being modified?
+- Are new creative ideas being introduced?
+- Is one problem being solved by creating another?
+- Is the prompt becoming unnecessarily complex?
+- Is Visual DNA being changed without justification?
+- Is approved Art Direction being changed without authorization?
 
 If yes, reduce the revision scope.
 
----
-
-# Step 9 — Define the Next Generation Objective
+### Step 9 — Define the Next Generation Objective
 
 Create a concise statement:
 
-"The next generation should..."
+> The next generation should...
 
-This must describe the intended improvement without
-introducing unrelated creative changes.
+It must describe the intended improvement without introducing
+unrelated creative changes.
 
----
+## Output Contract
 
-# Output Format
+The output must include:
+
+- Current QC status
+- What works / KEEP
+- What needs improvement / IMPROVE
+- What must change / CHANGE
+- What must be removed / REMOVE
+- What is missing / ADD
+- Preservation Lock
+- Root-cause analysis with confidence
+- Overall revision scope
+- Prioritized revision table
+- Detailed revision instructions
+- GEN-002 modification strategy
+- Next-generation objective
+- Overcorrection check
+- Final decision
+
+## Output Format
 
 # REVISION STRATEGY
 
@@ -398,63 +244,38 @@ introducing unrelated creative changes.
 
 ### Main Problem
 
----
-
 ## 2. What Works
 
 ### KEEP
-
----
 
 ## 3. What Needs Improvement
 
 ### IMPROVE
 
----
-
 ## 4. What Must Change
 
 ### CHANGE
-
----
 
 ## 5. What Must Be Removed
 
 ### REMOVE
 
----
-
 ## 6. What Is Missing
 
 ### ADD
 
----
-
 ## 7. Preservation Lock
-
-Characteristics that must remain unchanged:
-
-1.
-2.
-3.
-4.
-5.
-
----
 
 ## 8. Root Cause Analysis
 
-| Problem | Root Cause | Confidence |
-|---|---|---|
-| | | |
+| Problem | Root Cause | Confidence | QC Evidence |
+|---|---|---|---|
 
 Confidence:
 
 - Low
 - Medium
 - High
-
----
 
 ## 9. Revision Scope
 
@@ -464,80 +285,32 @@ Micro / Local / Structural / Full Regeneration
 
 ### Reason
 
----
-
 ## 10. Revision Priorities
 
 | Priority | Problem | Action | Scope |
 |---|---|---|---|
-| P0 | | | |
-| P1 | | | |
-| P2 | | | |
-| P3 | | | |
-
----
 
 ## 11. Detailed Revision Instructions
 
-### Revision 01
+For each revision:
 
-#### Problem
+### Problem
 
-#### Current State
+### Current State
 
-#### Target State
+### Target State
 
-#### Action
+### Action
 
-#### Scope
+### Scope
 
-#### Priority
+### Priority
 
-#### Preservation
+### Preservation
 
-#### Expected Effect
+### Expected Effect
 
----
-
-### Revision 02
-
-#### Problem
-
-#### Current State
-
-#### Target State
-
-#### Action
-
-#### Scope
-
-#### Priority
-
-#### Preservation
-
-#### Expected Effect
-
----
-
-### Revision 03
-
-#### Problem
-
-#### Current State
-
-#### Target State
-
-#### Action
-
-#### Scope
-
-#### Priority
-
-#### Preservation
-
-#### Expected Effect
-
----
+### QC Evidence
 
 ## 12. GEN-002 Modification Strategy
 
@@ -559,37 +332,32 @@ Micro / Local / Structural / Full Regeneration
 
 ### NO PROMPT CHANGE
 
----
-
 ## 13. Next Generation Objective
 
-"The next generation should..."
-
----
+“The next generation should...”
 
 ## 14. Overcorrection Check
 
 ### Variables Being Changed
 
-List them.
-
 ### Variables Being Preserved
 
-List them.
-
 ### Potential Side Effects
-
-List them.
 
 ### Final Control Decision
 
 Proceed / Simplify Revision / Full Regeneration
 
----
+## Decision Gate
 
-# Revision Loop
+Return one status:
 
-The next generation should follow:
+- **PROCEED** — revision is sufficiently defined and can be passed to GEN-002.
+- **SIMPLIFY REVISION** — the plan is too broad or risks overcorrection.
+- **BLOCKED** — required QC evidence, approval, or upstream information is missing.
+- **FULL REGENERATION** — the current output is fundamentally invalid and the next generation should start from the approved GEN-001 specification.
+
+## Revision Loop
 
 QC-002
 ↓
@@ -605,13 +373,13 @@ Approve / Revise / Regenerate
 
 Do not skip QC-001 after revision.
 
----
+A revision loop should have a finite configured limit. After the configured limit is reached, escalate for human review rather than continuing indefinitely.
 
-# Constraints
+## Constraints
 
 - Do not create a new concept.
 - Do not rewrite the Art Direction.
-- Do not modify Visual DNA without explicit justification.
+- Do not modify Visual DNA without explicit justification and approval.
 - Do not change successful characteristics unnecessarily.
 - Do not introduce unrelated visual ideas.
 - Do not fix multiple unrelated problems without justification.
@@ -619,6 +387,7 @@ Do not skip QC-001 after revision.
 - Do not assume every failure is a prompt failure.
 - Do not guarantee that a revision will solve the problem.
 - Preserve the original creative intention.
+- Do not use retired or superseded pipeline stages as inputs.
 
 ## Quality Criteria
 
@@ -635,8 +404,8 @@ The revision strategy must be:
 
 ## Version
 
-1.0
+2.0
 
 ## Status
 
-Draft
+Testing
