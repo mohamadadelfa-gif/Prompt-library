@@ -26,44 +26,105 @@ A downstream stage may transform information only within its task boundary.
 3. Visual Analysis — extract visual evidence from references.
 4. Visual DNA — convert evidence into transferable visual rules.
 5. Art Direction — make and select creative decisions.
-6. Generation — operationalize approved direction for image generation.
+6. Generation — operationalize approved direction for visual generation.
 7. Quality Control — evaluate results, diagnose failures, and route revision.
+8. Content Packaging — assemble the complete platform-ready content package.
+9. Figma Implementation — convert approved visual content into an editable production master and, when appropriate, a reusable platform template.
+10. Final Production Approval — approve the complete package for export and publishing.
 
-## Human Feedback & Style Learning Loop
+## Content Production Loop
 
-After a generated output is reviewed by a human, the system may capture the result as controlled style knowledge.
+For social/content outputs, the post is treated as a controlled Content Package rather than a single image.
 
 ```text
+CONTENT STRATEGY
+      ↓
+CONTENT ARTIFACT
+      ├── On-Canvas Copy
+      ├── Caption
+      ├── CTA
+      ├── Alt Text
+      └── Publishing Metadata
+      ↓
 GEN-002
-  ↓
-Generated Output
-  ↓
+      ↓
+Generated Visual
+      ↓
 Human Revision
-  ↓
-Approved Output
-  ↓
-Revision Record
-  ↓
-Style Knowledge Extraction
-  ↓
-Approved Style Reference / Style Rule
-  ↓
-Future GEN / VDNA / QC inputs when explicitly approved
+      ↓
+Approved Visual
+      ↓
+CONTENT PACKAGE APPROVAL
+      ├── Approved Visual
+      ├── Approved Caption
+      └── Approved Metadata
+      ↓
+FIGMA IMPLEMENTATION
+      ↓
+Figma QA
+      ↓
+Approved Figma Master
+      ↓
+Template Review
+      ├── No promotion
+      ├── Project Template
+      └── Published Platform Template
+      ↓
+FINAL PRODUCTION APPROVAL
+      ↓
+EXPORT / PUBLISH
 ```
 
-The generated output, revised output, and approved output are separate artifacts.
+## Figma Implementation Principle
 
-A human revision is not automatically a prompt correction and is not automatically a style rule.
+The Figma layer is the editable production layer. It does not replace the original generated output or the approved visual artifact.
 
-Style knowledge must be explicitly classified as:
+Every approved visual content output that requires editable production must produce a Figma Implementation Package containing the exact file, page, section, frame, component, style, variable, editable/locked fields, export specification, and provenance needed to reproduce the production state.
 
-- PROJECT STYLE REFERENCE
-- PROJECT STYLE RULE
-- SYSTEM STYLE RULE
+The Figma master must remain traceable to:
 
-Project-specific preferences must not silently become system-wide rules.
+- the Content Package;
+- the generation output;
+- the approved human revision;
+- approved style references and rules;
+- the template version used, if any.
 
-See `human_feedback_style_learning.md` and `style_memory_schema.json` for the controlled artifact model.
+See `figma_output_contract.md` and `figma_build_record_template.md` for the required package and audit record.
+
+## Template Promotion
+
+A Figma implementation becomes a reusable template only after explicit review.
+
+```text
+CONTENT INSTANCE
+      ↓
+FIGMA MASTER
+      ↓
+TEMPLATE CANDIDATE
+      ↓
+HUMAN REVIEW
+      ↓
+PROMOTION DECISION
+      ├── NO PROMOTION
+      ├── PROJECT TEMPLATE
+      └── PUBLISHED PLATFORM TEMPLATE
+```
+
+A template captures reusable structure, components, variables, safe areas, and editable zones. It must not silently absorb campaign-specific content.
+
+## Human Feedback and Style Learning
+
+After human revision, preserve:
+
+1. generated output;
+2. human revision;
+3. approved output;
+4. revision record;
+5. style-reference decision;
+6. style-rule decision;
+7. template decision.
+
+A single correction must not automatically become a global style rule.
 
 ## Execution Loop
 
@@ -77,7 +138,8 @@ For every task:
 6. Run the decision gate.
 7. If blocked, stop and identify the missing or conflicting input.
 8. If passed, create the handoff package for the next task.
-9. When a human revises an output, preserve both the original and revised artifacts and record the revision before extracting reusable style knowledge.
+9. If the output is production-bound, validate the required downstream artifact package before final approval.
+10. When a human revises an output, preserve both the original and revised artifacts and record the revision before extracting reusable style or template knowledge.
 
 ## Failure Policy
 
@@ -96,6 +158,9 @@ When QC identifies a failure, route the failure to the earliest responsible stag
 - Creative decision failure → Art Direction
 - Specification / prompt failure → Generation
 - Model execution failure → Generation
+- Content/copy failure → Content Packaging
+- Figma implementation failure → Figma Implementation
+- Template failure → Template Review
 - Human preference discovered during approved revision → Human Feedback & Style Learning
 - Acceptable variation → no revision
 
@@ -103,13 +168,15 @@ When QC identifies a failure, route the failure to the earliest responsible stag
 
 A stage is complete only when its decision gate is satisfied and its handoff package is complete.
 
+A Figma production package is complete only when its QA gate passes and its file/node provenance is recorded.
+
 A style reference or style rule is complete only when its approval metadata, scope, provenance, and version are complete.
 
 A high numerical score never overrides a critical failure.
 
 ## Version
 
-3.0-production-candidate.3
+3.0-production-candidate.4
 
 ## Status
 
