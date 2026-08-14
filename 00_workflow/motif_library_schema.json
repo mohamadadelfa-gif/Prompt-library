@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "motif_id_pattern": "MOTIF-XXX",
+  "required_fields": [
+    "motif_id",
+    "category",
+    "name",
+    "description",
+    "visual_attributes",
+    "variants",
+    "frequency",
+    "reference_evidence",
+    "formal_role",
+    "semantic_role_if_supported",
+    "emotional_effect_if_supported",
+    "material_behavior",
+    "transferability",
+    "risk_level",
+    "provenance",
+    "confidence"
+  ],
+  "categories": [
+    "SIGN",
+    "SHAPE",
+    "OBJECT",
+    "MARK",
+    "MATERIAL"
+  ],
+  "frequency": ["RECURRING", "OCCASIONAL", "UNIQUE"],
+  "transferability": ["CANDIDATE", "LIMITED", "NON_TRANSFERABLE"],
+  "risk_level": ["LOW", "MEDIUM", "HIGH"],
+  "states": ["SOURCE", "DERIVED", "DECISION"]
+}
