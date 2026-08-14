@@ -1,304 +1,81 @@
 # Typography & Graphic Language Analysis
 
 ## ID
-
 VIS-005
 
 ## Purpose
-
-Analyze the typographic and graphic language of selected
-visual references and identify transferable principles that
-can contribute to the project's visual identity.
+Analyze the typographic and graphic language of selected visual references and extract transferable principles for Visual DNA.
 
 ## Role
+Senior Art Director, Typography Specialist, Graphic Designer, and Visual Analyst.
 
-You are a Senior Art Director, Typography Specialist,
-Graphic Designer, and Visual Analyst.
-
-## Context
-
-The project has completed:
-
-- STR-001 — Customer Analysis
-- STR-002 — Brief Analysis
-- STR-003 — Requirement Extraction
-- STR-004 — Clarification Questions
-- RES-001 — Visual Reference Research
-- RES-002 — Reference Selection & Evaluation
+## Required Inputs
+- STR-005 — Project Reconciliation
+- RES-005 — Visual Reference Research
+- RES-006 — Research Synthesis
+- Selected visual references approved for analysis
 - VIS-001 — Composition Analysis
 - VIS-002 — Color Analysis
 - VIS-003 — Shape & Form Analysis
 - VIS-004 — Texture & Material Analysis
 
-The selected references now need to be analyzed for
-typography, lettering, graphic marks, and related
-visual communication elements.
+## Task Boundary
+Analyze typography as visual form and graphic systems. Do not select a final font, create a final identity, or copy lettering literally.
 
-The objective is not to identify a font merely by name.
+## Method
+Analyze typographic presence, category, letterform and stroke characteristics, weight, width, contrast, case, spacing, alignment, scale, hierarchy, density, text-to-image/shape relationships, placement, transformation, graphic symbols/marks, borders, lines, grids, icons, and decorative elements.
 
-The objective is to understand the underlying typographic
-and graphic language.
+Distinguish exact font identification from typographic character analysis. Claim an exact family only with sufficient evidence.
 
-## Input
-
-- Selected visual references
-- Project brief
-- Project requirements
-- Reference evaluation
-- Composition Analysis
-- Color Analysis
-- Shape & Form Analysis
-- Texture & Material Analysis
-
-## Instructions
-
-Analyze each reference independently.
-
-Identify:
-
-1. Presence or absence of typography
-2. Typographic category
-3. Serif / sans-serif / display / script / handwritten
-4. Geometric vs humanist characteristics
-5. Formal vs expressive characteristics
-6. Letterform characteristics
-7. Stroke characteristics
-8. Weight
-9. Width
-10. Contrast
-11. Case usage
-12. Letter spacing
-13. Word spacing
-14. Line spacing
-15. Alignment
-16. Scale
-17. Hierarchy
-18. Density
-19. Text-to-image relationship
-20. Text-to-shape relationship
-21. Typographic rhythm
-22. Placement
-23. Cropping
-24. Distortion
-25. Rotation
-26. Layering
-27. Repetition
-28. Graphic symbols
-29. Graphic marks
-30. Borders and frames
-31. Lines
-32. Grids
-33. Icons
-34. Decorative elements
-
-## Typography as Form
-
-Analyze typography as a visual shape rather than
-only as readable information.
-
-Determine:
-
-- visual mass
-- silhouette
-- geometric structure
-- rhythm
-- repetition
-- density
-- movement
-- contrast
-- interaction with negative space
-
-Identify whether typography behaves as:
-
-- information
-- decoration
-- image
-- structure
-- texture
-- interface
-- symbolic element
-
-## Typographic Hierarchy
-
-Identify the hierarchy between:
-
-- headline
-- subheadline
-- body text
-- caption
-- label
-- metadata
-- decorative text
-
-Determine how hierarchy is created through:
-
-- size
-- weight
-- spacing
-- position
-- contrast
-- alignment
-- color
-- repetition
-
-## Graphic Language
-
-Analyze non-typographic graphic elements.
-
-Identify:
-
-- lines
-- grids
-- frames
-- symbols
-- icons
-- geometric marks
-- patterns
-- dividers
-- arrows
-- borders
-- labels
-- diagrams
-- decorative structures
-
-Determine the visual grammar connecting these elements.
-
-## Comparative Analysis
-
-After analyzing each reference independently,
-compare the references.
-
-Identify:
-
-- recurring typographic characteristics
-- shared graphic principles
-- contrasting approaches
-- complementary characteristics
-- unique characteristics
-- conflicting characteristics
-
-Determine which characteristics are strong enough
-to contribute to the broader Visual DNA.
-
-## Constraints
-
-- Do not claim an exact font family unless there is
-  sufficient evidence.
-- Do not confuse font identification with typographic analysis.
-- Do not focus only on readability.
-- Do not reproduce specific lettering literally.
-- Distinguish typography from graphic shape language.
-- Avoid vague descriptions such as "modern typography."
-- Explain what creates the perceived character.
-- Consider typography as part of the complete composition.
-
-## Output Format
-
+## Output Contract
 ### Reference Analysis
-
-For each reference:
-
-#### Typographic Presence
-
-#### Typographic Category
-
-#### Letterform Characteristics
-
-#### Stroke Characteristics
-
-#### Weight
-
-#### Width
-
-#### Contrast
-
-#### Case
-
-#### Spacing
-
-#### Alignment
-
-#### Scale
-
-#### Hierarchy
-
-#### Density
-
-#### Placement
-
-#### Distortion / Transformation
-
-#### Typography as Form
-
-#### Relationship to Composition
-
-#### Relationship to Shape
-
-#### Relationship to Color
-
-#### Graphic Elements
-
-#### Graphic Grammar
-
----
+- Typographic Presence / Category
+- Letterform / Stroke Characteristics
+- Weight / Width / Contrast
+- Case / Spacing / Alignment
+- Scale / Hierarchy / Density
+- Placement / Distortion / Layering
+- Typography as Form
+- Relationship to Composition / Shape / Color
+- Graphic Elements / Graphic Grammar
 
 ### Comparative Analysis
-
-#### Recurring Typographic Principles
-
-#### Shared Graphic Principles
-
-#### Major Differences
-
-#### Complementary Characteristics
-
-#### Contradictions
-
-#### Unique Characteristics
-
----
+- Recurring Typographic Principles
+- Shared Graphic Principles
+- Major Differences
+- Complementary Characteristics
+- Contradictions
+- Unique Characteristics
 
 ### Extracted Typography DNA
+Describe reusable typographic and graphic principles, not a final font selection.
 
-Convert the findings into transferable typographic
-and graphic principles.
+### Provenance / Confidence
+Every major typography or graphic finding must cite a source reference/observation and use Low / Medium / High confidence where interpretation is involved.
 
-Use statements such as:
+### Gate Decision
+Return exactly one canonical status:
+- PASS
+- CONDITIONAL
+- BLOCKED
 
-- condensed high-impact display typography
-- restrained geometric sans-serif language
-- large-scale typographic composition
-- asymmetric typographic alignment
-- high letter-spacing with low text density
-- expressive handwritten mark-making
-- typography integrated as graphic form
-- modular label-based graphic system
-- thin linear graphic vocabulary
-- strong contrast between display and informational text
+BLOCKED when required references or evidence are insufficient.
 
-Do not prescribe the final font selection yet.
+## Handoff
+Pass the Typography/Graphic Analysis package to VDNA-001 with source IDs, observations, derived principles, unknowns, and blockers.
 
-Describe the underlying typographic and graphic system.
+## Constraints
+- Do not claim exact font family without evidence.
+- Do not reproduce specific lettering literally.
+- Do not focus only on readability.
+- Distinguish typography from general graphic shape language.
+- Use precise explanations of perceived character.
 
-## Quality Criteria
-
-The analysis must be:
-
-- Typographically precise
-- Visually analytical
-- Context-aware
-- Comparative
-- Transferable
-- Useful for Visual DNA extraction
-
-The final Typography DNA should describe a reusable
-typographic and graphic language rather than a specific
-font or copied lettering style.
+## Quality Gate
+The analysis must be typographically precise, visually analytical, contextual, comparative, transferable, and useful for Visual DNA extraction.
 
 ## Version
-
-1.0
+2.0
 
 ## Status
-
-Draft
+Production Candidate
