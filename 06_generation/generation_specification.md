@@ -89,6 +89,9 @@ Return exactly one canonical status:
 ## Provenance / Confidence
 Every generation requirement must identify its source as STR-005, VDNA-001, ART-002, ART-003, production input, or an explicitly identified derived finding. Use Low / Medium / High confidence for inferred or ambiguous interpretations.
 
+## Handoff
+Pass the complete generation specification, traceability, priority classes, risks, unknowns, and gate status to GEN-002.
+
 ## Quality Gate
 The specification must be complete, prioritized, traceable, consistent with approved Art Direction, resistant to visual drift, and free of unsupported creative additions.
 
