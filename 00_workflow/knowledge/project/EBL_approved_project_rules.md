@@ -140,53 +140,106 @@ Status: `SOURCE_DERIVED` → `APPROVED_RULE`
 
 ---
 
-## EBL-RULE-006 — Selected Logo Direction
+## EBL-RULE-006 — Chosen Primary Logo — Locked Master
 
-The selected EBL logo direction is an integrated painterly combination mark.
+The human has selected the supplied **Geometric Reader Integrated Logo** as the primary English Beyond Language logo.
 
-Core construction:
+This supersedes the earlier overlapping-circle logo direction as the current primary logo choice.
 
-- overlapping painterly circular/color fields;
-- deep navy major circle;
-- warm cream major circle;
-- rust/orange lower circle;
-- smaller ochre/yellow transition circle;
-- visible overlap/intersection areas;
-- small human figure as a scale/discovery cue;
-- restrained starburst/dot micro-signs;
-- full words `ENGLISH / BEYOND / LANGUAGE` integrated into the geometric construction;
-- `ENGLISH` is dominant;
-- `BEYOND` is smaller and rust/orange;
-- `LANGUAGE` is smaller and dark/navy;
-- painterly texture and imperfect edges are intentional.
+### Locked construction
 
-The black presentation background/glow used in one exploration is not part of the core reusable logo unless explicitly approved later.
+The chosen logo is one integrated geometric composition and must be preserved as supplied:
 
-The reusable logo should be capable of transparent-background placement.
+- simplified human/reader figure at upper-left;
+- burnt-orange circular head;
+- black beret;
+- minimal facial line;
+- deep muted green body;
+- black geometric shoulder/arm;
+- open book in ochre + warm cream;
+- tall warm-cream arch rising behind the figure on the right;
+- thin vertical black structural line;
+- thin horizontal black structural line;
+- small black circle on the horizontal line at far right;
+- large lower semicircular field split into muted deep green on the left and burnt orange/rust on the right;
+- black quarter-circle embedded inside the green lower field.
 
-Status: `PROJECT_DECISION` + `APPROVED_RULE`
+### Typography is part of the logo
+
+The full brand name is integrated inside the lower orange field:
+
+```text
+ENGLISH
+BEYOND
+LANGUAGE
+```
+
+Preserve:
+
+- exact wording;
+- capitalization;
+- hierarchy;
+- tracking/spacing;
+- position;
+- black `ENGLISH`;
+- warm cream/ivory `BEYOND`;
+- black `LANGUAGE`.
+
+### Material / presentation character
+
+Preserve the logo's supplied painterly/material treatment:
+
+- lightly grainy surfaces;
+- imperfect painterly fills;
+- subtle irregularity;
+- tactile/hand-made edges;
+- deep black presentation background;
+- soft atmospheric glow around the geometric forms.
+
+Because the human explicitly chose the supplied version **as it is**, the black background and glow are part of this approved master presentation unless the human later requests a separate transparent/flat variant.
+
+### Use rule
+
+When the human says **“use this logo”** or **“use the chosen logo”**:
+
+```text
+PLACE THE SUPPLIED MASTER
+→ DO NOT REGENERATE
+→ DO NOT REDESIGN
+```
+
+Do not independently:
+
+- redraw the reader;
+- change the beret;
+- alter the book;
+- alter the arch;
+- move the circle;
+- change colors;
+- change typography;
+- change tracking;
+- simplify the geometry;
+- remove the black background;
+- remove the glow;
+- generate a merely similar Klee/Bauhaus-style substitute.
+
+For exact production placement, the supplied master image is the source of truth.
+
+Status: `HUMAN_PREFERENCE` + `PROJECT_DECISION` + `APPROVED_RULE`
 
 ---
 
 ## EBL-RULE-007 — Logo Use on Carousel Slides
 
-For the current EBL carousel system, the selected logo behaves as a quiet signature.
-
-Default treatment:
-
-- small;
-- clear;
-- visually secondary to the content;
-- bottom-left signature zone when the slide composition allows it;
-- consistent scale and optical weight across the carousel;
-- do not let the logo become a competing headline or content block.
+For approved carousel artwork, branding should remain visually secondary to the content unless the human explicitly requests a different treatment.
 
 When revising an already approved slide:
 
-- replace an existing logo only;
-- if no logo exists, add the selected logo in the same intended signature zone;
-- do not redesign unrelated slide content to make room;
-- preserve the approved artwork, typography, texture, colors, numbering, and composition.
+- change only the requested branding area;
+- do not redesign unrelated slide content to accommodate the logo;
+- preserve approved artwork, typography, texture, colors, numbering, and composition.
+
+The newly chosen locked primary logo does **not** automatically replace logos inside already approved Post 01 files. Retroactive replacement requires an explicit human instruction because the chosen master includes its own black presentation background/glow and may require a different placement decision.
 
 Status: `HUMAN_PREFERENCE` + `APPROVED_RULE`
 
