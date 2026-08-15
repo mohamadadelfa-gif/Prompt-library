@@ -69,6 +69,20 @@ Do not begin designing or generating concepts yet.
 
 ### 8. Clarification Questions
 
+## Provenance
+
+Every material finding must point to the customer input or supplied project artifact that supports it. Interpretations must remain labelled as interpretations, and missing support must remain UNKNOWN.
+
+## Decision Gate
+
+- **PASS** — the supplied customer information is sufficiently structured for STR-002.
+- **CONDITIONAL** — analysis may continue with explicit non-blocking limitations.
+- **BLOCKED** — missing or contradictory customer information prevents reliable downstream analysis.
+
+## Handoff to STR-002
+
+Pass the structured objective, audience, requirements, unknowns, contradictions, clarification needs, provenance, confidence, and gate status. Do not pass unsupported assumptions as customer facts.
+
 ## Quality Criteria
 
 The analysis must be:

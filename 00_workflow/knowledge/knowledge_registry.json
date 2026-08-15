@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "classification_vocabulary": [
+    "SOURCE_FACT",
+    "SOURCE_DERIVED",
+    "SUPPLIED_DIRECTION",
+    "PROJECT_DECISION",
+    "HUMAN_PREFERENCE",
+    "MODEL_INFERENCE",
+    "APPROVED_RULE",
+    "UNKNOWN"
+  ],
+  "approval_states": ["ACTIVE_SOURCE", "PENDING_CONFIRMATION", "APPROVED", "REJECTED", "SUPERSEDED"],
+  "promotion_states": ["NOT_PROMOTED", "PROJECT_REFERENCE", "PROJECT_RULE", "SYSTEM_RULE"],
+  "records": [
+    {
+      "kb_id": "EBL-KB-001",
+      "source_id": "EBL-SRC-001",
+      "title": "English Beyond Language Social Media Content Brief",
+      "knowledge_type": "SUPPLIED_PROJECT_BRIEF",
+      "path": "00_workflow/knowledge/project/english_beyond_language_content_brief.md",
+      "project_id": "EBL",
+      "scope": "PROJECT",
+      "approval_state": "PENDING_CONFIRMATION",
+      "promotion_state": "NOT_PROMOTED",
+      "allowed_consumers": ["STR-001", "STR-002", "STR-003", "STR-004", "STR-005"],
+      "unknowns_required": true,
+      "provenance_required": true
+    },
+    {
+      "kb_id": "KLEE-SRC-001",
+      "source_id": "KLEE-SRC-001",
+      "title": "Paul Klee: The Visible and the Legible",
+      "knowledge_type": "EXTERNAL_SOURCE",
+      "path": "00_workflow/knowledge/external/paul_klee_sources.md",
+      "project_id": "EBL",
+      "scope": "PAUL_KLEE_NAMED_STYLE_STUDY",
+      "approval_state": "ACTIVE_SOURCE",
+      "promotion_state": "NOT_PROMOTED",
+      "allowed_consumers": ["STYLE-001"],
+      "unknowns_required": false,
+      "provenance_required": true
+    },
+    {
+      "kb_id": "KLEE-SRC-002",
+      "source_id": "KLEE-SRC-002",
+      "title": "Crescent Moon over the Rational",
+      "knowledge_type": "EXTERNAL_SOURCE",
+      "path": "00_workflow/knowledge/external/paul_klee_sources.md",
+      "project_id": "EBL",
+      "scope": "PAUL_KLEE_NAMED_STYLE_STUDY",
+      "approval_state": "ACTIVE_SOURCE",
+      "promotion_state": "NOT_PROMOTED",
+      "allowed_consumers": ["STYLE-001"],
+      "unknowns_required": false,
+      "provenance_required": true
+    },
+    {
+      "kb_id": "KLEE-SRC-003",
+      "source_id": "KLEE-SRC-003",
+      "title": "Collected Works of Paul Klee",
+      "knowledge_type": "EXTERNAL_SOURCE",
+      "path": "00_workflow/knowledge/external/paul_klee_sources.md",
+      "project_id": "EBL",
+      "scope": "PAUL_KLEE_NAMED_STYLE_STUDY",
+      "approval_state": "ACTIVE_SOURCE",
+      "promotion_state": "NOT_PROMOTED",
+      "allowed_consumers": ["STYLE-001"],
+      "unknowns_required": false,
+      "provenance_required": true
+    }
+  ]
+}

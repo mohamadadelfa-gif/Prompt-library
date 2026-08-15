@@ -36,6 +36,7 @@ STATUS: SOURCE_FACT / SOURCE_DERIVED
 SCOPE: PAUL_KLEE_NAMED_STYLE_STUDY
 AUTHORITY: HIGH — scholarly monograph
 APPROVAL_STATUS: ACTIVE_SOURCE
+PROVENANCE: Project-supplied PDF identified by source owner; bibliographic metadata recorded above.
 ```
 
 ### Source-supported themes relevant to visual study
@@ -68,6 +69,7 @@ STATUS: SOURCE_FACT / SOURCE_DERIVED
 SCOPE: PAUL_KLEE_NAMED_STYLE_STUDY
 AUTHORITY: HIGH — scholarly philosophical study
 APPROVAL_STATUS: ACTIVE_SOURCE
+PROVENANCE: Project-supplied EPUB identified by source owner; bibliographic metadata recorded above.
 ```
 
 ### Source-supported themes relevant to visual study
@@ -98,6 +100,7 @@ STATUS: SOURCE_FACT / REFERENCE_INDEX
 SCOPE: PAUL_KLEE_VISUAL_REFERENCE_RESEARCH
 AUTHORITY: MEDIUM — broad collected-works/reference compilation
 APPROVAL_STATUS: ACTIVE_SOURCE
+PROVENANCE: Project-supplied EPUB identified by source owner; bibliographic metadata recorded above.
 ```
 
 ### Primary project use

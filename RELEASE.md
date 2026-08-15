@@ -6,7 +6,8 @@ This release packages the controlled creative-production workflow, executable ru
 
 ## Production Guarantees
 
-- 25 active prompts with unique stage-aligned IDs.
+- 26 active prompts with unique stage-aligned IDs.
+- Canonical 15-stage production process with machine-validated goals, conditions, artifacts, gates, protocols, and memory effects.
 - Deprecated reference-selection file excluded from active execution.
 - Controlled SOURCE / DERIVED / DECISION / OUTPUT information model.
 - Explicit handoff package and decision-gate architecture.

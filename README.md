@@ -8,11 +8,17 @@ Customer Information
 → Strategy
 → Research
 → Visual Analysis
+→ Conditional Style Study and Motif Extraction
+→ Reference Style Synthesis
 → Visual DNA
+→ Platform / Template Synthesis
 → Art Direction
 → Generation
-→ Quality Control
-→ Approval / Root-Cause Revision
+→ Content Package
+→ Human Revision / Style Learning
+→ Conditional Editable Reconstruction
+→ Figma Implementation
+→ Quality Control / Final Approval
 
 ## Control Layer
 
@@ -26,6 +32,7 @@ The orchestration rules live in `00_workflow/`:
 - `decision_gates.md` — canonical gate vocabulary and approval rules
 - `information_model.md` — SOURCE / DERIVED / DECISION / OUTPUT states
 - `task_registry.json` — machine-readable stage/task index
+- `process_registry.json` — canonical 15-stage production process, including goals, conditions, artifacts, gates, protocols, and memory effects
 
 ## Canonical Gate Vocabulary
 
@@ -94,6 +101,7 @@ The optional `runtime/` package turns a prompt file into an auditable model exec
 - deprecated/retired references
 - domain-specific leakage
 - required task-contract metadata
+- canonical 15-stage process order, task coverage, protocol paths, stage dependencies, gates, artifacts, and memory effects
 
 ### Semantic validation
 
@@ -144,7 +152,7 @@ Production Candidate — consistency controls hardened; semantic release gate re
 
 ## Version
 
-3.0-production-candidate.2
+3.1-production-candidate
 
 ## Core Principle
 

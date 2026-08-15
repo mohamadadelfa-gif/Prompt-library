@@ -172,6 +172,16 @@ The research must be:
 - Domain-appropriate
 - Clearly separated from detailed visual analysis
 
+## Decision Gate
+
+- **PASS** — the reference set is relevant, traceable, sufficiently diverse, and ready for VIS analysis.
+- **CONDITIONAL** — the set is usable with explicit non-blocking reference gaps or limitations.
+- **BLOCKED** — required reference evidence is missing, unsupported, or insufficient for responsible analysis.
+
+## Handoff to RES-006 and VIS-001 through VIS-006
+
+Pass the documented reference set, selection rationale, evidence and provenance, observed landscape patterns, gaps, limitations, recommended analysis questions, confidence, and gate status. Do not pass detailed visual conclusions or creative decisions.
+
 ## Version
 
 2.0

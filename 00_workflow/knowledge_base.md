@@ -4,6 +4,8 @@
 
 The Prompt Library uses separated knowledge layers so project-specific knowledge, external research, source evidence, and creative interpretation are never silently conflated.
 
+The machine-readable index is `00_workflow/knowledge/knowledge_registry.json`. Every active knowledge source must declare its scope, approval state, promotion state, permitted task consumers, provenance requirement, and unknown-handling requirement there.
+
 ## Knowledge Domains
 
 ### 1. Project Knowledge — EBL
@@ -40,6 +42,14 @@ Current human-approved EBL production knowledge is registered in:
 - `00_workflow/knowledge/project/EBL_post_01_approved_decisions.md`
 
 Use the first file for reusable EBL project rules and the second for Post 01-specific decisions. Post-specific copy/layout decisions must not be silently generalized to future posts.
+
+#### Active supplied EBL brief
+
+Registered in:
+
+`00_workflow/knowledge/project/english_beyond_language_content_brief.md`
+
+Source ID: `EBL-SRC-001`. The record is project-scoped and pending confirmation as the current approved brief. Its directions must pass through Strategy reconciliation before becoming authoritative downstream decisions.
 
 ### 2. External / Named-Style Knowledge
 

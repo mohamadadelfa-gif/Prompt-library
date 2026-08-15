@@ -7,6 +7,7 @@ The Prompt Library is a **controlled creative-production system** in which promp
 ## Files
 
 - `workflow.md` — master execution pipeline and revision routing
+- `process_registry.json` — canonical machine-readable 15-stage production process
 - `task_contract.md` — universal contract for executable prompts
 - `stage_registry.md` — active stages, tasks, boundaries, and handoffs
 - `handoff_contract.md` — controlled information transfer between stages
@@ -18,3 +19,5 @@ The Prompt Library is a **controlled creative-production system** in which promp
 ## Execution Principle
 
 A prompt is not considered complete merely because it returns text. It is complete only when its output satisfies its contract and its decision gate permits the workflow to continue.
+
+The process is not considered coherent merely because each prompt validates independently. Every task and protocol must also occupy a declared process stage with an explicit goal, condition, output artifact, gate, and memory effect.

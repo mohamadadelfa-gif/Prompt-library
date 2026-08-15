@@ -28,6 +28,12 @@ jobs:
       - name: Validate active prompts
         run: python tests/validate_library.py
 
+      - name: Validate canonical production process
+        run: python tests/validate_process.py
+
+      - name: Validate controlled knowledge registry
+        run: python tests/validate_knowledge.py
+
       - name: Compile runtime and test modules
         run: python -m compileall -q runtime tests
 

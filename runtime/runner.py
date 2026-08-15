@@ -36,11 +36,14 @@ class OpenAIProvider:
         self.client = OpenAI(api_key=_require_env("OPENAI_API_KEY"))
 
     def generate(self, *, instructions: str, input_text: str, model: str) -> str:
-        response = self.client.responses.create(
-            model=model,
-            instructions=instructions,
-            input=input_text,
-        )
+        try:
+            response = self.client.responses.create(
+                model=model,
+                instructions=instructions,
+                input=input_text,
+            )
+        except Exception as exc:
+            raise RunnerError(f"OpenAI request failed ({type(exc).__name__}): {exc}") from exc
         text = getattr(response, "output_text", None)
         if not text:
             raise RunnerError("OpenAI returned no output_text")
@@ -57,7 +60,10 @@ class GeminiProvider:
 
     def generate(self, *, instructions: str, input_text: str, model: str) -> str:
         combined = f"SYSTEM TASK INSTRUCTIONS:\n{instructions}\n\nTASK INPUT:\n{input_text}"
-        interaction = self.client.interactions.create(model=model, input=combined)
+        try:
+            interaction = self.client.interactions.create(model=model, input=combined)
+        except Exception as exc:
+            raise RunnerError(f"Gemini request failed ({type(exc).__name__}): {exc}") from exc
         text = getattr(interaction, "output_text", None)
         if not text:
             raise RunnerError("Gemini returned no output_text")

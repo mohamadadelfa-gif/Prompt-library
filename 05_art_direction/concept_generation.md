@@ -84,6 +84,12 @@ The handoff must contain the complete concept set, comparison matrix, risks, and
 ## Quality Gate
 Concepts pass only if they are strategically relevant, conceptually distinct, explainable, developable, production-aware, and compatible with the Visual DNA.
 
+Return exactly one canonical status:
+
+- **PASS** — the concept set and ART-002 handoff satisfy the quality gate.
+- **CONDITIONAL** — evaluation may proceed with explicit non-blocking limitations.
+- **BLOCKED** — critical strategy, Visual DNA, diversity, or feasibility information is missing.
+
 ## Version
 2.1
 

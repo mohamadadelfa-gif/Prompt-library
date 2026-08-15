@@ -85,6 +85,10 @@ Every major prompt component must map to GEN-001 or an explicitly allowed model 
 ## Quality Gate
 The prompt must be clear, prioritized, traceable, internally consistent, model-appropriate, and faithful to GEN-001.
 
+## Handoff to Model Execution
+
+Pass the core prompt, negative constraints, model adaptation, priority map, traceability map, validation result, provenance, confidence, and READY status as one immutable execution package. If status is BLOCKED, do not execute the model.
+
 ## Version
 2.1
 

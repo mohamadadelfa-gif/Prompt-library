@@ -459,6 +459,10 @@ The research must be:
 - Explicit about uncertainty
 - Useful for strategic differentiation
 
+## Handoff to RES-005 and RES-006
+
+Pass only evidence-backed competitor records, market patterns, communication and visual patterns, supported opportunities, risks, unknowns, limitations, provenance, confidence, and the canonical gate status. Do not pass speculative gaps as market facts.
+
 ## Version
 
 2.0

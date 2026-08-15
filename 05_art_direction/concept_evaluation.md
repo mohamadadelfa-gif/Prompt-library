@@ -99,6 +99,12 @@ Include selected concept, strategic objective, Visual DNA requirements, critical
 ## Quality Gate
 The decision must be comparative, explainable, traceable to requirements, and defensible to client and production stakeholders.
 
+Return exactly one canonical status:
+
+- **APPROVE** — the selected concept is suitable for ART-003 and has the required human approval.
+- **REVISE** — the concept direction remains viable but requires a declared correction before ART-003.
+- **REJECT** — no evaluated concept should proceed; return to ART-001 with the documented reasons.
+
 ## Version
 2.0
 
