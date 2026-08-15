@@ -20,7 +20,8 @@ Use for:
 
 ```text
 EBL QUALITY =
-CONTENT FIDELITY
+MEMORY COMPLIANCE
++ CONTENT FIDELITY
 + BRAND MEMORY
 + SEMANTIC TYPOGRAPHY
 + VISUAL IDENTITY
@@ -30,7 +31,30 @@ CONTENT FIDELITY
 + HUMAN APPROVAL
 ```
 
-A high aesthetic score cannot compensate for a mandatory brand/content failure.
+A high aesthetic score cannot compensate for a mandatory memory, brand, asset, or content failure.
+
+---
+
+# Gate 0 — Memory Compliance — mandatory
+
+Run first:
+
+`00_workflow/qc/QC-EBL-MEM-001_memory_compliance_qc.md`
+
+Required result before continuing:
+
+`PASS_MEMORY_COMPLIANCE`
+
+or an explicitly documented non-blocking unknown.
+
+Blocking states include:
+
+- `BLOCKED_MEMORY_EVIDENCE_MISSING`;
+- `BLOCKED_CONFLICT`;
+- `CANONICAL_ASSET_UNRESOLVED` when the task requires exact canonical asset placement;
+- `FAIL`.
+
+If memory compliance fails, do not continue to aesthetic scoring as if the task were valid.
 
 ---
 
@@ -38,12 +62,21 @@ A high aesthetic score cannot compensate for a mandatory brand/content failure.
 
 Before QC, retrieve:
 
-1. `00_workflow/knowledge/project/EBL_project_memory.md`;
-2. `00_workflow/knowledge/project/EBL_approved_project_rules.md`;
-3. content-specific approved decision record, if one exists;
-4. `00_workflow/knowledge/project/EBL_logo_application_rules.md` when branding is present;
-5. current approved artifact / clean master / textless master;
-6. applicable asset-specific QC modules.
+1. `00_workflow/knowledge/project/EBL_memory_registry.json`;
+2. `00_workflow/knowledge/project/EBL_project_memory.md`;
+3. `00_workflow/knowledge/project/EBL_approved_project_rules.md`;
+4. `00_workflow/knowledge/project/EBL_decision_log.md`;
+5. `00_workflow/knowledge/project/EBL_failure_memory.md`;
+6. `00_workflow/knowledge/project/EBL_retrieval_map.md`;
+7. content-specific approved decision record, if one exists;
+8. `00_workflow/knowledge/project/EBL_asset_registry.json` when assets/branding are involved;
+9. `00_workflow/knowledge/project/EBL_logo_application_rules.md` when branding is present;
+10. current approved artifact / clean master / textless master;
+11. applicable asset-specific QC modules.
+
+For visual calibration also retrieve:
+
+`00_workflow/knowledge/project/EBL_visual_examples.md`
 
 For final-stage work additionally retrieve:
 
@@ -89,13 +122,16 @@ Do not invent alternative names.
 
 # Gate 3 — Chosen Logo Fidelity — mandatory when logo is present
 
-Chosen logo = **Geometric Reader Integrated Logo**.
+Chosen logo asset ID:
+
+`EBL-ASSET-LOGO-001 — Geometric Reader Integrated Logo`
 
 Run `QC-LOGO-001` plus these project checks.
 
 Verify:
 
 - approved master or approved production variant used;
+- exact asset state resolved through `EBL_asset_registry.json`;
 - no regeneration of a merely similar mark;
 - figure/book/arch/semicircle/structural-line geometry preserved;
 - integrated brand-name typography preserved;
@@ -109,6 +145,7 @@ Reject:
 - newly generated substitute logo;
 - changed logo typography;
 - changed colors/geometry;
+- invented canonical asset metadata;
 - extra decorative supports around logo;
 - collision with text/artwork;
 - visible cleanup residue.
@@ -117,8 +154,8 @@ Reject:
 
 Do not confuse:
 
-- the primary supplied master presentation;
-- an approved small production signature/application.
+- `EBL-ASSET-LOGO-001` — primary supplied master identity;
+- `EBL-ASSET-LOGO-001-APP-SMALL` — approved application pattern, not a replacement master.
 
 A production signature does not supersede the primary master.
 
@@ -274,7 +311,21 @@ LIVE SOURCE
 
 ---
 
-# Gate 9 — Multi-Asset / Carousel System — mandatory for sets
+# Gate 9 — Known Failure Memory — mandatory for revisions/finalization
+
+Retrieve `EBL_failure_memory.md` and record relevant failure IDs checked.
+
+Ask explicitly:
+
+```text
+DOES THIS OUTPUT REPRODUCE ANY ACTIVE EBL FAILURE PATTERN?
+```
+
+A reproduced known failure => `FAIL` even if other aesthetic checks pass.
+
+---
+
+# Gate 10 — Multi-Asset / Carousel System — mandatory for sets
 
 Check:
 
@@ -293,7 +344,7 @@ Semantic consistency is.
 
 ---
 
-# Gate 10 — Instagram Story QC — mandatory for Stories
+# Gate 11 — Instagram Story QC — mandatory for Stories
 
 Canvas target:
 
@@ -313,6 +364,10 @@ Check:
 
 ## Story-template status rule
 
+Current Story asset record:
+
+`EBL-ASSET-STORY-TPL-001 = REVIEW_CANDIDATE`
+
 A newly generated Story template remains:
 
 `PROJECT_REFERENCE / REVIEW_CANDIDATE`
@@ -323,7 +378,7 @@ Do not silently promote exact candidate coordinates/composition to a project rul
 
 ---
 
-# Gate 11 — Profile / Portrait QC — when applicable
+# Gate 12 — Profile / Portrait QC — when applicable
 
 Run `QC-IG-PROFILE-001`.
 
@@ -340,7 +395,7 @@ Do not apply the full feed-post design language to the avatar unless a branded a
 
 ---
 
-# Gate 12 — Platform / Export Integrity — mandatory for final output
+# Gate 13 — Platform / Export Integrity — mandatory for final output
 
 Distinguish:
 
@@ -362,7 +417,7 @@ Check:
 
 ---
 
-# Gate 13 — Final AI Closed Loop — mandatory for finalization
+# Gate 14 — Final AI Closed Loop — mandatory for finalization
 
 For FINAL-AI stages classify every asset:
 
@@ -388,12 +443,13 @@ Do not redesign unaffected assets merely because one asset failed.
 
 ---
 
-# Gate 14 — QC Evidence Package — mandatory for final review
+# Gate 15 — QC Evidence Package — mandatory for final review
 
 A verbal `PASS` is insufficient.
 
 Produce evidence appropriate to the asset:
 
+- memory-compliance trace;
 - full-set contact sheet;
 - native-resolution critical-area crop(s);
 - realistic Instagram-size preview;
@@ -404,9 +460,22 @@ Produce evidence appropriate to the asset:
 - Heavy QC report;
 - unresolved-risk list.
 
+Memory trace must include:
+
+```text
+MEMORY_FILES_RETRIEVED
+DECISION_IDS_APPLIED
+ASSET_IDS_APPLIED
+FAILURE_IDS_CHECKED
+EXAMPLE_IDS_USED
+UNRESOLVED_UNKNOWNS
+CONFLICTS
+MEMORY_COMPLIANCE_RESULT
+```
+
 ---
 
-# Gate 15 — Human Final Approval — mandatory
+# Gate 16 — Human Final Approval — mandatory
 
 AI may return:
 
@@ -424,6 +493,9 @@ Final creative acceptance remains human.
 
 ```text
 BLOCKED_CONTEXT_MISSING
+BLOCKED_MEMORY_EVIDENCE_MISSING
+BLOCKED_CONFLICT
+CANONICAL_ASSET_UNRESOLVED
 FAIL
 REVISION_REQUIRED
 PASS_FOR_HUMAN_REVIEW
@@ -438,20 +510,26 @@ FINAL_PUBLISHING_MASTER — human approval required
 Before presenting a final EBL visual, verify:
 
 ```text
-[ ] project memory retrieved
+[ ] memory compliance QC passed
+[ ] project memory registry retrieved
+[ ] task-specific retrieval map followed
 [ ] current human instruction obeyed
+[ ] newest non-superseded decisions used
 [ ] copy/meaning exact
 [ ] correct public name
-[ ] chosen logo/variant exact
+[ ] chosen logo asset/variant exact and resolved
+[ ] no canonical metadata invented
 [ ] logo optical clearance safe
 [ ] EBL visual grammar intact
 [ ] no infographic/generic-school drift
 [ ] typography semantically appropriate
 [ ] typography optically solid
+[ ] active failure memory checked
 [ ] no repair artifacts
 [ ] painterly texture intentional
 [ ] sequence/system coherent if multi-asset
 [ ] Story safe/useful if Story
+[ ] candidate/approved states not confused
 [ ] native-size inspection complete
 [ ] realistic platform-size inspection complete
 [ ] master and derivative separated
@@ -466,6 +544,7 @@ Before presenting a final EBL visual, verify:
 
 This protocol orchestrates rather than replaces:
 
+- `QC-EBL-MEM-001_memory_compliance_qc.md`
 - `QC-IG-001_instagram_visual_qc.md`
 - `QC-AUD-001_audience_catcher_qc.md`
 - `QC-SOC-001_social_visual_audience_gate.md`
