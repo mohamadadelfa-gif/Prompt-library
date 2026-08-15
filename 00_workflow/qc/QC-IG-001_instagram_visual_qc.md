@@ -30,6 +30,12 @@ Verify that each slide performs its assigned communication role and that the car
 ### IG-03 Instagram Readability
 Check feed/mobile readability, hierarchy, text density, contrast, line length, margins, crop safety and cover comprehension at thumbnail/feed size.
 
+Typography that appears faded, haloed, ghosted, partially erased, or inconsistently numbered must also pass:
+
+`00_workflow/qc/QC-TYPE-001_typography_integrity_qc.md`
+
+A contact sheet alone is not sufficient for typography approval; inspect native-resolution text regions.
+
 ### IG-04 EBL Visual Identity
 Check approved typography, palette, painterly/material character, asymmetrical visual-weight composition, negative space and the intended intelligent/human/editorial character.
 
@@ -41,6 +47,8 @@ Evaluate visual weight, rhythm, tension, gesture, material variation, organic/ge
 
 ### IG-07 Carousel System
 Check family resemblance plus meaningful variation, cross-slide rhythm, motif recurrence without repetition, palette development and correspondence between visual progression and narrative progression.
+
+For repeated system elements such as slide numbering, logo placement, or recurring labels, compare all slides side-by-side. Local correctness does not override carousel inconsistency.
 
 ### IG-08 Human Approval
 AI QC cannot grant final creative approval. Human approval is required before Figma handoff.
@@ -71,3 +79,11 @@ Profile/avatar images have different functional requirements from feed/carousel 
 `00_workflow/qc/QC-IG-PROFILE-001_instagram_profile_picture_qc.md`
 
 Do not evaluate a teacher/founder profile image as a miniature feed post. For profile pictures, recognition, circular-crop safety, natural identity fidelity and tiny-size performance take priority over decorative brand graphics.
+
+Logo placement/replacement on approved artwork must also use:
+
+`00_workflow/qc/QC-LOGO-001_logo_application_qc.md`
+
+Typography integrity and carousel numbering consistency must also use:
+
+`00_workflow/qc/QC-TYPE-001_typography_integrity_qc.md`
