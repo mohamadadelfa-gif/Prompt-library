@@ -6,6 +6,10 @@ This file is the durable working memory for **English Beyond Language** producti
 
 This file does **not** replace content-specific decision records. It tells future EBL tasks what must be remembered before creating or revising work.
 
+Project execution protocol:
+
+`00_workflow/EBL_visual_production_workflow.md`
+
 Knowledge types represented:
 
 - `HUMAN_PREFERENCE`
@@ -433,12 +437,18 @@ Final QC evidence is part of the deliverable:
 Before EBL visual creation or revision, retrieve:
 
 1. `EBL_project_memory.md` — this file;
-2. `EBL_approved_project_rules.md`;
-3. content-specific decision file if one exists;
-4. `EBL_logo_application_rules.md` when branding is present;
-5. `QC-EBL-001_project_master_qc.md`;
-6. asset-specific QC modules;
-7. approved source visual / clean master / textless master as appropriate.
+2. `00_workflow/EBL_visual_production_workflow.md`;
+3. `EBL_approved_project_rules.md`;
+4. content-specific decision file if one exists;
+5. `EBL_logo_application_rules.md` when branding is present;
+6. `QC-EBL-001_project_master_qc.md`;
+7. asset-specific QC modules;
+8. approved source visual / clean master / textless master as appropriate.
+
+For Story tasks also retrieve:
+
+- `EBL_story_template_rules.md`;
+- `instagram_template_synthesis.md`.
 
 For final creative production also retrieve:
 
