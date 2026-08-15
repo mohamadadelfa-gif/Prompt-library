@@ -13,7 +13,7 @@
 | 09 Generation | GEN-001–GEN-002 | Operationalize approved direction into generation specifications and prompts | Generated Output |
 | 10 Content Package | `content_package_contract.md` | Assemble visual, copy, caption, CTA, accessibility, and publishing outputs | Approved Content Package |
 | 11 Human Revision / Style Learning | `human_feedback_style_learning.md` | Capture revision, approval, and reusable style knowledge | Approved Revision / Style Knowledge |
-| 12 Figma Implementation | `figma_output_contract.md` | Build approved content as editable production design and template candidate | Approved Figma Master |
+| 12 Figma Implementation | `editable_reconstruction_preparation.md` → `figma_output_contract.md` | Prepare approved raster visuals for exact editable reconstruction, then build the editable production design | Approved Figma Master |
 | 13 Quality Control | QC-001–QC-002 + `stepwise_creative_review.md` | Review outputs, diagnose root causes, and route revision | Final Approval / Revision Route |
 
 ## Stage Boundaries
@@ -52,7 +52,7 @@ May assemble approved content components. Must not introduce new strategic claim
 May record human changes and extract approved reusable style knowledge. Must not silently rewrite upstream decisions or promote one-off corrections to system rules.
 
 ### Figma Implementation
-May implement the approved visual as editable design structure. Must not invent requirements or silently replace the approved content.
+For flattened/raster approved visuals, must first run `editable_reconstruction_preparation.md` to source-lock the approved visual, derive textless artwork, map editable elements, and create a controlled reconstruction handoff. Figma may then implement the approved visual as editable design structure. Neither preparation nor Figma implementation may redesign, reinterpret, or silently replace the approved content.
 
 ### Quality Control
 May evaluate outputs and diagnose root causes. Must not rewrite upstream decisions while evaluating them.
