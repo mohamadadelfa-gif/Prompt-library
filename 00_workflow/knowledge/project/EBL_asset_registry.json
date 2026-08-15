@@ -1,10 +1,11 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "project_id": "EBL",
   "updated_at": "2026-08-16",
   "asset_policy": {
     "canonical_rule": "When a canonical asset exists, use that exact approved asset or an explicitly approved variant. Do not regenerate a similar substitute.",
-    "verification_rule": "File path, hash, dimensions, and variant status must be verified before they are treated as canonical metadata.",
+    "verification_rule": "Path, hash, dimensions, mode and variant status must be verified before they are treated as asset metadata.",
+    "fingerprint_rule": "A verified external/source binary fingerprint may identify the approved asset even when the binary has not yet been ingested into the repository.",
     "unknown_rule": "Use null or PENDING_VERIFICATION rather than inventing metadata."
   },
   "assets": [
@@ -16,10 +17,14 @@
       "human_selected": true,
       "supersedes": ["EARLIER_OVERLAPPING_CIRCLE_LOGO_DIRECTION"],
       "canonical_repo_path": null,
-      "canonical_sha256": null,
-      "canonical_dimensions_px": null,
-      "canonical_file_verification": "PENDING_CANONICAL_ASSET_INGESTION",
-      "source_provenance": "Human-selected supplied image from the EBL production conversation. The exact binary has not yet been verified as a canonical repository asset.",
+      "repository_ingestion_status": "NOT_YET_INGESTED_AS_BINARY",
+      "verified_source_filename": "Codex Image Aug 15, 2026, 02_47_23 PM.png",
+      "verified_source_sha256": "4cb1c9796cf358338ef6d0c49486cd2e04292775b838c603ffdf658aede283f7",
+      "verified_source_dimensions_px": [1536, 1024],
+      "verified_source_mode": "RGBA",
+      "source_binary_verification": "VERIFIED_IN_ACTIVE_PRODUCTION_RUNTIME_2026-08-16",
+      "source_provenance": "Human-selected supplied image from the EBL production conversation; exact binary fingerprint verified in the active production runtime. Repository binary path remains unresolved.",
+      "resolution_rule": "If a future supplied/uploaded logo binary matches this SHA-256, it may be identified as the locked chosen source binary unless a newer human-approved canonical asset supersedes it.",
       "construction_memory": [
         "simplified reader/human figure",
         "burnt-orange circular head",
@@ -66,10 +71,13 @@
       "name": "EBL 1080x1920 Story Template Candidate",
       "status": "REVIEW_CANDIDATE",
       "canonical_repo_path": null,
-      "canonical_sha256": null,
-      "canonical_dimensions_px": [1080, 1920],
-      "canonical_file_verification": "NOT_APPROVED_AS_REUSABLE_MASTER",
-      "source_provenance": "Generated during the EBL Story-template conversation using the approved visual system.",
+      "repository_ingestion_status": "NOT_YET_INGESTED_AS_BINARY",
+      "verified_source_filename": "English_Beyond_Language_Story_Template_1080x1920_CLEAN.png",
+      "verified_source_sha256": "be8cd12d4a3ca2ecbe0ea860b0ab9234a48836c6c2359aec5d5722516b1494d5",
+      "verified_source_dimensions_px": [1080, 1920],
+      "verified_source_mode": "RGB",
+      "source_binary_verification": "VERIFIED_IN_ACTIVE_PRODUCTION_RUNTIME_2026-08-16",
+      "source_provenance": "Generated during the EBL Story-template conversation using the approved visual system; source fingerprint recorded for candidate tracking.",
       "promotion_condition": "Requires explicit human approval before exact composition/coordinates become an approved reusable Story asset.",
       "required_qc": ["QC-EBL-001", "QC-EBL-MEM-001"]
     }
