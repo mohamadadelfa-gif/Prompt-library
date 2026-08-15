@@ -47,9 +47,18 @@ AFFECTED MEMORY / QC
 **Provenance:** Explicit human selection of the supplied logo image.  
 **Affected:** `EBL_asset_registry.json`, `EBL_logo_application_rules.md`, `QC-LOGO-001`, `QC-EBL-001`.
 
-### Important asset-state note
+### Verified source fingerprint
 
-The decision is locked, but the exact canonical binary is not yet verified in the repository. Therefore the asset registry records repository path/hash/dimensions as `PENDING_CANONICAL_ASSET_INGESTION` rather than inventing metadata.
+The chosen source binary was verified in the active production runtime on 2026-08-16:
+
+```text
+filename: Codex Image Aug 15, 2026, 02_47_23 PM.png
+sha256: 4cb1c9796cf358338ef6d0c49486cd2e04292775b838c603ffdf658aede283f7
+dimensions: 1536 × 1024
+mode: RGBA
+```
+
+The repository binary path is still unresolved. This is intentional and explicit: the verified fingerprint identifies the chosen source binary, but no repository path may be invented until the binary is actually ingested and verified there.
 
 ---
 
@@ -128,6 +137,31 @@ The decision is locked, but the exact canonical binary is not yet verified in th
 **Scope:** Instagram Story.  
 **Status:** PLATFORM RULE APPROVED; exact candidate composition PENDING HUMAN APPROVAL.  
 **Affected:** `EBL_story_template_rules.md`, `EBL_asset_registry.json`, `QC-EBL-001`.
+
+---
+
+## EBL-DEC-010 — Disciplined Operational Memory
+
+**Date:** 2026-08-16  
+**Decision:** EBL memory must operate as a structured system, not as one prose document. The project uses separate memory registry, asset registry, decision log, failure memory, visual-example index, task retrieval map, memory-compliance QC and project master QC.  
+**Rationale:** Memory becomes reliable only when it is retrievable, scoped, versioned/superseded, testable, and able to reject known failures.  
+**Scope:** EBL project knowledge/workflow architecture.  
+**Status:** APPROVED RULE.  
+**Affected:** `EBL_memory_registry.json`, `EBL_asset_registry.json`, `EBL_failure_memory.md`, `EBL_visual_examples.md`, `EBL_retrieval_map.md`, `QC-EBL-MEM-001`, `QC-EBL-001`, `EBL_visual_production_workflow.md`.
+
+### Operational rule
+
+```text
+MEMORY EXISTS
+→ MEMORY RETRIEVED
+→ MEMORY APPLIED
+→ MEMORY COMPLIANCE TESTED
+→ CREATIVE / TECHNICAL QC
+→ HUMAN APPROVAL
+→ LEARNING UPDATE
+```
+
+A prose-only memory update is incomplete when future retrieval/QC cannot consume it.
 
 ---
 
