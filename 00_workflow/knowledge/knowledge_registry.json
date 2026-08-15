@@ -82,6 +82,20 @@
       "allowed_consumers": ["FINAL-AI-001", "FINAL-AI-002"],
       "unknowns_required": false,
       "provenance_required": true
+    },
+    {
+      "kb_id": "SYS-FINAL-AI-001",
+      "source_id": "SYS-FINAL-AI-001",
+      "title": "Final AI Production Learnings — System Layer",
+      "knowledge_type": "APPROVED_RULE",
+      "path": "00_workflow/knowledge/system/final_ai_production_learnings.md",
+      "project_id": null,
+      "scope": "SYSTEM_WORKFLOW_FINAL_AI_PRODUCTION",
+      "approval_state": "APPROVED",
+      "promotion_state": "SYSTEM_RULE",
+      "allowed_consumers": ["FINAL-AI-001", "FINAL-AI-002", "QC-IG-001", "QC-LOGO-001", "QC-TYPE-001"],
+      "unknowns_required": false,
+      "provenance_required": true
     }
   ]
 }
