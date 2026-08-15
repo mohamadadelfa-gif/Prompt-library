@@ -29,6 +29,133 @@ Do not call every human correction a style rule.
 
 A style rule becomes reusable knowledge only after explicit human approval and provenance capture.
 
+---
+
+# PROD-REV-001 — Human-Directed Output + Visual Revision
+
+## Governing Relationship
+
+```text
+HUMAN = decides WHAT to edit
+REFERENCE = shows / informs HOW the requested edit should look
+AI = applies the requested edit
+```
+
+The AI must not independently redesign areas that the human did not request to change.
+
+## Required Inputs
+
+```text
+EXISTING_OUTPUT
+VISUAL_REFERENCE
+HUMAN_EDITING_INSTRUCTIONS
+```
+
+The human editing instructions define the authorized change scope.
+
+## Revision Rules
+
+Apply only the requested changes.
+
+Preserve everything that was not requested.
+
+Do not:
+
+- redesign the entire output;
+- introduce unrelated elements;
+- change content without permission;
+- change the visual identity without instruction;
+- add new concepts;
+- remove existing elements unless requested;
+- copy the reference literally.
+
+The result must remain an **edited version of the existing output**, not a new design disguised as a revision.
+
+## Reference Analysis Scope
+
+Use the reference only where relevant to the requested change. It may inform:
+
+- composition;
+- hierarchy;
+- proportions;
+- spacing;
+- typography;
+- color;
+- imagery;
+- shapes;
+- graphic elements;
+- texture;
+- lighting;
+- visual weight;
+- alignment;
+- overall visual character.
+
+Do not transfer reference characteristics unrelated to the human request.
+
+## Necessary Execution Adjustment
+
+Distinguish:
+
+```text
+REQUESTED_CHANGE
+```
+
+from:
+
+```text
+NECESSARY_EXECUTION_ADJUSTMENT
+```
+
+A necessary execution adjustment is a minimal technical change required to make the requested edit work—for example, a small text-box width change required to preserve an approved line break. It must not become permission for unrelated redesign.
+
+## Required Revision Output
+
+Every human-directed revision should produce:
+
+### 01. Applied Changes
+
+List exactly what changed.
+
+### 02. Preserved Elements
+
+List important elements intentionally left unchanged.
+
+### 03. Revised Design Specification
+
+Provide the complete revised specification or production description.
+
+### 04. Revised Visual
+
+Produce or update the visual so the requested change is visible as design proof.
+
+The preferred comparison model is:
+
+```text
+ORIGINAL OUTPUT
+      ↓
+REFERENCE
+      ↓
+REVISED OUTPUT
+```
+
+The revised visual is not merely an illustration of the idea. It is evidence that the requested edit was correctly executed while non-requested elements were preserved.
+
+## Revision QC
+
+Before marking a revision complete, check:
+
+1. Did every requested change occur?
+2. Was any unrequested content changed?
+3. Was any unrequested visual element redesigned?
+4. Were approved copy and meaning preserved?
+5. Did the reference influence only the authorized scope?
+6. Were necessary execution adjustments minimal and declared?
+7. Can a human compare original → reference → revised output and immediately verify the result?
+
+If an unrelated change occurred, route back to revision rather than accepting it as creative improvement.
+
+---
+
 ## Artifact Types
 
 ### 1. Generated Output
@@ -78,6 +205,10 @@ PROJECT_ID
 TASK_ID
 PROMPT_VERSION
 INPUT_ARTIFACT
+REFERENCE_ARTIFACT
+HUMAN_EDITING_INSTRUCTIONS
+REQUESTED_CHANGES
+NECESSARY_EXECUTION_ADJUSTMENTS
 GENERATED_OUTPUT
 HUMAN_REVISION
 APPROVED_OUTPUT
@@ -172,3 +303,5 @@ A human revision becomes an approved reference only when:
 8. Keep aesthetic preference separate from customer requirements.
 9. Version every approved style rule.
 10. Allow style rules to be superseded without deleting historical evidence.
+11. Never use a reference as permission to redesign outside the human-requested scope.
+12. Treat preservation of non-requested elements as an explicit success criterion.
