@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The Prompt Library uses separated knowledge layers so project-specific knowledge, external research, source evidence, and creative interpretation are never silently conflated.
+The Prompt Library uses separated knowledge layers so project-specific knowledge, external research, source evidence, creative interpretation, and reusable system workflow knowledge are never silently conflated.
 
 The machine-readable index is `00_workflow/knowledge/knowledge_registry.json`. Every active knowledge source must declare its scope, approval state, promotion state, permitted task consumers, provenance requirement, and unknown-handling requirement there.
 
@@ -123,6 +123,43 @@ Examples:
 - reusable Instagram template rules
 - source-informed creative synthesis heuristics
 
+### 5. System Workflow Knowledge
+
+Stores reusable cross-project production behavior that has passed the promotion process and is explicitly approved as a system rule.
+
+Examples:
+
+- revision isolation rules;
+- clean-source hierarchy;
+- preserve-vs-intervene logic;
+- closed-loop finalization behavior;
+- master-versus-platform-derivative handling;
+- required QC evidence structure.
+
+System workflow knowledge must not contain client-specific copy, confidential details, exact project coordinates, or one-off aesthetic preferences.
+
+#### Active Final AI system knowledge
+
+Registered in:
+
+`00_workflow/knowledge/system/final_ai_production_learnings.md`
+
+This file contains approved cross-project lessons from the finalization workflow, including:
+
+- preservation as a valid final-edit decision;
+- cleanest-approved-source-first repair;
+- mandatory-defect precedence over optional polish;
+- semantic consistency over mechanical uniformity;
+- local failure → local fix + global re-check;
+- master-first / derivative-once production;
+- QC evidence as part of production;
+- AI production pass ≠ human final approval;
+- finalization as a closed loop.
+
+Its orchestration protocol is:
+
+`00_workflow/final_ai_closed_loop_production.md`
+
 ## Source Separation
 
 Every knowledge record must identify its status:
@@ -204,6 +241,8 @@ OPTIONAL SYSTEM RULE
 
 Project-specific knowledge must not become a system rule automatically.
 
+For workflow learning, explicit human instructions such as **learn**, **structuralize**, **refine the process**, or **promote this as a reusable rule** may authorize promotion when the lesson is truly cross-project and privacy-safe.
+
 ## Named-Style Source Promotion Rule
 
 For named-style work such as Paul Klee:
@@ -256,6 +295,8 @@ Template / production task
   → Approved Project Rules + Platform Rules
 
 Creative AI Final Edit
+  → final_ai_production_learnings.md
+  → final_ai_closed_loop_production.md
   → approved project rules
   → content-specific decisions
   → approved artifact / visual DNA / revision history
@@ -263,6 +304,8 @@ Creative AI Final Edit
   → creative_synthesis_sources.md
 
 Final AI Creative Synthesis + Heavy QC
+  → final_ai_production_learnings.md
+  → final_ai_closed_loop_production.md
   → FINAL-AI-001 candidate
   → all approved project/context sources
   → creative_synthesis_sources.md
@@ -276,9 +319,12 @@ When sources conflict:
 
 1. explicit current client decision;
 2. approved project rule;
-3. supplied project source evidence;
-4. authoritative external source;
-5. model inference.
+3. approved system workflow rule for process behavior;
+4. supplied project source evidence;
+5. authoritative external source;
+6. model inference.
+
+A system workflow rule controls **how the process is executed**; it must not override project-specific creative/content decisions.
 
 Conflicts must be surfaced rather than silently reconciled.
 
