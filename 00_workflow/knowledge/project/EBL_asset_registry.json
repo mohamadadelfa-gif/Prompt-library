@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "project_id": "EBL",
+  "updated_at": "2026-08-16",
+  "asset_policy": {
+    "canonical_rule": "When a canonical asset exists, use that exact approved asset or an explicitly approved variant. Do not regenerate a similar substitute.",
+    "verification_rule": "File path, hash, dimensions, and variant status must be verified before they are treated as canonical metadata.",
+    "unknown_rule": "Use null or PENDING_VERIFICATION rather than inventing metadata."
+  },
+  "assets": [
+    {
+      "asset_id": "EBL-ASSET-LOGO-001",
+      "asset_type": "PRIMARY_LOGO",
+      "name": "Geometric Reader Integrated Logo",
+      "status": "LOCKED_APPROVED_IDENTITY",
+      "human_selected": true,
+      "supersedes": ["EARLIER_OVERLAPPING_CIRCLE_LOGO_DIRECTION"],
+      "canonical_repo_path": null,
+      "canonical_sha256": null,
+      "canonical_dimensions_px": null,
+      "canonical_file_verification": "PENDING_CANONICAL_ASSET_INGESTION",
+      "source_provenance": "Human-selected supplied image from the EBL production conversation. The exact binary has not yet been verified as a canonical repository asset.",
+      "construction_memory": [
+        "simplified reader/human figure",
+        "burnt-orange circular head",
+        "black beret",
+        "minimal facial line",
+        "deep muted-green body",
+        "black geometric shoulder/arm",
+        "open book in ochre and warm cream",
+        "tall warm-cream arch",
+        "thin vertical and horizontal black structural lines",
+        "far-right black dot",
+        "lower split semicircle in muted deep green and rust/orange",
+        "black quarter-circle in green field",
+        "integrated ENGLISH / BEYOND / LANGUAGE typography"
+      ],
+      "forbidden_changes": [
+        "regenerate a similar logo",
+        "change geometry",
+        "retype integrated brand name",
+        "change colors without human approval",
+        "silently remove or add structural elements",
+        "promote an unreviewed variant to canonical status"
+      ],
+      "required_qc": ["QC-LOGO-001", "QC-EBL-001", "QC-EBL-MEM-001"]
+    },
+    {
+      "asset_id": "EBL-ASSET-LOGO-001-APP-SMALL",
+      "asset_type": "APPROVED_APPLICATION_PATTERN",
+      "name": "Small Bottom-Left Production Signature Application",
+      "status": "APPROVED_APPLICATION_PATTERN_NOT_CANONICAL_MASTER",
+      "parent_asset_id": "EBL-ASSET-LOGO-001",
+      "canonical_repo_path": null,
+      "canonical_sha256": null,
+      "canonical_dimensions_px": null,
+      "canonical_file_verification": "PENDING_VARIANT_ASSET_INGESTION",
+      "source_provenance": "Application pattern established in the approved EBL Post 01 production cycle.",
+      "use_rule": "Reuse an already approved production-signature asset when available. Do not reconstruct a new variant from memory when an exact approved asset can be sourced.",
+      "does_not_supersede_parent": true,
+      "required_qc": ["QC-LOGO-001", "QC-EBL-001", "QC-EBL-MEM-001"]
+    },
+    {
+      "asset_id": "EBL-ASSET-STORY-TPL-001",
+      "asset_type": "INSTAGRAM_STORY_TEMPLATE",
+      "name": "EBL 1080x1920 Story Template Candidate",
+      "status": "REVIEW_CANDIDATE",
+      "canonical_repo_path": null,
+      "canonical_sha256": null,
+      "canonical_dimensions_px": [1080, 1920],
+      "canonical_file_verification": "NOT_APPROVED_AS_REUSABLE_MASTER",
+      "source_provenance": "Generated during the EBL Story-template conversation using the approved visual system.",
+      "promotion_condition": "Requires explicit human approval before exact composition/coordinates become an approved reusable Story asset.",
+      "required_qc": ["QC-EBL-001", "QC-EBL-MEM-001"]
+    }
+  ]
+}
