@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Validate that an approved logo is applied to an existing design without changing the approved design itself, while also confirming that the logo remains optically clear, readable, and non-colliding in the real composition.
+Validate that an approved logo is applied to an existing design without changing the approved design itself, while also confirming that the logo remains optically clear, readable, non-colliding, and free of repair artifacts in the real composition.
 
 This QC is for logo placement / replacement on approved artwork. It does not authorize redesign, typography changes, composition changes, or new decorative treatment.
 
@@ -19,9 +19,11 @@ When the human requests logo placement or replacement:
 PLACE / REPLACE LOGO
 → PRESERVE EVERYTHING ELSE
 → TEST ACTUAL OPTICAL CLEARANCE
+→ VERIFY CLEANUP INTEGRITY
 ```
 
 A geometrically consistent placement is not automatically a visually correct placement.
+A technically successful removal is not automatically a clean visual repair.
 
 ---
 
@@ -34,7 +36,8 @@ A geometrically consistent placement is not automatically a visually correct pla
 - existing-logo state (present / absent);
 - requested anchor / size rule;
 - multi-slide set when consistency is required;
-- review preview at realistic viewing size.
+- review preview at realistic viewing size;
+- local close-up of any logo-removal / repair zone.
 
 ---
 
@@ -114,6 +117,37 @@ If no old logo exists:
 - add the approved logo at the defined anchor;
 - do not move surrounding content.
 
+## LOGO-04B Replacement Cleanup Integrity — mandatory
+
+When an existing logo is removed, covered, masked, cloned, inpainted, or otherwise repaired, the repaired region must be visually clean and must not introduce new objects or residue.
+
+Reject any repair that leaves:
+
+- gray / dark blobs;
+- ghost marks from the old logo;
+- smudges;
+- duplicated texture patches;
+- blurred stains;
+- hard clone seams;
+- halos;
+- accidental dots / lines;
+- color discontinuities;
+- texture breaks that read as new design elements;
+- any artifact that was not present in the locked source design.
+
+Required check:
+
+```text
+SOURCE AREA
+→ LOGO REMOVAL / REPAIR
+→ 100% CLOSE-UP INSPECTION
+→ REALISTIC-SIZE INSPECTION
+```
+
+A repair artifact is an unauthorized visual change, even when it sits inside the previous logo-removal zone.
+
+If an artifact remains => REVISION_REQUIRED / FAIL.
+
 ## LOGO-05 Clarity Without Extra Objects — mandatory
 
 The logo must remain visually clear without adding unrelated support graphics.
@@ -164,6 +198,7 @@ Logo placement is not final until the human reviews the multi-slide preview and 
 - scale;
 - clarity;
 - consistency;
+- cleanup integrity;
 - preservation of the original design.
 
 AI QC cannot grant final approval.
@@ -241,7 +276,7 @@ The score supports diagnosis but cannot override a mandatory-gate failure.
 | Multi-slide Position Consistency | 10 |
 | Visual Hierarchy / Secondary Presence | 10 |
 | Edge / Crop Safety | 5 |
-| Clean Application / No Extra Objects | 5 |
+| Clean Application / Repair Integrity / No Extra Objects | 5 |
 | **TOTAL** | **100** |
 
 ## Result Bands
@@ -272,7 +307,9 @@ Before presenting a logo-placement review, answer:
 10. For a carousel, which slide is the worst-case clearance slide?
 11. Does that worst-case slide pass without changing the approved design?
 12. Were any extra support objects added around the logo?
-13. Has the human approved the review candidate?
+13. If an old logo was removed, does the repaired zone contain any ghost, blob, smudge, seam, halo, or texture break?
+14. Was the repaired logo zone checked at 100% close-up and at realistic viewing size?
+15. Has the human approved the review candidate?
 
 ---
 
@@ -289,7 +326,8 @@ For English Beyond Language Post 01:
 - do not change any text size, font, line break, alignment, shape, painterly form, color, texture, numbering, or composition;
 - if an old logo exists, replace only that logo area;
 - if no logo exists, add the chosen logo at the fixed anchor without changing the design;
-- assess optical bounds, not just the 185×185 or other placement rectangle;
+- after any old-logo removal, inspect the repair zone for ghost marks / gray blobs / seams before presenting the review;
+- assess optical bounds, not just the placement rectangle;
 - Slide 1 is currently a known stress case because the final copy line extends lower toward the logo zone;
 - any universal logo placement must pass Slide 1 before being approved for all six slides.
 
@@ -306,9 +344,11 @@ Before final production, provide:
 3. identical-logo-size check;
 4. optical-clearance check;
 5. worst-case-slide identification;
-6. note confirming no non-logo changes were authorized;
-7. assessment score + mandatory-gate result;
-8. HUMAN APPROVAL gate.
+6. local logo-area close-ups, especially where an old logo was removed;
+7. cleanup-integrity check confirming no ghost marks / blobs / seams;
+8. note confirming no non-logo changes were authorized;
+9. assessment score + mandatory-gate result;
+10. HUMAN APPROVAL gate.
 
 ---
 
@@ -325,7 +365,7 @@ A mandatory-gate failure overrides any subjective visual score.
 
 ---
 
-## Learned Failure Pattern — 2026-08-15
+## Learned Failure Pattern — Optical Collision — 2026-08-15
 
 Observed issue:
 
@@ -344,3 +384,32 @@ BOUNDING-BOX CONSISTENCY ≠ VISUAL CLEARANCE
 ```
 
 Future logo assessment must verify the actual visible extremes of the logo against the nearest content before approval.
+
+## Learned Failure Pattern — Repair Artifacts — 2026-08-15
+
+Observed issue:
+
+After old-logo cleanup / replacement, several small gray marks remained above the logo. They were not part of the approved design or the chosen logo.
+
+Root cause:
+
+- logo-removal repair was treated as a technical background reconstruction step;
+- the repaired region was not sufficiently inspected at local close-up scale;
+- residual / generated marks were able to survive into the review even though the broader composition looked acceptable.
+
+Learning promoted into QC:
+
+```text
+CLEANUP REGION = PART OF THE QC SURFACE
+```
+
+and:
+
+```text
+NO GHOSTS
+NO BLOBS
+NO SMUDGES
+NO REPAIR-INTRODUCED OBJECTS
+```
+
+Every logo replacement must include a local repair-integrity inspection before the candidate can pass for human review.
