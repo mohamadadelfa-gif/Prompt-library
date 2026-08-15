@@ -44,10 +44,14 @@ Approved copy:
 
 `But can you use it to do the things that matter to you?`
 
-Approved emphasis:
+Approved emphasis — latest human correction:
 
-- `things that matter to you` may receive rust/red emphasis;
+- only `things that matter` is rust/red;
+- `the` remains black;
+- `to you?` remains black;
 - the slide establishes the master editorial tone for the carousel.
+
+Do not recolor the whole final phrase.
 
 ---
 
@@ -126,6 +130,20 @@ Critical content rule:
 
 The previously generated third line/point is unauthorized and must remain removed.
 
+Typography integrity correction:
+
+- black/charcoal text must remain visually solid and intentional;
+- do not leave pale halos, faded edges, ghosted duplicate edges, washed black, or inpainting residue around Slide 5 text;
+- preserve the approved font, size, line breaks, alignment and letterform proportions while restoring raster clarity;
+- validate Slide 5 typography at native resolution under `QC-TYPE-001`.
+
+Slide-number correction:
+
+- Slide 5 must use the same carousel numbering system as the other slides;
+- approved format: `05 / 06`;
+- match the same top-left anchor, font logic, weight relationship, size relationship, spacing around the slash, and color used by Slides 1–4 and 6;
+- `05` alone is not acceptable.
+
 Status: explicit human correction, approved 2026-08-15.
 
 ---
@@ -180,6 +198,33 @@ CTA:
 
 ---
 
+## Carousel Numbering System — Mandatory
+
+All six slides use one repeated system component:
+
+```text
+01 / 06
+02 / 06
+03 / 06
+04 / 06
+05 / 06
+06 / 06
+```
+
+Consistency requirements:
+
+- same top-left anchor;
+- same font family/system;
+- same weight relationship between slide number and total;
+- same size relationship;
+- same spacing around slash;
+- same color;
+- same baseline logic.
+
+Numbering is part of the carousel system, not a local decorative element.
+
+---
+
 ## Visual System for Post 01
 
 Preserve:
@@ -203,22 +248,25 @@ Avoid:
 - converting the carousel into an infographic system;
 - generic language-school icons as the main visual structure;
 - unrelated redesign during corrections;
-- new copy not approved by the human.
+- new copy not approved by the human;
+- faded/ghosted typography after raster editing.
 
 ---
 
 ## Logo Decision for Post 01
 
-Use the selected integrated English Beyond Language logo as a small bottom-left signature.
+Use the selected Geometric Reader Integrated Logo as a small bottom-left signature under the current logo-use rules.
 
 Rules:
 
 - clear but not eye-catching;
-- consistent optical size;
+- one consistent size and anchor across all six slides;
 - do not compete with the headline/body;
 - replace old/random logos rather than redesigning the slide;
-- on slides without a previous logo, place it in the corresponding quiet bottom-left signature zone;
-- refine logo raster quality without changing unrelated slide pixels.
+- no extra support objects around the logo;
+- assess optical bounds, not only the layer rectangle;
+- clean all replacement artifacts before approval;
+- follow `QC-LOGO-001` and `EBL_logo_application_rules.md`.
 
 ---
 
@@ -242,7 +290,11 @@ REQUESTED EDIT = AUTHORIZED CHANGE AREA
 EVERYTHING ELSE = PRESERVE
 ```
 
-If a human requests a logo, copy, or typography correction, do not silently change painterly artwork, palette, layout, numbering, or unrelated typography.
+If a human requests a logo, copy, numbering, or typography correction, do not silently change painterly artwork, palette, layout, or unrelated typography.
+
+Typography revisions must also follow:
+
+`00_workflow/qc/QC-TYPE-001_typography_integrity_qc.md`
 
 ---
 
