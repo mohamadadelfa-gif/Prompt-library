@@ -46,9 +46,11 @@ A downstream stage may transform information only within its task boundary.
    ↓
 12 Human Revision + Style Learning
    ↓
-13 Figma Implementation
+13 Editable Reconstruction Preparation (when approved output is raster/flattened)
    ↓
-14 Quality Control / Final Approval
+14 Figma Implementation
+   ↓
+15 Quality Control / Final Approval
 ```
 
 ## Style-Learning Rule
@@ -142,8 +144,9 @@ CHECKPOINT 05  Template Candidate
 CHECKPOINT 06  Art Direction
 CHECKPOINT 07  Generation Output
 CHECKPOINT 08  Human Revision / Style Learning
-CHECKPOINT 09  Figma Implementation
-CHECKPOINT 10  Final Content Package
+CHECKPOINT 09  Editable Reconstruction Preparation (when applicable)
+CHECKPOINT 10  Figma Implementation
+CHECKPOINT 11  Final Content Package
 ```
 
 Use `stepwise_creative_review.md` for checkpoint criteria and gate states.
@@ -197,13 +200,39 @@ A motif library stores recurring visual vocabulary extracted from source/style e
 
 Do not collapse these artifact types.
 
+## Editable Reconstruction Preparation Rule
+
+When an approved visual intended for production is rasterized, flattened, generated, or otherwise not directly editable, run:
+
+`editable_reconstruction_preparation.md`
+
+before Figma implementation.
+
+The protocol must:
+
+- lock and preserve the approved PNG as the visual source of truth;
+- inventory text, raster artwork, simple vectors/signs, and brand assets;
+- derive textless artwork only where editable reconstruction requires it;
+- classify reconstructed hidden pixels as DERIVED;
+- preserve non-text artwork and composition;
+- create an editable layer map;
+- create a typography reconstruction specification;
+- pass textless-artwork QC;
+- produce a complete Figma handoff package.
+
+The approved PNG, textless artwork, and Figma master are separate artifacts.
+
+A textless reconstruction must not become a new art direction or replace the approved PNG as provenance evidence.
+
 ## Figma Rule
 
 Every approved visual output intended for production must have a Figma implementation package.
 
-The Figma master is the editable production artifact, while the generated image remains provenance evidence / visual reference unless explicitly approved as the production asset.
+The Figma master is the editable production artifact, while the generated/approved image remains provenance evidence and visual reference unless explicitly approved as the production asset.
 
-See `figma_output_contract.md`.
+When Editable Reconstruction Preparation applies, the approved PNG should remain available in Figma as a locked reference and the editable reconstruction should be validated against it using overlay/visibility comparison.
+
+See `editable_reconstruction_preparation.md` and `figma_output_contract.md`.
 
 ## Content Package Rule
 
@@ -258,7 +287,9 @@ When QC identifies a failure, route the failure to the earliest responsible stag
 - Model execution failure → Generation
 - Content packaging failure → Content Package
 - Human preference discovered during approved revision → Human Revision / Style Learning
-- Figma implementation failure → Figma Implementation
+- source-lock / text-removal / reconstruction artifact failure → Editable Reconstruction Preparation
+- missing or uncertain typography required for reconstruction → Human Typography Review / Editable Reconstruction Preparation
+- Figma implementation mismatch after correct reconstruction preparation → Figma Implementation
 - Final output quality failure → Quality Control
 - Acceptable variation → no revision
 
@@ -274,13 +305,17 @@ A style reference or style rule is complete only when approval metadata, scope, 
 
 A reusable Instagram template is complete only when its platform structure, communication hierarchy, component behavior, approved motif usage, editable/controlled/locked fields, Figma implementation, provenance, and approval status are complete.
 
+An Editable Reconstruction Package is complete only when the approved raster source is preserved, textless artwork passes QC, reconstructed regions are classified as DERIVED, editable elements are mapped, typography uncertainty is recorded, and the Figma handoff package is complete.
+
+A Figma implementation reconstructed from a raster source is complete only when the approved visual remains traceable and overlay validation confirms that the editable version matches the approved source within the accepted tolerance.
+
 A Content Package is complete only when all required publishable assets are present and approved.
 
 A high numerical score never overrides a critical failure.
 
 ## Version
 
-3.0-production-candidate.6
+3.0-production-candidate.7
 
 ## Status
 
