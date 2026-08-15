@@ -52,6 +52,7 @@ If a slide already contains a logo:
 
 ```text
 REMOVE / COVER EXISTING LOGO ONLY
+→ CLEAN THE REPAIR ZONE
 → PLACE CHOSEN MASTER
 ```
 
@@ -62,6 +63,36 @@ PLACE CHOSEN MASTER AT FIXED ANCHOR
 ```
 
 Do not redesign surrounding elements to create space.
+
+## Cleanup Integrity Rule
+
+Any logo-removal / replacement repair must be visually invisible as a repair.
+
+After removing an old logo, inspect the local region before placing or approving the new logo.
+
+Reject:
+
+- gray blobs;
+- ghost marks;
+- smudges;
+- clone seams;
+- halos;
+- accidental dots / lines;
+- color discontinuities;
+- broken paper / painterly texture;
+- any new mark that was not part of the original slide design or chosen logo.
+
+Required sequence:
+
+```text
+REMOVE OLD LOGO
+→ REPAIR BACKGROUND
+→ CHECK AT 100% CLOSE-UP
+→ CHECK AT REALISTIC INSTAGRAM SIZE
+→ PLACE / VERIFY NEW LOGO
+```
+
+A cleanup artifact counts as an unauthorized design change even if it occurs inside the previous logo zone.
 
 ## Clarity Rule
 
@@ -113,6 +144,7 @@ PRESERVE SLIDE DESIGN
 → FIND SAFE UNIVERSAL LOGO SCALE / ANCHOR
 → APPLY IDENTICALLY TO SLIDES 1–6
 → RECHECK ALL SIX
+→ INSPECT ALL REPAIR ZONES FOR ARTIFACTS
 ```
 
 Do not move or resize text to solve a logo collision.
@@ -123,7 +155,7 @@ If the human explicitly requests a modified logo construction for small placemen
 
 ## Approval Rule
 
-Exact coordinates, scale, and optical clearance must first be shown in a six-slide review contact sheet.
+Exact coordinates, scale, optical clearance, and cleanup integrity must first be shown in a six-slide review contact sheet plus close-ups of logo / repair zones.
 
 Do not mark placement final until the human explicitly approves the review.
 
