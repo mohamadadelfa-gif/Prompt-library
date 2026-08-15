@@ -15,7 +15,7 @@ The logo master is locked. Placement work must follow `00_workflow/qc/QC-LOGO-00
 For the six-slide Post 01 carousel:
 
 ```text
-ONE LOGO MASTER
+ONE LOGO MASTER / APPROVED VARIANT
 ONE SIZE
 ONE X POSITION
 ONE Y POSITION
@@ -74,9 +74,56 @@ The logo must be:
 
 Do not add extra frames, dots, stars, lines, panels, shapes, labels, shadows, or other decorative objects around it unless they are already part of the locked logo master.
 
+## Optical Clear-Space Rule
+
+The logo must be assessed by its **visible optical bounds**, not only its image rectangle.
+
+For the chosen logo, special attention is required for:
+
+- the tall thin vertical black line;
+- the horizontal structural line;
+- the far-right black dot;
+- the top beret / head area;
+- the outer lower semicircle;
+- any approved glow if present in the production master.
+
+No visible logo element may touch, cross, merge with, or appear accidentally connected to slide text or unrelated artwork.
+
+```text
+SAME COORDINATE
++
+SAME SIZE
+≠
+AUTOMATIC PASS
+```
+
+A fixed placement passes only when its optical clear-space is safe on every slide.
+
+## Worst-Case Slide Rule
+
+For Post 01, test the most constrained slide first.
+
+Slide 1 is currently the known stress case because its final text line extends closest to the bottom-left logo zone.
+
+The universal placement must therefore be selected by this order:
+
+```text
+PRESERVE SLIDE DESIGN
+→ TEST SLIDE 1 CLEARANCE
+→ FIND SAFE UNIVERSAL LOGO SCALE / ANCHOR
+→ APPLY IDENTICALLY TO SLIDES 1–6
+→ RECHECK ALL SIX
+```
+
+Do not move or resize text to solve a logo collision.
+Do not alter other artwork to create room.
+Do not silently change only one slide's logo geometry.
+
+If the human explicitly requests a modified logo construction for small placement, create an approved **small-use logo variant** and then use that same variant consistently where required.
+
 ## Approval Rule
 
-Exact coordinates and scale must first be shown in a six-slide review contact sheet.
+Exact coordinates, scale, and optical clearance must first be shown in a six-slide review contact sheet.
 
 Do not mark placement final until the human explicitly approves the review.
 
