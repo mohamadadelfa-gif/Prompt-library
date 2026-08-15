@@ -84,6 +84,20 @@
       "provenance_required": true
     },
     {
+      "kb_id": "GFTOOLS-SRC-001",
+      "source_id": "GFTOOLS-SRC-001",
+      "title": "gftools External Font Engineering Reference",
+      "knowledge_type": "EXTERNAL_TECHNICAL_SOURCE",
+      "path": "00_workflow/knowledge/external/gftools_font_engineering.md",
+      "project_id": "GLOBAL",
+      "scope": "SYSTEM_FONT_ENGINEERING_REFERENCE",
+      "approval_state": "ACTIVE_SOURCE",
+      "promotion_state": "NOT_PROMOTED",
+      "allowed_consumers": ["VIS-005", "QC-001"],
+      "unknowns_required": false,
+      "provenance_required": true
+    },
+    {
       "kb_id": "SYS-FINAL-AI-001",
       "source_id": "SYS-FINAL-AI-001",
       "title": "Final AI Production Learnings — System Layer",
@@ -94,6 +108,62 @@
       "approval_state": "APPROVED",
       "promotion_state": "SYSTEM_RULE",
       "allowed_consumers": ["FINAL-AI-001", "FINAL-AI-002", "QC-IG-001", "QC-LOGO-001", "QC-TYPE-001"],
+      "unknowns_required": false,
+      "provenance_required": true
+    },
+    {
+      "kb_id": "TYPO-INDEX-001",
+      "source_id": "TYPO-INDEX-001",
+      "title": "Awesome Typography External Resource Index",
+      "knowledge_type": "EXTERNAL_REFERENCE_INDEX",
+      "path": "00_workflow/knowledge/external/awesome_typography_resource_index.md",
+      "project_id": "GLOBAL",
+      "scope": "SYSTEM_DIGITAL_TYPOGRAPHY_DISCOVERY",
+      "approval_state": "ACTIVE_SOURCE",
+      "promotion_state": "NOT_PROMOTED",
+      "allowed_consumers": ["RES-005", "VIS-005"],
+      "unknowns_required": false,
+      "provenance_required": true
+    },
+    {
+      "kb_id": "FA-FONT-INDEX-001",
+      "source_id": "FA-FONT-INDEX-001",
+      "title": "GitHub persian-font Topic Discovery Index",
+      "knowledge_type": "EXTERNAL_DYNAMIC_REFERENCE_INDEX",
+      "path": "00_workflow/knowledge/external/github_persian_font_topic.md",
+      "project_id": "GLOBAL",
+      "scope": "SYSTEM_PERSIAN_FONT_DISCOVERY",
+      "approval_state": "ACTIVE_SOURCE",
+      "promotion_state": "NOT_PROMOTED",
+      "allowed_consumers": ["RES-005", "VIS-005"],
+      "unknowns_required": false,
+      "provenance_required": true
+    },
+    {
+      "kb_id": "FA-FONT-COLLECTION-001",
+      "source_id": "FA-FONT-COLLECTION-001",
+      "title": "Farsi Font Store Repository Collection",
+      "knowledge_type": "EXTERNAL_FONT_COLLECTION",
+      "path": "00_workflow/knowledge/external/font_store_persian_fonts.md",
+      "project_id": "GLOBAL",
+      "scope": "SYSTEM_PERSIAN_FONT_DISCOVERY",
+      "approval_state": "ACTIVE_SOURCE",
+      "promotion_state": "NOT_PROMOTED",
+      "allowed_consumers": ["RES-005", "VIS-005"],
+      "unknowns_required": false,
+      "provenance_required": true
+    },
+    {
+      "kb_id": "FA-RESOURCE-INDEX-001",
+      "source_id": "FA-RESOURCE-INDEX-001",
+      "title": "Awesome Persian Resource Index",
+      "knowledge_type": "EXTERNAL_REFERENCE_INDEX",
+      "path": "00_workflow/knowledge/external/awesome_persian_resource_index.md",
+      "project_id": "GLOBAL",
+      "scope": "SYSTEM_PERSIAN_LANGUAGE_RESOURCE_DISCOVERY",
+      "approval_state": "ACTIVE_SOURCE",
+      "promotion_state": "NOT_PROMOTED",
+      "allowed_consumers": ["RES-005", "VIS-005"],
       "unknowns_required": false,
       "provenance_required": true
     }

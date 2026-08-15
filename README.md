@@ -88,6 +88,18 @@ Natural-language explanations may accompany a gate, but the final status must us
 
 The optional `runtime/` package turns a prompt file into an auditable model execution. It is not required for structural consistency validation.
 
+### Human-triggered Heavy QC
+
+Heavy QC is an optional local PyIQA ensemble for aesthetic, no-reference technical, and full-reference evidence. It runs only after an authorized human explicitly asks for `heavy QC`; its output always remains `AWAITING_HUMAN_DECISION`.
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-heavy-qc.txt
+.\.venv\Scripts\python.exe runtime\heavy_qc.py <candidate-image> --approval HEAVY_QC_APPROVED
+```
+
+Add `--reference <approved-source-image>` for SSIM, LPIPS, and PSNR comparisons. Runtime evidence is stored under ignored `runs/`; pretrained weights remain in the local user cache and must not be committed. Review the upstream PyIQA and model licenses before commercial use.
+
 ## Testing
 
 ### Structural CI

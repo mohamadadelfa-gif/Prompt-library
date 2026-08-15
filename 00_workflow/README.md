@@ -15,6 +15,8 @@ The Prompt Library is a **controlled creative-production system** in which promp
 - `information_model.md` — SOURCE / DERIVED / DECISION / OUTPUT model
 - `editable_reconstruction_preparation.md` — source-lock, textless artwork derivation, editable-layer mapping, and Figma reconstruction handoff for approved raster visuals
 - `figma_output_contract.md` — editable production implementation requirements for approved visual outputs
+- `qc/QC-IQA-001_technical_image_quality_qc.md` — measurable raster, export, artifact, and reference-comparison evidence with explicit limits on automated judgment
+- `qc/HEAVY-QC-001_human_triggered_ensemble.md` — optional, explicitly human-authorized PyIQA aesthetic and technical evidence panel
 
 ## Execution Principle
 

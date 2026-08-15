@@ -182,7 +182,7 @@
       "depends_on": ["09", "10", "11", "12", "13", "14"],
       "condition": "ALWAYS_WITH_APPLICABLE_STAGE_OUTPUTS",
       "tasks": ["QC-001", "QC-002", "QC-003"],
-      "protocols": ["00_workflow/stepwise_creative_review.md", "00_workflow/qc/QC-IG-001_instagram_visual_qc.md", "00_workflow/qc/QC-AUD-001_audience_catcher_qc.md", "00_workflow/qc/QC-SOC-001_social_visual_audience_gate.md", "00_workflow/qc/qc_knowledge_schema.json"],
+      "protocols": ["00_workflow/stepwise_creative_review.md", "00_workflow/qc/QC-IG-001_instagram_visual_qc.md", "00_workflow/qc/QC-AUD-001_audience_catcher_qc.md", "00_workflow/qc/QC-IQA-001_technical_image_quality_qc.md", "00_workflow/qc/HEAVY-QC-001_human_triggered_ensemble.md", "00_workflow/qc/QC-SOC-001_social_visual_audience_gate.md", "00_workflow/qc/qc_knowledge_schema.json"],
       "output_artifacts": ["FINAL_APPROVAL_OR_REVISION_ROUTE", "QC_KNOWLEDGE_PACKAGE"],
       "gates": ["APPROVE", "REVISE", "REGENERATE", "BLOCKED"],
       "memory_effect": "Records quality evidence and revision routing; scores cannot override critical failures."

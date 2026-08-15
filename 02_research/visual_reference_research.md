@@ -62,6 +62,14 @@ Do not limit research to direct competitors.
 
 Each reference must support a research question, requirement, or project decision.
 
+When the research question concerns digital typography, font technology, or specialist typography resources, retrieve `TYPO-INDEX-001` as a discovery index. Verify any selected entry at its linked primary source before recording substantive claims; the index entry alone is not authoritative evidence or an adoption decision.
+
+When Persian/Farsi, Arabic-script, RTL, or bilingual Persian/Latin typography is in scope, retrieve `FA-FONT-INDEX-001` for candidate discovery. Verify each candidate repository, applicable license, Persian-specific coverage, shaping behavior, provenance, and target-platform compatibility; a GitHub topic tag is not evidence of suitability.
+
+Also retrieve `FA-FONT-COLLECTION-001` when the focused Farsi Font Store collection is relevant. Determine whether each selected repository is canonical, forked, modified, mirrored, or packaged, and verify its actual license and font provenance before treating it as a usable candidate.
+
+Retrieve `FA-RESOURCE-INDEX-001` when Persian typography research also needs RTL, CSS, text-normalization, Unicode, numeral, interface, localization, or implementation context. Treat it as a broad discovery list and verify every selected primary source, current compatibility, license, and target-environment behavior.
+
 ## Reference Categories
 
 Classify references as:

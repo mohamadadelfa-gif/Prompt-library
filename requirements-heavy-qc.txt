@@ -1,0 +1,3 @@
+# Optional local runtime for explicitly human-approved Heavy QC.
+# pyiqa includes PyTorch and downloads selected pretrained weights on first use.
+pyiqa==0.1.16

@@ -160,6 +160,40 @@ Its orchestration protocol is:
 
 `00_workflow/final_ai_closed_loop_production.md`
 
+### 5. External Technical Knowledge
+
+Stores authoritative tooling and production references that may support evidence-based execution without becoming aesthetic or project rules.
+
+Current font-engineering reference:
+
+`00_workflow/knowledge/external/gftools_font_engineering.md`
+
+Source ID: `GFTOOLS-SRC-001`. Retrieve it for VIS-005 or QC-001 only when actual font files are available and technical font inspection or QA is relevant. It is not a base runtime dependency, does not identify fonts from raster images by itself, and does not authorize font modification or establish licensing.
+
+Current digital-typography discovery index:
+
+`00_workflow/knowledge/external/awesome_typography_resource_index.md`
+
+Source ID: `TYPO-INDEX-001`. Retrieve it for RES-005 or VIS-005 when a typography question would benefit from specialist specifications, tools, libraries, validators, books, or videos. Treat it as a route to primary sources, not as primary evidence or authorization to adopt a linked resource.
+
+Current Persian/Farsi font discovery index:
+
+`00_workflow/knowledge/external/github_persian_font_topic.md`
+
+Source ID: `FA-FONT-INDEX-001`. Retrieve it for RES-005 or VIS-005 when Persian/Farsi, Arabic-script, RTL, or bilingual Persian/Latin typography is in scope. The GitHub topic is dynamic and self-tagged: verify every candidate repository, font file, license, Persian coverage, shaping behavior, provenance, and target-platform compatibility independently.
+
+Current focused Persian/Farsi font collection:
+
+`00_workflow/knowledge/external/font_store_persian_fonts.md`
+
+Source ID: `FA-FONT-COLLECTION-001`. Retrieve it alongside `FA-FONT-INDEX-001` when a focused Perso-Arabic foundry collection would improve candidate discovery. Verify whether each repository is canonical, forked, modified, mirrored, or packaged; confirm its actual font license and provenance before use.
+
+Current broad Persian-language resource index:
+
+`00_workflow/knowledge/external/awesome_persian_resource_index.md`
+
+Source ID: `FA-RESOURCE-INDEX-001`. Retrieve it for RES-005 or VIS-005 when Persian typography research also requires RTL frameworks, CSS, text normalization, Unicode handling, Persian numerals, interface guidance, localization, or other implementation context. Verify each linked primary source; the list itself is not implementation evidence and its repository-level license was unknown at review time.
+
 ## Source Separation
 
 Every knowledge record must identify its status:
@@ -311,6 +345,21 @@ Final AI Creative Synthesis + Heavy QC
   → creative_synthesis_sources.md
   → all applicable mandatory QC modules
   → platform export requirements
+
+Font-file inspection / technical typography QA
+  → gftools_font_engineering.md + actual font binaries + recorded tool evidence
+
+Digital-typography source/tool discovery
+  → awesome_typography_resource_index.md → verified primary source
+
+Persian/Farsi font discovery
+  → github_persian_font_topic.md → candidate repository → license + Persian shaping verification
+
+Focused Farsi Font Store discovery
+  → font_store_persian_fonts.md → canonical-status check → repository/license + Persian shaping verification
+
+Broad Persian-language production discovery
+  → awesome_persian_resource_index.md → verified primary source → target-environment test
 ```
 
 ## Priority Rule
