@@ -82,6 +82,7 @@ Natural-language explanations may accompany a gate, but the final status must us
 ### 07 — Quality Control
 - QC-001 — Generated Image Evaluation
 - QC-002 — Revision Strategy
+- QC-003 — QC Knowledge Synthesis
 
 ## Runtime
 

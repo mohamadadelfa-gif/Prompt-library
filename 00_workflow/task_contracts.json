@@ -36,7 +36,8 @@
     "ART-003": {"depends_on": ["STR-005", "RES-006", "VDNA-001", "ART-002"], "gate": ["APPROVE", "REVISE", "BLOCKED"], "approval_required": true, "approval_role": "art_director_or_client", "next": ["GEN-001"]},
     "GEN-001": {"depends_on": ["STR-005", "VDNA-001", "ART-002", "ART-003"], "gate": ["READY", "BLOCKED"], "approval_required": true, "approval_role": "production_owner_or_art_director", "next": ["GEN-002"]},
     "GEN-002": {"depends_on": ["GEN-001", "ART-003", "VDNA-001", "ART-002"], "gate": ["READY", "BLOCKED"], "approval_required": false, "next": ["QC-001"]},
-    "QC-001": {"depends_on": ["STR-005", "VDNA-001", "ART-003", "GEN-001", "GEN-002"], "gate": ["APPROVE", "REVISE", "REGENERATE", "BLOCKED"], "approval_required": true, "approval_role": "quality_owner_or_art_director", "next": ["QC-002"]},
-    "QC-002": {"depends_on": ["QC-001", "STR-005", "VDNA-001", "ART-003", "GEN-001", "GEN-002"], "gate": ["REVISE", "REGENERATE", "BLOCKED"], "approval_required": false, "next": ["GEN-002", "GEN-001", "ART-003", "HUMAN_REVIEW"]}
+    "QC-001": {"depends_on": ["STR-005", "VDNA-001", "ART-003", "GEN-001", "GEN-002"], "gate": ["APPROVE", "REVISE", "REGENERATE", "BLOCKED"], "approval_required": true, "approval_role": "quality_owner_or_art_director", "next": ["QC-002", "QC-003"]},
+    "QC-002": {"depends_on": ["QC-001", "STR-005", "VDNA-001", "ART-003", "GEN-001", "GEN-002"], "gate": ["REVISE", "REGENERATE", "BLOCKED"], "approval_required": false, "next": ["GEN-002", "GEN-001", "ART-003", "QC-003", "HUMAN_REVIEW"]},
+    "QC-003": {"depends_on": ["QC-001", "STR-005", "VDNA-001", "ART-003", "GEN-001", "GEN-002"], "gate": ["PASS", "CONDITIONAL", "BLOCKED"], "approval_required": false, "next": ["HUMAN_REVIEW"]}
   }
 }

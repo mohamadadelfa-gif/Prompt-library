@@ -15,7 +15,7 @@
     {"id": "10", "name": "content_package", "prefix": "CONT-", "tasks": []},
     {"id": "11", "name": "human_revision_style_learning", "prefix": "HFS-", "tasks": []},
     {"id": "12", "name": "figma_implementation", "prefix": "FIG-", "tasks": []},
-    {"id": "13", "name": "quality_control", "prefix": "QC-", "tasks": ["QC-001", "QC-002"]}
+    {"id": "13", "name": "quality_control", "prefix": "QC-", "tasks": ["QC-001", "QC-002", "QC-003"]}
   ],
   "artifact_states": ["SOURCE", "DERIVED", "DECISION", "OUTPUT"],
   "gate_vocabulary": ["PASS", "CONDITIONAL", "BLOCKED", "APPROVE", "REVISE", "REJECT", "READY", "REGENERATE"],

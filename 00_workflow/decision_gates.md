@@ -63,6 +63,8 @@ QC-001 uses **APPROVE / REVISE / REGENERATE / BLOCKED**.
 
 QC-002 uses **REVISE / REGENERATE / BLOCKED**.
 
+QC-003 uses **PASS / CONDITIONAL / BLOCKED**. PASS means the QC knowledge package is traceable and ready for human review; it does not approve or promote candidate rules.
+
 A CRITICAL failure in QC-001 cannot be overridden by a numerical score.
 
 ## Human Approval Record
