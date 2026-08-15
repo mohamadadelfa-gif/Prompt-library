@@ -31,17 +31,84 @@ It may contain:
 - client feedback
 - decisions and exclusions
 - content-specific requirements
+- chosen identity assets
+- project-specific QC rules
+- durable production memory
 
 Project knowledge must be scoped to EBL and must not become system-wide knowledge unless explicitly promoted.
+
+#### Durable EBL project memory — mandatory retrieval
+
+Registered in:
+
+`00_workflow/knowledge/project/EBL_project_memory.md`
+
+Source ID: `EBL-MEM-001`.
+
+This is the first durable project-memory layer for EBL visual production. It records:
+
+- public brand-name preference;
+- core communication direction;
+- chosen Geometric Reader Integrated Logo;
+- primary-master versus production-signature distinction;
+- visual-language memory;
+- semantic typography rules;
+- raster typography repair learning;
+- human revision preservation;
+- final-AI closed-loop behavior;
+- Story-template principles and current candidate status;
+- master-versus-platform-output handling.
+
+Every EBL visual production/revision task must retrieve this memory before applying project-specific creative decisions.
 
 #### Active EBL project package
 
 Current human-approved EBL production knowledge is registered in:
 
+- `00_workflow/knowledge/project/EBL_project_memory.md`
 - `00_workflow/knowledge/project/EBL_approved_project_rules.md`
+- `00_workflow/knowledge/project/EBL_logo_application_rules.md`
 - `00_workflow/knowledge/project/EBL_post_01_approved_decisions.md`
+- `00_workflow/knowledge/project/EBL_story_template_rules.md`
 
-Use the first file for reusable EBL project rules and the second for Post 01-specific decisions. Post-specific copy/layout decisions must not be silently generalized to future posts.
+Use:
+
+- `EBL_project_memory.md` for durable project memory;
+- `EBL_approved_project_rules.md` for reusable approved EBL rules;
+- `EBL_logo_application_rules.md` for chosen-logo application behavior;
+- `EBL_post_01_approved_decisions.md` for Post 01-only decisions;
+- `EBL_story_template_rules.md` for the current Story system/candidate.
+
+Post-specific copy/layout decisions must not be silently generalized to future posts.
+
+The exact current Story template remains a `PROJECT_REFERENCE / REVIEW_CANDIDATE` until explicit human approval promotes it.
+
+#### EBL project master QC
+
+Registered in:
+
+`00_workflow/qc/QC-EBL-001_project_master_qc.md`
+
+Source ID: `EBL-QC-001`.
+
+This QC is project-specific and mandatory for EBL final visual review. It orchestrates specialized QC modules and checks:
+
+- content/meaning fidelity;
+- public brand name;
+- chosen-logo fidelity;
+- visual identity;
+- meaning-to-form synthesis;
+- semantic typography;
+- painterly/material integrity;
+- artifact/repair integrity;
+- carousel/system consistency;
+- Story-specific behavior;
+- export/master/derivative handling;
+- final-AI closed-loop compliance;
+- evidence package completeness;
+- human final approval state.
+
+A specialized module such as logo or typography QC does not replace the EBL project master gate.
 
 #### Active supplied EBL brief
 
@@ -109,7 +176,9 @@ Their main consumers are:
 
 ### 3. Project Reference Knowledge
 
-Stores observations extracted from project-supplied visual references, audio, video, screenshots, moodboards, and other reference material.
+Stores observations extracted from project-supplied visual references, audio, video, screenshots, moodboards, approved output candidates, and other reference material.
+
+A candidate may inform later work without automatically becoming an approved reusable rule.
 
 ### 4. Derived Creative Knowledge
 
@@ -160,7 +229,7 @@ Its orchestration protocol is:
 
 `00_workflow/final_ai_closed_loop_production.md`
 
-### 5. External Technical Knowledge
+### 6. External Technical Knowledge
 
 Stores authoritative tooling and production references that may support evidence-based execution without becoming aesthetic or project rules.
 
@@ -304,17 +373,32 @@ Do not copy source artworks literally. Historical description, interpretation, p
 Tasks should retrieve knowledge from the appropriate domain before execution:
 
 ```text
-EBL task
+ANY EBL VISUAL TASK
+  → EBL_project_memory.md
   → EBL_approved_project_rules.md
-  → EBL Project Knowledge
+  → content-specific decisions if present
+  → EBL_logo_application_rules.md when logo/branding is present
+  → approved artifact / clean master / textless master
+  → QC-EBL-001 + asset-specific QC
 
 EBL Post 01 task
+  → EBL_project_memory.md
   → EBL_approved_project_rules.md
   → EBL_post_01_approved_decisions.md
+  → QC-EBL-001
+
+EBL Story task
+  → EBL_project_memory.md
+  → EBL_approved_project_rules.md
+  → EBL_story_template_rules.md
+  → instagram_template_synthesis.md
+  → QC-EBL-001 Story gate
 
 EBL profile-picture task
+  → EBL_project_memory.md
   → EBL_approved_project_rules.md
-  → QC-IG-PROFILE-001_instagram_profile_picture_qc.md
+  → QC-IG-PROFILE-001
+  → QC-EBL-001
 
 Named artist task
   → External / Named-Style Knowledge
@@ -331,7 +415,7 @@ Template / production task
 Creative AI Final Edit
   → final_ai_production_learnings.md
   → final_ai_closed_loop_production.md
-  → approved project rules
+  → approved project memory/rules
   → content-specific decisions
   → approved artifact / visual DNA / revision history
   → applicable QC findings
@@ -342,6 +426,7 @@ Final AI Creative Synthesis + Heavy QC
   → final_ai_closed_loop_production.md
   → FINAL-AI-001 candidate
   → all approved project/context sources
+  → project master QC if one exists
   → creative_synthesis_sources.md
   → all applicable mandatory QC modules
   → platform export requirements
@@ -373,11 +458,12 @@ Heavy QC aesthetic evidence
 When sources conflict:
 
 1. explicit current client decision;
-2. approved project rule;
-3. approved system workflow rule for process behavior;
-4. supplied project source evidence;
-5. authoritative external source;
-6. model inference.
+2. approved project memory / project rule;
+3. content-specific approved decision;
+4. approved system workflow rule for process behavior;
+5. supplied project source evidence;
+6. authoritative external source;
+7. model inference.
 
 A system workflow rule controls **how the process is executed**; it must not override project-specific creative/content decisions.
 
@@ -402,3 +488,5 @@ Revision behavior itself is a workflow rule. A specific aesthetic correction bec
 ## Privacy / Scope
 
 Client knowledge must remain project-scoped. Do not promote confidential client information into the global/system knowledge layer.
+
+Updated: 2026-08-16
