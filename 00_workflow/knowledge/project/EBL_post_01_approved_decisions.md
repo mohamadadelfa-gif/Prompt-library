@@ -53,6 +53,54 @@ Approved emphasis — latest human correction:
 
 Do not recolor the whole final phrase.
 
+### Slide 1 Typography Integrity — mandatory
+
+The supporting question must be optically solid, not merely numerically dark.
+
+Approved line/color structure:
+
+```text
+But can you use it to do     = black / charcoal
+the                          = black / charcoal
+things that matter           = rust / red ONLY
+to you?                      = black / charcoal
+```
+
+If the raster text becomes faded, soft, haloed, outlined, or partially transparent, do not keep recoloring or inpainting the existing glyphs.
+
+Approved repair method:
+
+```text
+REMOVE ONLY DAMAGED TEXT
+→ RECONSTRUCT LOCAL MUSTARD/PAPER FIELD
+→ REDRAW EXACT APPROVED COPY ONCE
+→ FINAL 1254×1254 RESOLUTION
+→ FULL-OPACITY TYPE
+→ NO POST-RENDER RESIZE
+```
+
+Preserve:
+
+- established sans-serif family / verified production equivalent;
+- approved weight;
+- approved text size;
+- approved three-line arrangement;
+- alignment;
+- line spacing;
+- logo position;
+- surrounding painterly artwork.
+
+Reject:
+
+- gray/faded black;
+- pale antialias halos;
+- shadow-like or double edges;
+- weak/uneven stroke density;
+- partial transparency;
+- color bleed from the red emphasis into `the` or `to you?`.
+
+Validate at native resolution under `QC-TYPE-001`.
+
 ---
 
 ## Slide 2 — Blockage
