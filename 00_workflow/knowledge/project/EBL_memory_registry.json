@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "project_id": "EBL",
+  "project_name": "English Beyond Language",
+  "updated_at": "2026-08-16",
+  "purpose": "Machine-readable index for durable EBL memory. It controls what memory exists, its authority, scope, status, retrieval order, and promotion behavior.",
+  "priority_order": [
+    "CURRENT_HUMAN_INSTRUCTION",
+    "APPROVED_PROJECT_MEMORY",
+    "APPROVED_PROJECT_RULE",
+    "CONTENT_SPECIFIC_DECISION",
+    "CANONICAL_ASSET_RECORD",
+    "APPROVED_REFERENCE",
+    "FAILURE_MEMORY",
+    "EXTERNAL_SOURCE_EVIDENCE",
+    "MODEL_INFERENCE"
+  ],
+  "memory_classes": [
+    "BRAND_CORE",
+    "ASSET_MEMORY",
+    "VISUAL_SYSTEM",
+    "TYPOGRAPHY_MEMORY",
+    "HUMAN_DECISION",
+    "FAILURE_MEMORY",
+    "APPROVED_EXAMPLE",
+    "REJECTED_EXAMPLE",
+    "PLATFORM_RULE",
+    "CONTENT_SPECIFIC",
+    "REVIEW_CANDIDATE"
+  ],
+  "records": [
+    {
+      "memory_id": "EBL-MEM-CORE-001",
+      "class": "BRAND_CORE",
+      "title": "English Beyond Language Project Memory",
+      "path": "00_workflow/knowledge/project/EBL_project_memory.md",
+      "status": "APPROVED",
+      "scope": "PROJECT",
+      "required_for": ["ALL_EBL_VISUAL_TASKS"],
+      "supersedes": [],
+      "provenance_required": true
+    },
+    {
+      "memory_id": "EBL-MEM-ASSET-001",
+      "class": "ASSET_MEMORY",
+      "title": "EBL Asset Registry",
+      "path": "00_workflow/knowledge/project/EBL_asset_registry.json",
+      "status": "APPROVED",
+      "scope": "PROJECT",
+      "required_for": ["LOGO_USE", "IDENTITY_USE", "FINAL_OUTPUT"],
+      "supersedes": [],
+      "provenance_required": true
+    },
+    {
+      "memory_id": "EBL-MEM-DECISION-001",
+      "class": "HUMAN_DECISION",
+      "title": "EBL Decision Log",
+      "path": "00_workflow/knowledge/project/EBL_decision_log.md",
+      "status": "APPROVED",
+      "scope": "PROJECT",
+      "required_for": ["ALL_EBL_CREATIVE_AND_REVISION_TASKS"],
+      "supersedes": [],
+      "provenance_required": true
+    },
+    {
+      "memory_id": "EBL-MEM-FAIL-001",
+      "class": "FAILURE_MEMORY",
+      "title": "EBL Failure Memory",
+      "path": "00_workflow/knowledge/project/EBL_failure_memory.md",
+      "status": "APPROVED",
+      "scope": "PROJECT",
+      "required_for": ["REVISION", "QC", "FINAL_AI"],
+      "supersedes": [],
+      "provenance_required": true
+    },
+    {
+      "memory_id": "EBL-MEM-EXAMPLE-001",
+      "class": "APPROVED_EXAMPLE",
+      "title": "EBL Visual Example Index",
+      "path": "00_workflow/knowledge/project/EBL_visual_examples.md",
+      "status": "APPROVED",
+      "scope": "PROJECT",
+      "required_for": ["VISUAL_CALIBRATION", "QC"],
+      "supersedes": [],
+      "provenance_required": true
+    },
+    {
+      "memory_id": "EBL-MEM-RETRIEVAL-001",
+      "class": "PLATFORM_RULE",
+      "title": "EBL Retrieval Map",
+      "path": "00_workflow/knowledge/project/EBL_retrieval_map.md",
+      "status": "APPROVED",
+      "scope": "PROJECT_WORKFLOW",
+      "required_for": ["TASK_ROUTING"],
+      "supersedes": [],
+      "provenance_required": true
+    },
+    {
+      "memory_id": "EBL-MEM-STORY-001",
+      "class": "REVIEW_CANDIDATE",
+      "title": "EBL Story Template Rules",
+      "path": "00_workflow/knowledge/project/EBL_story_template_rules.md",
+      "status": "PENDING_HUMAN_APPROVAL",
+      "scope": "INSTAGRAM_STORY",
+      "required_for": ["STORY_TASKS"],
+      "supersedes": [],
+      "provenance_required": true
+    }
+  ],
+  "unknown_handling": {
+    "rule": "Never invent missing canonical asset paths, hashes, dimensions, licenses, or approval states.",
+    "allowed_values": ["UNKNOWN", "PENDING_VERIFICATION", null]
+  },
+  "promotion_rule": "A one-off correction may become project memory only when it is reusable and human-authorized. Project-specific memory must not become a cross-project system rule automatically."
+}
