@@ -18,6 +18,25 @@ TYPOGRAPHIC / SPATIAL / OPTICAL FINISHING = REFINABLE
 
 Creative AI Final Edit is **semantic + visual finishing**, not unrestricted redesign.
 
+A final-edit stage does not create an obligation to change the asset.
+
+```text
+STRONG APPROVED FORM + NO MEANINGFUL FAILURE = PRESERVE
+```
+
+---
+
+## Orchestration Dependency — mandatory
+
+Before execution retrieve:
+
+- `00_workflow/final_ai_closed_loop_production.md`
+- `00_workflow/knowledge/system/final_ai_production_learnings.md`
+
+These documents define the preserve/intervene decision, clean-source hierarchy, defect precedence, failure routing, master-first output logic, and learning promotion behavior.
+
+FINAL-AI-001 must not be run as an isolated beautification step.
+
 ---
 
 ## Required Retrieval Before Execution
@@ -25,14 +44,16 @@ Creative AI Final Edit is **semantic + visual finishing**, not unrestricted rede
 Retrieve and reconcile, in this order:
 
 1. current human instruction;
-2. approved project rules;
-3. content-specific approved decisions;
-4. approved visual artifact / editable master;
-5. Visual DNA / art direction;
-6. human revision history;
-7. relevant QC findings;
-8. `00_workflow/knowledge/external/creative_synthesis_sources.md`;
-9. named-style sources only where approved for the project.
+2. `final_ai_production_learnings.md` for approved process behavior;
+3. `final_ai_closed_loop_production.md` for orchestration;
+4. approved project rules;
+5. content-specific approved decisions;
+6. approved visual artifact / editable master;
+7. Visual DNA / art direction;
+8. human revision history;
+9. relevant QC findings;
+10. `00_workflow/knowledge/external/creative_synthesis_sources.md`;
+11. named-style sources only where approved for the project.
 
 For EBL Post 01 additionally retrieve:
 
@@ -42,6 +63,8 @@ For EBL Post 01 additionally retrieve:
 - `00_workflow/qc/QC-LOGO-001_logo_application_qc.md`
 - `00_workflow/qc/QC-TYPE-001_typography_integrity_qc.md`
 - `00_workflow/typography_native_reconstruction.md`
+
+System workflow rules control **how** the process is executed. They do not override project-specific approved content or creative decisions.
 
 ---
 
@@ -60,6 +83,50 @@ WHAT MUST REMAIN UNCHANGED?
 ```
 
 Do not make font, alignment, spacing, or composition decisions before this analysis.
+
+For a multi-asset set, complete the whole-work read before editing any single asset.
+
+---
+
+## Preserve / Intervene Classification — mandatory
+
+Classify every asset before editing.
+
+```text
+P0 PRESERVE
+P1 CLEANUP
+P2 MICRO-REFINE
+P3 SOURCE-BASED RECONSTRUCTION
+P4 CONCEPTUAL CHANGE — HUMAN AUTHORIZATION REQUIRED
+```
+
+### P0 — Preserve
+
+Use when the asset already performs its semantic, visual, brand, and platform role.
+
+Action:
+
+- make no creative change;
+- record preservation explicitly;
+- continue through QC.
+
+### P1 — Cleanup
+
+Correct accidental production defects only.
+
+### P2 — Micro-refine
+
+Make controlled typography / hierarchy / spacing / alignment / optical refinements without changing approved meaning or identity.
+
+### P3 — Source-based reconstruction
+
+Return to a cleaner approved source when local raster repair would preserve or compound damage.
+
+Follow the clean-source hierarchy in `final_ai_closed_loop_production.md`.
+
+### P4 — Conceptual change
+
+Any change to approved wording, narrative order, identity, major composition concept, or logo geometry requires explicit human authorization before execution.
 
 ---
 
@@ -101,6 +168,8 @@ PROJECT VISUAL SYSTEM
 SOURCE-SUPPORTED DESIGN PRINCIPLES
 ```
 
+If the explanation is weak and the current form already performs correctly, preserve it.
+
 ---
 
 ## Protected Elements
@@ -121,6 +190,43 @@ Do not independently change:
 - legal / platform facts.
 
 Any change to a protected element requires explicit human authorization.
+
+---
+
+## Clean-Source Rule — mandatory for damaged derivatives
+
+If a raster area is degraded, do not default to repeated repair of the damaged derivative.
+
+Use:
+
+```text
+EDITABLE / LIVE SOURCE
+→ CLEAN APPROVED MASTER
+→ APPROVED TEXTLESS / ELEMENT-FREE MASTER
+→ CLEAN REGION FROM SAME ARTWORK
+→ TARGETED LOCAL REPAIR
+→ GENERATIVE RECONSTRUCTION LAST
+```
+
+Do not patch around a defect when a cleaner approved source can reconstruct the same area more faithfully.
+
+---
+
+## Defect Precedence
+
+Resolve final-stage problems in this order:
+
+```text
+1. CONTENT / FACTUAL FIDELITY
+2. APPROVED MASTER / IDENTITY FIDELITY
+3. TYPOGRAPHY / LOGO READABILITY
+4. ARTIFACT / RASTER INTEGRITY
+5. SYSTEM / CAROUSEL CONSISTENCY
+6. PLATFORM READABILITY
+7. OPTIONAL AESTHETIC POLISH
+```
+
+Do not beautify around an unresolved mandatory failure.
 
 ---
 
@@ -177,6 +283,8 @@ For every transition `n → n+1`, check:
 
 Consistency means **shared grammar**, not identical composition.
 
+Repeated system elements should preserve role, format, anchor logic, hierarchy, and family resemblance. Local contrast adaptation may be allowed when function requires it and the project rule does not require fixed color treatment.
+
 ---
 
 ## EBL Post 01 Semantic Map
@@ -210,16 +318,20 @@ These are semantic directions, not permission to change approved copy.
 ## Execution Sequence
 
 ```text
-1. RETRIEVE CONTEXT
-2. LOCK PROTECTED ELEMENTS
-3. ANALYZE SLIDE FUNCTIONS
-4. DIAGNOSE WEAKNESS
-5. PROPOSE MINIMAL HIGH-VALUE REFINEMENTS
-6. APPLY REFINEMENTS
-7. RUN NATIVE TYPOGRAPHY CHECK
-8. RUN LOGO / BRAND CHECK
-9. REVIEW FULL CAROUSEL RHYTHM
-10. HAND OFF TO FINAL-AI-002
+1. RETRIEVE CONTEXT + SYSTEM LEARNINGS
+2. SOURCE LOCK
+3. LOCK PROTECTED ELEMENTS
+4. ANALYZE WHOLE WORK / SLIDE FUNCTIONS
+5. CLASSIFY EACH ASSET P0–P4
+6. DIAGNOSE WEAKNESS
+7. CHOOSE CLEANEST VALID SOURCE
+8. PROPOSE MINIMAL HIGH-VALUE REFINEMENTS
+9. APPLY REFINEMENTS ONLY WHERE JUSTIFIED
+10. RUN NATIVE TYPOGRAPHY / ARTIFACT CHECK
+11. RUN LOGO / BRAND CHECK
+12. REVIEW FULL CAROUSEL RHYTHM
+13. COMPLETE DELTA RECORD
+14. HAND OFF TO FINAL-AI-002
 ```
 
 ---
@@ -227,15 +339,18 @@ These are semantic directions, not permission to change approved copy.
 ## Required Output
 
 - refined visual set;
+- intervention class per asset;
 - applied-change record;
 - preserved-element record;
 - per-slide semantic rationale;
-- before/after comparison for any meaningful typography or layout change;
+- before/after comparison for meaningful typography or layout changes;
 - QC handoff notes;
 - unresolved risks.
+
+For P0 assets, record **PRESERVED — NO CHANGE REQUIRED**.
 
 ## Completion Rule
 
 FINAL-AI-001 cannot declare a publishing master.
 
-Its output is a **Creative Final Candidate** that must pass `FINAL-AI-002 — Creative Synthesis, Heavy QC & Final Output`.
+Its output is a **Creative Final Candidate** that must pass `FINAL-AI-002 — Creative Synthesis, Heavy QC & Final Output` through the closed-loop orchestration in `final_ai_closed_loop_production.md`.
