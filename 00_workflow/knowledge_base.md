@@ -53,7 +53,7 @@ Source ID: `EBL-SRC-001`. The record is project-scoped and pending confirmation 
 
 ### 2. External / Named-Style Knowledge
 
-Stores knowledge about artists, movements, books, articles, exhibitions, and other external sources.
+Stores knowledge about artists, movements, books, articles, exhibitions, professional design guidance, platform-owner guidance, and other external sources.
 
 Examples:
 
@@ -62,6 +62,8 @@ Examples:
 - museum publications
 - academic books/articles
 - artist interviews
+- professional typography/layout guidance
+- platform-owner publishing guidance
 
 External knowledge requires source provenance.
 
@@ -79,6 +81,32 @@ Current supplied sources:
 
 These sources are external evidence. They do **not** automatically become EBL style rules. Any transfer into EBL must pass through source-derived knowledge → project interpretation → human review → approved project rule.
 
+#### Active Creative Synthesis reference package
+
+Registered in:
+
+`00_workflow/knowledge/external/creative_synthesis_sources.md`
+
+The package currently includes source-derived guidance from:
+
+- Adobe layout principles;
+- Adobe typesetting / reading-experience guidance;
+- Meta visual / carousel / resolution guidance;
+- MoMA curatorial interpretation of Klee line, color, movement, and multiple readings;
+- The Met curatorial interpretation of Klee's changing line character according to subject.
+
+These sources may improve late-stage creative judgment, but they do **not** override:
+
+1. current human instruction;
+2. approved project rules;
+3. approved content / artifacts;
+4. supplied project sources.
+
+Their main consumers are:
+
+- `FINAL-AI-001 — Creative AI Final Edit`;
+- `FINAL-AI-002 — Creative Synthesis, Heavy QC & Final Output`.
+
 ### 3. Project Reference Knowledge
 
 Stores observations extracted from project-supplied visual references, audio, video, screenshots, moodboards, and other reference material.
@@ -93,6 +121,7 @@ Examples:
 - motif classifications
 - approved visual grammar
 - reusable Instagram template rules
+- source-informed creative synthesis heuristics
 
 ## Source Separation
 
@@ -225,6 +254,20 @@ Reference analysis
 
 Template / production task
   → Approved Project Rules + Platform Rules
+
+Creative AI Final Edit
+  → approved project rules
+  → content-specific decisions
+  → approved artifact / visual DNA / revision history
+  → applicable QC findings
+  → creative_synthesis_sources.md
+
+Final AI Creative Synthesis + Heavy QC
+  → FINAL-AI-001 candidate
+  → all approved project/context sources
+  → creative_synthesis_sources.md
+  → all applicable mandatory QC modules
+  → platform export requirements
 ```
 
 ## Priority Rule
