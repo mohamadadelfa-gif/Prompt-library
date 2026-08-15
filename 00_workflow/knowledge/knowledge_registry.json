@@ -68,6 +68,20 @@
       "allowed_consumers": ["STYLE-001"],
       "unknowns_required": false,
       "provenance_required": true
+    },
+    {
+      "kb_id": "CS-SRC-PACKAGE-001",
+      "source_id": "CS-SRC-PACKAGE-001",
+      "title": "Creative Synthesis External Reference Package",
+      "knowledge_type": "EXTERNAL_SOURCE_PACKAGE",
+      "path": "00_workflow/knowledge/external/creative_synthesis_sources.md",
+      "project_id": null,
+      "scope": "CROSS_PROJECT_CREATIVE_SYNTHESIS_REFERENCE",
+      "approval_state": "ACTIVE_SOURCE",
+      "promotion_state": "NOT_PROMOTED",
+      "allowed_consumers": ["FINAL-AI-001", "FINAL-AI-002"],
+      "unknowns_required": false,
+      "provenance_required": true
     }
   ]
 }
