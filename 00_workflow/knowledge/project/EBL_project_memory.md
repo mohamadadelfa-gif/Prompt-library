@@ -10,6 +10,24 @@ Project execution protocol:
 
 `00_workflow/EBL_visual_production_workflow.md`
 
+## Operational Memory Architecture
+
+This project memory is now part of a disciplined memory system:
+
+```text
+EBL_memory_registry.json
+→ EBL_project_memory.md
+→ EBL_decision_log.md
+→ EBL_asset_registry.json
+→ EBL_failure_memory.md
+→ EBL_visual_examples.md
+→ EBL_retrieval_map.md
+→ QC-EBL-MEM-001
+→ QC-EBL-001
+```
+
+Memory must be **retrieved, applied, and verified**. File existence alone is not enough.
+
 Knowledge types represented:
 
 - `HUMAN_PREFERENCE`
@@ -20,11 +38,14 @@ Knowledge types represented:
 Priority remains:
 
 1. explicit current human instruction;
-2. this project memory + approved project rules;
-3. content-specific approved decisions;
-4. approved artifact/reference;
-5. source evidence;
-6. model inference.
+2. newest non-superseded approved project decision;
+3. this project memory + approved project rules;
+4. canonical asset registry;
+5. content-specific approved decisions;
+6. approved artifact/reference;
+7. failure/negative memory for prevention;
+8. source evidence;
+9. model inference.
 
 ---
 
@@ -61,11 +82,32 @@ The visual system should support a learner moving from knowing English toward be
 
 The human selected the **Geometric Reader Integrated Logo** as the primary English Beyond Language logo.
 
+Canonical memory ID:
+
+`EBL-ASSET-LOGO-001`
+
 This is the logo to retrieve whenever the user says:
 
 - `use the chosen logo`;
 - `use our logo`;
 - `use the English Beyond Language logo`.
+
+## Canonical-asset discipline
+
+The identity decision is locked, but the exact canonical binary is not yet verified as a repository asset. Therefore:
+
+- do not invent a repository path;
+- do not invent a file hash;
+- do not invent dimensions;
+- do not regenerate a similar substitute when exact asset placement is required.
+
+Use `EBL_asset_registry.json` as the source of asset state.
+
+If an exact placement task cannot resolve the verified binary, return:
+
+`CANONICAL_ASSET_UNRESOLVED`
+
+rather than fabricating a replacement.
 
 ## Master construction
 
@@ -98,6 +140,7 @@ The logo typography is part of the mark and must not be re-typeset independently
 
 ```text
 CHOSEN LOGO
+→ RESOLVE APPROVED ASSET ID
 → PLACE APPROVED MASTER / APPROVED PRODUCTION VARIANT
 → DO NOT REGENERATE A SIMILAR LOGO
 → DO NOT REDESIGN THE GEOMETRY
@@ -117,6 +160,10 @@ The original chosen presentation includes the supplied material/painterly treatm
 
 Post 01 final production established a small bottom-left **production signature application** that visually preserves the chosen reader/logo construction while integrating into the slide background and remaining secondary to content.
 
+Asset-memory ID:
+
+`EBL-ASSET-LOGO-001-APP-SMALL`
+
 This application does **not** redefine or replace the primary master.
 
 Use an existing approved production signature asset when available rather than reconstructing it from scratch.
@@ -134,7 +181,7 @@ SAME LOGO ROLE
 + OPTICAL CLEARANCE
 ```
 
-Consistency is judged by the visible optical bounds, not merely the file rectangle.
+Consistency is judged by visible optical bounds, not merely the file rectangle.
 
 Always inspect:
 
@@ -306,7 +353,66 @@ A requested correction is not permission for a redesign.
 
 ---
 
-# 6. Final AI Production Memory
+# 6. Negative / Failure Memory
+
+Known EBL failures are stored in:
+
+`EBL_failure_memory.md`
+
+Future revision/finalization must explicitly check relevant active failure IDs.
+
+Key known patterns include:
+
+- faded/haloed raster typography;
+- logo cleanup ghosts / gray blobs;
+- regenerated logo substitutes;
+- optical logo collisions;
+- numbering drift;
+- visible repair rectangles;
+- incorrect semantic emphasis;
+- unrequested redesign;
+- Story-as-stretched-feed behavior;
+- generic language-school / infographic drift.
+
+A known active failure reproduced in the output is an automatic QC failure.
+
+---
+
+# 7. Decision Memory
+
+Durable decisions and their reasons live in:
+
+`EBL_decision_log.md`
+
+Do not remember only **what** was approved. Preserve **why** it was approved so future creative decisions can transfer the principle without mechanically copying one old composition.
+
+When a decision changes:
+
+```text
+NEW DECISION
+→ MARK OLD DECISION SUPERSEDED
+→ UPDATE ASSET / MEMORY / QC STATE
+```
+
+---
+
+# 8. Visual Calibration Memory
+
+Approved, rejected and candidate calibration records live in:
+
+`EBL_visual_examples.md`
+
+Use:
+
+- approved examples for positive calibration;
+- rejected examples for negative calibration;
+- review candidates only provisionally.
+
+Do not claim an image binary was inspected when only a written reference exists.
+
+---
+
+# 9. Final AI Production Memory
 
 The finalization process is a controlled creative loop.
 
@@ -367,15 +473,11 @@ AI cannot self-authorize human creative approval.
 
 ---
 
-# 7. Story Template Memory
-
-## Current platform format
+# 10. Story Template Memory
 
 Instagram Story production uses:
 
 `1080 × 1920 px` — `9:16`
-
-## EBL story design direction
 
 The Story system should inherit EBL identity without simply stretching a feed post vertically.
 
@@ -389,24 +491,15 @@ Use:
 - space for Instagram-native interaction such as poll/question/link stickers;
 - minimal, authored composition rather than infographic framing.
 
-## Current Story template candidate
+Current Story asset state:
 
-A current 1080×1920 template candidate was produced with:
+`EBL-ASSET-STORY-TPL-001 = REVIEW_CANDIDATE`
 
-- warm ivory paper ground;
-- edge-weighted navy / mustard / rust fields;
-- dot matrix / structural line signs;
-- large central content field;
-- bottom-left chosen-logo signature;
-- lower visual counterweight.
-
-Status: `PROJECT_REFERENCE / REVIEW_CANDIDATE` until explicitly human-approved as the reusable Story master.
-
-Do not silently promote this candidate's exact coordinates or composition to an approved template rule before human approval.
+Do not silently promote the candidate's exact coordinates or composition to an approved reusable Story master before explicit human approval.
 
 ---
 
-# 8. Production Output Memory
+# 11. Production Output Memory
 
 For final visual production:
 
@@ -432,29 +525,59 @@ Final QC evidence is part of the deliverable:
 
 ---
 
-# 9. Mandatory Retrieval for EBL Tasks
+# 12. Mandatory Retrieval for EBL Tasks
 
-Before EBL visual creation or revision, retrieve:
+Use task-specific routing in:
 
-1. `EBL_project_memory.md` — this file;
-2. `00_workflow/EBL_visual_production_workflow.md`;
+`EBL_retrieval_map.md`
+
+Core memory for any EBL visual task:
+
+1. `EBL_memory_registry.json`;
+2. `EBL_project_memory.md` — this file;
 3. `EBL_approved_project_rules.md`;
-4. content-specific decision file if one exists;
-5. `EBL_logo_application_rules.md` when branding is present;
-6. `QC-EBL-001_project_master_qc.md`;
-7. asset-specific QC modules;
-8. approved source visual / clean master / textless master as appropriate.
+4. `EBL_decision_log.md`;
+5. `EBL_failure_memory.md`;
+6. `QC-EBL-MEM-001_memory_compliance_qc.md`.
 
-For Story tasks also retrieve:
+Then retrieve task-specific records such as:
 
-- `EBL_story_template_rules.md`;
-- `instagram_template_synthesis.md`.
+- `EBL_asset_registry.json` for logos/assets;
+- content-specific decisions;
+- `EBL_logo_application_rules.md` when branding is present;
+- `EBL_story_template_rules.md` for Stories;
+- `EBL_visual_examples.md` for visual calibration;
+- `QC-EBL-001_project_master_qc.md` and specialized QC;
+- approved source visual / clean master / textless master.
 
 For final creative production also retrieve:
 
 - `final_ai_closed_loop_production.md`;
 - `final_ai_production_learnings.md`;
 - relevant source-informed creative synthesis references.
+
+---
+
+# 13. Memory Compliance Rule
+
+Before an EBL asset can pass project QC, run:
+
+`QC-EBL-MEM-001_memory_compliance_qc.md`
+
+Required trace evidence:
+
+```text
+MEMORY_FILES_RETRIEVED
+DECISION_IDS_APPLIED
+ASSET_IDS_APPLIED
+FAILURE_IDS_CHECKED
+EXAMPLE_IDS_USED
+UNRESOLVED_UNKNOWNS
+CONFLICTS
+MEMORY_COMPLIANCE_RESULT
+```
+
+A statement such as “memory checked” is not sufficient.
 
 ---
 
