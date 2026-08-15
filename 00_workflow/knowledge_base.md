@@ -46,6 +46,20 @@ Examples:
 
 External knowledge requires source provenance.
 
+#### Active Paul Klee source package
+
+Registered in:
+
+`00_workflow/knowledge/external/paul_klee_sources.md`
+
+Current supplied sources:
+
+- `KLEE-SRC-001` — Annie Bourneuf, *Paul Klee: The Visible and the Legible* (University of Chicago Press, 2015)
+- `KLEE-SRC-002` — Stephen H. Watson, *Crescent Moon over the Rational: Philosophical Interpretations of Paul Klee* (Stanford University Press, 2009)
+- `KLEE-SRC-003` — *Collected Works of Paul Klee* (Delphi Masters of Art / Delphi Classics, 2015)
+
+These sources are external evidence. They do **not** automatically become EBL style rules. Any transfer into EBL must pass through source-derived knowledge → project interpretation → human review → approved project rule.
+
 ### 3. Project Reference Knowledge
 
 Stores observations extracted from project-supplied visual references, audio, video, screenshots, moodboards, and other reference material.
@@ -98,6 +112,30 @@ PROVENANCE
 NOTES
 ```
 
+## External Source Record
+
+Each external/named-style source should contain:
+
+```text
+KB_ID
+KNOWLEDGE_TYPE
+AUTHOR / CREATOR
+TITLE
+PUBLISHER / INSTITUTION
+YEAR
+SOURCE_FORMAT
+SOURCE_ID
+STATUS
+SCOPE
+AUTHORITY
+APPROVAL_STATUS
+PROVENANCE
+SOURCE_SUPPORTED_THEMES
+PROJECT_USE_CAUTION
+```
+
+When the source is a broad catalogue or compilation rather than a scholarly interpretive source, record that authority difference explicitly.
+
 ## Knowledge Promotion
 
 Knowledge moves through controlled levels:
@@ -118,6 +156,28 @@ OPTIONAL SYSTEM RULE
 
 Project-specific knowledge must not become a system rule automatically.
 
+## Named-Style Source Promotion Rule
+
+For named-style work such as Paul Klee:
+
+```text
+EXTERNAL SOURCE
+    ↓
+SOURCE_FACT / SOURCE_DERIVED
+    ↓
+NAMED STYLE STUDY
+    ↓
+MOTIF / SIGN EXTRACTION
+    ↓
+PROJECT INTERPRETATION
+    ↓
+HUMAN REVIEW
+    ↓
+APPROVED EBL RULE
+```
+
+Do not copy source artworks literally. Historical description, interpretation, project derivation, and final visual rule must remain distinguishable.
+
 ## Retrieval Rule
 
 Tasks should retrieve knowledge from the appropriate domain before execution:
@@ -128,6 +188,9 @@ EBL task
 
 Named artist task
   → External / Named-Style Knowledge
+
+Paul Klee-informed task
+  → paul_klee_sources.md + approved Klee-derived project rules
 
 Reference analysis
   → Project Reference Knowledge
@@ -147,6 +210,22 @@ When sources conflict:
 5. model inference.
 
 Conflicts must be surfaced rather than silently reconciled.
+
+## Human-Directed Revision Knowledge
+
+Human-directed output revision is governed by:
+
+`00_workflow/human_feedback_style_learning.md`
+
+The governing relationship is:
+
+```text
+HUMAN = decides WHAT to edit
+REFERENCE = informs HOW the requested edit should look
+AI = applies the requested edit
+```
+
+Revision behavior itself is a workflow rule. A specific aesthetic correction becomes reusable style knowledge only through the normal approval/promotion process.
 
 ## Privacy / Scope
 
