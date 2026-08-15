@@ -44,6 +44,23 @@ The approved PNG remains the visual source of truth. The textless artwork is a D
 
 For reconstruction-sensitive work, keep the approved PNG in Figma as a locked reference layer and validate the editable reconstruction by overlay/visibility comparison.
 
+## Structured Production File Requirement
+
+The internal organization of the Figma production file must follow:
+
+`figma_file_structure.md`
+
+The file must separate:
+
+- approved reference evidence;
+- editable production masters;
+- reusable style-system assets;
+- publish/export outputs.
+
+For reconstructed raster visuals, the working file should expose clear `LOCKED`, `CONTROLLED`, `EDITABLE`, and `REFERENCE` states so a manual edit cannot silently replace or corrupt the approved visual source.
+
+If a Figma MCP operation is blocked by a plan, permission, rate, or tool-call limit, treat the failed operation as **NO CHANGE APPLIED** unless the tool explicitly reports mutated or created node IDs. Do not claim the file was restructured after a blocked call.
+
 ## Required Fields
 
 ```text
@@ -119,17 +136,22 @@ SLIDE XX
 │   └── Approved Final PNG [LOCKED]
 │
 ├── 01_ARTWORK
-│   └── Textless Artwork / Approved Raster Artwork
+│   └── Textless Artwork / Approved Raster Artwork [CONTROLLED]
 │
-└── 02_EDITABLE
-    ├── Slide Number
-    ├── Headline
-    ├── Supporting Copy
-    ├── Emphasis Text
-    ├── CTA
-    ├── Brand Text
-    ├── Simple Signs / Shapes
-    └── Approved Logo Asset
+├── 02_EDITABLE_TEXT
+│   ├── Slide Number [EDITABLE]
+│   ├── Headline [EDITABLE]
+│   ├── Supporting Copy [EDITABLE]
+│   ├── Emphasis Text [EDITABLE]
+│   ├── CTA [EDITABLE]
+│   └── Brand Text [EDITABLE]
+│
+├── 03_EDITABLE_GRAPHICS
+│   ├── Simple Signs / Shapes [CONTROLLED]
+│   └── Approved Logo Asset [CONTROLLED or LOCKED]
+│
+└── 04_QC
+    └── Overlay Reference / Comparison Controls
 ```
 
 ## Components
@@ -154,8 +176,9 @@ Every important layer or component must be classified as:
 - EDITABLE — content can change for future posts.
 - CONTROLLED — can change only through defined style variables or component properties.
 - LOCKED — should not be changed without design-system approval.
+- REFERENCE — source-of-truth evidence used for comparison, not the working production object.
 
-For reconstructed approved visuals, the reference PNG is LOCKED. Derived textless artwork is normally CONTROLLED or LOCKED depending on whether manual retouching is allowed.
+For reconstructed approved visuals, the reference PNG is LOCKED/REFERENCE. Derived textless artwork is normally CONTROLLED or LOCKED depending on whether manual retouching is allowed.
 
 ## Typography
 
@@ -270,14 +293,16 @@ A Figma implementation package is complete only when:
 
 - the approved visual and Figma structure correspond;
 - required reconstruction preparation has passed when applicable;
+- the Figma production file follows `figma_file_structure.md`;
 - the approved PNG remains traceable as the visual reference;
 - all critical content is represented;
-- editable and locked elements are identified;
+- editable, controlled, locked, and reference elements are identified;
 - platform dimensions are correct;
 - typography and color specifications are traceable;
 - reusable components are identified;
 - overlay validation passes for reconstructed raster visuals;
 - export settings are defined;
+- any MCP/access blocker is resolved or explicitly recorded;
 - the package has an approval status.
 
 ## Versioning
@@ -311,4 +336,5 @@ The Figma implementation layer must not:
 - turn one-off content into a global style rule;
 - replace the approved visual without an explicit revision decision;
 - treat a reconstructed textless image as more authoritative than the approved source;
-- use manual reconstruction as permission to redesign the approved output.
+- use manual reconstruction as permission to redesign the approved output;
+- claim a Figma change was applied when the connector operation failed or was blocked.
