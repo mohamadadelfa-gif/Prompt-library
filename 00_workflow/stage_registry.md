@@ -13,7 +13,7 @@
 | 09 Generation | GEN-001–GEN-002 | Operationalize approved direction into generation specifications and prompts | Generated Output |
 | 10 Content Package | `content_package_contract.md` | Assemble visual, copy, caption, CTA, accessibility, and publishing outputs | Approved Content Package |
 | 11 Human Revision / Style Learning | `human_feedback_style_learning.md` | Capture revision, approval, and reusable style knowledge | Approved Revision / Style Knowledge |
-| 12 Figma Implementation | `editable_reconstruction_preparation.md` → `figma_output_contract.md` | Prepare approved raster visuals for exact editable reconstruction, then build the editable production design | Approved Figma Master |
+| 12 Figma Implementation | `editable_reconstruction_preparation.md` → `live_editable_text_layers.md` → `figma_file_structure.md` → `figma_output_contract.md` | Prepare approved raster visuals, rebuild live editable text, organize the production file, and create the editable production master | Approved Structured Figma Master |
 | 13 Quality Control | QC-001–QC-002 + `stepwise_creative_review.md` | Review outputs, diagnose root causes, and route revision | Final Approval / Revision Route |
 
 ## Stage Boundaries
@@ -52,7 +52,11 @@ May assemble approved content components. Must not introduce new strategic claim
 May record human changes and extract approved reusable style knowledge. Must not silently rewrite upstream decisions or promote one-off corrections to system rules.
 
 ### Figma Implementation
-For flattened/raster approved visuals, must first run `editable_reconstruction_preparation.md` to source-lock the approved visual, derive textless artwork, map editable elements, and create a controlled reconstruction handoff. Figma may then implement the approved visual as editable design structure. Neither preparation nor Figma implementation may redesign, reinterpret, or silently replace the approved content.
+For flattened/raster approved visuals, must first run `editable_reconstruction_preparation.md` to source-lock the approved visual, derive textless artwork, map editable elements, and create a controlled reconstruction handoff. Rasterized typography intended for manual editing must follow `live_editable_text_layers.md`. The production file must then be organized according to `figma_file_structure.md` before final validation under `figma_output_contract.md`.
+
+Figma implementation must preserve a clear distinction between APPROVED REFERENCE, EDITABLE MASTER, STYLE SYSTEM, and EXPORT output. It must not redesign, reinterpret, or silently replace approved content.
+
+If Figma MCP access is blocked by a plan, permission, rate, or tool-call limit, the blocked operation is not considered applied unless explicit created/mutated node IDs are returned. Record the blocker and preserve the last confirmed file state.
 
 ### Quality Control
 May evaluate outputs and diagnose root causes. Must not rewrite upstream decisions while evaluating them.
