@@ -63,3 +63,11 @@ For each finding record: candidate ID, slide(s), gate, observation, expected rul
 ## Handoff
 PASS/PASS_WITH_REVISION + HUMAN_APPROVED -> Figma implementation.
 FAIL -> human-directed revision -> regenerate -> rerun QC-IG-001.
+
+## Specialized Instagram Asset QC
+
+Profile/avatar images have different functional requirements from feed/carousel visuals and must use:
+
+`00_workflow/qc/QC-IG-PROFILE-001_instagram_profile_picture_qc.md`
+
+Do not evaluate a teacher/founder profile image as a miniature feed post. For profile pictures, recognition, circular-crop safety, natural identity fidelity and tiny-size performance take priority over decorative brand graphics.
