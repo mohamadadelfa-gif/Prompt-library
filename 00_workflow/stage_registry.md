@@ -14,7 +14,9 @@
 | 10 Content Package | `content_package_contract.md` | Assemble visual, copy, caption, CTA, accessibility, and publishing outputs | Approved Content Package |
 | 11 Human Revision / Style Learning | `human_feedback_style_learning.md` | Capture revision, approval, and reusable style knowledge | Approved Revision / Style Knowledge |
 | 12 Figma Implementation | `editable_reconstruction_preparation.md` → `live_editable_text_layers.md` → `figma_file_structure.md` → `figma_output_contract.md` | Prepare approved raster visuals, rebuild live editable text, organize the production file, and create the editable production master | Approved Structured Figma Master |
-| 13 Quality Control | QC-001–QC-002 + `stepwise_creative_review.md` + Instagram-specific QC modules | Review outputs, diagnose root causes, and route revision | Final Approval / Revision Route |
+| 13 Quality Control | QC-001–QC-002 + `stepwise_creative_review.md` + Instagram-specific QC modules | Review outputs, diagnose root causes, and route revision | Final Approval Candidate / Revision Route |
+| 14 Creative AI Final Edit | FINAL-AI-001 / `creative_ai_final_edit.md` | Perform semantic + visual finishing using approved content, brand knowledge, slide function, typography, layout, and source-informed design principles | Creative Final Candidate |
+| 15 AI Creative Synthesis + Heavy QC | FINAL-AI-002 / `final_ai_creative_synthesis_heavy_qc.md` | Holistically refine the completed work, run all applicable mandatory QC gates, prepare final master and platform derivatives, and route to human final approval | Final Publishing Master |
 
 ## Stage Boundaries
 
@@ -66,6 +68,31 @@ Instagram-specific QC modules currently include:
 - `00_workflow/qc/QC-IG-001_instagram_visual_qc.md` — feed/carousel visual QC;
 - `00_workflow/qc/QC-AUD-001_audience_catcher_qc.md` — audience relevance and stopping-power QC;
 - `00_workflow/qc/QC-SOC-001_social_visual_audience_gate.md` — combined social visual/audience gate;
-- `00_workflow/qc/QC-IG-PROFILE-001_instagram_profile_picture_qc.md` — profile/avatar identity QC.
+- `00_workflow/qc/QC-IG-PROFILE-001_instagram_profile_picture_qc.md` — profile/avatar identity QC;
+- `00_workflow/qc/QC-LOGO-001_logo_application_qc.md` — logo master fidelity, optical clearance, replacement cleanup and multi-slide consistency;
+- `00_workflow/qc/QC-TYPE-001_typography_integrity_qc.md` — typography integrity, native-resolution reconstruction and carousel numbering consistency.
 
 Use the asset-specific QC rather than forcing one Instagram QC model onto every asset type.
+
+### Creative AI Final Edit
+May make controlled late-stage typography, alignment, hierarchy, spacing, line/form relationship, contrast, and optical-balance refinements only after retrieving approved project context and analyzing the semantic role of the content.
+
+It must follow `creative_ai_final_edit.md` and use `knowledge/external/creative_synthesis_sources.md` as evidence. External references may improve creative judgment but may not override approved meaning, logo identity, brand rules, or human decisions.
+
+This stage produces a **Creative Final Candidate**, not a publishing master.
+
+### AI Creative Synthesis + Heavy QC
+May use broader holistic creative judgment to make the completed work cohere as one authored system, but content/factual freedom remains locked.
+
+It must:
+
+- follow `final_ai_creative_synthesis_heavy_qc.md`;
+- run all applicable mandatory QC modules;
+- inspect native-resolution critical areas;
+- inspect realistic feed-size output;
+- evaluate the carousel/set sequentially;
+- preserve an archival/project master;
+- create platform derivatives only after master approval;
+- route the result to human final approval.
+
+AI cannot label an output `FINAL_PUBLISHING_MASTER` until all mandatory gates pass and the human explicitly approves the final candidate.
