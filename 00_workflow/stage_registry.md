@@ -15,8 +15,8 @@
 | 11 Human Revision / Style Learning | `human_feedback_style_learning.md` | Capture revision, approval, and reusable style knowledge | Approved Revision / Style Knowledge |
 | 12 Figma Implementation | `editable_reconstruction_preparation.md` → `live_editable_text_layers.md` → `figma_file_structure.md` → `figma_output_contract.md` | Prepare approved raster visuals, rebuild live editable text, organize the production file, and create the editable production master | Approved Structured Figma Master |
 | 13 Quality Control | QC-001–QC-002 + `stepwise_creative_review.md` + Instagram-specific QC modules | Review outputs, diagnose root causes, and route revision | Final Approval Candidate / Revision Route |
-| 14 Creative AI Final Edit | FINAL-AI-001 / `creative_ai_final_edit.md` | Perform semantic + visual finishing using approved content, brand knowledge, slide function, typography, layout, and source-informed design principles | Creative Final Candidate |
-| 15 AI Creative Synthesis + Heavy QC | FINAL-AI-002 / `final_ai_creative_synthesis_heavy_qc.md` | Holistically refine the completed work, run all applicable mandatory QC gates, prepare final master and platform derivatives, and route to human final approval | Final Publishing Master |
+| 14 Creative AI Final Edit | FINAL-AI-001 / `creative_ai_final_edit.md` + `final_ai_closed_loop_production.md` | Perform semantic + visual finishing using approved content, brand knowledge, slide function, typography, layout, and source-informed design principles; explicitly classify each asset as preserve / cleanup / micro-refine / source-based reconstruction / conceptual change | Creative Final Candidate |
+| 15 AI Creative Synthesis + Heavy QC | FINAL-AI-002 / `final_ai_creative_synthesis_heavy_qc.md` + `final_ai_closed_loop_production.md` | Holistically refine the completed work, run all applicable mandatory QC gates, return failed assets through root-cause correction, prepare final master and platform derivatives, and route to human final approval | PASS_FOR_HUMAN_FINAL_REVIEW → human-approved Final Publishing Master |
 
 ## Stage Boundaries
 
@@ -77,7 +77,28 @@ Use the asset-specific QC rather than forcing one Instagram QC model onto every 
 ### Creative AI Final Edit
 May make controlled late-stage typography, alignment, hierarchy, spacing, line/form relationship, contrast, and optical-balance refinements only after retrieving approved project context and analyzing the semantic role of the content.
 
-It must follow `creative_ai_final_edit.md` and use `knowledge/external/creative_synthesis_sources.md` as evidence. External references may improve creative judgment but may not override approved meaning, logo identity, brand rules, or human decisions.
+It must follow:
+
+- `creative_ai_final_edit.md`;
+- `final_ai_closed_loop_production.md`;
+- `knowledge/external/creative_synthesis_sources.md` as evidence;
+- relevant project rules and QC modules.
+
+Before editing, every asset must be classified:
+
+```text
+P0 PRESERVE
+P1 CLEANUP
+P2 MICRO-REFINE
+P3 SOURCE-BASED RECONSTRUCTION
+P4 CONCEPTUAL CHANGE — HUMAN AUTHORIZATION REQUIRED
+```
+
+A P0 decision is a completed creative decision, not skipped work.
+
+The clean-source hierarchy in `final_ai_closed_loop_production.md` must be used before patching a damaged derivative.
+
+External references may improve creative judgment but may not override approved meaning, logo identity, brand rules, or human decisions.
 
 This stage produces a **Creative Final Candidate**, not a publishing master.
 
@@ -87,12 +108,76 @@ May use broader holistic creative judgment to make the completed work cohere as 
 It must:
 
 - follow `final_ai_creative_synthesis_heavy_qc.md`;
+- follow the orchestration loop in `final_ai_closed_loop_production.md`;
 - run all applicable mandatory QC modules;
 - inspect native-resolution critical areas;
 - inspect realistic feed-size output;
 - evaluate the carousel/set sequentially;
 - preserve an archival/project master;
-- create platform derivatives only after master approval;
+- create platform derivatives only from the approved master;
+- return mandatory failures through root-cause diagnosis and smallest-safe correction;
+- rerun the failed gate plus whole-set coherence after correction;
 - route the result to human final approval.
 
 AI cannot label an output `FINAL_PUBLISHING_MASTER` until all mandatory gates pass and the human explicitly approves the final candidate.
+
+---
+
+## Finalization Orchestration — Stages 14–15
+
+Stages 14 and 15 operate as one controlled closed loop rather than two isolated linear steps.
+
+Authoritative orchestrator:
+
+`00_workflow/final_ai_closed_loop_production.md`
+
+Reusable system learnings:
+
+`00_workflow/knowledge/system/final_ai_production_learnings.md`
+
+The finalization loop is:
+
+```text
+SOURCE LOCK
+→ WHOLE-WORK READ
+→ FUNCTION MAP
+→ PRESERVE / INTERVENE CLASSIFICATION
+→ FINAL-AI-001
+→ DELTA REVIEW
+→ FINAL-AI-002 HEAVY QC
+→ ROOT-CAUSE REVISION IF REQUIRED
+→ PASS_FOR_HUMAN_FINAL_REVIEW
+→ HUMAN FINAL APPROVAL
+→ FINAL_PUBLISHING_MASTER
+→ PLATFORM DERIVATIVES
+→ LEARNING REVIEW
+```
+
+### Failure-routing rule
+
+A mandatory local failure must not trigger unnecessary redesign of unaffected assets.
+
+Use:
+
+```text
+LOCAL FAILURE
+→ LOCAL ROOT-CAUSE CORRECTION
+→ RERUN FAILED GATE
+→ RERUN GLOBAL COHERENCE
+```
+
+### Output architecture rule
+
+The approved archival/project master and the platform derivative are separate outputs.
+
+Do not repeatedly resize the working master during revision. Create platform derivatives only after the final master is approved.
+
+### Learning-promotion rule
+
+After finalization, separate:
+
+1. project-specific decisions;
+2. reusable project rules;
+3. system-level production learnings.
+
+Only promote knowledge to the system layer when the human explicitly authorizes learning / structuralization or the existing promotion policy allows it.
