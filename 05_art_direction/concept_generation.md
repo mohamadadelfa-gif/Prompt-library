@@ -37,6 +37,10 @@ Create 3–5 concepts with different conceptual mechanisms, not superficial styl
 ### 4. Test Each Concept Against Visual DNA
 For every concept identify how it uses Core, Supporting, Flexible, and Avoid principles. If it intentionally challenges a principle, explain the controlled exception.
 
+## Output Contract
+
+The task must produce a complete concept set containing 3–5 distinct routes, a diversity check, recommendation, risks, and a complete handoff package for ART-002. The output must not contain final artwork or model-specific generation prompts.
+
 ## Concept Structure
 For each concept provide:
 - Concept ID
@@ -80,8 +84,14 @@ The handoff must contain the complete concept set, comparison matrix, risks, and
 ## Quality Gate
 Concepts pass only if they are strategically relevant, conceptually distinct, explainable, developable, production-aware, and compatible with the Visual DNA.
 
+Return exactly one canonical status:
+
+- **PASS** — the concept set and ART-002 handoff satisfy the quality gate.
+- **CONDITIONAL** — evaluation may proceed with explicit non-blocking limitations.
+- **BLOCKED** — critical strategy, Visual DNA, diversity, or feasibility information is missing.
+
 ## Version
-2.0
+2.1
 
 ## Status
-Testing
+Production Candidate

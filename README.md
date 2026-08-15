@@ -1,6 +1,6 @@
-# Prompt Library v2
+# Prompt Library v3 — Controlled Creative Production System
 
-A version-controlled prompt system for creative strategy, research, visual analysis, Visual DNA, art direction, AI generation, and quality control.
+A version-controlled creative-production system in which prompts are executable tasks with defined inputs, boundaries, outputs, provenance, confidence, handoffs, and decision gates.
 
 ## Workflow
 
@@ -8,10 +8,39 @@ Customer Information
 → Strategy
 → Research
 → Visual Analysis
+→ Conditional Style Study and Motif Extraction
+→ Reference Style Synthesis
 → Visual DNA
+→ Platform / Template Synthesis
 → Art Direction
 → Generation
-→ Quality Control
+→ Content Package
+→ Human Revision / Style Learning
+→ Conditional Editable Reconstruction
+→ Figma Implementation
+→ Quality Control / Final Approval
+
+## Control Layer
+
+The orchestration rules live in `00_workflow/`:
+
+- `workflow.md` — execution pipeline and revision routing
+- `task_contract.md` — universal executable-task standard
+- `task_contracts.json` — canonical task-level dependencies, gates, approvals, and revision policy
+- `stage_registry.md` — stage responsibilities and active tasks
+- `handoff_contract.md` — controlled transfer between stages
+- `decision_gates.md` — canonical gate vocabulary and approval rules
+- `information_model.md` — SOURCE / DERIVED / DECISION / OUTPUT states
+- `task_registry.json` — machine-readable stage/task index
+- `process_registry.json` — canonical 15-stage production process, including goals, conditions, artifacts, gates, protocols, and memory effects
+
+## Canonical Gate Vocabulary
+
+All active prompts and task contracts use only:
+
+`PASS` · `CONDITIONAL` · `BLOCKED` · `APPROVE` · `REVISE` · `REJECT` · `READY` · `REGENERATE`
+
+Natural-language explanations may accompany a gate, but the final status must use the canonical value.
 
 ## Active Prompt Sequence
 
@@ -53,60 +82,91 @@ Customer Information
 ### 07 — Quality Control
 - QC-001 — Generated Image Evaluation
 - QC-002 — Revision Strategy
+- QC-003 — QC Knowledge Synthesis
+
+## Runtime
+
+The optional `runtime/` package turns a prompt file into an auditable model execution. It is not required for structural consistency validation.
+
+### Human-triggered Heavy QC
+
+Heavy QC is an optional local PyIQA ensemble for aesthetic, no-reference technical, and full-reference evidence. It runs only after an authorized human explicitly asks for `heavy QC`; its output always remains `AWAITING_HUMAN_DECISION`.
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-heavy-qc.txt
+.\.venv\Scripts\python.exe runtime\heavy_qc.py <candidate-image> --approval HEAVY_QC_APPROVED
+```
+
+Add `--reference <approved-source-image>` for SSIM, LPIPS, and PSNR comparisons. Runtime evidence is stored under ignored `runs/`; pretrained weights remain in the local user cache and must not be committed. Review the upstream PyIQA and model licenses before commercial use.
+
+## Testing
+
+### Structural CI
+
+`tests/validate_library.py` validates:
+
+- active prompt IDs and stage prefixes
+- exact match between active prompts and task contracts
+- task-level dependencies and next-task references
+- canonical gate vocabulary
+- lifecycle status
+- deprecated/retired references
+- domain-specific leakage
+- required task-contract metadata
+- canonical 15-stage process order, task coverage, protocol paths, stage dependencies, gates, artifacts, and memory effects
+
+### Semantic validation
+
+The semantic framework in `tests/` evaluates task adherence, source fidelity, unknown handling, completeness, classification, traceability, contract compliance, and handoff quality against controlled fixtures.
+
+Semantic execution remains a separate release gate because it depends on a selected model/runtime.
 
 ## Deprecated
 
-`02_research/reference_selection.md` is retained only as a migration note. It is not an active execution stage. Its old duplicate `RES-002` identity is retired.
+`02_research/reference_selection.md` is retained only as a migration note. It is not an active task and is excluded from validation.
 
-## v2 Execution Contract
+## Information Rules
 
-Every active prompt must define, explicitly or operationally:
+Every important item must remain identifiable as one of:
 
-1. **Input Contract** — required inputs and missing-input behavior.
-2. **Transformation Boundary** — what the prompt may infer, transform, or decide.
-3. **Output Contract** — structured outputs required downstream.
-4. **Provenance** — source of material claims, requirements, findings, and decisions.
-5. **Confidence** — uncertainty remains explicit.
-6. **Handoff** — approved outputs, unresolved items, and blockers passed forward.
+- SOURCE — supplied or observed evidence
+- DERIVED — analysis or inference supported by source
+- DECISION — explicit approved project or creative choice
+- OUTPUT — generated execution result
 
-Downstream stages must not silently rewrite upstream facts, requirements, research findings, Visual DNA, selected concepts, or approved Art Direction.
+Forbidden silent transitions include:
 
-## Evidence Rules
+- DERIVED → SOURCE
+- ASSUMPTION → FACT
+- OUTPUT → REQUIREMENT
+- SOURCE → DECISION without an explicit decision step
 
-Use the appropriate evidence label:
+## Revision Control
 
-- Fact / Confirmed
-- Observation
-- Interpretation
-- Hypothesis
-- Assumption
-- Unknown
-- Unresolved
-- Superseded
+Maximum automatic revision cycles: **3**. After the third unsuccessful cycle, route to **HUMAN_REVIEW** rather than continuing automatically.
 
-Never promote an inference or hypothesis to a confirmed requirement without supporting evidence.
+## Production Release Rule
 
-## Decision Gates
+A production release requires:
 
-A stage may proceed only when required inputs exist and no unresolved critical dependency blocks the next stage.
-
-Use explicit outcomes where applicable:
-- PROCEED
-- PROCEED WITH CONDITIONS
-- DO NOT PROCEED
-- READY FOR GENERATION
-- REVISE
-- REGENERATE
-
-## Versioning
-
-`2.0` = structural revision
-`2.1` = minor improvement
+1. Structural CI PASS.
+2. No duplicate or invalid IDs.
+3. Exact task-contract alignment.
+4. No unresolved critical workflow dependency.
+5. Production-eligible prompt version/status.
+6. Relevant semantic tests PASS with the selected model/runtime.
+7. Required human approvals recorded.
+8. Release artifact records prompt versions, model/runtime, and test results.
 
 ## Status
 
-Testing
+Production Candidate — consistency controls hardened; semantic release gate remains separate.
+
+## Version
+
+3.1-production-candidate
 
 ## Core Principle
 
-**Analyze → Structure → Research → Synthesize → Direct → Generate → Evaluate**
+**Analyze → Structure → Research → Synthesize → Direct → Generate → Evaluate → Revise**

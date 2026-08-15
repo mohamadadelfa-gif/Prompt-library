@@ -123,6 +123,12 @@ The synthesis passes only if:
 - No unsupported creative direction is introduced.
 - The VIS handoff contains actionable research questions.
 
+Return exactly one canonical status:
+
+- **PASS** — the synthesis and VIS handoff meet every requirement above.
+- **CONDITIONAL** — downstream analysis may proceed with explicit non-blocking limitations.
+- **BLOCKED** — critical evidence, traceability, or actionable handoff information is missing.
+
 ## Version
 2.0
 

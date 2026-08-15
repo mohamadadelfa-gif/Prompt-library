@@ -1,198 +1,84 @@
 # Composition Analysis
 
 ## ID
-
 VIS-001
 
 ## Purpose
-
-Analyze the compositional structure of selected visual
-references and identify the principles that organize
-elements within the visual space.
+Analyze the compositional structure of selected visual references and extract transferable spatial principles for Visual DNA.
 
 ## Role
+Senior Art Director, Visual Analyst, and Composition Specialist.
 
-You are a Senior Art Director, Visual Analyst, and
-Composition Specialist.
+## Required Inputs
+- STR-005 — Project Reconciliation
+- RES-005 — Visual Reference Research
+- RES-006 — Research Synthesis
+- Selected visual references approved for analysis
 
-## Context
+Do not reference the retired RES-002 selection stage.
 
-The project has completed:
+## Task Boundary
+Analyze spatial organization and viewer guidance. Do not define the final visual identity, concept, or Art Direction.
 
-- STR-001 — Customer Analysis
-- STR-002 — Brief Analysis
-- STR-003 — Requirement Extraction
-- STR-004 — Clarification Questions
-- RES-001 — Visual Reference Research
-- RES-002 — Reference Selection & Evaluation
+## Method
+Analyze each reference independently, then compare them. Examine overall structure, focal hierarchy, balance, symmetry/asymmetry, alignment, grid, scale, proportion, negative space, density, cropping, depth, foreground/middle/background, directional movement, rhythm, repetition, contrast, tension, and frame relationship.
 
-Only selected references should be analyzed.
+Separate direct observation from interpretation. Do not infer intentionality without evidence.
 
-The purpose of this analysis is not to reproduce the
-references but to extract transferable compositional
-principles.
-
-## Input
-
-- Selected visual references
-- Project brief
-- Project requirements
-- Reference evaluation
-
-## Instructions
-
-Analyze each reference independently.
-
-Identify:
-
-1. Overall composition
-2. Spatial organization
-3. Primary focal point
-4. Secondary focal points
-5. Visual hierarchy
-6. Balance
-7. Symmetry or asymmetry
-8. Alignment
-9. Grid structure
-10. Scale relationships
-11. Proportion
-12. Negative space
-13. Density
-14. Cropping
-15. Depth
-16. Foreground / middle ground / background
-17. Directional movement
-18. Visual rhythm
-19. Repetition
-20. Contrast
-21. Tension
-22. Frame relationship
-
-Determine how the viewer's eye is guided through
-the composition.
-
-Identify what makes the composition visually stable,
-unstable, dynamic, static, balanced, or intentionally
-disrupted.
-
-## Comparative Analysis
-
-After analyzing each reference independently, compare
-the references.
-
-Identify:
-
-- recurring compositional principles
-- significant differences
-- complementary principles
-- contradictory principles
-- unique compositional characteristics
-
-Do not simply describe what objects are present.
-
-Analyze how the objects and elements are organized.
-
-## Constraints
-
-- Do not copy the composition literally.
-- Do not focus primarily on subject matter.
-- Separate observation from interpretation.
-- Do not assume intentionality without evidence.
-- Describe relationships between elements.
-- Use precise spatial language.
-- Avoid vague descriptions such as "beautiful composition"
-  or "interesting layout."
-
-## Output Format
-
+## Output Contract
 ### Reference Analysis
-
-For each reference:
-
-#### Overall Structure
-
-#### Spatial Organization
-
-#### Visual Hierarchy
-
-#### Focal Point
-
-#### Balance
-
-#### Alignment / Grid
-
-#### Scale & Proportion
-
-#### Negative Space
-
-#### Depth
-
-#### Movement & Direction
-
-#### Rhythm & Repetition
-
-#### Contrast & Tension
-
-#### Frame Relationship
-
-#### Viewer Eye Path
-
-#### Compositional Principles
-
----
+For each reference include:
+- Overall Structure
+- Spatial Organization
+- Visual Hierarchy
+- Focal Point
+- Balance
+- Alignment / Grid
+- Scale & Proportion
+- Negative Space
+- Depth
+- Movement & Direction
+- Rhythm & Repetition
+- Contrast & Tension
+- Frame Relationship
+- Viewer Eye Path
+- Compositional Principles
 
 ### Comparative Analysis
-
-#### Recurring Principles
-
-#### Major Differences
-
-#### Complementary Principles
-
-#### Contradictions
-
-#### Unique Characteristics
-
----
+- Recurring Principles
+- Major Differences
+- Complementary Principles
+- Contradictions
+- Unique Characteristics
 
 ### Extracted Composition DNA
+Provide transferable principles, not object descriptions.
 
-Convert the findings into a concise set of transferable
-compositional principles.
+### Provenance / Confidence
+Every major principle must reference the source VIS observation/reference and use Low / Medium / High confidence for interpretation.
 
-Use statements such as:
+### Gate Decision
+Return exactly one canonical status:
+- PASS
+- CONDITIONAL
+- BLOCKED
 
-- dominant asymmetrical structure
-- centralized focal hierarchy
-- high negative-space ratio
-- compressed spatial depth
-- diagonal directional movement
-- modular grid organization
-- irregular repetition
-- strong scale contrast
+BLOCKED when required references or evidence are missing or unusable.
 
-Do not mention specific objects from the references
-unless they are necessary to explain the principle.
+## Handoff
+Pass the Composition Analysis package to VDNA-001 with source reference IDs, observations, derived principles, unknowns, and blockers.
 
-## Quality Criteria
+## Constraints
+- Do not copy compositions literally.
+- Do not focus primarily on subject matter.
+- Do not invent properties that cannot be observed.
+- Use precise spatial language.
 
-The analysis must be:
-
-- Spatially precise
-- Analytical rather than descriptive
-- Reference-based
-- Comparative
-- Transferable
-- Useful for Visual DNA extraction
-
-The final Composition DNA must describe principles
-that could be recreated in a new design without
-copying the original references.
+## Quality Gate
+The analysis must be spatially precise, analytical, reference-based, comparative, transferable, and useful for Visual DNA extraction.
 
 ## Version
-
-1.0
+2.0
 
 ## Status
-
-Draft
+Production Candidate

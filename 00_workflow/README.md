@@ -7,12 +7,19 @@ The Prompt Library is a **controlled creative-production system** in which promp
 ## Files
 
 - `workflow.md` — master execution pipeline and revision routing
+- `process_registry.json` — canonical machine-readable 15-stage production process
 - `task_contract.md` — universal contract for executable prompts
 - `stage_registry.md` — active stages, tasks, boundaries, and handoffs
 - `handoff_contract.md` — controlled information transfer between stages
 - `decision_gates.md` — rules for advancing, blocking, revising, and approving work
 - `information_model.md` — SOURCE / DERIVED / DECISION / OUTPUT model
+- `editable_reconstruction_preparation.md` — source-lock, textless artwork derivation, editable-layer mapping, and Figma reconstruction handoff for approved raster visuals
+- `figma_output_contract.md` — editable production implementation requirements for approved visual outputs
+- `qc/QC-IQA-001_technical_image_quality_qc.md` — measurable raster, export, artifact, and reference-comparison evidence with explicit limits on automated judgment
+- `qc/HEAVY-QC-001_human_triggered_ensemble.md` — optional, explicitly human-authorized PyIQA aesthetic and technical evidence panel
 
 ## Execution Principle
 
 A prompt is not considered complete merely because it returns text. It is complete only when its output satisfies its contract and its decision gate permits the workflow to continue.
+
+The process is not considered coherent merely because each prompt validates independently. Every task and protocol must also occupy a declared process stage with an explicit goal, condition, output artifact, gate, and memory effect.

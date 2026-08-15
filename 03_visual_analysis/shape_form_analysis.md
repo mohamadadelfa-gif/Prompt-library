@@ -1,267 +1,82 @@
 # Shape & Form Analysis
 
 ## ID
-
 VIS-003
 
 ## Purpose
-
-Analyze the shape and form language of selected visual
-references and identify transferable principles that can
-contribute to the project's visual identity.
+Analyze the shape and form language of selected visual references and extract transferable principles for Visual DNA.
 
 ## Role
+Senior Art Director, Shape Language Specialist, and Visual Analyst.
 
-You are a Senior Art Director, Shape Language Specialist,
-and Visual Analyst.
-
-## Context
-
-The project has completed:
-
-- STR-001 — Customer Analysis
-- STR-002 — Brief Analysis
-- STR-003 — Requirement Extraction
-- STR-004 — Clarification Questions
-- RES-001 — Visual Reference Research
-- RES-002 — Reference Selection & Evaluation
+## Required Inputs
+- STR-005 — Project Reconciliation
+- RES-005 — Visual Reference Research
+- RES-006 — Research Synthesis
+- Selected visual references approved for analysis
 - VIS-001 — Composition Analysis
 - VIS-002 — Color Analysis
 
-The selected references now need to be analyzed for their
-shape and form language.
+## Task Boundary
+Analyze shape vocabulary and perceived form. Do not define final objects, concepts, or Art Direction.
 
-The objective is not to reproduce individual objects.
+## Method
+Analyze each reference independently, then compare them. Examine primary/secondary shapes, geometric/organic balance, regularity, complexity, angularity/curvature, edge treatment, symmetry, open/closed forms, flat/dimensional structure, abstraction, silhouettes, proportion, visual weight, repetition, transformation, distortion, layering, and relationships to composition and color.
 
-The objective is to identify the underlying visual grammar
-of shapes and forms.
+Distinguish **shape** as a two-dimensional boundary from **form** as perceived three-dimensional volume. Do not infer properties that are not visually supported.
 
-## Input
-
-- Selected visual references
-- Project brief
-- Project requirements
-- Reference evaluation
-- Composition Analysis
-- Color Analysis
-
-## Instructions
-
-Analyze each reference independently.
-
-Identify:
-
-1. Primary shape types
-2. Secondary shape types
-3. Geometric vs organic forms
-4. Regular vs irregular forms
-5. Simple vs complex forms
-6. Angular vs curved forms
-7. Sharp vs soft edges
-8. Symmetrical vs asymmetrical forms
-9. Open vs closed forms
-10. Flat vs dimensional forms
-11. Abstract vs representational forms
-12. Positive vs negative shapes
-13. Shape repetition
-14. Shape transformation
-15. Shape distortion
-16. Scale relationships
-17. Proportion
-18. Visual weight
-19. Edge characteristics
-20. Silhouette characteristics
-21. Degree of abstraction
-22. Relationship between shape and composition
-23. Relationship between shape and color
-
-## Shape Grammar
-
-Identify the underlying rules governing the shapes.
-
-Analyze:
-
-- basic geometric vocabulary
-- organic vocabulary
-- dominant proportions
-- recurring contours
-- recurring angles
-- curvature
-- corner treatment
-- edge treatment
-- repetition rules
-- transformation rules
-- layering
-- overlap
-- fragmentation
-- simplification
-- exaggeration
-
-Determine whether the reference uses a recognizable
-shape grammar.
-
-If no clear grammar can be identified, state that explicitly.
-
-## Form Analysis
-
-When the reference contains dimensional forms,
-analyze:
-
-- volume
-- depth
-- perspective
-- surface structure
-- dimensionality
-- deformation
-- material influence on form
-- interaction between light and form
-
-Distinguish between:
-
-### Shape
-
-The two-dimensional visual outline or boundary.
-
-### Form
-
-The perceived three-dimensional structure or volume.
-
-Do not treat these concepts as interchangeable.
-
-## Comparative Analysis
-
-After analyzing each reference independently,
-compare the references.
-
-Identify:
-
-- recurring shape characteristics
-- shared form principles
-- contrasting shape languages
-- complementary characteristics
-- unique characteristics
-- conflicting characteristics
-- opportunities for synthesis
-
-Determine which characteristics appear consistently
-enough to become part of a broader visual system.
-
-## Constraints
-
-- Do not simply name objects.
-- Do not confuse subject matter with shape language.
-- Do not copy individual shapes literally.
-- Distinguish shape characteristics from object identity.
-- Distinguish observation from interpretation.
-- Avoid vague terms such as "nice shapes" or "interesting forms."
-- Describe relationships precisely.
-- Do not invent geometric properties that cannot be observed.
-
-## Output Format
-
+## Output Contract
 ### Reference Analysis
-
-For each reference:
-
-#### Shape Vocabulary
-
-#### Geometric / Organic Balance
-
-#### Regularity
-
-#### Complexity
-
-#### Edge Characteristics
-
-#### Curvature
-
-#### Symmetry / Asymmetry
-
-#### Open / Closed Forms
-
-#### Flat / Dimensional Forms
-
-#### Abstraction Level
-
-#### Silhouette
-
-#### Proportion
-
-#### Visual Weight
-
-#### Repetition
-
-#### Transformation
-
-#### Distortion
-
-#### Layering / Overlap
-
-#### Relationship to Composition
-
-#### Relationship to Color
-
-#### Shape Grammar
-
----
+- Shape Vocabulary
+- Geometric / Organic Balance
+- Regularity / Complexity
+- Edge Characteristics / Curvature
+- Symmetry / Asymmetry
+- Open / Closed and Flat / Dimensional Forms
+- Abstraction Level
+- Silhouette
+- Proportion / Visual Weight
+- Repetition / Transformation / Distortion
+- Layering / Overlap
+- Relationship to Composition / Color
+- Shape Grammar
 
 ### Comparative Analysis
-
-#### Recurring Shape Principles
-
-#### Shared Characteristics
-
-#### Major Differences
-
-#### Complementary Characteristics
-
-#### Contradictions
-
-#### Unique Characteristics
-
----
+- Recurring Shape Principles
+- Shared Characteristics
+- Major Differences
+- Complementary Characteristics
+- Contradictions
+- Unique Characteristics
 
 ### Extracted Shape DNA
+Provide reusable shape grammar, not copied objects.
 
-Convert the findings into transferable shape principles.
+### Provenance / Confidence
+Every major principle must reference a source reference/observation and use Low / Medium / High confidence for interpretation.
 
-Use statements such as:
+### Gate Decision
+Return exactly one canonical status:
+- PASS
+- CONDITIONAL
+- BLOCKED
 
-- predominantly organic contour language
-- softened geometric forms
-- irregular asymmetrical silhouettes
-- restrained geometric vocabulary
-- high contrast between rigid and fluid forms
-- repeated modular shapes
-- exaggerated proportions
-- compressed angular forms
-- rounded corners with controlled curvature
-- simplified symbolic forms
-- layered overlapping silhouettes
+BLOCKED when required references or evidence are insufficient.
 
-Do not define specific final objects.
+## Handoff
+Pass the Shape Analysis package to VDNA-001 with source IDs, observations, derived principles, unknowns, and blockers.
 
-Describe the visual grammar that future objects should follow.
+## Constraints
+- Do not confuse object identity with shape language.
+- Do not copy shapes literally.
+- Do not invent geometry.
+- Use precise visual relationships.
 
-## Quality Criteria
-
-The analysis must be:
-
-- Specific
-- Analytical
-- Spatially aware
-- Visually precise
-- Comparative
-- Transferable
-- Useful for Visual DNA extraction
-
-The final Shape DNA must describe a reusable visual
-language rather than a collection of objects.
+## Quality Gate
+The analysis must be specific, analytical, spatially aware, visually precise, comparative, transferable, and useful for Visual DNA extraction.
 
 ## Version
-
-1.0
+2.0
 
 ## Status
-
-Draft
+Production Candidate

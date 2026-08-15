@@ -111,6 +111,12 @@ State whether every requirement from the structured brief is represented, merged
 
 List only unresolved items that require customer clarification.
 
+## Decision Gate
+
+- **PASS** — requirements are complete, traceable, testable, and ready for clarification or reconciliation.
+- **CONDITIONAL** — requirements are usable with explicit non-blocking unknowns or limitations.
+- **BLOCKED** — critical requirements, evidence, or contradiction resolution are missing.
+
 ## Quality Criteria
 
 The output must be:

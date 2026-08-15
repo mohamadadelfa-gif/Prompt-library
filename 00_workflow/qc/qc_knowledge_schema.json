@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "QC_KNOWLEDGE_PACKAGE",
+  "required_fields": [
+    "package_id",
+    "project_id",
+    "task_id",
+    "created_at",
+    "source_versions",
+    "evidence_ledger",
+    "confirmed_requirements",
+    "failure_patterns",
+    "preservation_locks",
+    "preference_patterns",
+    "root_cause_findings",
+    "conflicts",
+    "unknowns",
+    "candidate_qc_checks",
+    "candidate_qc_memory",
+    "required_human_decisions",
+    "provenance",
+    "gate",
+    "version"
+  ],
+  "evidence_types": [
+    "CHAT_STATEMENT",
+    "RESEARCH_SOURCE",
+    "RESEARCH_DERIVATION",
+    "PROJECT_REQUIREMENT",
+    "HUMAN_PREFERENCE",
+    "QC_FINDING",
+    "REVISION_DECISION",
+    "APPROVED_OUTPUT_EVIDENCE",
+    "MODEL_INFERENCE",
+    "UNKNOWN"
+  ],
+  "approval_states": ["UNCONFIRMED", "ACTIVE_SOURCE", "APPROVED", "REJECTED", "SUPERSEDED"],
+  "confidence": ["LOW", "MEDIUM", "HIGH"],
+  "candidate_memory_types": ["PROJECT_QC_REFERENCE", "PROJECT_QC_RULE", "SYSTEM_QC_RULE_CANDIDATE"],
+  "promotion_policy": {
+    "PROJECT_QC_REFERENCE": "requires at least one approved correction or approved output and human approval",
+    "PROJECT_QC_RULE": "requires repeated approved project evidence or explicit project-owner promotion",
+    "SYSTEM_QC_RULE_CANDIDATE": "requires cross-project evidence and explicit system-owner approval"
+  },
+  "gate": ["PASS", "CONDITIONAL", "BLOCKED"]
+}

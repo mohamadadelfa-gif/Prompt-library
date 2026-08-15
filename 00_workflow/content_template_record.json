@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "template_id": "TPL-IG-001",
+  "scope": "PROJECT",
+  "project_id": "PROJECT-ID",
+  "content_type": "instagram_carousel",
+  "platform": "instagram",
+  "format": "1080x1080",
+  "slide_count": 5,
+  "source_artifact": "OUTPUT-ID",
+  "approved_reference": "REFERENCE-ID",
+  "layout": {
+    "grid": "defined per template",
+    "safe_areas": "required",
+    "headline_zone": "required",
+    "supporting_text_zone": "optional",
+    "graphic_zone": "required",
+    "branding_zone": "required",
+    "pagination": "optional"
+  },
+  "typography": {
+    "primary_role": "headline",
+    "secondary_role": "supporting_text",
+    "accent_role": "optional",
+    "font_family": "brand-approved"
+  },
+  "color_roles": {
+    "background": "brand-approved",
+    "primary_accent": "brand-approved",
+    "secondary_accent": "brand-approved",
+    "linework": "brand-approved"
+  },
+  "editable_zones": [],
+  "content_limits": {},
+  "style_references": [],
+  "version": "1.0",
+  "status": "DRAFT",
+  "approver": null,
+  "approved_at": null,
+  "provenance": []
+}

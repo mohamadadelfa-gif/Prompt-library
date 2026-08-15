@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "STYLE_MEMORY",
+  "fields": {
+    "revision_id": "string",
+    "project_id": "string",
+    "task_id": "string",
+    "prompt_version": "string",
+    "generated_output": "artifact_reference",
+    "human_revision": "artifact_reference",
+    "approved_output": "artifact_reference",
+    "changes": [
+      {
+        "category": "TYPOGRAPHY|COMPOSITION|COLOR|SHAPE_FORM|TEXTURE_MATERIAL|LIGHTING|SCALE_HIERARCHY|SPACING|CONTENT_COPY|BRANDING|MODEL_ARTIFACT|OTHER",
+        "before": "string",
+        "after": "string",
+        "reason": "string",
+        "evidence": ["string"]
+      }
+    ],
+    "preserved_attributes": ["string"],
+    "style_attributes": ["string"],
+    "human_decision": "APPROVED|REJECTED|PROJECT_REFERENCE|PROJECT_RULE|SYSTEM_RULE",
+    "scope": "PROJECT|SYSTEM",
+    "approver": "string",
+    "approved_at": "datetime",
+    "provenance": ["string"],
+    "version": "string",
+    "supersedes": ["revision_id"],
+    "notes": "string"
+  },
+  "promotion_policy": {
+    "PROJECT_REFERENCE": "one approved output may become a project-scoped reference",
+    "PROJECT_RULE": "requires explicit human approval",
+    "SYSTEM_RULE": "requires repeated evidence across projects or explicit human promotion"
+  }
+}
