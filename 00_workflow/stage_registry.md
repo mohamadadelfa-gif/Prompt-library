@@ -8,7 +8,7 @@
 | 04 Named Style Study | STYLE-001 / `named_style_study.md` | Learn a named artist, movement, school, or visual language deeply | Approved Style Study Package |
 | 05 Reference Style Synthesis | `reference_style_synthesis.md` | Combine style study and supplied references into transferable visual principles | Approved Reference Style Synthesis |
 | 06 Visual DNA | VDNA-001 | Convert validated visual evidence and style principles into transferable rules | Visual DNA Package |
-| 07 Platform / Template Synthesis | `instagram_template_synthesis.md` when Instagram is the target | Translate visual language + Visual DNA into an original reusable platform system; for EBL retrieve durable project memory and Story rules before synthesis | Approved Platform Template Candidate |
+| 07 Platform / Template Synthesis | `instagram_template_synthesis.md` when Instagram is the target; `EBL_visual_production_workflow.md` for EBL | Translate visual language + Visual DNA into an original reusable platform system; for EBL retrieve durable project memory and Story rules before synthesis | Approved Platform Template Candidate |
 | 08 Art Direction | ART-001–ART-003 | Make and select content-specific creative decisions | Approved Art Direction |
 | 09 Generation | GEN-001–GEN-002 | Operationalize approved direction into generation specifications and prompts | Generated Output |
 | 10 Content Package | `content_package_contract.md` | Assemble visual, copy, caption, CTA, accessibility, and publishing outputs | Approved Content Package |
@@ -43,7 +43,11 @@ May translate approved visual language into platform-specific reusable structure
 
 For project-scoped work, retrieve durable project memory before synthesis when available.
 
-For English Beyond Language:
+For English Beyond Language use the project orchestrator:
+
+`00_workflow/EBL_visual_production_workflow.md`
+
+and retrieve:
 
 ```text
 EBL_project_memory.md
@@ -95,7 +99,7 @@ Instagram-specific QC modules currently include:
 
 Use the asset-specific QC rather than forcing one Instagram QC model onto every asset type.
 
-For EBL, specialized QC must be evaluated through `QC-EBL-001` before final review.
+For EBL, specialized QC must be evaluated through `QC-EBL-001` before final review and must follow `EBL_visual_production_workflow.md`.
 
 ### Creative AI Final Edit
 May make controlled late-stage typography, alignment, hierarchy, spacing, line/form relationship, contrast, and optical-balance refinements only after retrieving approved project context and analyzing the semantic role of the content.
@@ -125,6 +129,7 @@ External references may improve creative judgment but may not override approved 
 
 For EBL finalization additionally retrieve:
 
+- `EBL_visual_production_workflow.md`;
 - `EBL_project_memory.md`;
 - `EBL_approved_project_rules.md`;
 - content-specific decision record;
@@ -149,6 +154,8 @@ It must:
 - return mandatory failures through root-cause diagnosis and smallest-safe correction;
 - rerun the failed gate plus whole-set coherence after correction;
 - route the result to human final approval.
+
+For EBL this phase must also verify the result through `EBL_visual_production_workflow.md` and `QC-EBL-001_project_master_qc.md`.
 
 AI cannot label an output `FINAL_PUBLISHING_MASTER` until all mandatory gates pass and the human explicitly approves the final candidate.
 
