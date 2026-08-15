@@ -14,7 +14,7 @@
 | 10 Content Package | `content_package_contract.md` | Assemble visual, copy, caption, CTA, accessibility, and publishing outputs | Approved Content Package |
 | 11 Human Revision / Style Learning | `human_feedback_style_learning.md` | Capture revision, approval, and reusable style knowledge | Approved Revision / Style Knowledge |
 | 12 Figma Implementation | `editable_reconstruction_preparation.md` → `live_editable_text_layers.md` → `figma_file_structure.md` → `figma_output_contract.md` | Prepare approved raster visuals, rebuild live editable text, organize the production file, and create the editable production master | Approved Structured Figma Master |
-| 13 Quality Control | QC-001–QC-002 + `stepwise_creative_review.md` | Review outputs, diagnose root causes, and route revision | Final Approval / Revision Route |
+| 13 Quality Control | QC-001–QC-002 + `stepwise_creative_review.md` + Instagram-specific QC modules | Review outputs, diagnose root causes, and route revision | Final Approval / Revision Route |
 
 ## Stage Boundaries
 
@@ -60,3 +60,12 @@ If Figma MCP access is blocked by a plan, permission, rate, or tool-call limit, 
 
 ### Quality Control
 May evaluate outputs and diagnose root causes. Must not rewrite upstream decisions while evaluating them.
+
+Instagram-specific QC modules currently include:
+
+- `00_workflow/qc/QC-IG-001_instagram_visual_qc.md` — feed/carousel visual QC;
+- `00_workflow/qc/QC-AUD-001_audience_catcher_qc.md` — audience relevance and stopping-power QC;
+- `00_workflow/qc/QC-SOC-001_social_visual_audience_gate.md` — combined social visual/audience gate;
+- `00_workflow/qc/QC-IG-PROFILE-001_instagram_profile_picture_qc.md` — profile/avatar identity QC.
+
+Use the asset-specific QC rather than forcing one Instagram QC model onto every asset type.
