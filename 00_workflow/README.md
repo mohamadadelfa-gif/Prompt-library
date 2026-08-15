@@ -12,6 +12,8 @@ The Prompt Library is a **controlled creative-production system** in which promp
 - `handoff_contract.md` — controlled information transfer between stages
 - `decision_gates.md` — rules for advancing, blocking, revising, and approving work
 - `information_model.md` — SOURCE / DERIVED / DECISION / OUTPUT model
+- `editable_reconstruction_preparation.md` — source-lock, textless artwork derivation, editable-layer mapping, and Figma reconstruction handoff for approved raster visuals
+- `figma_output_contract.md` — editable production implementation requirements for approved visual outputs
 
 ## Execution Principle
 
