@@ -19,6 +19,8 @@ SOURCE LOCK
       ↓
 EDITABLE RECONSTRUCTION PREPARATION
       ↓
+LIVE EDITABLE TEXT LAYERS
+      ↓
 FIGMA IMPLEMENTATION
       ↓
 FIGMA QC / FINAL APPROVAL
@@ -32,7 +34,7 @@ Do not use it to reinterpret, improve, restyle, or redesign the approved visual.
 
 > The approved PNG defines what the design must look like. The textless artwork provides the visual base. Figma provides the editable production structure.
 
-The approved PNG, textless reconstruction, and Figma master are separate artifacts and must not be collapsed into one.
+The approved PNG, textless reconstruction, live editable text package, and Figma master are separate artifacts and must not be collapsed into one.
 
 ## Required Inputs
 
@@ -52,6 +54,7 @@ If the approved visual or copy is not locked, STOP.
 APPROVED PNG                = OUTPUT / APPROVED VISUAL SOURCE OF TRUTH
 TEXTLESS ARTWORK PNG        = DERIVED PRODUCTION ASSET
 EDITABLE TEXT SPECIFICATION = DERIVED FROM APPROVED COPY + TYPOGRAPHY
+LIVE EDITABLE TEXT PACKAGE  = PRODUCTION ASSET
 FIGMA MASTER                = PRODUCTION OUTPUT
 ```
 
@@ -171,13 +174,16 @@ SLIDE XX
 ├── 01_ARTWORK
 │   └── Textless Artwork PNG
 │
-└── 02_EDITABLE
-    ├── Slide Number
-    ├── Headline
-    ├── Supporting Copy
-    ├── Emphasis Text
-    ├── CTA
-    ├── Brand Text
+├── 02_EDITABLE_TEXT
+│   ├── Slide Number
+│   ├── Headline
+│   ├── Subheadline
+│   ├── Supporting Copy
+│   ├── Emphasis Text
+│   ├── CTA
+│   └── Brand Text
+│
+└── 03_EDITABLE_GRAPHICS
     ├── Simple Signs / Shapes
     └── Approved Logo Asset
 ```
@@ -206,7 +212,30 @@ When an approved typography master exists, use it as the system reference.
 
 If the exact font cannot be identified with sufficient confidence, do not silently substitute it. Mark `TYPOGRAPHY_REVIEW_REQUIRED`.
 
-### 8. Figma Handoff Package
+### 8. Live Editable Text Layer Contract
+
+Run:
+
+`live_editable_text_layers.md`
+
+for all text that must remain editable in the Figma production master.
+
+The required output is `LIVE_EDITABLE_TEXT_PACKAGE`.
+
+Every approved text element that is not intentionally a locked brand asset must become a native, selectable Figma text layer rather than remaining baked into the raster artwork.
+
+Required behaviors:
+
+- exact approved copy;
+- approved line breaks;
+- approved emphasis;
+- approved alignment;
+- approved hierarchy;
+- deterministic layer naming;
+- font confidence recorded;
+- overlay QC against the approved PNG.
+
+### 9. Figma Handoff Package
 
 Required handoff:
 
@@ -215,6 +244,7 @@ Required handoff:
 - approved exact copy
 - editable layer map
 - typography reconstruction specification
+- live editable text package
 - frame dimensions
 - color/style references
 - known uncertainties
@@ -259,6 +289,7 @@ The protocol passes only when:
 - non-text artwork is visually preserved;
 - reconstructed regions pass human/visual QC;
 - editable content is mapped;
+- required text is represented in the live editable text package;
 - typography uncertainty is explicitly recorded;
 - the Figma handoff package is complete.
 
@@ -268,6 +299,7 @@ The protocol passes only when:
 - incorrect crop or frame extraction → Editable Reconstruction Preparation
 - visible text-removal artifact → Editable Reconstruction Preparation
 - missing/uncertain font → Typography Review / Human Decision
+- missing/non-editable text layer → Live Editable Text Layers
 - artwork drift → restore from approved source and redo reconstruction
 - Figma mismatch after correct preparation → Figma Implementation
 - approved visual itself needs redesign → route upstream; do not fix here
@@ -296,7 +328,7 @@ APPROVED 6-SLIDE CAROUSEL
         ↓
 TEXTLESS QC
         ↓
-LIVE-TEXT + LAYER SPECIFICATION
+LIVE EDITABLE TEXT PACKAGE
         ↓
 FIGMA RECONSTRUCTION
         ↓
