@@ -138,14 +138,65 @@ A contact-sheet preview can hide fading, ghosting, or halo artifacts.
 
 Typography correction is not final until the human approves the revised slide or set.
 
+### TYPE-09 Single Native Render / Reconstruction Integrity — mandatory when raster text is damaged
+
+Repeated raster edits are not an acceptable repair method when typography has already become soft, faded, outlined, or partially transparent.
+
+If approved text is visibly degraded:
+
+```text
+REMOVE ONLY THE DAMAGED TEXT AREA
+→ RECONSTRUCT LOCAL BACKGROUND
+→ REDRAW THE EXACT APPROVED COPY ONCE
+→ AT FINAL NATIVE OUTPUT RESOLUTION
+→ WITH FULL-OPACITY TYPOGRAPHY
+→ DO NOT RESIZE AFTER THE FINAL TEXT RENDER
+```
+
+Requirements:
+
+- use the approved font family / closest verified production equivalent;
+- preserve approved weight, size, line breaks, alignment, and hierarchy;
+- render at the final slide resolution, not on a smaller intermediate canvas;
+- use solid/full-opacity approved colors;
+- do not recolor anti-aliased raster glyphs as the main repair method;
+- do not repeatedly inpaint/recolor the same glyphs across revision passes;
+- do not enlarge or shrink the slide after the final type render;
+- inspect glyph interiors and edges at 100% native scale.
+
+Failure indicators:
+
+- dark centers with gray rims;
+- inconsistent stroke density;
+- pale antialiasing that visually reads as fading;
+- double-edge / shadow-like artifacts;
+- color contamination between emphasized and non-emphasized words;
+- typography that is technically black by RGB but optically gray.
+
+### TYPE-10 Optical Stroke Density — mandatory
+
+Text color values alone do not prove typography integrity.
+
+Check whether the letterforms have uniform optical density:
+
+- solid interiors;
+- consistent weight across letters and words;
+- natural but crisp antialiasing;
+- no accidental translucency;
+- no gray fringe that weakens the perceived weight;
+- no word or line appearing lighter than another without an approved hierarchy reason.
+
+The test is visual and structural, not only numerical.
+
 ## Typography Integrity Assessment — 100 Points
 
 | Area | Weight |
 |---|---:|
-| Copy Fidelity | 20 |
-| Font / Size / Shape Preservation | 20 |
+| Copy Fidelity | 15 |
+| Font / Size / Shape Preservation | 15 |
 | Raster Clarity / No Fading | 20 |
-| Emphasis Integrity | 15 |
+| Native Reconstruction Integrity | 15 |
+| Emphasis Integrity | 10 |
 | Carousel Numbering Consistency | 10 |
 | Alignment / Hierarchy Consistency | 10 |
 | Native-size / Instagram-size Readability | 5 |
@@ -164,6 +215,8 @@ FAIL
 
 ## Learned Failure Pattern — EBL Post 01, 2026-08-15
 
+### Failure A — Slide 5 faded typography + numbering inconsistency
+
 Observed:
 
 - Slide 5 typography appeared visually faded/haloed even though the words and approximate layout were present.
@@ -181,4 +234,46 @@ TEXT PRESENT ≠ TEXT INTEGRITY
 LOCAL NUMBER ≠ CAROUSEL CONSISTENCY
 ```
 
-Future final QC must include native-size typography inspection and cross-slide numbering comparison before publishing.
+### Failure B — Slide 1 repeated raster repair still looked faded
+
+Observed:
+
+- Slide 1 supporting question remained visually faded after recoloring/darkening passes;
+- the RGB values could be dark while the antialiased edge structure still made the words look gray or weak;
+- repeated raster editing degraded stroke density.
+
+Root cause:
+
+```text
+RASTER TEXT → RECOLOR / INPAINT → RESIZE / RE-EDIT
+```
+
+created soft gray edge pixels, inconsistent optical opacity, and visible fading.
+
+Approved correction model:
+
+```text
+RECONSTRUCT BACKGROUND
+→ REDRAW EXACT APPROVED COPY ONCE AT 1254×1254
+→ FULL-OPACITY TYPE
+→ EXACT EMPHASIS SEGMENTATION
+→ NO POST-RENDER RESIZE
+```
+
+For EBL Post 01 Slide 1:
+
+```text
+But can you use it to do     = black / charcoal
+the                          = black / charcoal
+things that matter           = rust / red ONLY
+to you?                      = black / charcoal
+```
+
+Promoted learning:
+
+```text
+DARK RGB ≠ OPTICALLY SOLID TYPE
+REPEATED RASTER REPAIR ≠ TYPOGRAPHIC RECONSTRUCTION
+```
+
+Future final QC must include native-size stroke-density inspection and must prefer one clean native-resolution reconstruction over repeated glyph-level raster correction.
