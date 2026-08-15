@@ -32,6 +32,15 @@ It may contain:
 
 Project knowledge must be scoped to EBL and must not become system-wide knowledge unless explicitly promoted.
 
+#### Active EBL project package
+
+Current human-approved EBL production knowledge is registered in:
+
+- `00_workflow/knowledge/project/EBL_approved_project_rules.md`
+- `00_workflow/knowledge/project/EBL_post_01_approved_decisions.md`
+
+Use the first file for reusable EBL project rules and the second for Post 01-specific decisions. Post-specific copy/layout decisions must not be silently generalized to future posts.
+
 ### 2. External / Named-Style Knowledge
 
 Stores knowledge about artists, movements, books, articles, exhibitions, and other external sources.
@@ -184,7 +193,16 @@ Tasks should retrieve knowledge from the appropriate domain before execution:
 
 ```text
 EBL task
+  → EBL_approved_project_rules.md
   → EBL Project Knowledge
+
+EBL Post 01 task
+  → EBL_approved_project_rules.md
+  → EBL_post_01_approved_decisions.md
+
+EBL profile-picture task
+  → EBL_approved_project_rules.md
+  → QC-IG-PROFILE-001_instagram_profile_picture_qc.md
 
 Named artist task
   → External / Named-Style Knowledge
