@@ -15,16 +15,48 @@ CONTENT / FACTUAL FREEDOM DOES NOT
 
 AI may improve how the approved idea is expressed. AI may not silently replace the approved idea.
 
+Final quality is not measured by amount of change.
+
+```text
+FINAL QUALITY = MAXIMUM COHERENCE
+                WITH
+                MINIMUM NECESSARY CHANGE
+```
+
+---
+
+## Orchestration Dependency — mandatory
+
+Before execution retrieve:
+
+- `00_workflow/final_ai_closed_loop_production.md`
+- `00_workflow/knowledge/system/final_ai_production_learnings.md`
+
+These control:
+
+- preserve-vs-intervene logic;
+- clean-source hierarchy;
+- defect precedence;
+- mandatory-failure routing;
+- master / platform derivative separation;
+- QC evidence requirements;
+- learning promotion after the run.
+
+FINAL-AI-002 is a closed-loop gate, not a one-time inspection.
+
 ---
 
 ## Required Inputs
 
 - `FINAL-AI-001` Creative Final Candidate;
+- FINAL-AI-001 intervention class per asset;
+- FINAL-AI-001 delta/change record;
 - current human instruction;
 - approved project rules;
 - content-specific approved decisions;
 - approved source copy;
 - approved logo master / variant;
+- approved clean master / textless master / editable source where available;
 - visual DNA / art direction;
 - relevant external source package;
 - full revision history;
@@ -35,13 +67,34 @@ AI may improve how the approved idea is expressed. AI may not silently replace t
 
 Retrieve:
 
-`00_workflow/knowledge/external/creative_synthesis_sources.md`
+- `00_workflow/knowledge/system/final_ai_production_learnings.md`
+- `00_workflow/final_ai_closed_loop_production.md`
+- `00_workflow/knowledge/external/creative_synthesis_sources.md`
 
 Use external references as **evidence**, not as permission to override project decisions.
 
 ---
 
 # Part A — AI Creative Synthesis
+
+## A0. Preservation Gate
+
+Before proposing any new change, ask:
+
+```text
+DOES THE CURRENT FORM ALREADY SUPPORT
+MEANING + IDENTITY + READABILITY + SEQUENCE?
+```
+
+If yes:
+
+```text
+PRESERVE
+```
+
+A preserve decision is valid completion of the synthesis step.
+
+Do not introduce optional polish merely to demonstrate activity.
 
 ## A1. Whole-Work Read
 
@@ -72,6 +125,8 @@ CONTENT MEANING
 ```
 
 If a formal choice cannot be justified by meaning, approved identity, system consistency, or useful visual tension, challenge it.
+
+If it is already justified and performing correctly, preserve it.
 
 ## A3. Focal-Point Audit
 
@@ -107,6 +162,8 @@ Check:
 - role-specific variation.
 
 Use `QC-TYPE-001` and `typography_native_reconstruction.md` whenever raster type integrity is in question.
+
+If typography is damaged and a cleaner editable/textless source exists, use source-based reconstruction rather than repeated raster patching.
 
 ## A5. Spatial / Layout Synthesis
 
@@ -172,11 +229,45 @@ Assess:
 - whether Slide 1 creates continuation desire;
 - whether Slide 6 provides a satisfying expansion/payoff.
 
+## A8. Adaptive System Consistency
+
+Consistency means stable role and grammar, not blind pixel identity.
+
+For repeated elements such as numbering, logo signatures, labels, and metadata, preserve:
+
+- format;
+- semantic role;
+- anchor logic;
+- weight / size relationship;
+- spacing logic;
+- hierarchy;
+- family resemblance.
+
+Allow local adaptation only when function requires it and the approved project rule allows it, such as light/dark contrast inversion.
+
+Reject arbitrary variation presented as optical compensation.
+
 ---
 
 # Part B — Heavy QC
 
 Heavy QC is a combined gate. Run all applicable modules rather than relying on one total score.
+
+## Defect Precedence
+
+Resolve failures in this order:
+
+```text
+1. CONTENT / FACTUAL FIDELITY
+2. APPROVED MASTER / IDENTITY FIDELITY
+3. TYPOGRAPHY / LOGO READABILITY
+4. ARTIFACT / RASTER INTEGRITY
+5. SYSTEM / CAROUSEL CONSISTENCY
+6. PLATFORM READABILITY
+7. OPTIONAL AESTHETIC POLISH
+```
+
+Mandatory failures cannot be offset by optional polish.
 
 ## B1. Content Fidelity — mandatory
 
@@ -207,9 +298,10 @@ Reject:
 - faded text;
 - gray halos;
 - ghosting;
-- inconsistent numbering;
+- inconsistent numbering grammar;
 - altered hierarchy without justification;
-- weak optical stroke density.
+- weak optical stroke density;
+- repair rectangles / patch seams around reconstructed text.
 
 ## B3. Logo Integrity — mandatory
 
@@ -218,7 +310,7 @@ Run `QC-LOGO-001`.
 Verify:
 
 - correct master / approved variant;
-- fixed placement rule where applicable;
+- approved placement rule;
 - optical clear-space;
 - no collision;
 - no replacement artifacts;
@@ -256,7 +348,7 @@ Check:
 
 Check:
 
-- numbering system;
+- numbering grammar;
 - logo system;
 - shared typography grammar;
 - stable margins/anchors where required;
@@ -264,6 +356,8 @@ Check:
 - family resemblance;
 - meaningful variation;
 - sequential narrative.
+
+Do not fail adaptive contrast treatment when the repeated element retains its approved role, format, anchor logic, scale relationship, and hierarchy.
 
 ## B7. Instagram Readability / Platform Check
 
@@ -284,7 +378,9 @@ ARCHIVAL / PROJECT MASTER = preserve approved working master
 PLATFORM DERIVATIVE = 1080×1080 when a square delivery derivative is required
 ```
 
-Do not repeatedly resize the working master. Create the platform derivative only after final master approval.
+Do not repeatedly resize the working master.
+
+Create the platform derivative only after master approval, then inspect the derivative itself at realistic viewing size.
 
 ## B8. Audience / Communication Check
 
@@ -307,6 +403,7 @@ At native resolution inspect:
 - masking;
 - clone seams;
 - gray blobs;
+- repair rectangles;
 - unintended lines/dots;
 - color discontinuity;
 - compression;
@@ -315,9 +412,45 @@ At native resolution inspect:
 - edge contamination;
 - unwanted transparency.
 
-## B10. Human Final Approval — mandatory
+If a damaged derivative fails and a cleaner approved source exists, route the correction back through the clean-source hierarchy rather than repeatedly patching the same raster.
 
-AI may produce `PASS_FOR_HUMAN_FINAL_REVIEW` but cannot grant the final creative approval itself.
+## B10. Delta Integrity — mandatory for changed assets
+
+For every changed asset verify:
+
+```text
+WHAT CHANGED?
+WHY?
+WHICH RULE AUTHORIZED IT?
+WHAT WAS PRESERVED?
+WHAT NEW RISK WAS INTRODUCED?
+```
+
+Unexplained change => REVISION_REQUIRED.
+
+## B11. Evidence Package — mandatory
+
+A verbal PASS is insufficient.
+
+Produce:
+
+- full-set master contact sheet;
+- platform-size contact sheet;
+- native-resolution critical-area QC;
+- logo / typography close-ups where applicable;
+- before/after evidence for meaningful changes;
+- Heavy QC report;
+- unresolved-risk record.
+
+## B12. Human Final Approval — mandatory
+
+AI may produce:
+
+```text
+PASS_FOR_HUMAN_FINAL_REVIEW
+```
+
+AI cannot grant the final creative approval itself.
 
 ---
 
@@ -332,14 +465,46 @@ ANY MANDATORY FAIL?
     ↙          ↘
   YES           NO
    ↓              ↓
-REFINE AGAIN   PASS_FOR_HUMAN_FINAL_REVIEW
-                   ↓
-             HUMAN APPROVAL
-                   ↓
-              FINAL MASTER
+ROOT-CAUSE      PASS_FOR_HUMAN_FINAL_REVIEW
+DIAGNOSIS            ↓
+   ↓              HUMAN APPROVAL
+CLASSIFY FIX          ↓
+P1 / P2 / P3 / P4  FINAL_PUBLISHING_MASTER
+   ↓                  ↓
+CLEANEST VALID     PLATFORM DERIVATIVES
+SOURCE                ↓
+   ↓              LEARNING REVIEW
+SMALLEST SAFE
+CORRECTION
+   ↓
+RERUN FAILED GATE
+   ↓
+RERUN GLOBAL COHERENCE
+   └────────────→ HEAVY QC
 ```
 
 Do not average a critical failure away with a high total score.
+
+---
+
+# Failure Re-Entry Rule
+
+If Heavy QC finds a mandatory failure:
+
+1. name the exact failed gate;
+2. identify the root cause;
+3. classify the fix as P1 / P2 / P3 / P4;
+4. choose the cleanest valid source;
+5. apply the smallest authorized correction;
+6. rerun the failed gate;
+7. rerun whole-set coherence;
+8. rerun any downstream check affected by the correction.
+
+Do not redesign unaffected assets.
+
+```text
+LOCAL FAILURE → LOCAL FIX + GLOBAL RE-CHECK
+```
 
 ---
 
@@ -350,12 +515,15 @@ After human final approval, produce:
 1. final archival/master visual(s);
 2. platform publishing derivative(s);
 3. individual slide/card files;
-4. full-set contact sheet;
-5. native-resolution critical-area QC sheet;
-6. before/after record for major final refinements;
-7. heavy QC report;
-8. final ZIP/package;
-9. optional editable production master link/reference where applicable.
+4. full-set master contact sheet;
+5. platform-size contact sheet;
+6. native-resolution critical-area QC sheet;
+7. logo / identity close-up sheet where applicable;
+8. before/after record for major final refinements;
+9. Heavy QC report;
+10. unresolved-risk record;
+11. final ZIP/package;
+12. optional editable production master link/reference where applicable.
 
 For Instagram square assets, preserve the approved master and create an explicit 1080×1080 publishing derivative rather than overwriting the master.
 
@@ -368,8 +536,11 @@ FINAL_TASK_ID
 PROJECT_ID
 SOURCE_CANDIDATE
 CONTEXT_RETRIEVED
+SYSTEM_LEARNINGS_RETRIEVED
 EXTERNAL_REFERENCES_USED
+INTERVENTION_CLASS_PER_ASSET
 CREATIVE_SYNTHESIS_CHANGES
+PRESERVED_ASSETS
 PROTECTED_ELEMENTS_VERIFIED
 CONTENT_FIDELITY_RESULT
 TYPOGRAPHY_QC_RESULT
@@ -380,14 +551,18 @@ CAROUSEL_SYSTEM_RESULT
 INSTAGRAM_READABILITY_RESULT
 AUDIENCE_RESULT
 ARTIFACT_INSPECTION_RESULT
+DELTA_INTEGRITY_RESULT
 NATIVE_SIZE_CHECK
 FEED_SIZE_CHECK
 PLATFORM_EXPORT_CHECK
+QC_EVIDENCE_PATHS
 UNRESOLVED_RISKS
 AI_RESULT
 HUMAN_DECISION
 FINAL_MASTER_PATH
 PUBLISHING_DERIVATIVE_PATH
+LEARNINGS
+PROMOTION_DECISIONS
 VERSION
 DATE
 ```
@@ -406,6 +581,7 @@ Before final output, explicitly answer:
 
 ### Slide 2 — Blockage
 - does the composition communicate friction/blockage without becoming hard to read?
+- does any contrast adaptation in numbering preserve the system role and hierarchy?
 
 ### Slide 3 — Obstacles
 - are multiple obstacles readable without becoming infographic-like clutter?
@@ -416,19 +592,49 @@ Before final output, explicitly answer:
 ### Slide 5 — Agency
 - does the definition feel stable/confident?
 - are there exactly two supports?
-- is numbering `05 / 06` consistent?
+- is numbering `05 / 06` system-consistent?
 - is all typography optically solid?
+- are there any repair rectangles or patch seams?
 
 ### Slide 6 — Expansion
 - does the slide feel more open / concluding?
 - is the thesis hierarchy clear?
 - does the CTA function as the final action/payoff rather than another competing headline?
+- are all prior cleanup regions artifact-free?
+
+---
+
+# Post-Run Learning Review
+
+After the finalization run, separate lessons into:
+
+```text
+PROJECT-SPECIFIC DECISION
+REUSABLE PROJECT RULE
+SYSTEM-LEVEL PRODUCTION LEARNING
+```
+
+System-level learning may be promoted only when human instruction / promotion policy authorizes it and the lesson is truly cross-project.
+
+Store approved system production learning in:
+
+`00_workflow/knowledge/system/`
+
+and register it in:
+
+`00_workflow/knowledge/knowledge_registry.json`
 
 ---
 
 ## Completion State
 
-Only after all mandatory gates pass and the human explicitly approves may the output be labeled:
+Before human final acceptance, the highest AI state is:
+
+```text
+PASS_FOR_HUMAN_FINAL_REVIEW
+```
+
+Only after all mandatory gates pass **and** the human explicitly approves may the output be labeled:
 
 ```text
 FINAL_PUBLISHING_MASTER
