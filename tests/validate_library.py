@@ -14,6 +14,7 @@ ACTIVE_DIRS = [
     ROOT / "05_art_direction",
     ROOT / "06_generation",
     ROOT / "07_quality_control",
+    ROOT / "prompts",
 ]
 DEPRECATED_FILES = {"02_research/reference_selection.md"}
 REGISTRY_PATH = ROOT / "00_workflow" / "task_registry.json"
@@ -94,6 +95,7 @@ expected_prefixes = {
     "05_art_direction": "ART-",
     "06_generation": "GEN-",
     "07_quality_control": "QC-",
+    "prompts": "STYLE-",
 }
 
 for directory in ACTIVE_DIRS:

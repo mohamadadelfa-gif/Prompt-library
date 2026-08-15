@@ -29,6 +29,7 @@
     "VIS-004": {"depends_on": ["STR-005", "RES-005", "RES-006"], "gate": ["PASS", "CONDITIONAL", "BLOCKED"], "approval_required": false, "next": ["VIS-005", "VDNA-001"]},
     "VIS-005": {"depends_on": ["STR-005", "RES-005", "RES-006"], "gate": ["PASS", "CONDITIONAL", "BLOCKED"], "approval_required": false, "next": ["VIS-006", "VDNA-001"]},
     "VIS-006": {"depends_on": ["STR-005", "RES-005", "RES-006"], "gate": ["PASS", "CONDITIONAL", "BLOCKED"], "approval_required": false, "next": ["VDNA-001"]},
+    "STYLE-001": {"depends_on": ["STR-005", "RES-005", "RES-006", "VIS-001", "VIS-002", "VIS-003", "VIS-004", "VIS-005", "VIS-006"], "gate": ["PASS", "CONDITIONAL", "BLOCKED"], "approval_required": false, "next": ["VDNA-001"]},
     "VDNA-001": {"depends_on": ["STR-005", "RES-005", "RES-006", "VIS-001", "VIS-002", "VIS-003", "VIS-004", "VIS-005", "VIS-006"], "gate": ["PASS", "CONDITIONAL", "BLOCKED"], "approval_required": false, "next": ["ART-001"]},
     "ART-001": {"depends_on": ["STR-005", "RES-006", "VDNA-001"], "gate": ["PASS", "CONDITIONAL", "BLOCKED"], "approval_required": false, "next": ["ART-002"]},
     "ART-002": {"depends_on": ["STR-005", "RES-006", "VDNA-001", "ART-001"], "gate": ["APPROVE", "REVISE", "REJECT"], "approval_required": true, "approval_role": "creative_director_or_client", "next": ["ART-003"]},
