@@ -28,6 +28,48 @@
       "provenance_required": true
     },
     {
+      "kb_id": "EBL-MEM-001",
+      "source_id": "EBL-MEM-001",
+      "title": "English Beyond Language Project Memory",
+      "knowledge_type": "APPROVED_PROJECT_MEMORY",
+      "path": "00_workflow/knowledge/project/EBL_project_memory.md",
+      "project_id": "EBL",
+      "scope": "PROJECT_DURABLE_MEMORY",
+      "approval_state": "APPROVED",
+      "promotion_state": "PROJECT_RULE",
+      "allowed_consumers": ["STR-001", "STR-002", "STR-003", "STR-004", "STR-005", "RES-001", "RES-002", "RES-003", "RES-004", "RES-005", "RES-006", "VIS-001", "VIS-002", "VIS-003", "VIS-004", "VIS-005", "VIS-006", "STYLE-001", "VDNA-001", "ART-001", "ART-002", "ART-003", "GEN-001", "GEN-002", "QC-001", "QC-002", "QC-003", "FINAL-AI-001", "FINAL-AI-002"],
+      "unknowns_required": false,
+      "provenance_required": true
+    },
+    {
+      "kb_id": "EBL-STORY-001",
+      "source_id": "EBL-STORY-001",
+      "title": "English Beyond Language Instagram Story Template Rules",
+      "knowledge_type": "PROJECT_REFERENCE",
+      "path": "00_workflow/knowledge/project/EBL_story_template_rules.md",
+      "project_id": "EBL",
+      "scope": "PROJECT_INSTAGRAM_STORY_TEMPLATE",
+      "approval_state": "PENDING_CONFIRMATION",
+      "promotion_state": "PROJECT_REFERENCE",
+      "allowed_consumers": ["ART-001", "ART-002", "ART-003", "GEN-001", "GEN-002", "QC-001", "QC-002", "QC-003", "FINAL-AI-001", "FINAL-AI-002"],
+      "unknowns_required": false,
+      "provenance_required": true
+    },
+    {
+      "kb_id": "EBL-QC-001",
+      "source_id": "EBL-QC-001",
+      "title": "English Beyond Language Project Master QC",
+      "knowledge_type": "APPROVED_RULE",
+      "path": "00_workflow/qc/QC-EBL-001_project_master_qc.md",
+      "project_id": "EBL",
+      "scope": "PROJECT_MASTER_QC",
+      "approval_state": "APPROVED",
+      "promotion_state": "PROJECT_RULE",
+      "allowed_consumers": ["QC-001", "QC-002", "QC-003", "FINAL-AI-001", "FINAL-AI-002"],
+      "unknowns_required": false,
+      "provenance_required": true
+    },
+    {
       "kb_id": "KLEE-SRC-001",
       "source_id": "KLEE-SRC-001",
       "title": "Paul Klee: The Visible and the Legible",
