@@ -10,6 +10,7 @@ It does **not** contain Post 01-specific copy, exact layout, exact color-emphasi
 
 Knowledge type: `APPROVED_RULE`
 Scope: `SYSTEM_WORKFLOW`
+Provenance: Derived from the human-authorized EBL Post 01 finalization review and explicitly promoted to system workflow knowledge on 2026-08-15.
 
 ---
 

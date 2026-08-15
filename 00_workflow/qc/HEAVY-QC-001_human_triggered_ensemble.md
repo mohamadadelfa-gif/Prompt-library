@@ -11,6 +11,8 @@ Run a deeper computational assessment only when an authorized human explicitly a
 
 ## Assessment panel
 
+Interpret the panel through `QC-AES-001_aesthetic_evidence_qc.md` and the model-scope knowledge in `00_workflow/knowledge/external/image_aesthetics_assessment_sources.md`.
+
 ### Aesthetic evidence
 - `nima` — learned aesthetic-rating distribution signal.
 - `musiq-ava` — multi-scale aesthetic signal trained/evaluated for AVA-style assessment.
@@ -18,6 +20,8 @@ Run a deeper computational assessment only when an authorized human explicitly a
 - `clipiqa` — CLIP-based look-and-feel quality signal.
 
 These are population/dataset-trained priors, not EBL taste, brand truth, or human preference. Disagreement between models is useful uncertainty evidence and must not be averaged away.
+
+All learned results remain raw continuous evidence. Preserve their available precision; do not quantize them into `good/bad`, star bands, or approval classes. Compare a model only against that same model on approved examples from the same asset class. Until project baselines exist, disagreement is recorded as uncalibrated rather than converted into a synthetic number.
 
 ### No-reference technical evidence
 - `brisque` — natural-scene-statistics distortion signal.
@@ -46,9 +50,10 @@ Omit `--reference` for standalone assessment. Evidence is written under ignored 
 ## Interpretation and human gate
 1. Verify that every metric ran and record failures as missing evidence.
 2. Inspect raw values, metric direction, source/candidate hashes, and classical diagnostics.
-3. Compare against approved examples of the same asset class; do not use universal pass thresholds.
+3. Compare each model against the same model on approved examples of the same asset class; do not use universal pass thresholds or cross-model score arithmetic.
 4. Reconcile model evidence with `QC-IQA-001`, `QC-IG-001`, `QC-AUD-001`, `QC-001`, and project rules.
-5. An authorized human records the final `APPROVE`, `REVISE`, `REGENERATE`, or `BLOCKED` decision.
+5. Run `QC-AES-001` to assess graphic-design principles, model disagreement, project fit, and preference evidence.
+6. An authorized human records the final `APPROVE`, `REVISE`, `REGENERATE`, or `BLOCKED` decision.
 
 The runtime always returns `AWAITING_HUMAN_DECISION`; it cannot write final approval.
 
@@ -60,10 +65,10 @@ The runtime always returns `AWAITING_HUMAN_DECISION`; it cannot write final appr
 - Review third-party model and code licenses before commercial use. IQA-PyTorch currently declares PolyForm Noncommercial and component-specific licensing.
 
 ## Output
-Machine-readable JSON containing input identity, hashes, runtime/device, raw diagnostics, per-metric values/errors/direction, and `AWAITING_HUMAN_DECISION` authority state.
+Machine-readable JSON containing input identity, hashes, runtime/device, raw diagnostics, per-metric values/errors/direction/domain/range, continuous-evidence and calibration policy, and `AWAITING_HUMAN_DECISION` authority state.
 
 ## Version
-1.0
+1.1
 
 ## Status
 Production Candidate

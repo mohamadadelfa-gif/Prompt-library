@@ -8,6 +8,8 @@ IQA_PATH = ROOT / "00_workflow" / "qc" / "QC-IQA-001_technical_image_quality_qc.
 SOC_PATH = ROOT / "00_workflow" / "qc" / "QC-SOC-001_social_visual_audience_gate.md"
 HEAVY_PATH = ROOT / "00_workflow" / "qc" / "HEAVY-QC-001_human_triggered_ensemble.md"
 RUNTIME_PATH = ROOT / "runtime" / "heavy_qc.py"
+AES_PATH = ROOT / "00_workflow" / "qc" / "QC-AES-001_aesthetic_evidence_qc.md"
+AES_KNOWLEDGE_PATH = ROOT / "00_workflow" / "knowledge" / "external" / "image_aesthetics_assessment_sources.md"
 
 REQUIRED_CHECKS = {f"IQA-{number:02d}" for number in range(1, 9)}
 PROTECTED_HUMAN_JUDGMENTS = {
@@ -28,6 +30,8 @@ def main() -> int:
         social = SOC_PATH.read_text(encoding="utf-8")
         heavy = HEAVY_PATH.read_text(encoding="utf-8")
         runtime = RUNTIME_PATH.read_text(encoding="utf-8")
+        aesthetic = AES_PATH.read_text(encoding="utf-8")
+        aesthetic_knowledge = AES_KNOWLEDGE_PATH.read_text(encoding="utf-8")
     except OSError as exc:
         print(f"ERROR: cannot load technical image QC controls: {exc}")
         return 1
@@ -67,6 +71,27 @@ def main() -> int:
             errors.append(f"Heavy QC is missing human authority control: {control}")
     if "Do not invoke this protocol" not in heavy:
         errors.append("Heavy QC must prohibit automatic invocation")
+
+    for gate in (f"AES-{number:02d}" for number in range(1, 11)):
+        if gate not in aesthetic:
+            errors.append(f"Aesthetic evidence QC is missing {gate}")
+    for source in ("AES-SRC-001", "AES-SRC-002", "AES-SRC-003", "AES-SRC-004"):
+        if source not in aesthetic_knowledge:
+            errors.append(f"Aesthetic knowledge package is missing {source}")
+    for boundary in ("MODEL_INFERENCE", "AWAITING_HUMAN_DECISION"):
+        if boundary not in aesthetic:
+            errors.append(f"Aesthetic evidence QC is missing authority boundary: {boundary}")
+    if "QC-AES-001" not in heavy or "image_aesthetics_assessment_sources.md" not in heavy:
+        errors.append("Heavy QC is not connected to aesthetic knowledge and QC")
+    for control in (
+        "UNCLASSIFIED_CONTINUOUS_EVIDENCE",
+        "CONTINUOUS_RAW_VALUES",
+        "NOT_COMPUTED_WITHOUT_PROJECT_CALIBRATION",
+    ):
+        if control not in runtime:
+            errors.append(f"Heavy QC runtime is missing continuous evidence control: {control}")
+    if "do not quantize" not in aesthetic.lower() or "same-model" not in aesthetic.lower():
+        errors.append("Aesthetic QC must preserve precision and require same-model calibration")
 
     print(f"Technical checks: {len(REQUIRED_CHECKS)}")
     print(f"Protected human judgments: {len(PROTECTED_HUMAN_JUDGMENTS)}")

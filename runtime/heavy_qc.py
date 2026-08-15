@@ -15,6 +15,17 @@ APPROVAL_PHRASE = "HEAVY_QC_APPROVED"
 AESTHETIC_METRICS = ("nima", "musiq-ava", "topiq_iaa", "clipiqa")
 NO_REFERENCE_METRICS = ("brisque", "niqe")
 FULL_REFERENCE_METRICS = ("ssim", "lpips", "psnr")
+METRIC_METADATA: dict[str, dict[str, Any]] = {
+    "nima": {"evidence_type": "aesthetic", "training_domain": "AVA", "nominal_range": [0, 10]},
+    "musiq-ava": {"evidence_type": "aesthetic", "training_domain": "AVA", "nominal_range": [1, 10]},
+    "topiq_iaa": {"evidence_type": "aesthetic", "training_domain": "AVA", "nominal_range": [1, 10]},
+    "clipiqa": {"evidence_type": "look_and_feel", "training_domain": "prompt-conditioned broad imagery", "nominal_range": [0, 1]},
+    "brisque": {"evidence_type": "technical_no_reference", "training_domain": "natural-scene statistics"},
+    "niqe": {"evidence_type": "technical_no_reference", "training_domain": "natural-scene statistics"},
+    "ssim": {"evidence_type": "technical_full_reference", "training_domain": "structural similarity"},
+    "lpips": {"evidence_type": "perceptual_full_reference", "training_domain": "learned perceptual similarity"},
+    "psnr": {"evidence_type": "technical_full_reference", "training_domain": "pixel error"},
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -105,7 +116,12 @@ def resolve_device(requested: str) -> str:
 def run_metric(name: str, candidate: Path, reference: Path | None, device: str) -> dict[str, Any]:
     import pyiqa
 
-    result: dict[str, Any] = {"name": name}
+    result: dict[str, Any] = {
+        "name": name,
+        **METRIC_METADATA.get(name, {"evidence_type": "unknown", "training_domain": "unknown"}),
+        "interpretation_status": "UNCLASSIFIED_CONTINUOUS_EVIDENCE",
+        "calibration_baseline_required": True,
+    }
     try:
         metric = pyiqa.create_metric(name, device=device)
         result["lower_better"] = bool(metric.lower_better)
@@ -166,6 +182,13 @@ def main() -> int:
         },
         "classical_diagnostics": classical_diagnostics(candidate),
         "metric_results": [run_metric(name, candidate, reference, device) for name in metrics],
+        "evidence_policy": {
+            "score_representation": "CONTINUOUS_RAW_VALUES",
+            "precision_rule": "Preserve model output precision; do not quantize into aesthetic classes.",
+            "aggregation": None,
+            "comparison_rule": "Compare each model only with the same model on approved same-class examples.",
+            "model_disagreement": "NOT_COMPUTED_WITHOUT_PROJECT_CALIBRATION",
+        },
         "authority": {
             "automated_decision": None,
             "approval_status": "AWAITING_HUMAN_DECISION",

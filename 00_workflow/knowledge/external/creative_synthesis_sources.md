@@ -1,5 +1,13 @@
 # Creative Synthesis — External Reference Package
 
+```text
+KB_ID: CS-SRC-PACKAGE-001
+KNOWLEDGE_TYPE: EXTERNAL_SOURCE_PACKAGE
+SCOPE: CROSS_PROJECT_CREATIVE_SYNTHESIS_REFERENCE
+APPROVAL_STATUS: ACTIVE_SOURCE
+PROVENANCE: Human-directed research package assembled from the named primary and institutional sources; reviewed 2026-08-15.
+```
+
 ## Purpose
 
 Provide traceable external evidence for late-stage creative synthesis, final visual refinement, and heavy QC.

@@ -1,3 +1,5 @@
 # Optional local runtime for explicitly human-approved Heavy QC.
 # pyiqa includes PyTorch and downloads selected pretrained weights on first use.
 pyiqa==0.1.16
+# OpenAI CLIP still imports pkg_resources; setuptools 81+ removed it.
+setuptools==80.9.0

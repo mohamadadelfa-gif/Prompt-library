@@ -360,6 +360,12 @@ Focused Farsi Font Store discovery
 
 Broad Persian-language production discovery
   → awesome_persian_resource_index.md → verified primary source → target-environment test
+
+Heavy QC aesthetic evidence
+  → image_aesthetics_assessment_sources.md
+  → same-model, same-asset-class approved calibration examples
+  → QC-AES-001 + HEAVY-QC-001
+  → authorized human decision
 ```
 
 ## Priority Rule
