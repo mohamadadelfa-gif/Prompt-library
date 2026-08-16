@@ -2,106 +2,14 @@
 
 ## Purpose
 
-The Prompt Library now contains two sibling execution workflows:
+The Prompt Library contains two sibling execution workflows:
 
 ```text
-DESIGN WORKFLOW
 WRITING WORKFLOW
+DESIGN WORKFLOW
 ```
 
-They remain operationally separate but may consult a controlled Shared Knowledge Layer.
-
-The purpose of this layer is to prevent duplicate research while preventing silent cross-workflow authority leaks.
-
-## What May Be Shared
-
-Both workflows may consult:
-
-- project briefs
-- customer/audience research
-- cultural/context research
-- brand memory
-- approved project rules
-- terminology/glossaries
-- source registries
-- external research references
-- platform constraints
-- typography and readability references
-- shared tools and technical methods
-- approved factual source material
-- provenance records
-
-## What Must Remain Separate
-
-The following do not transfer authority automatically:
-
-- workflow execution state
-- task completion status
-- approvals
-- revisions
-- QC results
-- creative decisions
-- content decisions
-- visual decisions
-- generated outputs
-
-A Writing PASS does not imply a Design PASS.
-A Design approval does not imply content approval.
-
-## Cross-Workflow Handoff
-
-The workflows communicate through explicit handoffs rather than by editing each other's state.
-
-### Writing → Design
-
-Use when approved text needs visual production.
-
-Transfer:
-- approved copy
-- semantic hierarchy
-- language/tone constraints
-- source status
-- flexibility/lock state
-- CTA/caption/alt-text intent
-
-### Design → Writing
-
-Use when visual/platform constraints require textual reconsideration.
-
-Transfer:
-- available text area
-- reading-order constraints
-- recommended maximum length
-- slide/story role
-- text-density issue
-- platform limitations
-- semantic emphasis needs
-
-The receiving workflow owns the resulting decision in its own domain.
-
-## Shared Research Rule
-
-A research result may be used by both workflows when provenance and scope remain clear.
-
-Example:
-
-```text
-AUDIENCE RESEARCH
-├── Writing uses it for tone, vocabulary, topic relevance
-└── Design uses it for visual communication, density, format, hierarchy
-```
-
-The interpretation may differ because the workflows have different responsibilities.
-
-## Shared Tool Rule
-
-A tool or external methodology may be registered for both workflows when genuinely useful to both. Registration should declare the consumers rather than copying the knowledge file.
-
-Examples:
-
-- article/document explainer → primarily Writing, optionally shared research support
-- typography systems → primarily Design, optionally Writing readability support
-- audience/cultural research → shared
+They may share evidence, research, project knowledge, external references, structures, and tools, but they keep execution state, decisions, approvals, versions, and QC authority separate.
 
 ## Governance Principle
 
@@ -112,17 +20,111 @@ SHARE TOOLS.
 DO NOT SHARE AUTHORITY SILENTLY.
 ```
 
-## Final Combined Production
+## What May Be Shared
 
-When one deliverable needs both text and design:
+- project briefs;
+- customer/audience research;
+- cultural/context research;
+- brand memory;
+- approved project rules;
+- terminology/glossaries;
+- source registries;
+- external research references;
+- platform constraints;
+- typography/readability references;
+- shared tools and technical methods;
+- approved factual source material;
+- provenance records.
+
+## Shared-Knowledge Metadata
+
+When useful, shared knowledge should declare:
 
 ```text
-WRITING WORKFLOW
-→ APPROVED WRITING HANDOFF
+PRIMARY_WORKFLOW
+SECONDARY_WORKFLOW
+AUTHORITY_SCOPE
+PROJECT_SCOPE
+PROVENANCE_REQUIRED
+PROMOTION_STATE
+```
+
+Recommended `AUTHORITY_SCOPE` values:
+
+- `EVIDENCE_ONLY`
+- `METHOD_REFERENCE`
+- `PROJECT_RULE`
+- `SYSTEM_RULE`
+
+A shared source marked `EVIDENCE_ONLY` may inform both workflows but cannot itself approve content or design decisions.
+
+## What Must Remain Separate
+
+The following never transfer automatically:
+
+- workflow execution state;
+- task completion;
+- approval;
+- revision state;
+- QC result;
+- content decision;
+- visual decision;
+- generated output;
+- version authority.
+
+A Writing PASS does not imply a Design PASS. A Design approval does not imply content approval.
+
+## Cross-Workflow Handoff
+
+All cross-workflow transfers use:
+
+`00_workflow/workflows/cross_workflow_handoff_contract.md`
+
+### Writing → Design
+
+Transfers approved content version, lock/flexibility state, semantic hierarchy, language/tone constraints, claim/fact status, caption/CTA state, alt-text intent, source references, and unresolved unknowns.
+
+### Design → Writing
+
+Transfers visual/platform constraints that require textual reconsideration: available text area, maximum recommended length, reading order, text density, platform limitation, semantic emphasis need, and requested Writing action.
+
+The receiving workflow owns the resulting decision in its own domain.
+
+## Shared Research Rule
+
+A research result may be reused by both workflows when provenance and scope remain explicit.
+
+```text
+AUDIENCE RESEARCH
+├── Writing → tone, vocabulary, topic relevance, reader action
+└── Design  → hierarchy, density, format, visual communication
+```
+
+Reuse avoids duplicate research; interpretation remains domain-specific.
+
+## Shared Tool Rule
+
+A methodology or tool may be registered once and consumed by both workflows when genuinely useful.
+
+Examples:
+
+- article/document explainer → primarily Writing, optionally shared research support;
+- typography/readability systems → primarily Design, optionally Writing accessibility support;
+- audience/cultural research → shared evidence.
+
+## Final Combined Production
+
+```text
+CONTENT NEED
+→ WRITING WORKFLOW
+→ WRITING QC
+→ HUMAN CONTENT APPROVAL
+→ WRITING_TO_DESIGN HANDOFF
 → DESIGN WORKFLOW
-→ APPROVED VISUAL OUTPUT
+→ VISUAL QC
+→ HUMAN VISUAL APPROVAL
 → COMBINED PACKAGE QC
 → HUMAN FINAL APPROVAL
 ```
 
-If the design process exposes a content problem, route it back to Writing; if writing changes invalidate layout, route the approved revision back to Design.
+If Design exposes a content problem, route it back to Writing. If Writing changes invalidate layout, issue a new Writing version and rerun the affected Design stages.
