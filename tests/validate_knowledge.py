@@ -6,7 +6,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY_PATH = ROOT / "00_workflow" / "knowledge" / "knowledge_registry.json"
-CONTRACT_PATH = ROOT / "00_workflow" / "task_contracts.json"
+DESIGN_CONTRACT_PATH = ROOT / "00_workflow" / "task_contracts.json"
+WRITING_CONTRACT_PATH = ROOT / "00_workflow" / "writing_task_contracts.json"
 
 REQUIRED_FIELDS = {
     "kb_id",
@@ -24,11 +25,16 @@ REQUIRED_FIELDS = {
 }
 
 
+def load_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def main() -> int:
     errors: list[str] = []
     try:
-        registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
-        contracts = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
+        registry = load_json(REGISTRY_PATH)
+        design_contracts = load_json(DESIGN_CONTRACT_PATH)
+        writing_contracts = load_json(WRITING_CONTRACT_PATH)
     except (OSError, json.JSONDecodeError) as exc:
         print(f"ERROR: cannot load knowledge registry/contracts: {exc}")
         return 1
@@ -36,7 +42,9 @@ def main() -> int:
     records = registry.get("records", [])
     approval_states = set(registry.get("approval_states", []))
     promotion_states = set(registry.get("promotion_states", []))
-    contract_tasks = set(contracts.get("tasks", {}))
+    design_tasks = set(design_contracts.get("tasks", {}))
+    writing_tasks = set(writing_contracts.get("tasks", {}))
+    known_consumers = design_tasks | writing_tasks
     seen_kb_ids: set[str] = set()
     seen_source_ids: set[str] = set()
 
@@ -81,11 +89,13 @@ def main() -> int:
             errors.append(f"{kb_id}: required unknown handling is absent")
 
         for task_id in record["allowed_consumers"]:
-            if task_id not in contract_tasks:
+            if task_id not in known_consumers:
                 errors.append(f"{kb_id}: unknown allowed consumer {task_id}")
 
     print(f"Knowledge records: {len(records)}")
     print(f"Unique knowledge IDs: {len(seen_kb_ids)}")
+    print(f"Known Design consumers: {len(design_tasks)}")
+    print(f"Known Writing consumers: {len(writing_tasks)}")
     print(f"Errors: {len(errors)}")
     for error in errors:
         print(f"ERROR: {error}")
