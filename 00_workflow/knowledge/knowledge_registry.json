@@ -280,6 +280,20 @@
       "provenance_required": true
     },
     {
+      "kb_id": "DESIGN-DNA-SRC-001",
+      "source_id": "DESIGN-DNA-SRC-001",
+      "title": "Design DNA Agent Methodology Reference",
+      "knowledge_type": "EXTERNAL_METHODOLOGY_SOURCE",
+      "path": "00_workflow/knowledge/external/design_dna_agent_method.md",
+      "project_id": "GLOBAL",
+      "scope": "SYSTEM_VISUAL_DNA_EXTRACTION_AND_TRANSFER_REFERENCE",
+      "approval_state": "ACTIVE_SOURCE",
+      "promotion_state": "NOT_PROMOTED",
+      "allowed_consumers": ["VIS-001", "VIS-002", "VIS-003", "VIS-004", "VIS-005", "VIS-006", "VDNA-001", "ART-001", "ART-002", "ART-003", "GEN-001", "GEN-002", "QC-001", "QC-002", "QC-003", "FINAL-AI-001", "FINAL-AI-002"],
+      "unknowns_required": false,
+      "provenance_required": true
+    },
+    {
       "kb_id": "FA-FONT-INDEX-001",
       "source_id": "FA-FONT-INDEX-001",
       "title": "GitHub persian-font Topic Discovery Index",
