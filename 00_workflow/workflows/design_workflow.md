@@ -4,26 +4,26 @@
 
 The Design Workflow is the visual-production branch of the Prompt Library.
 
-It is responsible for:
+It owns:
 
-- visual strategy
-- visual research
-- reference analysis
-- style study
-- motif extraction
-- visual DNA
-- platform/template synthesis
-- art direction
-- image generation
-- visual implementation
-- visual QC
+- visual strategy and visual research;
+- reference analysis;
+- named-style study and motif extraction;
+- Visual DNA;
+- platform/template synthesis;
+- art direction;
+- image generation;
+- editable reconstruction;
+- Figma/production implementation;
+- visual QC;
+- approved visual output.
 
-It is **not** responsible for independently researching, authoring, simplifying, or approving substantial textual content unless the text is only being adapted for visual placement.
+It does **not** independently research, author, simplify, approve, or rewrite substantial textual content.
 
 ## Core Pipeline
 
 ```text
-PROJECT / CONTENT INPUT
+PROJECT / APPROVED CONTENT INPUT
 → DESIGN STRATEGY
 → VISUAL RESEARCH
 → VISUAL ANALYSIS
@@ -42,62 +42,90 @@ PROJECT / CONTENT INPUT
 → APPROVED VISUAL OUTPUT
 ```
 
-## Inputs from Writing Workflow
+The existing Design task registry, task contracts, process registry, and validators remain authoritative for the Design branch.
 
-The Design Workflow may receive an approved Writing Handoff containing:
+## Approved Writing Input
 
-- approved on-canvas copy
-- title / hook
-- content hierarchy
-- CTA
-- caption
-- alt-text intent
-- semantic emphasis
-- audience/language constraints
-- source/provenance references
+When meaningful text is involved, Design should receive a `WRITING_TO_DESIGN` handoff through:
 
-The Design Workflow may change line breaks, spatial grouping, or typographic emphasis only within its design authority.
+`00_workflow/workflows/cross_workflow_handoff_contract.md`
 
-It must not silently change:
+The handoff identifies the exact approved Writing version, source/fact status, locked wording, flexible wording, semantic hierarchy, language level, CTA/caption state, and unresolved unknowns.
 
-- factual meaning
-- source claims
-- approved language level
-- approved wording when wording is locked
-- content intent
+## Design Authority Over Text
 
-Any required semantic rewrite is routed back to the Writing Workflow.
+Design may:
+
+- set line breaks;
+- group text spatially;
+- choose visual hierarchy;
+- apply typography;
+- emphasize approved semantic terms;
+- adapt spacing and layout;
+- request a shorter/alternative text version.
+
+Design may not silently:
+
+- change factual meaning;
+- paraphrase locked wording;
+- change source claims;
+- alter the approved language level;
+- invent or rewrite the CTA;
+- rewrite the caption;
+- remove required uncertainty or qualification;
+- introduce unsupported claims.
+
+When a rewrite is required, issue a `DESIGN_TO_WRITING` handoff. Writing owns the new wording and must create a new Writing version before Design continues.
+
+## Content Package Boundary
+
+Design may assemble approved Writing artifacts into the final Content Package, but assembly is not authorship.
+
+Writing owns:
+
+```text
+CORE MESSAGE
+ON-CANVAS COPY
+CAPTION
+CTA
+HASHTAGS / KEYWORDS
+ALT-TEXT INTENT
+```
+
+Design owns:
+
+```text
+VISUAL ARTIFACT
+VISUAL HIERARCHY
+TYPOGRAPHIC IMPLEMENTATION
+VISUAL DESCRIPTION EVIDENCE
+TEMPLATE / FIGMA IMPLEMENTATION
+VISUAL QC
+```
+
+The combined package owns final linking, metadata, final alt text, and mutual version traceability.
 
 ## Shared Resources
 
-The Design Workflow may use the Shared Knowledge Layer for:
+Design may use the Shared Knowledge Layer for project briefs, audience/cultural research, brand memory, terminology, external references, typography/readability knowledge, platform constraints, tools, and factual source material.
 
-- project briefs
-- audience research
-- cultural/context research
-- brand memory
-- approved terminology
-- external design references
-- typography references
-- general research tools
-
-Using a shared source does not make a Writing decision into a Design decision or vice versa.
+Shared evidence never silently transfers Writing decisions or approval into Design.
 
 ## Output Contract
 
-The final Design output should preserve traceability to:
+A final Design output involving text must preserve traceability to:
 
-- Writing Handoff version, when textual content is involved
-- Design decisions
-- visual references
-- approved assets
-- visual QC evidence
+- approved Writing output/version;
+- Writing → Design handoff ID;
+- Design decisions;
+- visual references;
+- approved assets;
+- visual QC evidence;
+- unresolved cross-workflow constraints.
 
 ## Boundary Rule
 
 ```text
 WRITING OWNS WHAT THE CONTENT SAYS.
-DESIGN OWNS HOW THE APPROVED CONTENT IS VISUALLY COMMUNICATED.
+DESIGN OWNS HOW APPROVED CONTENT IS VISUALLY COMMUNICATED.
 ```
-
-When the boundary is unclear, preserve the content and route the ambiguity to Writing rather than rewriting silently.
