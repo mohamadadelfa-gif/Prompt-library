@@ -47,18 +47,31 @@ AFFECTED MEMORY / QC
 **Provenance:** Explicit human selection of the supplied logo image.  
 **Affected:** `EBL_asset_registry.json`, `EBL_logo_application_rules.md`, `QC-LOGO-001`, `QC-EBL-001`.
 
-### Verified source fingerprint
+### Source fingerprint history
 
-The chosen source binary was verified in the active production runtime on 2026-08-16:
+The originally registered source binary was:
 
 ```text
 filename: Codex Image Aug 15, 2026, 02_47_23 PM.png
 sha256: 4cb1c9796cf358338ef6d0c49486cd2e04292775b838c603ffdf658aede283f7
 dimensions: 1536 × 1024
 mode: RGBA
+status: SUPERSEDED_SOURCE_BINARY
 ```
 
-The repository binary path is still unresolved. This is intentional and explicit: the verified fingerprint identifies the chosen source binary, but no repository path may be invented until the binary is actually ingested and verified there.
+On 2026-08-16 the human explicitly supplied and identified a new file as **the fixed English Beyond Language logo**. The current canonical source binary is therefore:
+
+```text
+filename: Codex Image Aug 15, 2026, 02_47_23 PM(2).png
+sha256: 20facdbc7917edada59fc0beafba2b963ba6eb3a4effcf033eb956f9355d6d02
+dimensions: 1536 × 1024
+mode: RGBA
+format: PNG
+bytes: 1409989
+status: CURRENT_CANONICAL_SOURCE_BINARY
+```
+
+This supersedes only the prior source-binary fingerprint. It does **not** change the approved Geometric Reader Integrated Logo design decision. The repository binary path remains unresolved until the actual binary is ingested and verified there.
 
 ---
 
