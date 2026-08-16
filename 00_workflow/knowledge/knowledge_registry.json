@@ -224,6 +224,20 @@
       "provenance_required": true
     },
     {
+      "kb_id": "BYSAGES-TYPO-SRC-001",
+      "source_id": "BYSAGES-TYPO-SRC-001",
+      "title": "BySages Typography Engineering Reference",
+      "knowledge_type": "EXTERNAL_TECHNICAL_SOURCE",
+      "path": "00_workflow/knowledge/external/bysages_typography_engineering.md",
+      "project_id": "GLOBAL",
+      "scope": "SYSTEM_UNICODE_OCR_AND_GLYPH_ENGINEERING_REFERENCE",
+      "approval_state": "ACTIVE_SOURCE",
+      "promotion_state": "NOT_PROMOTED",
+      "allowed_consumers": ["RES-005", "VIS-005", "GEN-001", "GEN-002", "QC-001", "FINAL-AI-001", "FINAL-AI-002"],
+      "unknowns_required": false,
+      "provenance_required": true
+    },
+    {
       "kb_id": "SYS-FINAL-AI-001",
       "source_id": "SYS-FINAL-AI-001",
       "title": "Final AI Production Learnings — System Layer",
