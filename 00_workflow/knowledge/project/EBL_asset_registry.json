@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "project_id": "EBL",
   "updated_at": "2026-08-16",
   "asset_policy": {
@@ -15,16 +15,21 @@
       "name": "Geometric Reader Integrated Logo",
       "status": "LOCKED_APPROVED_IDENTITY",
       "human_selected": true,
-      "supersedes": ["EARLIER_OVERLAPPING_CIRCLE_LOGO_DIRECTION"],
+      "supersedes": [
+        "EARLIER_OVERLAPPING_CIRCLE_LOGO_DIRECTION",
+        "PREVIOUS_SOURCE_BINARY_FINGERPRINT_4cb1c9796cf358338ef6d0c49486cd2e04292775b838c603ffdf658aede283f7"
+      ],
       "canonical_repo_path": null,
       "repository_ingestion_status": "NOT_YET_INGESTED_AS_BINARY",
-      "verified_source_filename": "Codex Image Aug 15, 2026, 02_47_23 PM.png",
-      "verified_source_sha256": "4cb1c9796cf358338ef6d0c49486cd2e04292775b838c603ffdf658aede283f7",
+      "verified_source_filename": "Codex Image Aug 15, 2026, 02_47_23 PM(2).png",
+      "verified_source_sha256": "20facdbc7917edada59fc0beafba2b963ba6eb3a4effcf033eb956f9355d6d02",
       "verified_source_dimensions_px": [1536, 1024],
       "verified_source_mode": "RGBA",
+      "verified_source_format": "PNG",
+      "verified_source_bytes": 1409989,
       "source_binary_verification": "VERIFIED_IN_ACTIVE_PRODUCTION_RUNTIME_2026-08-16",
-      "source_provenance": "Human-selected supplied image from the EBL production conversation; exact binary fingerprint verified in the active production runtime. Repository binary path remains unresolved.",
-      "resolution_rule": "If a future supplied/uploaded logo binary matches this SHA-256, it may be identified as the locked chosen source binary unless a newer human-approved canonical asset supersedes it.",
+      "source_provenance": "Explicitly human-confirmed fixed English Beyond Language logo supplied in the EBL production conversation on 2026-08-16; exact PNG fingerprint, dimensions, mode and byte size verified in the active production runtime. This source binary supersedes the previously registered source fingerprint while preserving the same locked logo design. Repository binary path remains unresolved.",
+      "resolution_rule": "A supplied/uploaded logo binary matches the current locked canonical source only when its SHA-256 equals 20facdbc7917edada59fc0beafba2b963ba6eb3a4effcf033eb956f9355d6d02, unless a newer explicit human-approved canonical asset supersedes it.",
       "construction_memory": [
         "simplified reader/human figure",
         "burnt-orange circular head",
