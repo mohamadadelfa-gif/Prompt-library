@@ -41,6 +41,17 @@
       "provenance_required": true
     },
     {
+      "memory_id": "EBL-MEM-CONTENT-RULES-001",
+      "class": "CONTENT_SPECIFIC",
+      "title": "EBL Content & Communication Rules",
+      "path": "00_workflow/knowledge/project/EBL_content_communication_rules.md",
+      "status": "APPROVED",
+      "scope": "PROJECT_CONTENT_AND_COMMUNICATION",
+      "required_for": ["ALL_EBL_CONTENT_TASKS", "SOCIAL_MEDIA_CONTENT", "ART_DIRECTION", "GENERATION", "QC", "FINAL_AI"],
+      "supersedes": ["OLDER_B2_PLUS_DEFAULT_LANGUAGE_ASSUMPTION"],
+      "provenance_required": true
+    },
+    {
       "memory_id": "EBL-MEM-ASSET-001",
       "class": "ASSET_MEMORY",
       "title": "EBL Asset Registry",
