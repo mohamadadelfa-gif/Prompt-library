@@ -266,6 +266,20 @@
       "provenance_required": true
     },
     {
+      "kb_id": "CARDPRINTER-SRC-001",
+      "source_id": "CARDPRINTER-SRC-001",
+      "title": "CardPrinter Automated Social Production and QC Reference",
+      "knowledge_type": "EXTERNAL_TECHNICAL_SOURCE",
+      "path": "00_workflow/knowledge/external/cardprinter_automation_qc.md",
+      "project_id": "GLOBAL",
+      "scope": "SYSTEM_SOCIAL_CONTENT_AUTOMATION_AND_QC_REFERENCE",
+      "approval_state": "ACTIVE_SOURCE",
+      "promotion_state": "NOT_PROMOTED",
+      "allowed_consumers": ["VIS-005", "ART-002", "ART-003", "GEN-001", "GEN-002", "QC-001", "QC-002", "QC-003", "FINAL-AI-001", "FINAL-AI-002"],
+      "unknowns_required": false,
+      "provenance_required": true
+    },
+    {
       "kb_id": "FA-FONT-INDEX-001",
       "source_id": "FA-FONT-INDEX-001",
       "title": "GitHub persian-font Topic Discovery Index",
