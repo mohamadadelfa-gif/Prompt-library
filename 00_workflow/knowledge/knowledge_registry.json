@@ -252,6 +252,20 @@
       "provenance_required": true
     },
     {
+      "kb_id": "DLS-INDEX-001",
+      "source_id": "DLS-INDEX-001",
+      "title": "Awesome Design Language System External Reference Index",
+      "knowledge_type": "EXTERNAL_REFERENCE_INDEX",
+      "path": "00_workflow/knowledge/external/awesome_design_language_system.md",
+      "project_id": "GLOBAL",
+      "scope": "SYSTEM_DESIGN_LANGUAGE_AND_DESIGN_SYSTEM_DISCOVERY",
+      "approval_state": "ACTIVE_SOURCE",
+      "promotion_state": "NOT_PROMOTED",
+      "allowed_consumers": ["RES-001", "RES-002", "VIS-001", "VIS-005", "VDNA-001", "ART-001", "ART-002", "ART-003", "GEN-001", "GEN-002", "QC-001", "QC-002", "QC-003"],
+      "unknowns_required": false,
+      "provenance_required": true
+    },
+    {
       "kb_id": "FA-FONT-INDEX-001",
       "source_id": "FA-FONT-INDEX-001",
       "title": "GitHub persian-font Topic Discovery Index",
