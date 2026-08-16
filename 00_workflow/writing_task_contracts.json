@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "workflow_version": "1.0-architecture",
+  "workflow": "WRITING",
+  "canonical_gates": {
+    "flow": ["PASS", "CONDITIONAL", "BLOCKED"],
+    "decision": ["APPROVE", "REVISE", "REJECT"],
+    "generation": ["READY", "BLOCKED"],
+    "quality": ["APPROVE", "REVISE", "REGENERATE", "BLOCKED"]
+  },
+  "revision_policy": {"max_cycles":3,"after_max_cycles":"HUMAN_REVIEW"},
+  "handoff_contract": "00_workflow/workflows/cross_workflow_handoff_contract.md",
+  "quality_rubric": "tests/writing_evaluation_rubric.md",
+  "tasks": {}
+}
