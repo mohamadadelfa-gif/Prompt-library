@@ -2,90 +2,140 @@
 
 ## Purpose
 
-A generated social asset is not production-complete until the visual artifact, reusable template information, caption, accessibility text, CTA, publishing metadata, and Figma implementation package are captured as one controlled Content Package.
+A publishable asset is complete only when approved Writing, approved Design, accessibility, publishing metadata, and implementation artifacts are linked into one controlled Content Package.
 
-## Content Package Lifecycle
+The Content Package is an **assembly layer**, not an authoring loophole. It must preserve domain ownership.
+
+## Ownership Model
+
+### Writing owns
+
+- OBJECTIVE / CORE MESSAGE where content-led;
+- TITLE / HOOK;
+- ON_CANVAS_COPY;
+- CAPTION_HOOK;
+- CAPTION_BODY;
+- CTA;
+- HASHTAGS_OR_KEYWORDS;
+- language level and tone constraints;
+- factual/claim status;
+- ALT_TEXT_INTENT;
+- textual source references.
+
+### Design owns
+
+- VISUAL_ARTIFACT;
+- visual hierarchy;
+- typography and layout implementation;
+- approved visual assets;
+- template relationship;
+- Figma/production implementation;
+- visual-description evidence;
+- visual QC.
+
+### Combined Package owns
+
+- linking exact Writing and Design versions;
+- final ALT_TEXT based on Writing semantic intent + final Design evidence;
+- publishing metadata;
+- package-level QC;
+- final human approval state.
+
+## Canonical Lifecycle
 
 ```text
-PROJECT INPUT
-    ↓
-CONTENT STRATEGY
-    ↓
-CONTENT ARTIFACT
-    ├── Visual Direction
-    ├── Copy / On-Canvas Text
-    ├── Caption
-    ├── CTA
-    ├── Hashtags / Keywords
-    ├── Alt Text
-    └── Publishing Metadata
-         ↓
-GEN-002
-         ↓
-Generated Visual
-         ↓
-Human Revision
-         ↓
-Approved Content Package
-         ├── Approved Visual
-         ├── Approved Caption
-         ├── Approved CTA
-         ├── Approved Alt Text
-         ├── Template Candidate
-         └── Figma Implementation Package
+WRITING WORKFLOW
+→ WRITING QC
+→ HUMAN CONTENT APPROVAL
+→ WRITING_TO_DESIGN HANDOFF
+→ DESIGN WORKFLOW
+→ VISUAL QC
+→ HUMAN VISUAL APPROVAL
+→ CONTENT PACKAGE ASSEMBLY
+→ COMBINED PACKAGE QC
+→ HUMAN FINAL APPROVAL
 ```
 
-## Required Components
+For visual-only assets with no meaningful authored text, the Writing branch may be not applicable. For text-only publication, the Design branch may be not applicable. Applicability must be explicit.
 
-### 1. Content Identity
+## Required Identity Fields
 
-- CONTENT_ID
-- PROJECT_ID
-- PLATFORM
-- CONTENT_TYPE
-- FORMAT
-- VERSION
-- STATUS
+```text
+CONTENT_ID
+PROJECT_ID
+PLATFORM
+CONTENT_TYPE
+FORMAT
+PACKAGE_VERSION
+PACKAGE_STATUS
+WRITING_APPLICABLE
+DESIGN_APPLICABLE
+APPROVED_WRITING_VERSION
+APPROVED_DESIGN_VERSION
+WRITING_HANDOFF_ID
+```
 
-### 2. Creative Content
+Use `NOT_APPLICABLE` rather than inventing a missing workflow version.
 
-- OBJECTIVE
-- CORE_MESSAGE
-- AUDIENCE
-- CONTENT_PILLAR
-- ON_CANVAS_COPY
-- VISUAL_ARTIFACT
+## Writing Components
 
-### 3. Caption
+When Writing applies:
 
-The caption is a first-class content artifact, not an afterthought.
+```text
+CONTENT_PURPOSE
+AUDIENCE
+LANGUAGE_LEVEL
+TITLE_OR_HOOK
+ON_CANVAS_COPY
+SEMANTIC_HIERARCHY
+CAPTION_HOOK
+CAPTION_BODY
+CTA
+HASHTAGS_OR_KEYWORDS
+ALT_TEXT_INTENT
+SOURCE_REFERENCES
+CLAIM_STATUS
+FACT_STATUS
+WRITING_QC_STATUS
+HUMAN_CONTENT_APPROVAL
+```
+
+Design may place these components but may not silently rewrite them. Any meaningful rewrite routes through `cross_workflow_handoff_contract.md` and produces a new Writing version.
+
+## Design Components
+
+When Design applies:
+
+```text
+VISUAL_ARTIFACT
+VISUAL_VERSION
+VISUAL_HIERARCHY
+TYPOGRAPHY_IMPLEMENTATION
+APPROVED_ASSET_REFERENCES
+TEMPLATE_REFERENCE
+FIGMA_IMPLEMENTATION_REFERENCE
+VISUAL_DESCRIPTION_EVIDENCE
+VISUAL_QC_STATUS
+HUMAN_VISUAL_APPROVAL
+```
+
+## Accessibility
+
+Final alt text is a combined artifact because it must communicate the approved semantic content and accurately describe the final visual.
 
 Required fields:
 
-- CAPTION_HOOK
-- CAPTION_BODY
-- CTA
-- HASHTAGS_OR_KEYWORDS
-- CAPTION_VERSION
-- CAPTION_STATUS
+```text
+ALT_TEXT_INTENT
+VISUAL_DESCRIPTION_EVIDENCE
+FINAL_ALT_TEXT
+ACCESSIBILITY_NOTES
+ALT_TEXT_STATUS
+```
 
-Caption rules:
+Final alt text must not introduce factual claims absent from approved Writing and must not describe visual elements that are not present in the approved Design.
 
-- Support the post objective.
-- Add context rather than redundantly repeating every slide.
-- Maintain the approved brand voice.
-- Preserve factual accuracy and approved claims.
-- Match the audience and platform.
-- Never introduce a new strategic claim that is absent from the approved project definition.
-
-### 4. Accessibility
-
-- ALT_TEXT
-- ACCESSIBILITY_NOTES
-
-Alt text must describe the meaningful content of the final approved visual, not merely its aesthetic style.
-
-### 5. Publishing Metadata
+## Publishing Metadata
 
 - PUBLISHING_DATE
 - POSTING_SEQUENCE
@@ -95,57 +145,47 @@ Alt text must describe the meaningful content of the final approved visual, not 
 - CTA_TYPE
 - STATUS
 
-### 6. Figma Implementation
+## Figma / Production Implementation
 
-Every visually produced content package must include a corresponding Figma Implementation Package when editable design production is required.
-
-The Figma package is a separate implementation artifact linked to the exact content package version.
+When an editable design master is required, link the exact Figma Implementation Package to the approved Design version. The implementation may not silently redefine the approved content or art direction.
 
 Required reference:
 
 `00_workflow/figma_output_contract.md`
 
-The Figma package must define the platform frame, page/frame structure, content zones, components, variables/styles, editable versus locked elements, typography, color, spacing/grid behavior, export settings, and provenance.
+## Template and Memory Separation
 
-## Template Extraction
+Keep separate:
 
-When a content artifact is approved, evaluate whether its structure can become a reusable platform template.
+- CONTENT INSTANCE;
+- WRITING OUTPUT;
+- DESIGN OUTPUT;
+- TEMPLATE;
+- STYLE REFERENCE;
+- STYLE RULE;
+- FIGMA IMPLEMENTATION;
+- FINAL CONTENT PACKAGE.
 
-Separate:
+Approval of one does not automatically approve or promote the others.
 
-- CONTENT INSTANCE — the specific post.
-- TEMPLATE — reusable layout and structural rules.
-- STYLE REFERENCE — approved visual example.
-- STYLE RULE — generalized aesthetic principle.
-- FIGMA IMPLEMENTATION — the editable production realization of the approved content/template.
+## Package QC
 
-Example:
+Before final approval verify:
 
-```text
-Post 01 — What Is English Independence?
-        ↓
-CONTENT INSTANCE
-        ↓
-TPL-IG-001 — EBL Editorial Carousel / 5 Slides
-        +
-STYLE-REF-001 — Approved EBL Typography / Visual Reference
-        +
-STYLE-RULE-001 — Typography-dominant editorial hierarchy
-        +
-FIGMA-EBL-001 — Editable Figma Implementation
-```
-
-## Approval
-
-A Content Package is approved only when the visual artifact, caption, CTA, alt text, required metadata, and required Figma implementation are complete and reviewed.
-
-Human approval may approve the package while independently rejecting or revising the template/style promotion.
+1. exact approved Writing version is linked when Writing applies;
+2. exact approved Design version is linked when Design applies;
+3. no Design-side semantic rewrite occurred without a new Writing version;
+4. caption/CTA match the approved Writing output;
+5. final alt text matches both semantic intent and final visual evidence;
+6. source/fact status remains traceable;
+7. unresolved unknowns are not hidden;
+8. publishing metadata is complete;
+9. all required human approvals are recorded.
 
 ## Revision Rules
 
-A change to the visual does not automatically change the caption.
-A change to the caption does not automatically change the visual template.
-A change to a project style rule does not automatically change historical content artifacts.
-A change to the Figma implementation does not automatically change the approved visual or content unless the implementation is re-exported and re-approved.
+A change to Writing does not automatically alter Design. A changed Writing version invalidates any Design/package state that depends on changed text until the affected Design stages are rechecked.
 
-Every changed component must be versioned independently and linked to the approved package version.
+A change to Design does not automatically alter Writing. If the visual change requires a semantic rewrite, route to Writing.
+
+Every changed component must be versioned independently and the combined package must reference the exact approved versions.
