@@ -1,87 +1,22 @@
-# Prompt Library v3 — Controlled Creative Production System
+# Prompt Library v3 — Controlled Dual-Workflow Production System
 
-A version-controlled creative-production system in which prompts are executable tasks with defined inputs, boundaries, outputs, provenance, confidence, handoffs, and decision gates.
+A version-controlled production system in which Writing and Design operate as separate workflows with explicit inputs, outputs, provenance, handoffs, approvals, quality gates, and revision routing.
 
-## Dual Workflow Architecture
-
-The repository now has two sibling execution workflows:
+## Architecture
 
 ```text
-WRITING WORKFLOW
-DESIGN WORKFLOW
+                     SHARED KNOWLEDGE
+                    /                \
+           WRITING WORKFLOW      DESIGN WORKFLOW
+                    \                /
+                 EXPLICIT VERSIONED HANDOFF
+                           ↓
+                 COMBINED CONTENT PACKAGE
+                           ↓
+                    HUMAN FINAL APPROVAL
 ```
 
-They function separately but may use a controlled Shared Knowledge Layer for research, project knowledge, external references, structures, and tools.
-
-They do **not** silently share approvals, execution state, QC results, or domain decisions.
-
-### Writing Workflow
-
-Used for:
-
-- textual research
-- source search and evaluation
-- article/document analysis
-- key-term and idea extraction
-- content strategy
-- outlining
-- drafting
-- rewriting
-- summarization
-- explanation
-- language-level adaptation
-- tone adaptation
-- grammar/style revision
-- fact/claim review
-- captions, hooks, CTAs, alt text, scripts, and other text deliverables
-- writing QC
-
-Canonical architecture:
-
-`00_workflow/workflows/writing_workflow.md`
-
-### Design Workflow
-
-Used for:
-
-- visual strategy
-- visual research
-- reference analysis
-- named-style study
-- motif extraction
-- reference-style synthesis
-- Visual DNA
-- platform/template synthesis
-- art direction
-- generation
-- editable reconstruction
-- Figma implementation
-- visual QC
-
-Canonical architecture:
-
-`00_workflow/workflows/design_workflow.md`
-
-### Shared Knowledge Layer
-
-Both workflows may consult shared:
-
-- project briefs
-- audience research
-- cultural/context research
-- brand memory
-- approved terminology
-- external references
-- platform constraints
-- tools and technical methods
-- factual source material
-- provenance records
-
-Canonical architecture:
-
-`00_workflow/workflows/shared_knowledge_layer.md`
-
-Core governance rule:
+Core governance:
 
 ```text
 SHARE EVIDENCE.
@@ -90,208 +25,208 @@ SHARE TOOLS.
 DO NOT SHARE AUTHORITY SILENTLY.
 ```
 
-## Combined Production Pattern
+Writing owns meaning, claims, language, textual structure, captions, CTAs, and source-grounded content decisions.
 
-When one deliverable requires both writing and design:
+Design owns visual communication, visual systems, art direction, generation, layout, typography implementation, production implementation, and visual QC.
+
+## Writing Workflow
+
+Canonical architecture:
+
+- `00_workflow/workflows/writing_workflow.md`
+- `00_workflow/writing_task_registry.json`
+- `00_workflow/writing_task_contracts.json`
+- `00_workflow/writing_process_registry.json`
+- `tests/validate_writing.py`
+- `tests/writing_evaluation_rubric.md`
+
+Canonical stages:
 
 ```text
-CONTENT NEED
-→ WRITING WORKFLOW
-→ APPROVED WRITING HANDOFF
-→ DESIGN WORKFLOW
-→ APPROVED VISUAL OUTPUT
-→ COMBINED PACKAGE QC
-→ HUMAN FINAL APPROVAL
+01 WST    Writing Strategy
+02 WRES   Textual Research
+03 WAN    Source Analysis
+04 WSYN   Content Synthesis
+05 WSTR   Content Structure
+06 WDR    Drafting
+07 WLANG  Language Adaptation
+08 WQC    Writing Quality Control
+09 WAPP   Human Content Approval
+10 WHOFF  Design Handoff
 ```
 
-Writing owns meaning, claims, language, and textual structure.
-Design owns visual communication of approved content.
+The Writing architecture is active and validated. Its prompt library is intentionally still empty; new Writing prompts must be registered in the Writing task registry and contracts before CI will accept them.
 
-If visual constraints require a meaningful rewrite, the request returns to Writing instead of being silently rewritten inside Design.
+## Design Workflow
 
-## Existing Design Production Pipeline
+Canonical architecture:
 
-Customer Information
-→ Strategy
+- `00_workflow/workflows/design_workflow.md`
+- `00_workflow/task_registry.json`
+- `00_workflow/task_contracts.json`
+- `00_workflow/process_registry.json`
+- `tests/validate_library.py`
+- `tests/validate_process.py`
+
+The established Design production pipeline remains active:
+
+```text
+Strategy
 → Research
 → Visual Analysis
-→ Conditional Style Study and Motif Extraction
+→ Conditional Style / Motif Study
 → Reference Style Synthesis
 → Visual DNA
 → Platform / Template Synthesis
 → Art Direction
 → Generation
-→ Content Package
+→ Content Package Assembly
 → Human Revision / Style Learning
 → Conditional Editable Reconstruction
-→ Figma Implementation
-→ Quality Control / Final Approval
-
-This remains the active Design branch and should not be expanded with unrelated writing responsibilities.
-
-## Control Layer
-
-The orchestration rules live in `00_workflow/`:
-
-- `workflow.md` — execution pipeline and revision routing
-- `workflows/design_workflow.md` — Design branch architecture
-- `workflows/writing_workflow.md` — Writing branch architecture
-- `workflows/shared_knowledge_layer.md` — cross-workflow knowledge and handoff rules
-- `task_contract.md` — universal executable-task standard
-- `task_contracts.json` — canonical task-level dependencies, gates, approvals, and revision policy
-- `stage_registry.md` — stage responsibilities and active tasks
-- `handoff_contract.md` — controlled transfer between stages
-- `decision_gates.md` — canonical gate vocabulary and approval rules
-- `information_model.md` — SOURCE / DERIVED / DECISION / OUTPUT states
-- `task_registry.json` — machine-readable stage/task index
-- `process_registry.json` — canonical design production process, including goals, conditions, artifacts, gates, protocols, and memory effects
-
-## Canonical Gate Vocabulary
-
-All active prompts and task contracts use only:
-
-`PASS` · `CONDITIONAL` · `BLOCKED` · `APPROVE` · `REVISE` · `REJECT` · `READY` · `REGENERATE`
-
-Natural-language explanations may accompany a gate, but the final status must use the canonical value.
-
-## Active Design Prompt Sequence
-
-### 01 — Strategy
-- STR-001 — Customer Analysis
-- STR-002 — Brief Analysis
-- STR-003 — Requirement Extraction
-- STR-004 — Clarification Questions
-- STR-005 — Project Reconciliation
-
-### 02 — Research
-- RES-001 — Research Strategy
-- RES-002 — Audience Research
-- RES-003 — Competitor & Market Research
-- RES-004 — Cultural & Context Research
-- RES-005 — Visual Reference Research
-- RES-006 — Research Synthesis
-
-### 03 — Visual Analysis
-- VIS-001 — Composition Analysis
-- VIS-002 — Color Analysis
-- VIS-003 — Shape & Form Analysis
-- VIS-004 — Texture & Material Analysis
-- VIS-005 — Typography & Graphic Language
-- VIS-006 — Lighting, Mood & Atmosphere Analysis
-
-### 04 — Visual DNA
-- VDNA-001 — Visual DNA Extraction & Synthesis
-
-### 05 — Art Direction
-- ART-001 — Creative Concept Generation
-- ART-002 — Concept Evaluation & Selection
-- ART-003 — Art Direction Development
-
-### 06 — Generation
-- GEN-001 — Generation Specification
-- GEN-002 — Prompt Construction
-
-### 07 — Quality Control
-- QC-001 — Generated Image Evaluation
-- QC-002 — Revision Strategy
-- QC-003 — QC Knowledge Synthesis
-
-The Writing Workflow will have its own task sequence and contracts as it is developed. It should reuse the same governance concepts without being forced into visual-stage IDs.
-
-## Runtime
-
-The optional `runtime/` package turns a prompt file into an auditable model execution. It is not required for structural consistency validation.
-
-### Human-triggered Heavy QC
-
-Heavy QC is an optional local PyIQA ensemble for aesthetic, no-reference technical, and full-reference evidence. It runs only after an authorized human explicitly asks for `heavy QC`; its output always remains `AWAITING_HUMAN_DECISION`.
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements-heavy-qc.txt
-.\.venv\Scripts\python.exe runtime\heavy_qc.py <candidate-image> --approval HEAVY_QC_APPROVED
+→ Figma / Production Implementation
+→ Visual QC / Final Approval
 ```
 
-Add `--reference <approved-source-image>` for SSIM, LPIPS, and PSNR comparisons. Runtime evidence is stored under ignored `runs/`; pretrained weights remain in the local user cache and must not be committed. Review the upstream PyIQA and model licenses before commercial use.
+Design must not silently re-author approved Writing content.
 
-## Testing
+## Cross-Workflow Handoff
 
-### Structural CI
+Canonical contract:
 
-`tests/validate_library.py` currently validates the established Design workflow, including:
+`00_workflow/workflows/cross_workflow_handoff_contract.md`
 
-- active prompt IDs and stage prefixes
-- exact match between active prompts and task contracts
-- task-level dependencies and next-task references
-- canonical gate vocabulary
-- lifecycle status
-- deprecated/retired references
-- domain-specific leakage
-- required task-contract metadata
-- canonical production-process order, task coverage, protocol paths, stage dependencies, gates, artifacts, and memory effects
+### Writing → Design
 
-Writing-workflow structural validation should be added separately rather than overloading Design validation rules.
+Transfers the exact approved Writing version, content purpose, audience, language level, locked/flexible wording, semantic hierarchy, caption/CTA state, source/fact status, and unresolved unknowns.
 
-### Semantic validation
+### Design → Writing
 
-The semantic framework in `tests/` evaluates task adherence, source fidelity, unknown handling, completeness, classification, traceability, contract compliance, and handoff quality against controlled fixtures.
+Transfers visual/platform constraints that require a new Writing decision, such as text-area limits, reading-order constraints, density problems, maximum recommended length, or semantic emphasis needs.
 
-Semantic execution remains a separate release gate because it depends on a selected model/runtime.
+A rewrite creates a **new Writing version**. Design never overwrites the earlier approved version.
 
-## Deprecated
+## Shared Knowledge Layer
 
-`02_research/reference_selection.md` is retained only as a migration note. It is not an active task and is excluded from validation.
+Canonical architecture:
 
-## Information Rules
+`00_workflow/workflows/shared_knowledge_layer.md`
 
-Every important item must remain identifiable as one of:
+Both workflows may share:
 
-- SOURCE — supplied or observed evidence
-- DERIVED — analysis or inference supported by source
-- DECISION — explicit approved project or creative choice
-- OUTPUT — generated execution result
+- project briefs;
+- audience/cultural research;
+- brand memory;
+- approved project rules;
+- terminology;
+- factual sources;
+- external references;
+- platform constraints;
+- typography/readability knowledge;
+- tools and technical methods;
+- provenance records.
+
+Shared knowledge should identify workflow usefulness and authority scope where helpful. Evidence may cross workflows; approval does not.
+
+## Content Package
+
+Canonical contract:
+
+`00_workflow/content_package_contract.md`
+
+The Content Package is an assembly and final-QC layer, not a second authoring workflow.
+
+Writing owns authored text. Design owns visual implementation. The combined package links exact approved versions and creates final publishing/accessibility metadata from both.
+
+## Information Model
+
+Every important item remains identifiable as:
+
+- `SOURCE` — supplied or observed evidence;
+- `DERIVED` — analysis/inference based on source;
+- `DECISION` — explicit approved project/creative choice;
+- `OUTPUT` — execution result.
 
 Forbidden silent transitions include:
 
-- DERIVED → SOURCE
-- ASSUMPTION → FACT
-- OUTPUT → REQUIREMENT
-- SOURCE → DECISION without an explicit decision step
+- DERIVED → SOURCE;
+- ASSUMPTION → FACT;
+- OUTPUT → REQUIREMENT;
+- SOURCE → DECISION without an explicit decision step.
 
-These rules apply independently inside both Writing and Design.
+These rules apply independently inside Writing and Design.
 
-## Revision Control
+## Canonical Gate Vocabulary
 
-Maximum automatic revision cycles: **3**. After the third unsuccessful cycle, route to **HUMAN_REVIEW** rather than continuing automatically.
+`PASS` · `CONDITIONAL` · `BLOCKED` · `APPROVE` · `REVISE` · `REJECT` · `READY` · `REGENERATE`
 
-Cross-workflow revisions must route to the responsible domain:
+Maximum automatic revision cycles: **3**. After the third unsuccessful cycle, route to `HUMAN_REVIEW`.
 
-- meaning/language/fact problem → Writing
-- visual hierarchy/composition/style problem → Design
-- shared source problem → shared research/evidence layer, then re-run affected workflows
+## Testing and CI
 
-## Production Release Rule
+The real `Prompt Library Validation` workflow runs on pushes and pull requests to `main` and `production-candidate-v1`.
 
-A production release requires:
+It validates:
 
-1. Structural CI PASS for the relevant workflow.
-2. No duplicate or invalid IDs.
-3. Exact task-contract alignment for the relevant workflow.
-4. No unresolved critical workflow dependency.
-5. Production-eligible prompt version/status.
-6. Relevant semantic tests PASS with the selected model/runtime.
-7. Required human approvals recorded.
-8. Release artifact records prompt versions, model/runtime, and test results.
-9. When both workflows are used, the Writing Handoff and Design output remain mutually traceable.
+- Design prompt structure and contracts;
+- Design process integrity;
+- Writing workflow architecture and future Writing prompts;
+- controlled knowledge registry consumers across both workflows;
+- QC knowledge controls;
+- Python compilation;
+- required semantic-test rubrics and fixtures.
+
+The old placeholder Hello World CI workflow has been removed so a green repository check represents meaningful validation.
+
+Semantic model execution remains a separate release gate. Structural CI verifies the system, not whether a selected model produces a high-quality semantic result.
+
+## Writing Quality Standard
+
+Writing QC covers at minimum:
+
+- source quality;
+- factual accuracy;
+- claim-evidence relationship;
+- unknown handling;
+- purpose/relevance;
+- audience fit;
+- language-level fit;
+- meaning preservation;
+- clarity/structure;
+- tone/voice;
+- grammar/style;
+- project-specific rules;
+- downstream handoff quality.
+
+Critical failures override numerical averages.
+
+## English Beyond Language
+
+EBL now routes content tasks through Writing rules and visual tasks through Design rules. The retrieval map explicitly includes the approved content/communication rules for Writing and for Design whenever meaningful text is present.
+
+Current EBL content constraints include non-elitist positioning, realistic learner motivation, purposeful/non-random content, and approximately B1 public-facing language by default while preserving intellectual substance.
+
+Regression fixtures:
+
+`tests/fixtures/english_beyond_language/writing_regression_cases.md`
+
+## Versioning
+
+Top-level architecture version:
+
+**3.3-controlled-dual-workflow**
+
+Design and Writing subworkflow registries maintain their own internal workflow/process versions. These subworkflow versions are intentionally independent from the top-level architecture version.
 
 ## Status
 
-Production Candidate — dual-workflow architecture established; Writing task library still to be built.
+**Controlled dual-workflow architecture active.**
 
-## Version
-
-3.2-dual-workflow-architecture
+- Design workflow: established production branch.
+- Writing workflow: machine-controlled architecture ready for prompt development.
+- Shared knowledge: active with explicit authority boundaries.
+- Cross-workflow handoff: explicit and versioned.
+- CI: validates both workflow control layers on `main`.
 
 ## Core Principle
 
-**Research → Structure → Create → Evaluate → Revise — with domain ownership preserved.**
+**Research → Structure → Create → Evaluate → Revise — with evidence shared and authority preserved.**
