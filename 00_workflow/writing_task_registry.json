@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "workflow_version": "1.0-architecture",
+  "source_of_truth": "00_workflow/writing_task_contracts.json",
+  "workflow": "WRITING",
+  "stages": [
+    {"id":"01","name":"writing_strategy","prefix":"WST-","directory":"writing/01_strategy","tasks":[]},
+    {"id":"02","name":"textual_research","prefix":"WRES-","directory":"writing/02_textual_research","tasks":[]},
+    {"id":"03","name":"source_analysis","prefix":"WAN-","directory":"writing/03_source_analysis","tasks":[]},
+    {"id":"04","name":"content_synthesis","prefix":"WSYN-","directory":"writing/04_content_synthesis","tasks":[]},
+    {"id":"05","name":"content_structure","prefix":"WSTR-","directory":"writing/05_content_structure","tasks":[]},
+    {"id":"06","name":"drafting","prefix":"WDR-","directory":"writing/06_drafting","tasks":[]},
+    {"id":"07","name":"language_adaptation","prefix":"WLANG-","directory":"writing/07_language_adaptation","tasks":[]},
+    {"id":"08","name":"writing_quality_control","prefix":"WQC-","directory":"writing/08_quality_control","tasks":[]},
+    {"id":"09","name":"human_content_approval","prefix":"WAPP-","directory":"writing/09_human_approval","tasks":[]},
+    {"id":"10","name":"design_handoff","prefix":"WHOFF-","directory":"writing/10_handoff","tasks":[]}
+  ],
+  "artifact_states": ["SOURCE", "DERIVED", "DECISION", "OUTPUT"],
+  "gate_vocabulary": ["PASS", "CONDITIONAL", "BLOCKED", "APPROVE", "REVISE", "REJECT", "READY", "REGENERATE"],
+  "revision_policy": {"max_cycles":3,"after_max_cycles":"HUMAN_REVIEW"}
+}
