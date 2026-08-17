@@ -1,254 +1,168 @@
 # Stage Registry
 
-| Stage | Active Tasks / Protocols | Primary Task | Required Handoff |
+## Authority
+
+`00_workflow/process_registry.json` is the canonical machine-readable lifecycle source of truth.
+
+This file is a human-readable view of that registry. `task_registry.json` mirrors stage identity/task placement, while `task_contracts.json` remains authoritative for executable task behavior.
+
+## Stage-Satisfaction States
+
+Before re-running a stage, resolve it to exactly one controlled routing state:
+
+- `EXECUTE` — applicable and required inputs are available.
+- `SATISFIED_BY_REUSE` — a current approved, non-superseded artifact already satisfies the stage for the required scope.
+- `SKIPPED_NOT_APPLICABLE` — the stage is conditional and does not apply.
+- `BLOCKED` — required evidence, approval, or provenance is missing/conflicting.
+- `REVISE` — an upstream or current-stage correction is required.
+- `COMPLETE` — execution/reuse/skip resolution is recorded and the stage handoff is valid.
+
+A stage must never be re-executed merely because it appears earlier in the lifecycle when an approved reusable artifact already satisfies it.
+
+## Lifecycle Zones
+
+### Zone A — Foundation / System Creation
+
+Stages 01–08 build or validate the reusable creative foundation.
+
+### Zone B — Content Production / Finalization
+
+Stages 09–20 use an approved foundation to produce, refine, approve, package, and learn from a content instance.
+
+## Canonical Stage Map
+
+<!-- ARCHITECTURE_STAGE: 01|strategy -->
+<!-- ARCHITECTURE_STAGE: 02|research -->
+<!-- ARCHITECTURE_STAGE: 03|visual_analysis -->
+<!-- ARCHITECTURE_STAGE: 04|named_style_study -->
+<!-- ARCHITECTURE_STAGE: 05|motif_sign_extraction -->
+<!-- ARCHITECTURE_STAGE: 06|reference_style_synthesis -->
+<!-- ARCHITECTURE_STAGE: 07|visual_dna -->
+<!-- ARCHITECTURE_STAGE: 08|platform_template_synthesis -->
+<!-- ARCHITECTURE_STAGE: 09|approved_content_handoff -->
+<!-- ARCHITECTURE_STAGE: 10|art_direction -->
+<!-- ARCHITECTURE_STAGE: 11|generation -->
+<!-- ARCHITECTURE_STAGE: 12|human_directed_revision -->
+<!-- ARCHITECTURE_STAGE: 13|pre_final_quality_control -->
+<!-- ARCHITECTURE_STAGE: 14|final_ai_creative_refinement -->
+<!-- ARCHITECTURE_STAGE: 15|editable_reconstruction_preparation -->
+<!-- ARCHITECTURE_STAGE: 16|editable_implementation -->
+<!-- ARCHITECTURE_STAGE: 17|final_production_quality_control -->
+<!-- ARCHITECTURE_STAGE: 18|human_final_approval -->
+<!-- ARCHITECTURE_STAGE: 19|master_platform_derivatives -->
+<!-- ARCHITECTURE_STAGE: 20|learning_memory_promotion -->
+
+| ID | Stage | Active Tasks | Primary Output |
 |---|---|---|---|
-| 01 Strategy | STR-001–STR-005 | Define problem, audience, requirements, clarification, reconciliation | Approved Strategy Package |
-| 02 Research | RES-001–RES-006 | Establish evidence and synthesize relevant context | Research Synthesis |
-| 03 Visual Analysis | VIS-001–VIS-006 | Analyze supplied visual references | Visual Evidence Package |
-| 04 Named Style Study | STYLE-001 / `named_style_study.md` | Learn a named artist, movement, school, or visual language deeply | Approved Style Study Package |
-| 05 Reference Style Synthesis | `reference_style_synthesis.md` | Combine style study and supplied references into transferable visual principles | Approved Reference Style Synthesis |
-| 06 Visual DNA | VDNA-001 | Convert validated visual evidence and style principles into transferable rules | Visual DNA Package |
-| 07 Platform / Template Synthesis | `instagram_template_synthesis.md` when Instagram is the target; `EBL_visual_production_workflow.md` for EBL | Translate visual language + Visual DNA into an original reusable platform system; for EBL route through memory registry/retrieval map before synthesis | Approved Platform Template Candidate |
-| 08 Art Direction | ART-001–ART-003 | Make and select content-specific creative decisions | Approved Art Direction |
-| 09 Generation | GEN-001–GEN-002 | Operationalize approved direction into generation specifications and prompts | Generated Output |
-| 10 Content Package | `content_package_contract.md` | Assemble visual, copy, caption, CTA, accessibility, and publishing outputs | Approved Content Package |
-| 11 Human Revision / Style Learning | `human_feedback_style_learning.md` | Capture revision, approval, and reusable style knowledge | Approved Revision / Style Knowledge |
-| 12 Figma Implementation | `editable_reconstruction_preparation.md` → `live_editable_text_layers.md` → `figma_file_structure.md` → `figma_output_contract.md` | Prepare approved raster visuals, rebuild live editable text, organize the production file, and create the editable production master | Approved Structured Figma Master |
-| 13 Quality Control | QC-001–QC-002 + project/asset-specific QC + `stepwise_creative_review.md` | Review outputs, diagnose root causes, and route revision; EBL requires `QC-EBL-MEM-001` before `QC-EBL-001` | Final Approval Candidate / Revision Route |
-| 14 Creative AI Final Edit | FINAL-AI-001 / `creative_ai_final_edit.md` + `final_ai_closed_loop_production.md` | Perform semantic + visual finishing using approved content, brand knowledge, slide function, typography, layout, and source-informed design principles; explicitly classify each asset as preserve / cleanup / micro-refine / source-based reconstruction / conceptual change | Creative Final Candidate |
-| 15 AI Creative Synthesis + Heavy QC | FINAL-AI-002 / `final_ai_creative_synthesis_heavy_qc.md` + `final_ai_closed_loop_production.md` | Holistically refine the completed work, run memory compliance + project/asset mandatory QC gates, return failed assets through root-cause correction, prepare final master and platform derivatives, and route to human final approval | PASS_FOR_HUMAN_FINAL_REVIEW → human-approved Final Publishing Master |
+| 01 | Strategy | STR-001–STR-005 | Approved Strategy Package |
+| 02 | Research | RES-001–RES-006 | Research Synthesis |
+| 03 | Visual Analysis | VIS-001–VIS-006 | Visual Evidence Package |
+| 04 | Named Style Study | STYLE-001 | Approved Style Study Package |
+| 05 | Motif & Sign Extraction | Protocol stage | Controlled Motif Library |
+| 06 | Reference Style Synthesis | Protocol stage | Approved Reference Style Synthesis |
+| 07 | Visual DNA | VDNA-001 | Visual DNA Package |
+| 08 | Platform / Template System | Protocol stage | Approved Creative Foundation |
+| 09 | Approved Content / Writing Handoff | Protocol/gate stage | Approved Content Handoff |
+| 10 | Content Function + Art Direction | ART-001–ART-003 | Approved Art Direction |
+| 11 | Generation / Build Candidate | GEN-001–GEN-002 | Generated Candidate |
+| 12 | Human-Directed Revision | Protocol stage | Revision Record / Revised Candidate |
+| 13 | Pre-Final Quality Control | QC-001–QC-002 | Pre-Final QC Evidence / Revision Route |
+| 14 | Final AI Creative Refinement | FINAL-AI protocols | Creative Final Candidate / Heavy QC Evidence |
+| 15 | Editable Reconstruction Preparation | Protocol stage | Editable Reconstruction Package |
+| 16 | Editable Implementation | Protocol stage | Structured Editable Master |
+| 17 | Final Production Quality Control | Protocol/gate stage | PASS_FOR_HUMAN_FINAL_REVIEW |
+| 18 | Human Final Approval | Human gate | Final Publishing Master Authorization |
+| 19 | Master + Platform Derivatives | Production protocols | Final Master / Derivatives / Content Package |
+| 20 | Learning / Memory Promotion | QC-003 + learning protocols | QC Knowledge / Promotion Decision |
 
-## Stage Boundaries
+## Key Boundaries
 
-### Strategy
-May interpret customer information and define requirements. Must not invent research findings or visual conclusions.
+### Foundation reuse
 
-### Research
-May investigate and synthesize evidence. Must not turn evidence into final visual decisions.
+For an existing approved system, Stages 01–08 may resolve to `SATISFIED_BY_REUSE` after scope, provenance, current approval state, and supersession status are checked. Reuse is a validated lifecycle action, not skipped work.
 
-### Visual Analysis
-May analyze supplied visual references. Must not define the final brand system or creative concept.
+### Approved content handoff vs final package
 
-### Named Style Study
-May learn and explain a named artistic language and derive transferable principles. Must not generate the client template or treat interpretation as historical fact.
+Stage 09 resolves the content/writing input that Design is allowed to visualize. Stage 19 assembles the final human-approved publishing result. These are intentionally separate.
 
-### Reference Style Synthesis
-May determine what is actually present in the supplied references and combine it with an approved style study. Must not copy source artwork or redefine customer requirements.
+### Human revision vs learning
 
-### Visual DNA
-May convert validated visual evidence into transferable rules. Must not invent unsupported reference characteristics.
+Stage 12 captures authorized human-directed revision and preserves everything outside the authorized change area. It does not automatically promote a correction into reusable knowledge. Promotion belongs to Stage 20.
 
-### Platform / Template Synthesis
-May translate approved visual language into platform-specific reusable structure. Must preserve communication clarity and must not reproduce reference layouts.
+### Pre-Final QC
 
-For project-scoped work, retrieve durable project memory before synthesis when available.
+Stage 13 owns the existing executable QC tasks:
 
-For English Beyond Language use:
+- `QC-001` — evaluate the generated/revised candidate.
+- `QC-002` — diagnose failure and define the smallest controlled revision.
 
-`00_workflow/EBL_visual_production_workflow.md`
+A passing pre-final gate clears the candidate for final creative refinement; it does not grant final publishing approval.
 
-and route memory through:
+### Final AI Creative Refinement
 
-```text
-EBL_memory_registry.json
-→ EBL_retrieval_map.md
-→ EBL_project_memory.md
-→ EBL_decision_log.md
-→ EBL_failure_memory.md
-→ task-specific asset/platform/content memory
-→ QC-EBL-MEM-001
-→ QC-EBL-001
-```
+Stage 14 governs the closed loop defined by:
 
-For Story work:
+- `creative_ai_final_edit.md` (`FINAL-AI-001` protocol identity);
+- `final_ai_creative_synthesis_heavy_qc.md` (`FINAL-AI-002` protocol identity);
+- `final_ai_closed_loop_production.md`.
 
-- use 9:16 platform logic;
-- do not merely stretch feed-post composition vertically;
-- preserve practical safe zones and interaction/sticker space;
-- keep clean template separate from fake Instagram UI presentation mockups;
-- retain candidate status until explicit human approval.
+`FINAL-AI-001` and `FINAL-AI-002` remain controlled protocols in architecture version 4.0; they are not added to `task_contracts.json` in this repair.
 
-### Art Direction
-May create and select concepts and make content-specific creative decisions using approved strategy and visual systems. Must not silently alter strategic requirements.
+The allowed AI result is a candidate or `PASS_FOR_HUMAN_FINAL_REVIEW`, never self-issued final approval.
 
-### Generation
-May operationalize approved Art Direction into generation specifications and model-adapted prompts. Must not redefine the concept or Art Direction.
+### Reconstruction vs local repair
 
-### Content Package
-May assemble approved content components. Must not introduce new strategic claims through captions, CTAs, or metadata.
+Stage 15 is production-level editable reconstruction of an approved flattened/raster source. It is distinct from a local `P3 SOURCE-BASED RECONSTRUCTION` repair inside Stage 14.
 
-### Human Revision / Style Learning
-May record human changes and extract approved reusable style knowledge. Must not silently rewrite upstream decisions or promote one-off corrections to system rules.
+### Editable implementation
 
-For EBL learning requests, update the appropriate decision/failure/example/asset memory and make the new learning retrievable/testable; prose-only learning is incomplete when QC cannot consume it.
+Stage 16 is conditional. If an editable production master is not required, it may resolve to `SKIPPED_NOT_APPLICABLE`.
 
-### Figma Implementation
-For flattened/raster approved visuals, must first run `editable_reconstruction_preparation.md` to source-lock the approved visual, derive textless artwork, map editable elements, and create a controlled reconstruction handoff. Rasterized typography intended for manual editing must follow `live_editable_text_layers.md`. The production file must then be organized according to `figma_file_structure.md` before final validation under `figma_output_contract.md`.
+### Final production QC
 
-Figma implementation must preserve a clear distinction between APPROVED REFERENCE, EDITABLE MASTER, STYLE SYSTEM, and EXPORT output. It must not redesign, reinterpret, or silently replace approved content.
+Stage 17 validates the final production representation after Final AI and any reconstruction/implementation. A production transformation cannot inherit a prior QC pass automatically.
 
-If Figma MCP access is blocked by a plan, permission, rate, or tool-call limit, the blocked operation is not considered applied unless explicit created/mutated node IDs are returned. Record the blocker and preserve the last confirmed file state.
+### Human final authority
 
-### Quality Control
-May evaluate outputs and diagnose root causes. Must not rewrite upstream decisions while evaluating them.
+Stage 18 is the only lifecycle stage that may authorize the `FINAL_PUBLISHING_MASTER`. AI gates can recommend or clear for review, but cannot replace explicit human approval.
 
-Instagram/project-specific QC modules currently include:
+### Master and derivative separation
 
-- `00_workflow/qc/QC-IG-001_instagram_visual_qc.md` — feed/carousel visual QC;
-- `00_workflow/qc/QC-AUD-001_audience_catcher_qc.md` — audience relevance and stopping-power QC;
-- `00_workflow/qc/QC-SOC-001_social_visual_audience_gate.md` — combined social visual/audience gate;
-- `00_workflow/qc/QC-IG-PROFILE-001_instagram_profile_picture_qc.md` — profile/avatar identity QC;
-- `00_workflow/qc/QC-LOGO-001_logo_application_qc.md` — logo master fidelity, optical clearance, replacement cleanup and multi-slide consistency;
-- `00_workflow/qc/QC-TYPE-001_typography_integrity_qc.md` — typography integrity, native-resolution reconstruction and carousel numbering consistency;
-- `00_workflow/qc/QC-EBL-MEM-001_memory_compliance_qc.md` — verifies that current EBL memory, decisions, assets, failure memory and retrieval rules were actually used correctly;
-- `00_workflow/qc/QC-EBL-001_project_master_qc.md` — English Beyond Language project-wide content, identity, logo, semantic typography, Story, artifact, final-AI and output gate.
+Stage 19 preserves `ARCHIVAL / PROJECT MASTER != PLATFORM DERIVATIVE`. Platform derivatives are created once from the approved master and never replace it as provenance evidence.
 
-Use the asset-specific QC rather than forcing one Instagram QC model onto every asset type.
+### Learning / memory promotion
 
-For EBL, run in this order:
+Stage 20 contains `QC-003` because QC knowledge synthesis is a learning/memory activity, not ordinary output evaluation. Promotion must distinguish one-off correction, content-specific decision, reusable project rule, and cross-project/system rule.
+
+## EBL Routing Example
+
+For an existing approved `Ed.post` system, a new post should normally route:
 
 ```text
-QC-EBL-MEM-001
-→ relevant specialized QC
-→ QC-EBL-001
+01–08 SATISFIED_BY_REUSE
+→ 09 APPROVED CONTENT HANDOFF
+→ 10 ART DIRECTION
+→ 11 GENERATION
+→ 12 HUMAN REVISION (if needed)
+→ 13 PRE-FINAL QC
+→ 14 FINAL AI CLOSED LOOP (if applicable)
+→ 15–16 EDITABLE PRODUCTION (if required)
+→ 17 FINAL PRODUCTION QC
+→ 18 HUMAN FINAL APPROVAL
+→ 19 MASTER + DERIVATIVES
+→ 20 LEARNING / MEMORY PROMOTION (when requested/required)
 ```
 
-A memory-compliance failure blocks a project-master pass.
+Project-specific memory and QC protocols remain authoritative inside the applicable stages.
 
-### Creative AI Final Edit
-May make controlled late-stage typography, alignment, hierarchy, spacing, line/form relationship, contrast, and optical-balance refinements only after retrieving approved project context and analyzing the semantic role of the content.
+## Revision Routing Principle
 
-It must follow:
+Route a failure to the earliest responsible stage. Do not regenerate by default. A local failure should receive a local correction plus downstream/global re-check where affected.
 
-- `creative_ai_final_edit.md`;
-- `final_ai_closed_loop_production.md`;
-- `knowledge/external/creative_synthesis_sources.md` as evidence;
-- relevant project memory/rules and QC modules.
+## Version
 
-Before editing, every asset must be classified:
+`4.0-production-candidate`
 
-```text
-P0 PRESERVE
-P1 CLEANUP
-P2 MICRO-REFINE
-P3 SOURCE-BASED RECONSTRUCTION
-P4 CONCEPTUAL CHANGE — HUMAN AUTHORIZATION REQUIRED
-```
+## Status
 
-A P0 decision is a completed creative decision, not skipped work.
-
-The clean-source hierarchy in `final_ai_closed_loop_production.md` must be used before patching a damaged derivative.
-
-External references may improve creative judgment but may not override approved meaning, logo identity, brand rules, or human decisions.
-
-For EBL finalization additionally retrieve and record:
-
-- `EBL_memory_registry.json`;
-- `EBL_retrieval_map.md`;
-- `EBL_project_memory.md`;
-- `EBL_decision_log.md`;
-- `EBL_failure_memory.md`;
-- `EBL_asset_registry.json` when assets are involved;
-- content-specific decision record;
-- `QC-EBL-MEM-001_memory_compliance_qc.md`;
-- `QC-EBL-001_project_master_qc.md`.
-
-This stage produces a **Creative Final Candidate**, not a publishing master.
-
-### AI Creative Synthesis + Heavy QC
-May use broader holistic creative judgment to make the completed work cohere as one authored system, but content/factual freedom remains locked.
-
-It must:
-
-- follow `final_ai_creative_synthesis_heavy_qc.md`;
-- follow the orchestration loop in `final_ai_closed_loop_production.md`;
-- run all applicable mandatory QC modules;
-- run memory compliance/project master QC when one exists;
-- inspect native-resolution critical areas;
-- inspect realistic feed/Story-size output;
-- evaluate the carousel/set sequentially;
-- preserve an archival/project master;
-- create platform derivatives only from the approved master;
-- return mandatory failures through root-cause diagnosis and smallest-safe correction;
-- rerun the failed gate plus whole-set coherence after correction;
-- route the result to human final approval.
-
-For EBL this phase must verify:
-
-```text
-MEMORY COMPLIANCE
-→ SPECIALIZED QC
-→ QC-EBL-001
-→ PASS_FOR_HUMAN_FINAL_REVIEW
-```
-
-AI cannot label an output `FINAL_PUBLISHING_MASTER` until all mandatory gates pass and the human explicitly approves the final candidate.
-
----
-
-## Finalization Orchestration — Stages 14–15
-
-Stages 14 and 15 operate as one controlled closed loop rather than two isolated linear steps.
-
-Authoritative orchestrator:
-
-`00_workflow/final_ai_closed_loop_production.md`
-
-Reusable system learnings:
-
-`00_workflow/knowledge/system/final_ai_production_learnings.md`
-
-For EBL, project-memory routing is mandatory inside this loop.
-
-The finalization loop is:
-
-```text
-SOURCE / MEMORY LOCK
-→ WHOLE-WORK READ
-→ FUNCTION MAP
-→ PRESERVE / INTERVENE CLASSIFICATION
-→ FINAL-AI-001
-→ DELTA REVIEW
-→ QC-EBL-MEM-001
-→ FINAL-AI-002 HEAVY QC
-→ QC-EBL-001
-→ ROOT-CAUSE REVISION IF REQUIRED
-→ PASS_FOR_HUMAN_FINAL_REVIEW
-→ HUMAN FINAL APPROVAL
-→ FINAL_PUBLISHING_MASTER
-→ PLATFORM DERIVATIVES
-→ LEARNING / MEMORY REVIEW
-```
-
-### Failure-routing rule
-
-A mandatory local failure must not trigger unnecessary redesign of unaffected assets.
-
-Use:
-
-```text
-LOCAL FAILURE
-→ LOCAL ROOT-CAUSE CORRECTION
-→ RERUN FAILED GATE
-→ RERUN MEMORY COMPLIANCE IF MEMORY/ASSET STATE CHANGED
-→ RERUN GLOBAL COHERENCE
-```
-
-### Output architecture rule
-
-The approved archival/project master and the platform derivative are separate outputs.
-
-Do not repeatedly resize the working master during revision. Create platform derivatives only after the final master is approved.
-
-### Learning-promotion rule
-
-After finalization, separate:
-
-1. one-off corrections;
-2. content-specific decisions;
-3. reusable project rules;
-4. system-level production learnings.
-
-For EBL, update decision/failure/example/asset memory and retrieval/QC links as needed. Only promote knowledge to the system layer when the human explicitly authorizes learning/structuralization and the lesson is genuinely cross-project.
-
-Updated: 2026-08-16
+Active architecture — derived from `process_registry.json`.
