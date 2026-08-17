@@ -71,14 +71,30 @@ Repository binary ingestion is **not yet complete**, so `canonical_repo_path` re
 - **Status:** APPROVED CANONICAL SOURCE BINARY
 - **Approved distinguishing edit:** `the English you have.` is rust/red.
 
-### Slide 06
+### Slide 06 — CURRENT CANONICAL
 
-- **Source filename:** `d8f8c37b-e09b-415d-a335-eb11561271cf.png`
-- **SHA-256:** `ea7568f544521a836494d0152a43d444d92cc7b7ef40d69955e313e059070ad4`
+- **Source filename in active production runtime:** `imagegen.png`
+- **SHA-256:** `f1fcb4a00af8a5d2752bcdb8c20659219a27269d53279443a012e6646d7121b0`
 - **Dimensions:** 1254 × 1254 px
+- **Mode:** RGB
 - **Format:** PNG
 - **Status:** APPROVED CANONICAL SOURCE BINARY
-- **Approved distinguishing edit:** `The goal is not` stays black on one line; `perfect` is rust/red and `English.` is black on the second line; supporting copy uses the approved larger hierarchy; `Become independent in English.` is rust/red and bold.
+- **Human confirmation:** user explicitly said to save this Slide 6 as the correct one on 2026-08-17.
+- **Approved title hierarchy:** `The goal is` remains black; **`not` is rust/red** on the first line; on the second line **`perfect` is rust/red** and `English.` is black.
+- **Approved supporting hierarchy:** supporting copy remains at the approved larger scale; the navy concept field stays unchanged; `Become independent in English.` remains rust/red and bold.
+- **Scope rule:** no other visual element is changed by this approval.
+
+#### Superseded Slide 06 source
+
+The previously approved Slide 06 source is now superseded only for the title-color correction:
+
+```text
+filename: d8f8c37b-e09b-415d-a335-eb11561271cf.png
+sha256: ea7568f544521a836494d0152a43d444d92cc7b7ef40d69955e313e059070ad4
+dimensions: 1254 × 1254
+status: SUPERSEDED_BY_CURRENT_SLIDE_06
+reason: human-approved semantic typography correction — `not` changed from black to rust/red
+```
 
 ## Important Resolution Note
 
@@ -108,15 +124,18 @@ Before editing, regenerating, adapting or QC-ing Post 01 or `Ed.post`, retrieve:
 
 - this artifact record;
 - `EBL_template_Ed_post.md`;
+- `EBL_Ed_post_design_system.md`;
 - `EBL_asset_registry.json`;
 - `EBL_visual_examples.md`;
 - `EBL_decision_log.md`;
 - `QC-EBL-TYPE-001_semantic_typography_edit_qc.md`;
+- `QC-EBL-EDPOST-001_template_design_system_qc.md`;
 - actual approved slide binaries when available in the active conversation/runtime.
 
 ## Prohibited Memory Behavior
 
 - Do not substitute an earlier Post 01 grid or alternate generation for this approved set.
+- Do not use the superseded Slide 06 title treatment where `not` is black.
 - Do not call a visually similar carousel "the approved Post 01" without fingerprint or explicit human confirmation.
 - Do not infer a repository image path until the binary is actually ingested and verified.
 - Do not reconstruct logo, type treatment or composition from memory when the actual slide is available.
