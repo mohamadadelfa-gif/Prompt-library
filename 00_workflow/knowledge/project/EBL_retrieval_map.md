@@ -107,14 +107,15 @@ CTA FIT
 
 ---
 
-## C. A Line for Today
+## C. A World from the World
 
 Retrieve:
 
 - Writing Core;
+- `EBL_a_world_from_the_world_system.md`;
+- `EBL_copyright_rules.md` when film, soundtrack, quotation or copyrighted cultural material is involved;
 - exact quotation/source information;
-- series-specific approved template/content rules when available;
-- Story platform constraints;
+- Story/Feed platform constraints;
 - exact Writing → Design handoff for production.
 
 Required behavior:
@@ -124,7 +125,10 @@ Required behavior:
 - keep attribution traceable;
 - do not invent contextual claims;
 - keep supporting language concise and accessible;
-- hand locked quote wording to Design.
+- hand locked quote wording to Design;
+- apply current copyright/rights context before production.
+
+`A Line for Today` is superseded as the active series name and should be retrieved only for historical comparison when explicitly needed.
 
 ---
 
@@ -150,32 +154,48 @@ If the canonical binary cannot be resolved, do **not** regenerate a substitute. 
 
 ---
 
-## E. Carousel / Feed Post Creation
+## E. `Ed.post` / Carousel / Feed Post Creation
 
-Retrieve:
+When the task uses or resembles the approved EBL feed-post system, retrieve:
 
 - Design Core;
+- `EBL_template_Ed_post.md`;
+- `EBL_post_01_approved_artifact.md`;
+- `EBL_asset_registry.json`;
+- actual approved `EBL-POST-001` slide binaries when available;
 - approved Writing handoff when meaningful text is present;
 - content-specific decision record;
 - `EBL_visual_examples.md`;
 - `QC-EBL-001_project_master_qc.md`;
+- `QC-EBL-TYPE-001_semantic_typography_edit_qc.md`;
 - Instagram visual/audience QC;
-- chosen-logo rules if branding is present;
-- approved Visual DNA / art-direction sources.
+- chosen-logo rules if branding is present.
+
+Authority rule:
+
+```text
+APPROVED Ed.post / POST 01 VISUAL ARTIFACT
+> Ed.post WRITTEN TEMPLATE
+> GENERAL EBL VISUAL MEMORY
+> MODEL INFERENCE
+```
 
 Design may format approved Writing but may not silently re-author it.
 
 ---
 
-## F. Carousel Revision
+## F. `Ed.post` / Carousel Revision
 
 Retrieve:
 
 - all Carousel Creation memory;
-- approved source slide/set;
+- `EBL_template_Ed_post.md`;
+- `EBL_post_01_approved_artifact.md` when Post 01 or template fidelity is involved;
+- exact approved source slide/set;
 - exact approved Writing version if text is affected;
 - `human_feedback_style_learning.md`;
 - relevant failure records;
+- `QC-EBL-TYPE-001_semantic_typography_edit_qc.md`;
 - typography/logo QC if touched.
 
 Execution rule:
@@ -184,6 +204,8 @@ Execution rule:
 AUTHORIZED DELTA ONLY
 → PRESERVE UNRELATED APPROVED ELEMENTS
 ```
+
+If the actual canonical visual binary is available, edit from that artifact rather than reconstructing the slide from prose memory.
 
 If a requested visual change requires a semantic rewrite, route through Design → Writing handoff.
 
@@ -196,9 +218,11 @@ Retrieve:
 - Design Core;
 - exact approved copy / Writing version;
 - `QC-TYPE-001_typography_integrity_qc.md`;
+- `QC-EBL-TYPE-001_semantic_typography_edit_qc.md` for EBL scoped typography edits;
 - `typography_native_reconstruction.md`;
 - cleanest approved source/textless master;
-- relevant visual example/failure records.
+- relevant visual example/failure records;
+- `EBL_template_Ed_post.md` when editing an `Ed.post` slide.
 
 Typography refinement may change presentation, not approved textual meaning.
 
@@ -211,7 +235,8 @@ Retrieve:
 - Writing Core when text/content is being created;
 - Design Core for visual production;
 - approved Writing handoff;
-- `EBL_story_template_rules.md`;
+- applicable current Story/series system such as `EBL_a_world_from_the_world_system.md`;
+- `EBL_story_template_rules.md` only when its candidate-specific rules are actually relevant;
 - `EBL_asset_registry.json`;
 - `EBL_visual_examples.md`;
 - `QC-EBL-001_project_master_qc.md` Story gate;
@@ -221,10 +246,10 @@ Remember:
 
 - 1080×1920 / 9:16;
 - Story-native reading path;
-- usable interaction/sticker zone;
+- usable interaction/sticker zone where relevant;
 - secondary branding;
 - no fake Instagram UI in clean reusable master;
-- current exact Story-template composition remains a review candidate until human-approved.
+- candidate templates remain candidates until explicitly human-approved.
 
 ---
 
@@ -261,6 +286,12 @@ Retrieve:
 - `creative_synthesis_sources.md`;
 - all applicable asset-specific QC.
 
+For `Ed.post`, additionally retrieve:
+
+- `EBL_template_Ed_post.md`;
+- `EBL_post_01_approved_artifact.md`;
+- `QC-EBL-TYPE-001_semantic_typography_edit_qc.md`.
+
 Classify each asset P0–P4 before editing.
 
 ---
@@ -274,8 +305,11 @@ Retrieve:
 - cross-workflow handoff record;
 - `QC-EBL-001_project_master_qc.md`;
 - `QC-EBL-MEM-001_memory_compliance_qc.md`;
+- `QC-EBL-TYPE-001_semantic_typography_edit_qc.md` when semantic typography or scoped edits are involved;
 - platform export requirements;
 - final candidate set.
+
+For `Ed.post`, compare the candidate against the canonical Post 01 visual artifact where appropriate.
 
 Final package must preserve mutual Writing/Design traceability.
 
