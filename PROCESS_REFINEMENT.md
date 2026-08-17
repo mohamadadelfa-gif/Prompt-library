@@ -26,28 +26,38 @@ No arrow may be skipped silently.
 
 ## Refined Stage Assessment
 
-| Stage | Goal | Required output | Completion test | Assessment |
-|---|---|---|---|---|
-| 01 Strategy | Establish the authoritative project definition | Approved Strategy Package | Requirements, exclusions, unknowns, and approval are explicit | Executable and contract-controlled |
-| 02 Research | Establish relevant evidence | Research Synthesis | Material findings have sources and unsupported claims remain UNKNOWN | Executable and contract-controlled |
-| 03 Visual Analysis | Describe supplied visual evidence | Visual Evidence Package | Observation and interpretation remain distinguishable | Executable and contract-controlled |
-| 04 Named Style Study | Understand an applicable named visual language responsibly | Approved Style Study Package | Facts, observations, interpretations, transferability, and imitation risk are separated | Conditional; now mapped to STYLE-001 and the process registry |
-| 05 Motif & Sign Extraction | Extract recurring visual vocabulary | Controlled Motif Library | Frequency, evidence, role, transferability, risk, and confidence are complete | Protocol-controlled; future executable task recommended |
-| 06 Reference Style Synthesis | Convert reference evidence into original transferable principles | Approved Reference Style Synthesis | Formal, emotional, and communication effects are traceable | Protocol-controlled; future executable task recommended |
-| 07 Visual DNA | Create project visual-system rules | Visual DNA Package | Every rule traces to approved evidence and contradictions are surfaced | Executable and contract-controlled |
-| 08 Platform / Template Synthesis | Translate the visual system into reusable production structure | Approved Template Candidate | Structure, editable zones, content limits, platform constraints, and scope are explicit | Conditional protocol; machine-record format exists |
-| 09 Art Direction | Make content-specific creative decisions | Approved Art Direction | Objective, message, hierarchy, concept, references, and constraints are approved | Executable with human approval gates |
-| 10 Generation | Operationalize direction and execute it | Specification, Prompt, Generated Output | Inputs and approvals are complete; output remains classified as OUTPUT | Executable and auditable |
-| 11 Content Package | Assemble the publishable asset | Content Package | Visual, copy, CTA, alt text, metadata, relationships, and provenance are present | Protocol-controlled; future executable task recommended |
-| 12 Human Revision / Style Learning | Apply scoped changes and learn only from approved evidence | Revision Record, Approved Output, optional Style Memory | Requested and preserved elements are documented; promotion scope is approved | Strong governance; persistence/retrieval engine still needed |
-| 13 Editable Reconstruction Preparation | Prepare flattened work for faithful editable rebuilding | Editable Reconstruction Package | Approved source remains locked; derived pixels and typography uncertainty are labelled | Conditional production protocol |
-| 14 Figma Implementation | Produce the structured editable master | Approved Structured Figma Master | Content, layers, variables, components, exports, and overlay fidelity pass | Production protocol with explicit blocked-state handling |
-| 15 Quality Control / Final Approval | Evaluate the complete result and route root-cause correction | Final Approval or Revision Route | Critical failures override scores; failure routes to earliest responsible stage | Executable QC plus specialist protocols |
+*(Corrected to match `00_workflow/task_registry.json`, the pipeline's source of truth. Previously this table listed 15 stages; the live registry defines 13. "Motif & Sign Extraction" and "Editable Reconstruction Preparation" have been removed as standalone stages — see note below.)*
+
+| # | Stage | Goal | Required output | Completion test | Registry status |
+|---|-------|------|------------------|------------------|------------------|
+| 01 | Strategy | Establish the authoritative project definition | Approved Strategy Package | Requirements, exclusions, unknowns, and approval are explicit | Executable (STR-001–005) |
+| 02 | Research | Establish relevant evidence | Research Synthesis | Material findings have sources and unsupported claims remain UNKNOWN | Executable (RES-001–006) |
+| 03 | Visual Analysis | Describe supplied visual evidence across composition, color, shape/form, and other dimensions | Visual Evidence Package (per dimension) | Observation and interpretation remain distinguishable | Executable (VIS-001–006) |
+| 04 | Named Style Study | Understand an applicable named visual language responsibly | Approved Style Study Package | Facts, observations, interpretations, transferability, and imitation risk are separated | Executable (STYLE-001) |
+| 05 | Reference Style Synthesis | Convert reference evidence into original transferable principles | Approved Reference Style Synthesis | Formal, emotional, and communication effects are traceable | **Registered, 0 tasks — not yet executable** |
+| 06 | Visual DNA | Create project visual-system rules | Visual DNA Package | Every rule traces to approved evidence and contradictions are surfaced | Executable (VDNA-001) |
+| 07 | Platform / Template Synthesis | Translate the visual system into reusable production structure | Approved Template Candidate | Structure, editable zones, content limits, platform constraints, and scope are explicit | **Registered, 0 tasks — not yet executable** |
+| 08 | Art Direction | Make content-specific creative decisions | Approved Art Direction | Objective, message, hierarchy, concept, references, and constraints are approved | Executable (ART-001–003) |
+| 09 | Generation | Operationalize direction and execute it | Specification, Prompt, Generated Output | Inputs and approvals are complete; output remains classified as OUTPUT | Executable (GEN-001–002) |
+| 10 | Content Package | Assemble the publishable asset | Content Package | Visual, copy, CTA, alt text, metadata, relationships, and provenance are present | **Registered, 0 tasks — not yet executable** |
+| 11 | Human Revision / Style Learning | Apply scoped changes and learn only from approved evidence | Revision Record, Approved Output, optional Style Memory | Requested and preserved elements are documented; promotion scope is approved | **Registered, 0 tasks — not yet executable** |
+| 12 | Figma Implementation | Produce the structured editable master | Approved Structured Figma Master | Content, layers, variables, components, exports, and overlay fidelity pass | **Registered, 0 tasks — not yet executable** |
+| 13 | Quality Control / Final Approval | Evaluate the complete result and route root-cause correction | Final Approval or Revision Route | Critical failures override scores; failure routes to earliest responsible stage | Executable (QC-001–003) |
+
+### Note on removed stages
+
+Two stages from the previous 15-stage description no longer appear as standalone numbered stages, matching `task_registry.json`:
+
+- **Motif & Sign Extraction** — its intended scope (recurring visual vocabulary extraction) is now covered inside Stage 03 Visual Analysis and Stage 05 Reference Style Synthesis rather than as a separate stage.
+- **Editable Reconstruction Preparation** — folded into Stage 12 Figma Implementation's scope rather than kept as a separate pre-stage.
+
+Five stages (05, 07, 10, 11, 12) remain registered with zero executable tasks. These are tracked in "Remaining Production Gaps" below and should not be treated as active pipeline steps until task contracts exist for them.
+
 
 ## Process Refinements Applied
 
 1. Added `00_workflow/process_registry.json` as the canonical machine-readable process map.
-2. Mapped all 26 executable task contracts into exactly one of the 15 production stages.
+2. Mapped all executable task contracts into exactly one of the 13 production stages defined in `task_registry.json`.
 3. Mapped non-prompt protocols and schemas to the stages they govern.
 4. Added explicit execution conditions for optional stages instead of pretending every project follows an identical path.
 5. Added required output artifacts and memory effects to every stage.
@@ -55,6 +65,7 @@ No arrow may be skipped silently.
 7. Added process validation to GitHub Actions.
 8. Updated the release count from 25 to 26 active prompts and aligned the public workflow summary with the refined process.
 9. Made provider failures fail closed through concise runtime errors instead of leaking SDK tracebacks.
+10. Corrected the Refined Stage Assessment table from a 15-stage description to the 13 stages actually defined in `task_registry.json`, removing "Motif & Sign Extraction" and "Editable Reconstruction Preparation" as standalone stages and flagging the five registered-but-empty stages (05, 07, 10, 11, 12) as not yet executable.
 
 ## Output Evaluation Rules
 
