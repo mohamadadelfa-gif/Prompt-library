@@ -1,9 +1,58 @@
 {
-  "schema_version": "1.0",
-  "process_version": "3.1-production-candidate",
-  "goal": "Produce traceable, human-directed, production-ready creative artifacts without silently changing source facts, approved decisions, or scope.",
-  "information_states": ["SOURCE", "DERIVED", "DECISION", "OUTPUT"],
-  "canonical_gates": ["PASS", "CONDITIONAL", "BLOCKED", "APPROVE", "REVISE", "REJECT", "READY", "REGENERATE"],
+  "schema_version": "1.1",
+  "process_version": "4.0-production-candidate",
+  "goal": "Produce traceable, human-directed, production-ready creative artifacts while reusing approved foundations and preserving explicit human final authority.",
+  "information_states": [
+    "SOURCE",
+    "DERIVED",
+    "DECISION",
+    "OUTPUT"
+  ],
+  "stage_state_vocabulary": [
+    "EXECUTE",
+    "SATISFIED_BY_REUSE",
+    "SKIPPED_NOT_APPLICABLE",
+    "BLOCKED",
+    "REVISE",
+    "COMPLETE"
+  ],
+  "stage_satisfaction_rule": "Before executing a stage, check for a current approved non-superseded artifact with matching scope, provenance, and required gate state. If valid, mark SATISFIED_BY_REUSE instead of re-executing. Conditional stages may be SKIPPED_NOT_APPLICABLE. Missing required evidence is BLOCKED.",
+  "lifecycle_zones": {
+    "foundation_system_creation": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08"
+    ],
+    "content_production_finalization": [
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20"
+    ]
+  },
+  "canonical_gates": [
+    "PASS",
+    "CONDITIONAL",
+    "BLOCKED",
+    "APPROVE",
+    "REVISE",
+    "REJECT",
+    "READY",
+    "REGENERATE"
+  ],
   "terminal_escalation": "HUMAN_REVIEW",
   "max_revision_cycles": 3,
   "stages": [
@@ -13,179 +62,541 @@
       "goal": "Convert customer and project inputs into an approved authoritative project definition.",
       "depends_on": [],
       "condition": "ALWAYS",
-      "tasks": ["STR-001", "STR-002", "STR-003", "STR-004", "STR-005"],
+      "tasks": [
+        "STR-001",
+        "STR-002",
+        "STR-003",
+        "STR-004",
+        "STR-005"
+      ],
       "protocols": [],
-      "output_artifacts": ["APPROVED_STRATEGY_PACKAGE"],
-      "gates": ["PASS", "CONDITIONAL", "BLOCKED", "APPROVE", "REVISE"],
+      "output_artifacts": [
+        "APPROVED_STRATEGY_PACKAGE"
+      ],
+      "gates": [
+        "PASS",
+        "CONDITIONAL",
+        "BLOCKED",
+        "APPROVE",
+        "REVISE"
+      ],
       "memory_effect": "Creates approved project knowledge; never creates external source facts."
     },
     {
       "id": "02",
       "name": "research",
       "goal": "Establish traceable audience, market, cultural, and visual-reference evidence.",
-      "depends_on": ["01"],
+      "depends_on": [
+        "01"
+      ],
       "condition": "ALWAYS",
-      "tasks": ["RES-001", "RES-002", "RES-003", "RES-004", "RES-005", "RES-006"],
-      "protocols": ["00_workflow/design_system_reference_protocol.md", "00_workflow/design_system_reference_registry.json"],
-      "output_artifacts": ["RESEARCH_SYNTHESIS"],
-      "gates": ["PASS", "CONDITIONAL", "BLOCKED"],
+      "tasks": [
+        "RES-001",
+        "RES-002",
+        "RES-003",
+        "RES-004",
+        "RES-005",
+        "RES-006"
+      ],
+      "protocols": [
+        "00_workflow/design_system_reference_protocol.md",
+        "00_workflow/design_system_reference_registry.json"
+      ],
+      "output_artifacts": [
+        "RESEARCH_SYNTHESIS"
+      ],
+      "gates": [
+        "PASS",
+        "CONDITIONAL",
+        "BLOCKED"
+      ],
       "memory_effect": "Adds sourced project and external evidence; unsupported conclusions remain UNKNOWN."
     },
     {
       "id": "03",
       "name": "visual_analysis",
       "goal": "Describe supplied visual evidence without turning observations into creative decisions.",
-      "depends_on": ["02"],
+      "depends_on": [
+        "02"
+      ],
       "condition": "ALWAYS",
-      "tasks": ["VIS-001", "VIS-002", "VIS-003", "VIS-004", "VIS-005", "VIS-006"],
+      "tasks": [
+        "VIS-001",
+        "VIS-002",
+        "VIS-003",
+        "VIS-004",
+        "VIS-005",
+        "VIS-006"
+      ],
       "protocols": [],
-      "output_artifacts": ["VISUAL_EVIDENCE_PACKAGE"],
-      "gates": ["PASS", "CONDITIONAL", "BLOCKED"],
+      "output_artifacts": [
+        "VISUAL_EVIDENCE_PACKAGE"
+      ],
+      "gates": [
+        "PASS",
+        "CONDITIONAL",
+        "BLOCKED"
+      ],
       "memory_effect": "Creates project-reference observations classified as SOURCE or DERIVED."
     },
     {
       "id": "04",
       "name": "named_style_study",
       "goal": "Understand a named visual language and derive responsible transferable principles.",
-      "depends_on": ["02", "03"],
+      "depends_on": [
+        "02",
+        "03"
+      ],
       "condition": "WHEN_BRIEF_NAMES_STYLE_SOURCE",
-      "tasks": ["STYLE-001"],
-      "protocols": ["00_workflow/named_style_study.md"],
-      "output_artifacts": ["APPROVED_STYLE_STUDY_PACKAGE"],
-      "gates": ["PASS", "CONDITIONAL", "BLOCKED"],
+      "tasks": [
+        "STYLE-001"
+      ],
+      "protocols": [
+        "00_workflow/named_style_study.md"
+      ],
+      "output_artifacts": [
+        "APPROVED_STYLE_STUDY_PACKAGE"
+      ],
+      "gates": [
+        "PASS",
+        "CONDITIONAL",
+        "BLOCKED"
+      ],
       "memory_effect": "Adds source-backed style knowledge; interpretation cannot become historical fact."
     },
     {
       "id": "05",
       "name": "motif_sign_extraction",
       "goal": "Extract recurring visual vocabulary while preserving evidence, frequency, and imitation risk.",
-      "depends_on": ["03", "04"],
+      "depends_on": [
+        "03",
+        "04"
+      ],
       "condition": "WHEN_NAMED_STYLE_OR_RECURRING_VISUAL_VOCABULARY_APPLIES",
       "tasks": [],
-      "protocols": ["00_workflow/motif_extraction.md", "00_workflow/motif_library_schema.json"],
-      "output_artifacts": ["CONTROLLED_MOTIF_LIBRARY"],
-      "gates": ["PASS", "CONDITIONAL", "BLOCKED"],
+      "protocols": [
+        "00_workflow/motif_extraction.md",
+        "00_workflow/motif_library_schema.json"
+      ],
+      "output_artifacts": [
+        "CONTROLLED_MOTIF_LIBRARY"
+      ],
+      "gates": [
+        "PASS",
+        "CONDITIONAL",
+        "BLOCKED"
+      ],
       "memory_effect": "Creates scoped motif records; motifs remain evidence, not brand decisions."
     },
     {
       "id": "06",
       "name": "reference_style_synthesis",
       "goal": "Translate supplied references and applicable style knowledge into original transferable principles.",
-      "depends_on": ["03", "04", "05"],
+      "depends_on": [
+        "03",
+        "04",
+        "05"
+      ],
       "condition": "ALWAYS_WITH_CONDITIONAL_INPUTS",
       "tasks": [],
-      "protocols": ["00_workflow/reference_style_synthesis.md"],
-      "output_artifacts": ["APPROVED_REFERENCE_STYLE_SYNTHESIS"],
-      "gates": ["PASS", "CONDITIONAL", "BLOCKED"],
+      "protocols": [
+        "00_workflow/reference_style_synthesis.md"
+      ],
+      "output_artifacts": [
+        "APPROVED_REFERENCE_STYLE_SYNTHESIS"
+      ],
+      "gates": [
+        "PASS",
+        "CONDITIONAL",
+        "BLOCKED"
+      ],
       "memory_effect": "Creates project-scoped derived creative knowledge with explicit provenance."
     },
     {
       "id": "07",
       "name": "visual_dna",
       "goal": "Convert validated evidence and style principles into traceable visual-system rules.",
-      "depends_on": ["03", "06"],
+      "depends_on": [
+        "03",
+        "06"
+      ],
       "condition": "ALWAYS",
-      "tasks": ["VDNA-001"],
+      "tasks": [
+        "VDNA-001"
+      ],
       "protocols": [],
-      "output_artifacts": ["VISUAL_DNA_PACKAGE"],
-      "gates": ["PASS", "CONDITIONAL", "BLOCKED"],
+      "output_artifacts": [
+        "VISUAL_DNA_PACKAGE"
+      ],
+      "gates": [
+        "PASS",
+        "CONDITIONAL",
+        "BLOCKED"
+      ],
       "memory_effect": "Creates candidate project rules; approval scope must remain explicit."
     },
     {
       "id": "08",
       "name": "platform_template_synthesis",
       "goal": "Translate the approved visual system into reusable platform-specific production structure.",
-      "depends_on": ["05", "06", "07"],
+      "depends_on": [
+        "05",
+        "06",
+        "07"
+      ],
       "condition": "WHEN_TARGET_PLATFORM_REQUIRES_TEMPLATE",
       "tasks": [],
-      "protocols": ["00_workflow/instagram_template_synthesis.md", "00_workflow/presentation_design_dna_protocol.md", "00_workflow/presentation_design_profile_schema.json", "00_workflow/html_visual_production_protocol.md", "00_workflow/producer_handoff_schema.json", "00_workflow/design_md_generation_protocol.md", "00_workflow/design_md_token_schema.json", "assets/templates/DESIGN_MD_TEMPLATE.md", "00_workflow/design_token_system_protocol.md", "00_workflow/design_token_system_schema.json", "assets/templates/DESIGN_TOKEN_SYSTEM_TEMPLATE.json", "00_workflow/template_extraction.md", "00_workflow/content_template_record.json"],
-      "output_artifacts": ["APPROVED_TEMPLATE_CANDIDATE", "CONDITIONAL_PRESENTATION_DESIGN_SYSTEM", "CONDITIONAL_HTML_PRODUCTION_SYSTEM", "CONDITIONAL_DESIGN_MD_SYSTEM", "CONTROLLED_DESIGN_TOKEN_SYSTEM"],
-      "gates": ["PASS", "CONDITIONAL", "BLOCKED", "APPROVE", "REVISE", "REJECT"],
-      "memory_effect": "Creates reusable structure only; campaign content and old project assumptions cannot transfer."
+      "protocols": [
+        "00_workflow/instagram_template_synthesis.md",
+        "00_workflow/presentation_design_dna_protocol.md",
+        "00_workflow/presentation_design_profile_schema.json",
+        "00_workflow/html_visual_production_protocol.md",
+        "00_workflow/producer_handoff_schema.json",
+        "00_workflow/design_md_generation_protocol.md",
+        "00_workflow/design_md_token_schema.json",
+        "assets/templates/DESIGN_MD_TEMPLATE.md",
+        "00_workflow/design_token_system_protocol.md",
+        "00_workflow/design_token_system_schema.json",
+        "assets/templates/DESIGN_TOKEN_SYSTEM_TEMPLATE.json",
+        "00_workflow/template_extraction.md",
+        "00_workflow/content_template_record.json"
+      ],
+      "output_artifacts": [
+        "APPROVED_CREATIVE_FOUNDATION",
+        "APPROVED_TEMPLATE_CANDIDATE",
+        "CONTROLLED_DESIGN_TOKEN_SYSTEM"
+      ],
+      "gates": [
+        "PASS",
+        "CONDITIONAL",
+        "BLOCKED",
+        "APPROVE",
+        "REVISE",
+        "REJECT"
+      ],
+      "memory_effect": "Creates reusable structure. A current approved foundation may satisfy stages 01-08 by reuse when scope and provenance match."
     },
     {
       "id": "09",
-      "name": "art_direction",
-      "goal": "Create and approve content-specific creative decisions within strategy and visual-system constraints.",
-      "depends_on": ["01", "07", "08"],
-      "condition": "ALWAYS",
-      "tasks": ["ART-001", "ART-002", "ART-003"],
-      "protocols": [],
-      "output_artifacts": ["APPROVED_ART_DIRECTION"],
-      "gates": ["PASS", "CONDITIONAL", "BLOCKED", "APPROVE", "REVISE", "REJECT"],
-      "memory_effect": "Creates approved creative decisions; decisions remain distinct from evidence."
+      "name": "approved_content_handoff",
+      "goal": "Resolve approved writing/content and the current creative foundation before content-specific design begins.",
+      "depends_on": [
+        "01",
+        "07",
+        "08"
+      ],
+      "condition": "ALWAYS_WITH_APPLICABLE_FOUNDATION",
+      "tasks": [],
+      "protocols": [
+        "00_workflow/handoff_contract.md"
+      ],
+      "output_artifacts": [
+        "APPROVED_CONTENT_HANDOFF"
+      ],
+      "gates": [
+        "PASS",
+        "CONDITIONAL",
+        "BLOCKED"
+      ],
+      "memory_effect": "Links approved content to the current foundation without changing either."
     },
     {
       "id": "10",
-      "name": "generation",
-      "goal": "Operationalize approved direction into an execution specification and model-adapted prompt.",
-      "depends_on": ["09"],
+      "name": "art_direction",
+      "goal": "Create and approve content-specific creative decisions within strategy, content, and visual-system constraints.",
+      "depends_on": [
+        "09"
+      ],
       "condition": "ALWAYS",
-      "tasks": ["GEN-001", "GEN-002"],
-      "protocols": ["00_workflow/instagram_html_export_protocol.md", "scripts/export_instagram_carousel.py"],
-      "output_artifacts": ["GENERATION_SPECIFICATION", "GENERATION_PROMPT", "GENERATED_OUTPUT"],
-      "gates": ["READY", "BLOCKED"],
-      "memory_effect": "Creates OUTPUT artifacts only; a generated result is not automatically knowledge or a requirement."
+      "tasks": [
+        "ART-001",
+        "ART-002",
+        "ART-003"
+      ],
+      "protocols": [],
+      "output_artifacts": [
+        "APPROVED_ART_DIRECTION"
+      ],
+      "gates": [
+        "PASS",
+        "CONDITIONAL",
+        "BLOCKED",
+        "APPROVE",
+        "REVISE",
+        "REJECT"
+      ],
+      "memory_effect": "Creates approved content-specific creative decisions; decisions remain distinct from evidence."
     },
     {
       "id": "11",
-      "name": "content_package",
-      "goal": "Assemble the complete publishable content artifact without introducing new strategic claims.",
-      "depends_on": ["10"],
-      "condition": "WHEN_OUTPUT_IS_INTENDED_FOR_PUBLICATION",
-      "tasks": [],
-      "protocols": ["00_workflow/content_package_contract.md", "00_workflow/content_artifact_layer.md"],
-      "output_artifacts": ["CONTENT_PACKAGE"],
-      "gates": ["APPROVE", "REVISE", "BLOCKED"],
-      "memory_effect": "Records the content instance and its approved relationships to template and style artifacts."
+      "name": "generation",
+      "goal": "Operationalize approved direction into an execution specification, model-adapted prompt, and generated candidate.",
+      "depends_on": [
+        "10"
+      ],
+      "condition": "ALWAYS",
+      "tasks": [
+        "GEN-001",
+        "GEN-002"
+      ],
+      "protocols": [],
+      "output_artifacts": [
+        "GENERATION_SPECIFICATION",
+        "GENERATION_PROMPT",
+        "GENERATED_OUTPUT"
+      ],
+      "gates": [
+        "READY",
+        "BLOCKED"
+      ],
+      "memory_effect": "Creates OUTPUT artifacts only; generated results are candidates, not automatically approved knowledge."
     },
     {
       "id": "12",
-      "name": "human_revision_style_learning",
-      "goal": "Apply scoped human changes and promote only approved, traceable patterns into reusable memory.",
-      "depends_on": ["10", "11"],
+      "name": "human_directed_revision",
+      "goal": "Apply scoped human-directed corrections while preserving non-authorized content and design.",
+      "depends_on": [
+        "11"
+      ],
       "condition": "WHEN_HUMAN_REVISION_OCCURS",
       "tasks": [],
-      "protocols": ["00_workflow/human_feedback_style_learning.md", "00_workflow/style_memory_schema.json", "00_workflow/style_memory_record_template.md", "00_workflow/knowledge_relationship_protocol.md", "00_workflow/knowledge/knowledge_relationship_schema.json", "00_workflow/knowledge/knowledge_relationships.json"],
-      "output_artifacts": ["REVISION_RECORD", "APPROVED_OUTPUT", "OPTIONAL_STYLE_MEMORY"],
-      "gates": ["APPROVE", "REVISE", "REJECT"],
-      "memory_effect": "May create project references or rules; system promotion requires explicit human authority and evidence."
+      "protocols": [
+        "00_workflow/human_feedback_style_learning.md"
+      ],
+      "output_artifacts": [
+        "REVISION_RECORD",
+        "REVISED_CANDIDATE"
+      ],
+      "gates": [
+        "APPROVE",
+        "REVISE",
+        "REJECT",
+        "BLOCKED"
+      ],
+      "memory_effect": "Records revision evidence only. Reusable learning is not promoted here."
     },
     {
       "id": "13",
-      "name": "editable_reconstruction_preparation",
-      "goal": "Prepare a flattened approved visual for faithful editable reconstruction while preserving source lock.",
-      "depends_on": ["10", "12"],
-      "condition": "WHEN_APPROVED_PRODUCTION_SOURCE_IS_FLATTENED_OR_RASTER",
-      "tasks": [],
-      "protocols": ["00_workflow/editable_reconstruction_preparation.md", "00_workflow/live_editable_text_layers.md"],
-      "output_artifacts": ["EDITABLE_RECONSTRUCTION_PACKAGE"],
-      "gates": ["PASS", "REVISE", "BLOCKED"],
-      "memory_effect": "Records reconstruction derivations without replacing the approved visual as source evidence."
+      "name": "pre_final_quality_control",
+      "goal": "Evaluate the generated or revised candidate before final creative refinement and route root-cause correction.",
+      "depends_on": [
+        "11",
+        "12"
+      ],
+      "condition": "ALWAYS_WITH_APPLICABLE_STAGE_OUTPUTS",
+      "tasks": [
+        "QC-001",
+        "QC-002"
+      ],
+      "protocols": [
+        "00_workflow/stepwise_creative_review.md",
+        "00_workflow/llm_evaluator_protocol.md",
+        "00_workflow/qc/llm_evaluator_evidence_schema.json",
+        "00_workflow/qc/QC-IG-001_instagram_visual_qc.md",
+        "00_workflow/qc/QC-AUD-001_audience_catcher_qc.md",
+        "00_workflow/qc/QC-IQA-001_technical_image_quality_qc.md",
+        "00_workflow/qc/QC-PRES-001_presentation_layout_qc.md",
+        "00_workflow/qc/QC-HTML-001_originality_anti_slop_qc.md",
+        "00_workflow/qc/QC-SOC-001_social_visual_audience_gate.md"
+      ],
+      "output_artifacts": [
+        "PRE_FINAL_QC_EVIDENCE",
+        "REVISION_ROUTE_OR_FINAL_REFINEMENT_CLEARANCE"
+      ],
+      "gates": [
+        "APPROVE",
+        "REVISE",
+        "REGENERATE",
+        "BLOCKED"
+      ],
+      "memory_effect": "Records quality evidence and revision routing; critical failures cannot be averaged away."
     },
     {
       "id": "14",
-      "name": "figma_implementation",
-      "goal": "Build and validate the approved design as a structured editable production master.",
-      "depends_on": ["11", "13"],
-      "condition": "WHEN_OUTPUT_REQUIRES_EDITABLE_PRODUCTION_MASTER",
+      "name": "final_ai_creative_refinement",
+      "goal": "Run the controlled late-stage creative refinement and Heavy-QC closed loop without granting final human approval.",
+      "depends_on": [
+        "13"
+      ],
+      "condition": "WHEN_FINAL_AI_REFINEMENT_IS_APPLICABLE",
       "tasks": [],
-      "protocols": ["00_workflow/figma_file_structure.md", "00_workflow/figma_output_contract.md", "00_workflow/figma_build_record_template.md"],
-      "output_artifacts": ["APPROVED_STRUCTURED_FIGMA_MASTER"],
-      "gates": ["PASS", "REVISE", "BLOCKED"],
-      "memory_effect": "Records implementation provenance; production reconstruction cannot silently redefine art direction."
+      "protocols": [
+        "00_workflow/creative_ai_final_edit.md",
+        "00_workflow/final_ai_creative_synthesis_heavy_qc.md",
+        "00_workflow/final_ai_closed_loop_production.md"
+      ],
+      "output_artifacts": [
+        "CREATIVE_FINAL_CANDIDATE",
+        "HEAVY_QC_EVIDENCE",
+        "PASS_FOR_HUMAN_FINAL_REVIEW_CANDIDATE"
+      ],
+      "gates": [
+        "PASS",
+        "CONDITIONAL",
+        "BLOCKED",
+        "REVISE",
+        "REGENERATE"
+      ],
+      "memory_effect": "Produces final-refinement evidence and preserves approved meaning; FINAL-AI protocols are not task contracts in this version."
     },
     {
       "id": "15",
-      "name": "quality_control_final_approval",
-      "goal": "Evaluate the complete production result, diagnose root cause, and approve or route correction.",
-      "depends_on": ["09", "10", "11", "12", "13", "14"],
+      "name": "editable_reconstruction_preparation",
+      "goal": "Prepare an approved flattened or raster candidate for faithful editable reconstruction while preserving source lock.",
+      "depends_on": [
+        "14"
+      ],
+      "condition": "WHEN_APPROVED_PRODUCTION_SOURCE_IS_FLATTENED_OR_RASTER_AND_EDITABLE_MASTER_REQUIRED",
+      "tasks": [],
+      "protocols": [
+        "00_workflow/editable_reconstruction_preparation.md",
+        "00_workflow/live_editable_text_layers.md"
+      ],
+      "output_artifacts": [
+        "EDITABLE_RECONSTRUCTION_PACKAGE"
+      ],
+      "gates": [
+        "PASS",
+        "REVISE",
+        "BLOCKED"
+      ],
+      "memory_effect": "Records reconstruction derivations without replacing the approved visual source."
+    },
+    {
+      "id": "16",
+      "name": "editable_implementation",
+      "goal": "Build the approved design as a structured editable production master when the deliverable requires one.",
+      "depends_on": [
+        "15"
+      ],
+      "condition": "WHEN_OUTPUT_REQUIRES_EDITABLE_PRODUCTION_MASTER",
+      "tasks": [],
+      "protocols": [
+        "00_workflow/figma_file_structure.md",
+        "00_workflow/figma_output_contract.md",
+        "00_workflow/figma_build_record_template.md"
+      ],
+      "output_artifacts": [
+        "APPROVED_STRUCTURED_EDITABLE_MASTER"
+      ],
+      "gates": [
+        "PASS",
+        "REVISE",
+        "BLOCKED"
+      ],
+      "memory_effect": "Records implementation provenance; implementation cannot silently redefine approved art direction."
+    },
+    {
+      "id": "17",
+      "name": "final_production_quality_control",
+      "goal": "Validate the final production representation after refinement and any editable reconstruction or implementation.",
+      "depends_on": [
+        "14",
+        "15",
+        "16"
+      ],
       "condition": "ALWAYS_WITH_APPLICABLE_STAGE_OUTPUTS",
-      "tasks": ["QC-001", "QC-002", "QC-003"],
-      "protocols": ["00_workflow/stepwise_creative_review.md", "00_workflow/llm_evaluator_protocol.md", "00_workflow/qc/llm_evaluator_evidence_schema.json", "00_workflow/qc/QC-IG-001_instagram_visual_qc.md", "00_workflow/qc/QC-AUD-001_audience_catcher_qc.md", "00_workflow/qc/QC-IQA-001_technical_image_quality_qc.md", "00_workflow/qc/QC-PRES-001_presentation_layout_qc.md", "00_workflow/qc/QC-HTML-001_originality_anti_slop_qc.md", "00_workflow/qc/HEAVY-QC-001_human_triggered_ensemble.md", "00_workflow/qc/QC-SOC-001_social_visual_audience_gate.md", "00_workflow/qc/qc_knowledge_schema.json"],
-      "output_artifacts": ["FINAL_APPROVAL_OR_REVISION_ROUTE", "QC_KNOWLEDGE_PACKAGE"],
-      "gates": ["APPROVE", "REVISE", "REGENERATE", "BLOCKED"],
-      "memory_effect": "Records quality evidence and revision routing; scores cannot override critical failures."
+      "tasks": [],
+      "protocols": [
+        "00_workflow/stepwise_creative_review.md",
+        "00_workflow/qc/QC-IQA-001_technical_image_quality_qc.md",
+        "00_workflow/final_ai_closed_loop_production.md"
+      ],
+      "output_artifacts": [
+        "FINAL_PRODUCTION_QC_EVIDENCE",
+        "PASS_FOR_HUMAN_FINAL_REVIEW"
+      ],
+      "gates": [
+        "PASS",
+        "CONDITIONAL",
+        "BLOCKED",
+        "REVISE",
+        "REGENERATE"
+      ],
+      "memory_effect": "Confirms that production transformation has not invalidated the approved candidate."
+    },
+    {
+      "id": "18",
+      "name": "human_final_approval",
+      "goal": "Reserve final creative authority for explicit human approval after all applicable machine gates pass.",
+      "depends_on": [
+        "17"
+      ],
+      "condition": "ALWAYS",
+      "tasks": [],
+      "protocols": [],
+      "output_artifacts": [
+        "HUMAN_FINAL_DECISION",
+        "FINAL_PUBLISHING_MASTER_AUTHORIZATION"
+      ],
+      "gates": [
+        "APPROVE",
+        "REVISE",
+        "REJECT",
+        "BLOCKED"
+      ],
+      "memory_effect": "Creates the authoritative final approval decision; AI cannot self-promote a candidate to final publishing master."
+    },
+    {
+      "id": "19",
+      "name": "master_platform_derivatives",
+      "goal": "Preserve the approved archival/project master and create platform derivatives once from that master.",
+      "depends_on": [
+        "18"
+      ],
+      "condition": "WHEN_HUMAN_FINAL_APPROVAL_IS_APPROVE",
+      "tasks": [],
+      "protocols": [
+        "00_workflow/content_package_contract.md",
+        "00_workflow/content_artifact_layer.md",
+        "00_workflow/instagram_html_export_protocol.md"
+      ],
+      "output_artifacts": [
+        "FINAL_PUBLISHING_MASTER",
+        "PLATFORM_DERIVATIVES",
+        "FINAL_CONTENT_PACKAGE"
+      ],
+      "gates": [
+        "PASS",
+        "BLOCKED"
+      ],
+      "memory_effect": "Records final output relationships; derivatives never replace the approved master as provenance."
+    },
+    {
+      "id": "20",
+      "name": "learning_memory_promotion",
+      "goal": "Synthesize final QC/revision evidence and promote only human-authorized reusable learning at the correct scope.",
+      "depends_on": [
+        "18",
+        "19"
+      ],
+      "condition": "WHEN_LEARNING_OR_STRUCTURALIZATION_IS_REQUESTED_OR_REQUIRED",
+      "tasks": [
+        "QC-003"
+      ],
+      "protocols": [
+        "00_workflow/human_feedback_style_learning.md",
+        "00_workflow/style_memory_schema.json",
+        "00_workflow/style_memory_record_template.md",
+        "00_workflow/knowledge_relationship_protocol.md",
+        "00_workflow/knowledge/knowledge_relationship_schema.json",
+        "00_workflow/knowledge/knowledge_relationships.json",
+        "00_workflow/qc/qc_knowledge_schema.json"
+      ],
+      "output_artifacts": [
+        "QC_KNOWLEDGE_PACKAGE",
+        "LEARNING_PROMOTION_DECISION",
+        "UPDATED_CONTROLLED_MEMORY"
+      ],
+      "gates": [
+        "PASS",
+        "CONDITIONAL",
+        "BLOCKED",
+        "APPROVE",
+        "REVISE",
+        "REJECT"
+      ],
+      "memory_effect": "Promotes only traceable, scoped, human-authorized knowledge; one-off corrections remain project evidence unless explicitly elevated."
     }
   ]
 }
