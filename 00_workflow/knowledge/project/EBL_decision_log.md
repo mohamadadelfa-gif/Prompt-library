@@ -207,10 +207,79 @@ A prose-only memory update is incomplete when future retrieval/QC cannot consume
 
 **Date:** 2026-08-17  
 **Decision:** Use the approved launch schedule beginning **Saturday, 22 August 2026**, with `A World from the World` as the recurring morning Story and `Vocabulary` as the recurring evening Story through the recorded first-two-weeks launch period. Feed posts progress through English Independence → Tell → Explain → Argue → Participate → Keyvan introductory video.  
-**Rationale:** This establishes a stable daily Story rhythm around a paced feed narrative that moves from EBL philosophy into communication functions and then the human/teacher introduction.  
+**Rationale:** This established the first version of the daily Story rhythm around a paced feed narrative.  
 **Scope:** Launch operations, 22 Aug–1 Sep 2026.  
-**Status:** APPROVED.  
+**Status:** SUPERSEDED IN PART by `EBL-DEC-014`.  
 **Affected:** `EBL_launch_calendar_weeks_01_02.md`, daily content planning and series retrieval.
+
+---
+
+## EBL-DEC-014 — Remove Vocabulary Story from Current Launch Calendar
+
+**Date:** 2026-08-17  
+**Decision:** Remove the recurring evening `Vocabulary` Story from the current first-two-weeks launch calendar. Keep the feed-post schedule and daily morning `A World from the World` Story unchanged.  
+**Rationale:** The human revised the launch plan and does not want a Vocabulary evening Story scheduled for now.  
+**Scope:** Launch operations, 22 Aug–1 Sep 2026.  
+**Status:** APPROVED CURRENT CALENDAR.  
+**Supersedes:** The evening-Story portion of `EBL-DEC-013`.  
+**Provenance:** Explicit human revision on 2026-08-17.  
+**Affected:** `EBL_launch_calendar_weeks_01_02.md`, daily content planning.
+
+---
+
+## EBL-DEC-015 — `Ed.post` Becomes the Canonical EBL Feed-Post Template
+
+**Date:** 2026-08-17  
+**Decision:** The human-approved six-slide Post 01 visual system is designated as the canonical EBL feed-post template named **`Ed.post`**.  
+**Rationale:** The template was refined through direct human typography, hierarchy, placement and semantic-emphasis decisions and should now be reused as a stable visual system rather than reconstructed from generic EBL style memory.  
+**Scope:** EBL Instagram feed carousels using the `Ed.post` system.  
+**Status:** LOCKED APPROVED TEMPLATE.  
+**Supersedes:** Earlier unresolved Post-template reconstructions and alternate Post 01 grids as template authority.  
+**Provenance:** Explicit human instruction after final six-slide confirmation on 2026-08-17.  
+**Affected:** `EBL_template_Ed_post.md`, `EBL_post_01_approved_artifact.md`, `EBL_memory_registry.json`, `EBL_asset_registry.json`, `EBL_visual_examples.md`, `EBL_retrieval_map.md`, `QC-EBL-TYPE-001_semantic_typography_edit_qc.md`.
+
+---
+
+## EBL-DEC-016 — Post 01 English Independence Is the Canonical `Ed.post` Calibration Artifact
+
+**Date:** 2026-08-17  
+**Decision:** The six human-confirmed slides of **Post 01 — English Independence** are the approved fixed first post and primary canonical visual calibration artifact for `Ed.post`.  
+**Rationale:** Earlier saved/generated versions conflicted with later human edits. The exact approved source binaries now have verified fingerprints, preventing future confusion between alternate generations and the final set.  
+**Scope:** Post 01, `Ed.post` calibration, revisions, QC and future template reuse.  
+**Status:** LOCKED APPROVED ARTIFACT.  
+**Supersedes:** Earlier Post 01 grid alternatives, generated reconstructions and unverified remembered versions.  
+**Provenance:** Human supplied the final six slides in the active conversation on 2026-08-17; SHA-256 and dimensions verified in the production runtime.  
+**Affected:** `EBL_post_01_approved_artifact.md`, `EBL_asset_registry.json`, `EBL_visual_examples.md`, `EBL_memory_registry.json`, `EBL_retrieval_map.md`.
+
+### Canonical artifact rule
+
+```text
+ACTUAL APPROVED POST 01 SLIDE BINARY
+> VERIFIED ARTIFACT RECORD
+> Ed.post TEMPLATE DESCRIPTION
+> GENERAL EBL STYLE MEMORY
+> MODEL INFERENCE
+```
+
+Repository image paths remain unresolved until the binaries are actually ingested. Do not invent paths.
+
+---
+
+## EBL-DEC-017 — `Ed.post` Scoped Typography Editing Becomes Reusable QC Knowledge
+
+**Date:** 2026-08-17  
+**Decision:** Human revision patterns learned from Post 01 are promoted into reusable EBL QC for `Ed.post`: preserve approved artwork, modify only the authorized text zone, use semantic color rather than decorative color, use micro-size/weight adjustments, allow controlled looseness for list-like text, and make CTA hierarchy explicit.  
+**Rationale:** These corrections recur across slides and represent a stable art-direction method rather than isolated one-off changes.  
+**Scope:** `Ed.post` typography refinement and related EBL scoped visual revisions.  
+**Status:** APPROVED REUSABLE EBL PROJECT QC.  
+**Provenance:** Human-approved edits to Post 01 Slides 3, 5 and 6 on 2026-08-17.  
+**Affected:** `QC-EBL-TYPE-001_semantic_typography_edit_qc.md`, `EBL_template_Ed_post.md`, `EBL_retrieval_map.md`, `EBL_visual_examples.md`.
+
+### Learned examples
+
+- Slide 3: six examples use controlled alternating/scattered left-right rhythm instead of a rigid list.
+- Slide 5: `the English you have.` receives rust/red semantic emphasis.
+- Slide 6: `The goal is not` stays black on one line; `perfect` is rust/red while `English.` stays black; supporting copy receives the approved size hierarchy; final CTA is bold rust/red.
 
 ---
 
