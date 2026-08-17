@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "DESIGN_MD_TOKEN_RECORD",
+  "required": [
+    "record_id",
+    "source_scope",
+    "evidence_and_confidence",
+    "observed_source_tokens",
+    "transferable_design_principles",
+    "approved_target_tokens",
+    "component_states",
+    "responsive_behavior",
+    "originality_constraints",
+    "provenance",
+    "gate"
+  ],
+  "token_layers": {
+    "observed_source_tokens": "SOURCE",
+    "transferable_design_principles": "DERIVED",
+    "approved_target_tokens": "DECISION"
+  },
+  "token_categories": [
+    "color",
+    "typography",
+    "spacing",
+    "grid",
+    "size",
+    "radius",
+    "border",
+    "shadow",
+    "surface",
+    "motion",
+    "breakpoint"
+  ],
+  "component_states": [
+    "default",
+    "hover",
+    "active",
+    "focus_visible",
+    "disabled",
+    "loading",
+    "error",
+    "success",
+    "selected"
+  ],
+  "originality_constraints": {
+    "exact_source_layout_transfer": "FORBIDDEN_BY_DEFAULT",
+    "source_identity_transfer": "FORBIDDEN",
+    "proprietary_component_transfer": "FORBIDDEN",
+    "target_token_approval_required": true
+  },
+  "gate_values": ["PASS", "CONDITIONAL", "BLOCKED"]
+}

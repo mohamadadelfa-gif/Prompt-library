@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "PRODUCER_HANDOFF",
+  "information_states": ["SOURCE", "DERIVED", "DECISION", "OUTPUT"],
+  "production_input_priority": ["PRODUCER_HANDOFF", "VISUAL_DNA_PACKAGE", "STANDALONE_APPROVED_BRIEF"],
+  "required": [
+    "handoff_id",
+    "production_brief",
+    "target_route",
+    "authoritative_inputs",
+    "real_target_context",
+    "brand_mode",
+    "transferable_visual_rules",
+    "non_transferable_source_elements",
+    "content_data_policy",
+    "engineering_checks",
+    "quality_checks",
+    "provenance",
+    "approval"
+  ],
+  "target_routes": [
+    "RESPONSIVE_PAGE",
+    "APP_PROTOTYPE",
+    "DASHBOARD",
+    "HTML_DECK",
+    "HTML_POSTER",
+    "SOCIAL_CARD_SET",
+    "CLICKABLE_PRODUCT_PROTOTYPE"
+  ],
+  "brand_modes": ["BRANDLESS", "BRAND_ON"],
+  "brand_on_policy": {
+    "requires_authorized_context": true,
+    "source_reference_identity_transfer": "FORBIDDEN"
+  },
+  "content_data_policy": {
+    "unsupported_claims": "FORBIDDEN",
+    "fake_metrics": "FORBIDDEN",
+    "missing_content": "MARKED_PLACEHOLDER_OR_BLOCKED"
+  },
+  "approval": {
+    "required_status": "APPROVE",
+    "required_fields": ["approved_by", "approved_at", "approved_scope"]
+  }
+}

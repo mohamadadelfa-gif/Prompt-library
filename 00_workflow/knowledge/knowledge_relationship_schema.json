@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "KNOWLEDGE_RELATIONSHIP_GRAPH",
+  "node_kinds": [
+    "KNOWLEDGE",
+    "TASK",
+    "PROTOCOL",
+    "ARTIFACT",
+    "DECISION",
+    "OUTPUT",
+    "QC_EVIDENCE"
+  ],
+  "relation_types": {
+    "SUPPORTS": {
+      "description": "Source or knowledge provides evidence for a task, decision, rule or artifact.",
+      "allowed_from": ["KNOWLEDGE", "ARTIFACT", "QC_EVIDENCE"],
+      "allowed_to": ["TASK", "PROTOCOL", "ARTIFACT", "DECISION", "OUTPUT"]
+    },
+    "DERIVED_FROM": {
+      "description": "A derived node was created from one or more identified upstream nodes.",
+      "allowed_from": ["KNOWLEDGE", "ARTIFACT", "DECISION", "OUTPUT", "QC_EVIDENCE"],
+      "allowed_to": ["KNOWLEDGE", "ARTIFACT", "DECISION", "OUTPUT"]
+    },
+    "GOVERNS": {
+      "description": "An approved rule or decision constrains a downstream task, protocol or output.",
+      "allowed_from": ["KNOWLEDGE", "DECISION"],
+      "allowed_to": ["TASK", "PROTOCOL", "ARTIFACT", "OUTPUT"]
+    },
+    "CONSUMED_BY": {
+      "description": "A task or protocol is authorized to retrieve and consume a knowledge node.",
+      "allowed_from": ["KNOWLEDGE", "ARTIFACT"],
+      "allowed_to": ["TASK", "PROTOCOL"]
+    },
+    "PRODUCES": {
+      "description": "A task or protocol produces an artifact, output or QC evidence node.",
+      "allowed_from": ["TASK", "PROTOCOL"],
+      "allowed_to": ["KNOWLEDGE", "ARTIFACT", "OUTPUT", "QC_EVIDENCE"]
+    },
+    "EVALUATES": {
+      "description": "QC evidence or a QC task evaluates an artifact or output.",
+      "allowed_from": ["TASK", "PROTOCOL", "QC_EVIDENCE"],
+      "allowed_to": ["ARTIFACT", "OUTPUT"]
+    },
+    "REVISES": {
+      "description": "A decision or output is an authorized revision of a prior artifact or output.",
+      "allowed_from": ["DECISION", "OUTPUT", "ARTIFACT"],
+      "allowed_to": ["ARTIFACT", "OUTPUT"]
+    },
+    "SUPERSEDES": {
+      "description": "An approved node replaces an older node while preserving history.",
+      "allowed_from": ["KNOWLEDGE", "DECISION", "ARTIFACT", "OUTPUT"],
+      "allowed_to": ["KNOWLEDGE", "DECISION", "ARTIFACT", "OUTPUT"]
+    },
+    "PROMOTED_FROM": {
+      "description": "An approved project or system rule was promoted from a lower-scope knowledge node.",
+      "allowed_from": ["KNOWLEDGE"],
+      "allowed_to": ["KNOWLEDGE"]
+    },
+    "CONFLICTS_WITH": {
+      "description": "Two nodes contain an unresolved or intentionally preserved conflict.",
+      "allowed_from": ["KNOWLEDGE", "DECISION", "ARTIFACT"],
+      "allowed_to": ["KNOWLEDGE", "DECISION", "ARTIFACT"]
+    }
+  },
+  "required_edge_fields": [
+    "edge_id",
+    "from",
+    "from_kind",
+    "relation",
+    "to",
+    "to_kind",
+    "project_id",
+    "scope",
+    "provenance",
+    "confidence",
+    "approval_state"
+  ],
+  "confidence_values": ["Low", "Medium", "High"],
+  "approval_states": ["ACTIVE_SOURCE", "PENDING_CONFIRMATION", "APPROVED", "REJECTED", "SUPERSEDED"],
+  "invariants": [
+    "Edges never change the information state of either endpoint.",
+    "DERIVED_FROM does not convert DERIVED information into SOURCE.",
+    "PROMOTED_FROM requires explicit approval and preserves the original node.",
+    "SUPERSEDES preserves history and never deletes the superseded endpoint.",
+    "Cross-project edges require explicit scope and cannot expose confidential project knowledge.",
+    "Every edge has traceable provenance."
+  ]
+}

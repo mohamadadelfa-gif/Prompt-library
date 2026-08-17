@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "PRESENTATION_DESIGN_PROFILE",
+  "persistence_policy": "EXPLICIT_HUMAN_APPROVAL_ONLY",
+  "required": [
+    "profile_id",
+    "display_name",
+    "current_version",
+    "source_summary",
+    "visual_dna_snapshot",
+    "presentation_dna",
+    "tokens",
+    "reference_subject_firewall",
+    "negative_constraints",
+    "quality_constraints",
+    "approval",
+    "versions"
+  ],
+  "presentation_dna_layers": {
+    "mood": ["emotional_tone", "energy", "authority", "risk"],
+    "composition": ["whitespace", "density", "grid", "hierarchy", "rhythm", "layout_capacity"],
+    "visual": ["palette", "typography", "surface_ink_pairs", "border_shadow", "texture", "image_treatment"],
+    "content_strategy": ["word_limits", "bullet_limits", "chart_weight", "formula_friendliness", "split_rules"],
+    "presentation": ["pacing", "narrative_style", "motion_intensity", "transition_direction", "reveal_strategy"]
+  },
+  "fixed_parameters": [
+    "whitespace",
+    "information_density",
+    "image_weight",
+    "title_weight",
+    "chart_weight",
+    "text_density",
+    "formula_friendliness",
+    "grid_strictness",
+    "hierarchy_strength",
+    "motion_intensity"
+  ],
+  "reference_subject_firewall": {
+    "style_traits_allowed": true,
+    "identifiable_subject_replication": "FORBIDDEN_BY_DEFAULT",
+    "content_asset_exception": "EXPLICIT_USER_APPROVAL_REQUIRED"
+  },
+  "version_policy": {
+    "snapshots_immutable": true,
+    "tuning_creates_new_version": true,
+    "design_diff_required": true,
+    "adapter_is_derived": true
+  },
+  "approval": {
+    "required_status": "APPROVE",
+    "required_fields": ["approved_by", "approved_at", "approved_scope"]
+  }
+}

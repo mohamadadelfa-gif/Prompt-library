@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "registry_status": "CURATED_STARTER_SET",
+  "source_collection": {
+    "name": "awesome-design-language-system",
+    "url": "https://github.com/DragorWW/awesome-design-language-system",
+    "license": "MIT"
+  },
+  "policy": {
+    "authority_preference": "OFFICIAL_PRIMARY_SOURCE",
+    "maximum_references_per_decision": 3,
+    "live_verification_required": true,
+    "automatic_target_token_adoption": false,
+    "distinctive_identity_transfer": false
+  },
+  "references": [
+    {"id": "DSREF-001", "name": "Material Design", "owner": "Google", "official_url": "https://m3.material.io/", "best_for": ["cross-platform UI", "components", "interaction", "accessibility"], "status": "VERIFY_BEFORE_USE"},
+    {"id": "DSREF-002", "name": "Carbon Design System", "owner": "IBM", "official_url": "https://carbondesignsystem.com/", "best_for": ["enterprise UI", "data-heavy interfaces", "accessibility", "content guidance"], "status": "VERIFY_BEFORE_USE"},
+    {"id": "DSREF-003", "name": "Polaris", "owner": "Shopify", "official_url": "https://polaris.shopify.com/", "best_for": ["commerce administration", "content patterns", "components"], "status": "VERIFY_BEFORE_USE"},
+    {"id": "DSREF-004", "name": "Human Interface Guidelines", "owner": "Apple", "official_url": "https://developer.apple.com/design/human-interface-guidelines/", "best_for": ["Apple platforms", "native interaction", "accessibility"], "status": "VERIFY_BEFORE_USE"},
+    {"id": "DSREF-005", "name": "Atlassian Design System", "owner": "Atlassian", "official_url": "https://atlassian.design/", "best_for": ["collaboration products", "enterprise UI", "content", "components"], "status": "VERIFY_BEFORE_USE"},
+    {"id": "DSREF-006", "name": "U.S. Web Design System", "owner": "United States government", "official_url": "https://designsystem.digital.gov/", "best_for": ["public services", "accessibility", "forms", "plain language"], "status": "VERIFY_BEFORE_USE"},
+    {"id": "DSREF-007", "name": "GOV.UK Design System", "owner": "Government Digital Service", "official_url": "https://design-system.service.gov.uk/", "best_for": ["public services", "forms", "accessibility", "content design"], "status": "VERIFY_BEFORE_USE"},
+    {"id": "DSREF-008", "name": "Storybook", "owner": "Storybook project", "official_url": "https://storybook.js.org/", "best_for": ["component documentation", "isolated states", "visual testing"], "status": "VERIFY_BEFORE_USE"},
+    {"id": "DSREF-009", "name": "Linode Design Language System", "owner": "Linode LLC", "official_url": "https://github.com/linode/design-language-system", "best_for": ["token architecture", "Style Dictionary", "multi-theme output", "platform delivery"], "status": "VERIFY_BEFORE_USE"}
+  ]
+}

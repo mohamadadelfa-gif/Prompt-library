@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "CONTROLLED_DESIGN_TOKEN_SYSTEM",
+  "required": [
+    "system_id",
+    "version",
+    "status",
+    "provenance",
+    "approval",
+    "themes",
+    "tokens",
+    "exceptions",
+    "refinement",
+    "gate"
+  ],
+  "lifecycle": ["LEARN", "STRUCTURE", "REFINE"],
+  "tiers": {
+    "global": {
+      "information_state": "DECISION",
+      "may_reference": ["global"]
+    },
+    "alias": {
+      "information_state": "DECISION",
+      "may_reference": ["global", "alias"]
+    },
+    "component": {
+      "information_state": "DECISION",
+      "may_reference": ["global", "alias", "component_same_scope"]
+    }
+  },
+  "token_categories": ["color", "typography", "space", "size", "radius", "border", "shadow", "opacity", "motion", "breakpoint"],
+  "required_component_states": ["default", "hover", "active", "focus_visible", "disabled"],
+  "reference_syntax": "{dot.separated.token.path}",
+  "naming_pattern": "^[a-z][a-z0-9]*(\\.[a-z0-9][a-z0-9_]*)+$",
+  "invariants": {
+    "acyclic_references": true,
+    "theme_alias_parity": true,
+    "automatic_source_promotion": false,
+    "immutable_approved_versions": true,
+    "raw_component_values": "EXCEPTION_REQUIRED"
+  },
+  "gate_values": ["PASS", "CONDITIONAL", "BLOCKED"]
+}

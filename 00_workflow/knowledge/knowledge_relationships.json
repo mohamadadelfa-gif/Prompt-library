@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0",
+  "schema": "00_workflow/knowledge/knowledge_relationship_schema.json",
+  "external_nodes": [
+    {
+      "id": "LLM-EVALUATOR-EVIDENCE-SCHEMA",
+      "kind": "ARTIFACT",
+      "path": "00_workflow/qc/llm_evaluator_evidence_schema.json",
+      "scope": "SYSTEM_EVALUATION_CONTRACT"
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "KREL-001",
+      "from": "EBL-KB-001",
+      "from_kind": "KNOWLEDGE",
+      "relation": "CONSUMED_BY",
+      "to": "STR-001",
+      "to_kind": "TASK",
+      "project_id": "EBL",
+      "scope": "PROJECT_STRATEGY",
+      "provenance": "knowledge_registry.json allowed_consumers for EBL-KB-001",
+      "confidence": "High",
+      "approval_state": "PENDING_CONFIRMATION"
+    },
+    {
+      "edge_id": "KREL-002",
+      "from": "EBL-KB-001",
+      "from_kind": "KNOWLEDGE",
+      "relation": "CONSUMED_BY",
+      "to": "STR-005",
+      "to_kind": "TASK",
+      "project_id": "EBL",
+      "scope": "PROJECT_RECONCILIATION",
+      "provenance": "knowledge_registry.json allowed_consumers for EBL-KB-001",
+      "confidence": "High",
+      "approval_state": "PENDING_CONFIRMATION"
+    },
+    {
+      "edge_id": "KREL-003",
+      "from": "KLEE-SRC-001",
+      "from_kind": "KNOWLEDGE",
+      "relation": "CONSUMED_BY",
+      "to": "STYLE-001",
+      "to_kind": "TASK",
+      "project_id": "EBL",
+      "scope": "PAUL_KLEE_NAMED_STYLE_STUDY",
+      "provenance": "knowledge_registry.json allowed_consumers for KLEE-SRC-001",
+      "confidence": "High",
+      "approval_state": "ACTIVE_SOURCE"
+    },
+    {
+      "edge_id": "KREL-004",
+      "from": "KLEE-SRC-002",
+      "from_kind": "KNOWLEDGE",
+      "relation": "CONSUMED_BY",
+      "to": "STYLE-001",
+      "to_kind": "TASK",
+      "project_id": "EBL",
+      "scope": "PAUL_KLEE_NAMED_STYLE_STUDY",
+      "provenance": "knowledge_registry.json allowed_consumers for KLEE-SRC-002",
+      "confidence": "High",
+      "approval_state": "ACTIVE_SOURCE"
+    },
+    {
+      "edge_id": "KREL-005",
+      "from": "KLEE-SRC-003",
+      "from_kind": "KNOWLEDGE",
+      "relation": "CONSUMED_BY",
+      "to": "STYLE-001",
+      "to_kind": "TASK",
+      "project_id": "EBL",
+      "scope": "PAUL_KLEE_NAMED_STYLE_STUDY",
+      "provenance": "knowledge_registry.json allowed_consumers for KLEE-SRC-003",
+      "confidence": "High",
+      "approval_state": "ACTIVE_SOURCE"
+    },
+    {
+      "edge_id": "KREL-006",
+      "from": "GFTOOLS-SRC-001",
+      "from_kind": "KNOWLEDGE",
+      "relation": "CONSUMED_BY",
+      "to": "VIS-005",
+      "to_kind": "TASK",
+      "project_id": "GLOBAL",
+      "scope": "SYSTEM_FONT_ENGINEERING_REFERENCE",
+      "provenance": "knowledge_registry.json allowed_consumers for GFTOOLS-SRC-001",
+      "confidence": "High",
+      "approval_state": "ACTIVE_SOURCE"
+    },
+    {
+      "edge_id": "KREL-007",
+      "from": "SYS-FINAL-AI-001",
+      "from_kind": "KNOWLEDGE",
+      "relation": "GOVERNS",
+      "to": "ART-003",
+      "to_kind": "TASK",
+      "project_id": "GLOBAL",
+      "scope": "SYSTEM_WORKFLOW_FINAL_AI_PRODUCTION",
+      "provenance": "knowledge_registry.json approved SYSTEM_RULE and allowed_consumers",
+      "confidence": "High",
+      "approval_state": "APPROVED"
+    },
+    {
+      "edge_id": "KREL-008",
+      "from": "SYS-FINAL-AI-001",
+      "from_kind": "KNOWLEDGE",
+      "relation": "GOVERNS",
+      "to": "QC-001",
+      "to_kind": "TASK",
+      "project_id": "GLOBAL",
+      "scope": "SYSTEM_WORKFLOW_FINAL_AI_PRODUCTION",
+      "provenance": "knowledge_registry.json approved SYSTEM_RULE and allowed_consumers",
+      "confidence": "High",
+      "approval_state": "APPROVED"
+    },
+    {
+      "edge_id": "KREL-009",
+      "from": "QC-001",
+      "from_kind": "TASK",
+      "relation": "PRODUCES",
+      "to": "LLM-EVALUATOR-EVIDENCE-SCHEMA",
+      "to_kind": "ARTIFACT",
+      "project_id": "GLOBAL",
+      "scope": "SYSTEM_EVALUATION_CONTRACT",
+      "provenance": "llm_evaluator_protocol.md output contract",
+      "confidence": "High",
+      "approval_state": "APPROVED"
+    }
+  ]
+}

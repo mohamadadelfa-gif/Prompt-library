@@ -1,0 +1,53 @@
+{
+  "system_id": "DTS-PROJECT-001",
+  "version": "0.1.0-candidate",
+  "status": "CANDIDATE",
+  "provenance": {
+    "approved_visual_dna": "REQUIRED",
+    "design_md_record": "OPTIONAL",
+    "reference_records": [],
+    "source_identity_transfer": false
+  },
+  "approval": {
+    "state": "PENDING",
+    "reference": "REQUIRED_BEFORE_PASS"
+  },
+  "themes": ["light", "dark", "high_contrast"],
+  "tokens": {
+    "global": {
+      "global.color.neutral.0": {"value": "#ffffff", "type": "color"},
+      "global.color.neutral.1000": {"value": "#111111", "type": "color"},
+      "global.space.2": {"value": "0.5rem", "type": "space"},
+      "global.radius.control": {"value": "0.5rem", "type": "radius"}
+    },
+    "alias": {
+      "light": {
+        "alias.text.primary": {"value": "{global.color.neutral.1000}", "type": "color"},
+        "alias.surface.canvas": {"value": "{global.color.neutral.0}", "type": "color"}
+      },
+      "dark": {
+        "alias.text.primary": {"value": "{global.color.neutral.0}", "type": "color"},
+        "alias.surface.canvas": {"value": "{global.color.neutral.1000}", "type": "color"}
+      },
+      "high_contrast": {
+        "alias.text.primary": {"value": "{global.color.neutral.1000}", "type": "color"},
+        "alias.surface.canvas": {"value": "{global.color.neutral.0}", "type": "color"}
+      }
+    },
+    "component": {
+      "component.button.primary.text.default": {"value": "{alias.text.primary}", "type": "color"},
+      "component.button.primary.surface.default": {"value": "{alias.surface.canvas}", "type": "color"},
+      "component.button.primary.surface.hover": {"value": "{alias.surface.canvas}", "type": "color"},
+      "component.button.primary.surface.active": {"value": "{alias.surface.canvas}", "type": "color"},
+      "component.button.primary.surface.focus_visible": {"value": "{alias.surface.canvas}", "type": "color"},
+      "component.button.primary.surface.disabled": {"value": "{alias.surface.canvas}", "type": "color"}
+    }
+  },
+  "exceptions": [],
+  "refinement": {
+    "checks": ["references", "cycles", "theme_parity", "accessibility", "component_states", "duplicates"],
+    "result": "PENDING",
+    "change_log": []
+  },
+  "gate": "CONDITIONAL"
+}

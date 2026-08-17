@@ -1,0 +1,2 @@
+# Optional, explicitly installed runtime for HTML carousel rendering.
+playwright>=1.40,<2

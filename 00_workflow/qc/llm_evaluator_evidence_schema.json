@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "LLM_EVALUATOR_EVIDENCE",
+  "required": [
+    "evidence_id",
+    "candidate",
+    "generation_context",
+    "evaluator",
+    "rubric",
+    "judge",
+    "calibration",
+    "results",
+    "critical_failures",
+    "uncertainty",
+    "failure_classification",
+    "revision_route",
+    "reproducibility",
+    "gate_recommendation",
+    "human_decision_state",
+    "provenance"
+  ],
+  "failure_classifications": [
+    "CONTENT_FAILURE",
+    "GENERATOR_FAILURE",
+    "EVALUATOR_FAILURE",
+    "RUBRIC_FAILURE",
+    "DATASET_FAILURE",
+    "INPUT_FAILURE",
+    "INFRASTRUCTURE_FAILURE",
+    "DISAGREEMENT"
+  ],
+  "calibration_states": ["VALIDATED", "LIMITED", "EXPERIMENTAL", "STALE", "UNKNOWN"],
+  "gate_values": ["PASS", "CONDITIONAL", "BLOCKED", "REVISE"],
+  "human_decision_states": ["AWAITING_HUMAN_DECISION", "ACCEPTED", "REJECTED", "OVERRIDDEN_WITH_REASON"],
+  "result_requirements": {
+    "dimension_id": true,
+    "score": true,
+    "scale": true,
+    "evidence_excerpts": true,
+    "rationale": true,
+    "confidence": true
+  },
+  "invariants": [
+    "Evaluator evidence is not an approval decision.",
+    "Every material score requires candidate evidence.",
+    "Experimental or unknown calibration cannot automatically release a candidate.",
+    "Critical fidelity and safety failures override aggregate scores.",
+    "Raw judge disagreements remain auditable.",
+    "Credentials and confidential source material are not stored in the evidence package."
+  ]
+}
