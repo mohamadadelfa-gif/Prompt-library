@@ -178,6 +178,42 @@ A prose-only memory update is incomplete when future retrieval/QC cannot consume
 
 ---
 
+## EBL-DEC-011 — Series Rename: A World from the World
+
+**Date:** 2026-08-17  
+**Decision:** Rename the recurring series formerly called **A Line for Today** to **A World from the World**. The new name is the active public series identifier.  
+**Rationale:** The series is intended to open a larger cultural, linguistic, or interpretive world from a small fragment rather than operate as a generic daily quote format.  
+**Scope:** Series naming, Story/Feed headers, content workflow, launch calendar, future references.  
+**Status:** APPROVED.  
+**Supersedes:** `A Line for Today` as the active series name.  
+**Provenance:** Explicit human instruction on 2026-08-17.  
+**Affected:** `EBL_a_world_from_the_world_system.md`, superseded `EBL_a_line_for_today_template.md`, `EBL_memory_registry.json`, launch calendar and future content briefs.
+
+---
+
+## EBL-DEC-012 — A World from the World Becomes a Full Content System
+
+**Date:** 2026-08-17  
+**Decision:** The renamed series is not only a visual quote template. Its workflow is structured as source selection → source/attribution verification → copyright/rights context → interpretation/teaching layer → writing lock → Story/Feed design → QC → human final review.  
+**Rationale:** The EBL value comes from transforming a cultural/language fragment into context, interpretation and independent participation; presentation alone is insufficient.  
+**Scope:** All `A World from the World` production.  
+**Status:** APPROVED CURRENT WORKFLOW.  
+**Supersedes:** The narrower visual-only operational use of the former `A Line for Today` template.  
+**Affected:** `EBL_a_world_from_the_world_system.md`, `EBL_copyright_rules.md`, content handoffs and QC.
+
+---
+
+## EBL-DEC-013 — First Launch Calendar
+
+**Date:** 2026-08-17  
+**Decision:** Use the approved launch schedule beginning **Saturday, 22 August 2026**, with `A World from the World` as the recurring morning Story and `Vocabulary` as the recurring evening Story through the recorded first-two-weeks launch period. Feed posts progress through English Independence → Tell → Explain → Argue → Participate → Keyvan introductory video.  
+**Rationale:** This establishes a stable daily Story rhythm around a paced feed narrative that moves from EBL philosophy into communication functions and then the human/teacher introduction.  
+**Scope:** Launch operations, 22 Aug–1 Sep 2026.  
+**Status:** APPROVED.  
+**Affected:** `EBL_launch_calendar_weeks_01_02.md`, daily content planning and series retrieval.
+
+---
+
 ## Discipline Rule
 
 When a decision changes:
