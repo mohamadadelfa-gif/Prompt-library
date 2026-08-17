@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "project_id": "EBL",
   "project_name": "English Beyond Language",
   "updated_at": "2026-08-17",
@@ -28,6 +28,8 @@
     "CONTENT_SPECIFIC",
     "CONTENT_SERIES",
     "OPERATING_CALENDAR",
+    "TEMPLATE_SYSTEM",
+    "APPROVED_ARTIFACT",
     "REVIEW_CANDIDATE"
   ],
   "records": [
@@ -60,7 +62,7 @@
       "path": "00_workflow/knowledge/project/EBL_asset_registry.json",
       "status": "APPROVED",
       "scope": "PROJECT",
-      "required_for": ["LOGO_USE", "IDENTITY_USE", "FINAL_OUTPUT"],
+      "required_for": ["LOGO_USE", "IDENTITY_USE", "FINAL_OUTPUT", "ED_POST", "POST_01"],
       "supersedes": [],
       "provenance_required": true
     },
@@ -93,7 +95,7 @@
       "path": "00_workflow/knowledge/project/EBL_visual_examples.md",
       "status": "APPROVED",
       "scope": "PROJECT",
-      "required_for": ["VISUAL_CALIBRATION", "QC"],
+      "required_for": ["VISUAL_CALIBRATION", "QC", "ED_POST"],
       "supersedes": [],
       "provenance_required": true
     },
@@ -150,6 +152,28 @@
       "scope": "COPYRIGHT_AND_RIGHTS_CONTEXT",
       "required_for": ["FILM_CLIP", "FILM_AUDIO", "SOUNDTRACK", "BACKGROUND_MUSIC", "QUOTATION_RIGHTS_CHECK"],
       "supersedes": [],
+      "provenance_required": true
+    },
+    {
+      "memory_id": "EBL-MEM-TEMPLATE-EDPOST-001",
+      "class": "TEMPLATE_SYSTEM",
+      "title": "Ed.post — Canonical EBL Post Template",
+      "path": "00_workflow/knowledge/project/EBL_template_Ed_post.md",
+      "status": "APPROVED_CANONICAL_TEMPLATE",
+      "scope": "INSTAGRAM_FEED_CAROUSEL",
+      "required_for": ["ED_POST", "CAROUSEL_CREATION", "CAROUSEL_REVISION", "POST_01", "TYPOGRAPHY_EDIT", "FINAL_AI"],
+      "supersedes": ["EARLIER_UNRESOLVED_POST_TEMPLATE_RECONSTRUCTIONS"],
+      "provenance_required": true
+    },
+    {
+      "memory_id": "EBL-MEM-ARTIFACT-POST01-001",
+      "class": "APPROVED_ARTIFACT",
+      "title": "Post 01 — English Independence — Approved Artifact",
+      "path": "00_workflow/knowledge/project/EBL_post_01_approved_artifact.md",
+      "status": "APPROVED_FIXED_CANONICAL_REFERENCE_SET",
+      "scope": "POST_01_AND_ED_POST_CALIBRATION",
+      "required_for": ["POST_01", "ED_POST", "VISUAL_CALIBRATION", "CAROUSEL_REVISION", "QC", "FINAL_AI"],
+      "supersedes": ["EARLIER_POST_01_GRID_ALTERNATES", "UNVERIFIED_POST_01_RECONSTRUCTIONS"],
       "provenance_required": true
     }
   ],
