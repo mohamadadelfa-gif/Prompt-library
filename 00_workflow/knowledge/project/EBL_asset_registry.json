@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "project_id": "EBL",
-  "updated_at": "2026-08-16",
+  "updated_at": "2026-08-17",
   "asset_policy": {
     "canonical_rule": "When a canonical asset exists, use that exact approved asset or an explicitly approved variant. Do not regenerate a similar substitute.",
     "verification_rule": "Path, hash, dimensions, mode and variant status must be verified before they are treated as asset metadata.",
@@ -85,6 +85,80 @@
       "source_provenance": "Generated during the EBL Story-template conversation using the approved visual system; source fingerprint recorded for candidate tracking.",
       "promotion_condition": "Requires explicit human approval before exact composition/coordinates become an approved reusable Story asset.",
       "required_qc": ["QC-EBL-001", "QC-EBL-MEM-001"]
+    },
+    {
+      "asset_id": "EBL-ASSET-ED-POST-001",
+      "asset_type": "INSTAGRAM_FEED_CAROUSEL_TEMPLATE",
+      "name": "Ed.post — Canonical EBL Post Template",
+      "status": "LOCKED_APPROVED_TEMPLATE",
+      "human_selected": true,
+      "canonical_repo_path": null,
+      "repository_ingestion_status": "REFERENCE_BINARIES_NOT_YET_INGESTED",
+      "knowledge_path": "00_workflow/knowledge/project/EBL_template_Ed_post.md",
+      "reference_artifact_id": "EBL-POST-001",
+      "reference_artifact_path": "00_workflow/knowledge/project/EBL_post_01_approved_artifact.md",
+      "source_provenance": "Explicitly human-approved six-slide Post 01 set on 2026-08-17, designated as the template for future EBL feed-post carousels under the name Ed.post.",
+      "resolution_rule": "Retrieve the approved Post 01 slide binaries and compare against their verified fingerprints before claiming exact canonical visual fidelity. If binaries are unavailable, use the template knowledge only as structural guidance and do not claim exact reproduction.",
+      "required_qc": ["QC-EBL-001", "QC-EBL-MEM-001", "QC-EBL-TYPE-001", "QC-LOGO-001"]
+    },
+    {
+      "asset_id": "EBL-POST-001",
+      "asset_type": "APPROVED_INSTAGRAM_CAROUSEL",
+      "name": "Post 01 — English Independence",
+      "status": "LOCKED_APPROVED_ARTIFACT",
+      "human_selected": true,
+      "template_asset_id": "EBL-ASSET-ED-POST-001",
+      "canonical_repo_path": null,
+      "repository_ingestion_status": "SOURCE_BINARIES_VERIFIED_NOT_YET_INGESTED",
+      "artifact_record_path": "00_workflow/knowledge/project/EBL_post_01_approved_artifact.md",
+      "slide_count": 6,
+      "slides": [
+        {
+          "slide": 1,
+          "verified_source_filename": "EBL_POST_01_SLIDE_01_INSTAGRAM_1080(2).png",
+          "verified_source_sha256": "425fc52bd03445087d7dca37c8a4bd62c19fb7c4a5f8360e2de73976adcd4e93",
+          "verified_source_dimensions_px": [1080, 1080],
+          "verified_source_format": "PNG"
+        },
+        {
+          "slide": 2,
+          "verified_source_filename": "EBL_POST_01_SLIDE_02_INSTAGRAM_1080(2).png",
+          "verified_source_sha256": "7e2b4536af1f775d2b08bda6064f245bda085874e1eb076074a0bcb63f311115",
+          "verified_source_dimensions_px": [1080, 1080],
+          "verified_source_format": "PNG"
+        },
+        {
+          "slide": 3,
+          "verified_source_filename": "9cc3d807-ef26-45e3-9aa0-1a5d02a6e22c(2).png",
+          "verified_source_sha256": "3504077265fc5537929be035870f82cdfd104c421bfd7bde03a2a1cf8ae537c4",
+          "verified_source_dimensions_px": [1254, 1254],
+          "verified_source_format": "PNG"
+        },
+        {
+          "slide": 4,
+          "verified_source_filename": "EBL_POST_01_SLIDE_04_INSTAGRAM_1080(3).png",
+          "verified_source_sha256": "b6c514d2ed5610af57ef1f0f2ea598fb33db4ac4cad0fd78071ca404b2536f14",
+          "verified_source_dimensions_px": [1080, 1080],
+          "verified_source_format": "PNG"
+        },
+        {
+          "slide": 5,
+          "verified_source_filename": "89337016-68e0-46b7-aa04-8f3f0ba67c1c(1).png",
+          "verified_source_sha256": "b526a91cba3b1a3717a863ac0b0a4dc9b7fdee13cd9298ec6df4a05f901f752c",
+          "verified_source_dimensions_px": [1254, 1254],
+          "verified_source_format": "PNG"
+        },
+        {
+          "slide": 6,
+          "verified_source_filename": "d8f8c37b-e09b-415d-a335-eb11561271cf.png",
+          "verified_source_sha256": "ea7568f544521a836494d0152a43d444d92cc7b7ef40d69955e313e059070ad4",
+          "verified_source_dimensions_px": [1254, 1254],
+          "verified_source_format": "PNG"
+        }
+      ],
+      "source_binary_verification": "VERIFIED_IN_ACTIVE_PRODUCTION_RUNTIME_2026-08-17",
+      "source_provenance": "The human explicitly supplied and confirmed these six slides as the fixed first post and canonical Ed.post reference set on 2026-08-17.",
+      "required_qc": ["QC-EBL-001", "QC-EBL-MEM-001", "QC-EBL-TYPE-001", "QC-LOGO-001"]
     }
   ]
 }
