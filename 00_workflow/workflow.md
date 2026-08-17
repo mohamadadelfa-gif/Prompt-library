@@ -2,360 +2,339 @@
 
 ## Purpose
 
-This document defines the execution system for the Prompt Library. The repository is a controlled creative-production system, not a loose collection of prompts.
+This repository is a controlled creative-production system, not a loose collection of prompts.
 
-Each prompt is an executable task or controlled production protocol with a defined input contract, task boundary, output contract, provenance requirements, confidence requirements, and decision gate.
+The lifecycle separates reusable foundation-building from content-instance production and makes reuse, conditional skipping, blocking, revision, and human approval explicit.
 
-## Core Rule
+## Canonical Authority
 
-No stage may silently rewrite upstream facts, requirements, decisions, or approved constraints.
+`00_workflow/process_registry.json` is the single canonical machine-readable source of truth for stage identity, order, dependencies, conditions, tasks, protocols, outputs, gates, and memory effects.
 
-Information is classified as:
+- `task_registry.json` mirrors stage identity and task placement.
+- `task_contracts.json` remains authoritative for executable task dependencies and gates.
+- `stage_registry.md` is the human-readable stage map.
+- This file explains execution behavior.
 
-- SOURCE — directly supplied or observed evidence.
-- DERIVED — an explicit analysis or inference based on source evidence.
-- DECISION — an intentional approved creative or project choice.
-- OUTPUT — an execution result to be evaluated.
+No secondary representation may redefine the lifecycle independently.
 
-A downstream stage may transform information only within its task boundary.
+## Core Information Rule
 
-## Production Pipeline
+Information states remain:
+
+- `SOURCE`
+- `DERIVED`
+- `DECISION`
+- `OUTPUT`
+
+No stage may silently rewrite approved upstream facts, requirements, decisions, source identity, or scope.
+
+## Stage-Satisfaction Rule
+
+Before executing any stage, resolve its routing state:
+
+```text
+CURRENT APPROVED ARTIFACT SATISFIES THIS STAGE?
+        |
+       YES
+        ↓
+SATISFIED_BY_REUSE
+        |
+       NO
+        ↓
+IS THE STAGE APPLICABLE?
+   |             |
+  NO            YES
+   ↓             ↓
+SKIPPED       REQUIRED INPUTS AVAILABLE?
+NOT_APPLICABLE    |             |
+                 NO            YES
+                  ↓             ↓
+               BLOCKED       EXECUTE
+                                ↓
+                         PASS / REVISION GATE
+                                ↓
+                         COMPLETE or REVISE
+```
+
+Allowed routing states:
+
+`EXECUTE`, `SATISFIED_BY_REUSE`, `SKIPPED_NOT_APPLICABLE`, `BLOCKED`, `REVISE`, `COMPLETE`.
+
+Reuse is valid only when the artifact is current, approved, non-superseded, correctly scoped, traceable, and satisfies the required gate.
+
+## Lifecycle Zones
+
+### Zone A — Foundation / System Creation (01–08)
+
+Build or validate the reusable project/design foundation.
+
+### Zone B — Content Production / Finalization (09–20)
+
+Use that foundation for a content instance, finalization, human approval, publishing outputs, and controlled learning.
+
+## Canonical Stage Markers
+
+<!-- ARCHITECTURE_STAGE: 01|strategy -->
+<!-- ARCHITECTURE_STAGE: 02|research -->
+<!-- ARCHITECTURE_STAGE: 03|visual_analysis -->
+<!-- ARCHITECTURE_STAGE: 04|named_style_study -->
+<!-- ARCHITECTURE_STAGE: 05|motif_sign_extraction -->
+<!-- ARCHITECTURE_STAGE: 06|reference_style_synthesis -->
+<!-- ARCHITECTURE_STAGE: 07|visual_dna -->
+<!-- ARCHITECTURE_STAGE: 08|platform_template_synthesis -->
+<!-- ARCHITECTURE_STAGE: 09|approved_content_handoff -->
+<!-- ARCHITECTURE_STAGE: 10|art_direction -->
+<!-- ARCHITECTURE_STAGE: 11|generation -->
+<!-- ARCHITECTURE_STAGE: 12|human_directed_revision -->
+<!-- ARCHITECTURE_STAGE: 13|pre_final_quality_control -->
+<!-- ARCHITECTURE_STAGE: 14|final_ai_creative_refinement -->
+<!-- ARCHITECTURE_STAGE: 15|editable_reconstruction_preparation -->
+<!-- ARCHITECTURE_STAGE: 16|editable_implementation -->
+<!-- ARCHITECTURE_STAGE: 17|final_production_quality_control -->
+<!-- ARCHITECTURE_STAGE: 18|human_final_approval -->
+<!-- ARCHITECTURE_STAGE: 19|master_platform_derivatives -->
+<!-- ARCHITECTURE_STAGE: 20|learning_memory_promotion -->
+
+## Production Lifecycle
 
 ```text
 01 Strategy
-   ↓
+↓
 02 Research
-   ↓
+↓
 03 Visual Analysis
-   ↓
-04 Named Style Study (when applicable)
-   ↓
-05 Motif & Sign Extraction (when applicable)
-   ↓
+↓
+04 Named Style Study [conditional]
+↓
+05 Motif & Sign Extraction [conditional]
+↓
 06 Reference Style Synthesis
-   ↓
+↓
 07 Visual DNA
-   ↓
-08 Platform / Instagram Template Synthesis
-   ↓
-09 Art Direction
-   ↓
-10 Generation
-   ↓
-11 Content Package
-   ↓
-12 Human Revision + Style Learning
-   ↓
-13 Editable Reconstruction Preparation (when approved output is raster/flattened)
-   ↓
-14 Figma Implementation
-   ↓
-15 Quality Control / Final Approval
+↓
+08 Platform / Template System [conditional]
+══════════════════════════════════
+APPROVED CREATIVE FOUNDATION
+══════════════════════════════════
+↓
+09 Approved Content / Writing Handoff
+↓
+10 Content Function + Art Direction
+↓
+11 Generation / Build Candidate
+↓
+12 Human-Directed Revision [conditional]
+↓
+13 Pre-Final Quality Control
+↓
+14 Final AI Creative Refinement [conditional]
+↓
+15 Editable Reconstruction Preparation [conditional]
+↓
+16 Editable Implementation [conditional]
+↓
+17 Final Production Quality Control
+↓
+18 Human Final Approval
+↓
+19 Master + Platform Derivatives
+↓
+20 Learning / Memory Promotion [conditional]
 ```
 
-## Style-Learning Rule
+## Stage Responsibilities
 
-When a brief names a specific artist, movement, school, historical style, or recognizable visual language, the system must study the named style before synthesizing the supplied references.
+### 01–08 Foundation / System Creation
 
-Use:
+Strategy, research, visual analysis, named-style study, motif extraction, reference synthesis, Visual DNA, and platform/template synthesis create an `APPROVED_CREATIVE_FOUNDATION`.
 
-`named_style_study.md`
+For established projects, these stages should usually be satisfied by validated reuse rather than recomputed.
 
-The Named Style Study and Reference Style Synthesis are separate layers:
+### 09 Approved Content / Writing Handoff
 
-- **Named Style Study** learns the underlying artistic language and perceptual logic.
-- **Motif & Sign Extraction** builds an evidence-backed vocabulary of recurring signs, shapes, objects, marks, and material behaviors.
-- **Reference Style Synthesis** determines what is actually present in the supplied project references and what can transfer responsibly.
+Resolve the approved copy/content and its provenance before visualizing it. This is the input-side content handoff, not the final publishing package.
 
-Do not skip the study or motif extraction merely because the supplied references appear visually clear.
+### 10 Content Function + Art Direction
 
-## Motif & Sign Extraction Checkpoint
+Determine message function, hierarchy, concept, and content-specific visual decisions while preserving the approved foundation.
 
-When a named style is applicable, extract its recurring visual vocabulary before creating an Instagram template.
+### 11 Generation / Build Candidate
 
-The extraction must identify:
+Create the generation specification/prompt and output candidate. A generated output remains `OUTPUT`, not an approved rule or final master.
 
-- recurring signs and symbols
-- recurring shape families
-- significant recurring objects or object-like forms
-- mark types and gesture behavior
-- material / brush behaviors that function as visual motifs
-- frequency across the reference set
-- formal role
-- semantic role only when supported by evidence
-- emotional effect only when supported by evidence
-- transferability and risk
+### 12 Human-Directed Revision
 
-The extraction must preserve the observed formal character without reproducing a specific artwork or composition.
+The human defines what changes; references inform how; execution changes only authorized areas. Preserve the original and record the delta.
 
-The output is a controlled motif library, not a final brand library.
+Human revision does not automatically create reusable style memory.
 
-See `motif_extraction.md` and `motif_library_schema.json`.
+### 13 Pre-Final Quality Control
 
-## Reference Style Synthesis Checkpoint
+Run `QC-001`, then `QC-002` when correction is required. Use applicable project/asset QC modules and route failures to the earliest responsible stage.
 
-Reference analysis must answer two separate questions:
+A critical failure overrides numerical scores.
 
-1. **What does the reference look like?**
-2. **What does the reference make the viewer feel and why?**
+### 14 Final AI Creative Refinement
 
-The second question is mandatory. Style must be translated through emotional and communication effects rather than through superficial copying of shapes or brush marks.
+Run the controlled closed loop using:
 
-For the English Beyond Language Instagram system, candidate reference-derived qualities include human, curious, thoughtful, warm, culturally aware, artistic, exploratory, and intelligent. These remain hypotheses until validated against the customer direction.
+- `creative_ai_final_edit.md`;
+- `final_ai_creative_synthesis_heavy_qc.md`;
+- `final_ai_closed_loop_production.md`.
 
-See `reference_style_synthesis.md`.
+Preservation is a valid final-edit decision. `FINAL-AI-001` and `FINAL-AI-002` are protocol identities in architecture 4.0 and are not executable task contracts yet.
 
-## Platform / Instagram Translation Checkpoint
+AI may produce `PASS_FOR_HUMAN_FINAL_REVIEW`, not `FINAL_PUBLISHING_MASTER`.
 
-When Instagram is the destination, approved style principles, the motif library, and Visual DNA must be translated into the medium before art direction or generation.
+### 15 Editable Reconstruction Preparation
 
-The platform synthesis must define:
+Conditional production reconstruction for flattened/raster approved visuals when an editable master is required. Preserve the approved source lock and classify reconstructed content as derived where appropriate.
 
-- exact format and dimensions
-- mobile-first readability
-- communication hierarchy
-- content zones
-- slide roles
-- shape and line vocabulary
-- approved motif usage
-- texture and brush behavior
-- color behavior
-- spacing and safe areas
-- reusable components
-- editable / controlled / locked elements
-- Figma implementation requirements
+### 16 Editable Implementation
 
-The reference is a style source, not a layout to reproduce.
+Conditional structured production-master implementation, such as Figma. Implementation must not redesign or reinterpret approved creative decisions.
 
-For painterly or artist-derived references, think in terms of **composition, visual weight, gesture, rhythm, material, and emotional atmosphere** before assigning boxes or coordinates.
+### 17 Final Production Quality Control
 
-See `instagram_template_synthesis.md` and `figma_output_contract.md`.
+Re-check the actual production representation after Final AI and any reconstruction/implementation. Do not inherit a prior pass across a material production transformation.
 
-## Presentation Design DNA Checkpoint
+### 18 Human Final Approval
 
-When the destination is a presentation, slide deck, PPT/PPTX, or HTML deck, translate the approved Visual DNA through:
+Final creative authority remains human. Only explicit approval authorizes the publishing master.
 
-`presentation_design_dna_protocol.md`
+### 19 Master + Platform Derivatives
 
-The presentation path must preserve the existing upstream evidence and approval chain. It adds a presentation-specific Design DNA confirmation gate, requirement gate, scenario-fit Adapter, Design Contract, Blueprint, per-slide Page Specs, mechanical layout budgets, and source-level layout guard.
+Preserve the archival/project master separately from platform derivatives and final publishing package. Create derivatives once from the approved master.
 
-Reference images remain style evidence unless explicitly approved as content assets. Reusable Presentation Design Profiles are opt-in, versioned artifacts governed by `presentation_design_profile_schema.json`; they are never saved automatically.
+### 20 Learning / Memory Promotion
 
-HTML presentation delivery requires `QC-PRES-001_presentation_layout_qc.md` and a passing layout-guard report when Node is available. Screenshots and file-existence checks do not replace the source-level guard.
+Run `QC-003` and the controlled learning protocols only after finalization when learning/structuralization is requested or required.
 
-## HTML Visual Production Checkpoint
+Separate one-off corrections, content decisions, reusable project rules, and system-level learnings. Promotion always requires traceability and the appropriate human authority.
 
-When an approved design must become a website, landing page, interface, dashboard, prototype, poster, card set or other browser-rendered artifact, run:
+## Conditionality and Reuse
 
-`html_visual_production_protocol.md`
+A lifecycle dependency may be resolved by `COMPLETE`, `SATISFIED_BY_REUSE`, or `SKIPPED_NOT_APPLICABLE` where the dependency itself is conditional.
 
-The protocol routes the target medium, creates an approved `PRODUCER_HANDOFF`, resolves `BRANDLESS` or `BRAND_ON`, preserves real target context, and applies originality plus anti-slop gates. The handoff follows `producer_handoff_schema.json`.
+`BLOCKED` stops downstream execution.
 
-Visual DNA transfers as abstract direction, not as a source template. Source identity and target-brand identity remain separate. Unsupported claims, fake metrics, filler content and generic AI decoration are blocking or revision-triggering failures under `QC-HTML-001_originality_anti_slop_qc.md`.
+`REVISE` routes to the earliest responsible stage and invalidates downstream approvals only to the extent affected by the change.
 
-## DESIGN.md Generation Checkpoint
+## Stepwise Review Checkpoints
 
-When a website, interface, screenshot or CSS/DOM source must become an agent-readable design-system document, run:
+The main checkpoints are:
 
-`design_md_generation_protocol.md`
+1. Foundation approval.
+2. Approved content handoff.
+3. Art direction.
+4. Generation output.
+5. Human revision when used.
+6. Pre-final QC.
+7. Final AI refinement when used.
+8. Editable reconstruction/implementation when used.
+9. Final production QC.
+10. Human final approval.
+11. Final content package/master derivatives.
+12. Learning promotion when used.
 
-The protocol captures implementation evidence and enforces three distinct layers: observed source tokens, derived transferable principles and explicitly approved target tokens. Use `design_md_token_schema.json` for machine-readable records and `assets/templates/DESIGN_MD_TEMPLATE.md` for the human-readable handoff.
+Use `stepwise_creative_review.md` for checkpoint behavior.
 
-Exact source values remain evidence until approved. Third-party identity, proprietary components and distinctive layouts cannot silently transfer into the target design system.
+## Specialized Production Protocols
 
-## Stepwise Human Review
+Platform-specific systems remain subordinate to this lifecycle. Examples include:
 
-Creative work must be inspectable at controlled checkpoints. Do not generate the full downstream chain before a required checkpoint is approved.
+- Instagram/template synthesis;
+- presentation Design DNA and layout guard;
+- HTML visual production;
+- DESIGN.md/token-system generation;
+- editable reconstruction and live editable text;
+- Figma structure/output contract;
+- project-specific memory and QC systems such as EBL.
+
+These protocols may add checks inside a stage but may not silently create a conflicting global stage map.
+
+## Content Handoff vs Final Content Package
+
+The lifecycle intentionally separates:
 
 ```text
-CHECKPOINT 01  Named Style Study
-CHECKPOINT 02  Motif & Sign Extraction
-CHECKPOINT 03  Reference Style Synthesis
-CHECKPOINT 04  Platform Translation
-CHECKPOINT 05  Template Candidate
-CHECKPOINT 06  Art Direction
-CHECKPOINT 07  Generation Output
-CHECKPOINT 08  Human Revision / Style Learning
-CHECKPOINT 09  Editable Reconstruction Preparation (when applicable)
-CHECKPOINT 10  Figma Implementation
-CHECKPOINT 11  Final Content Package
+APPROVED CONTENT / WRITING HANDOFF  (Stage 09)
+!=
+FINAL CONTENT PACKAGE               (Stage 19)
 ```
 
-Use `stepwise_creative_review.md` for checkpoint criteria and gate states.
+The first authorizes what Design may visualize. The second assembles the human-approved publishing result, metadata, accessibility/publishing material, and master/derivative relationships.
 
-## Human Feedback & Style Learning Loop
+## Human Revision vs Learning
 
-After a generated output is reviewed by a human, capture the result as controlled style knowledge only when the evidence warrants it.
+The lifecycle intentionally separates:
 
 ```text
-Generated Output
-     ↓
-Human Revision
-     ↓
-Approved Output
-     ↓
-Revision Record
-     ↓
-Style Knowledge Extraction
-     ├── Project Style Reference
-     ├── Project Style Rule
-     └── System Style Rule
+HUMAN-DIRECTED REVISION  (Stage 12)
+!=
+LEARNING / PROMOTION     (Stage 20)
 ```
 
-The generated output, revised output, and approved output are separate artifacts.
+A correction is evidence. It becomes reusable knowledge only after classification, scope, provenance, and required approval.
 
-A human revision is not automatically a prompt correction, template change, or style rule.
-
-Style knowledge must be explicitly classified and approved.
-
-## Template Learning Rule
-
-A successful content output may produce a reusable template candidate when its structure is repeatable.
+## Finalization Order
 
 ```text
-CONTENT INSTANCE
-      ↓
-TEMPLATE CANDIDATE
-      ↓
-HUMAN REVIEW
-      ↓
-APPROVED TEMPLATE
+GENERATION / REVISION
+→ PRE-FINAL QC
+→ FINAL AI CLOSED LOOP (when applicable)
+→ EDITABLE RECONSTRUCTION (when applicable)
+→ EDITABLE IMPLEMENTATION (when applicable)
+→ FINAL PRODUCTION QC
+→ HUMAN FINAL APPROVAL
+→ MASTER + PLATFORM DERIVATIVES
+→ LEARNING / MEMORY PROMOTION
 ```
 
-The template stores reusable structure, not post-specific content.
+This prevents a later production transformation from invalidating an earlier final pass and prevents Final AI from making the editable master stale after it was locked.
 
-A style reference stores an approved visual example.
+## Failure Routing
 
-A style rule stores a generalized aesthetic principle.
+Route to the earliest responsible stage:
 
-A motif library stores recurring visual vocabulary extracted from source/style evidence.
+- requirement/source definition → Strategy;
+- evidence → Research;
+- visual observation/style interpretation → Visual Analysis / Style Study / Motif / Reference Synthesis;
+- reusable visual rule → Visual DNA;
+- platform/template structure → Platform / Template System;
+- content/copy handoff → Approved Content Handoff;
+- creative decision → Art Direction;
+- specification/prompt/model output → Generation;
+- authorized local human change → Human Revision;
+- candidate quality/root cause → Pre-Final QC;
+- late-stage refinement → Final AI;
+- source-lock/reconstruction → Editable Reconstruction;
+- implementation mismatch → Editable Implementation;
+- production representation quality → Final Production QC;
+- human acceptance → Human Final Approval;
+- publishing package/derivative → Master + Platform Derivatives;
+- reusable learning scope/provenance → Learning / Memory Promotion.
 
-Do not collapse these artifact types.
-
-## Editable Reconstruction Preparation Rule
-
-When an approved visual intended for production is rasterized, flattened, generated, or otherwise not directly editable, run:
-
-`editable_reconstruction_preparation.md`
-
-before Figma implementation.
-
-The protocol must:
-
-- lock and preserve the approved PNG as the visual source of truth;
-- inventory text, raster artwork, simple vectors/signs, and brand assets;
-- derive textless artwork only where editable reconstruction requires it;
-- classify reconstructed hidden pixels as DERIVED;
-- preserve non-text artwork and composition;
-- create an editable layer map;
-- create a typography reconstruction specification;
-- pass textless-artwork QC;
-- produce a complete Figma handoff package.
-
-The approved PNG, textless artwork, and Figma master are separate artifacts.
-
-A textless reconstruction must not become a new art direction or replace the approved PNG as provenance evidence.
-
-## Figma Rule
-
-Every approved visual output intended for production must have a Figma implementation package.
-
-The Figma master is the editable production artifact, while the generated/approved image remains provenance evidence and visual reference unless explicitly approved as the production asset.
-
-When Editable Reconstruction Preparation applies, the approved PNG should remain available in Figma as a locked reference and the editable reconstruction should be validated against it using overlay/visibility comparison.
-
-See `editable_reconstruction_preparation.md` and `figma_output_contract.md`.
-
-## Content Package Rule
-
-A production-ready social asset is not complete until it includes:
-
-- approved visual
-- on-canvas copy
-- caption
-- CTA
-- alt text
-- publishing metadata
-- template relationship
-- style-reference relationship where applicable
-- Figma implementation
-- provenance
-
-See `content_package_contract.md`.
-
-## Execution Loop
-
-For every task or production protocol:
-
-1. Resolve required inputs.
-2. Validate preconditions.
-3. Execute only the assigned responsibility.
-4. Produce the required output schema.
-5. Attach provenance and confidence.
-6. Run the decision gate.
-7. Stop when blocked.
-8. Create the controlled handoff package when passed.
-9. Preserve original outputs when human revision occurs.
-10. Classify the revision before extracting reusable knowledge.
-
-## Failure Policy
-
-The system must stop rather than invent information when a required input is unavailable, contradictory, or insufficient.
-
-Missing information must be represented explicitly as UNKNOWN, not filled with plausible content.
-
-## Revision Routing
-
-When QC identifies a failure, route the failure to the earliest responsible stage rather than automatically regenerating.
-
-- Source / requirement failure → Strategy
-- Evidence / research failure → Research
-- Reference interpretation failure → Visual Analysis / Named Style Study / Motif & Sign Extraction / Reference Style Synthesis
-- Motif extraction failure → Motif & Sign Extraction
-- Visual rule failure → Visual DNA
-- Platform/template structure failure → Platform / Instagram Template Synthesis
-- Presentation profile, adapter, blueprint, page-spec, or layout-budget failure → Presentation Design DNA Protocol
-- HTML route, brand-mode, producer-handoff, originality, or anti-slop failure → HTML Visual Production Protocol
-- DESIGN.md evidence, token-layer, responsive-state, or target-token approval failure → DESIGN.md Generation Protocol
-- Creative decision failure → Art Direction
-- Specification / prompt failure → Generation
-- Model execution failure → Generation
-- Content packaging failure → Content Package
-- Human preference discovered during approved revision → Human Revision / Style Learning
-- source-lock / text-removal / reconstruction artifact failure → Editable Reconstruction Preparation
-- missing or uncertain typography required for reconstruction → Human Typography Review / Editable Reconstruction Preparation
-- Figma implementation mismatch after correct reconstruction preparation → Figma Implementation
-- Final output quality failure → Quality Control
-- Acceptable variation → no revision
+Do not regenerate unaffected work.
 
 ## Approval Rule
 
-A stage is complete only when its gate is satisfied and its handoff package is complete.
+A stage is complete only when:
 
-A Named Style Study is complete only when source, observation, interpretation, transferable principles, and confidence are separated.
-
-A Motif & Sign Extraction is complete only when the motif library is evidence-backed, frequency is recorded, formal character is preserved, and provenance/confidence are captured.
-
-A style reference or style rule is complete only when approval metadata, scope, provenance, and version are complete.
-
-A reusable Instagram template is complete only when its platform structure, communication hierarchy, component behavior, approved motif usage, editable/controlled/locked fields, Figma implementation, provenance, and approval status are complete.
-
-A presentation design system is complete only when its approved Design Contract, Blueprint, Page Specs, content-asset roles, reference-subject firewall, mechanical layout budgets, provenance, and applicable layout-guard evidence are complete.
-
-An HTML production system is complete only when its approved Producer Handoff, target route, real-context inventory, brand mode, originality firewall, engineering checks, provenance and anti-slop evidence are complete.
-
-An Editable Reconstruction Package is complete only when the approved raster source is preserved, textless artwork passes QC, reconstructed regions are classified as DERIVED, editable elements are mapped, typography uncertainty is recorded, and the Figma handoff package is complete.
-
-A Figma implementation reconstructed from a raster source is complete only when the approved visual remains traceable and overlay validation confirms that the editable version matches the approved source within the accepted tolerance.
-
-A Content Package is complete only when all required publishable assets are present and approved.
+- its routing state is recorded;
+- its gate is satisfied or its conditional skip/reuse is valid;
+- required provenance is present;
+- the handoff is complete;
+- no unresolved blocking conflict remains.
 
 A high numerical score never overrides a critical failure.
 
+AI approval does not override human final authority.
+
 ## Version
 
-3.0-production-candidate.7
+`4.0-production-candidate`
 
 ## Status
 
-Active architecture
+Active architecture.
