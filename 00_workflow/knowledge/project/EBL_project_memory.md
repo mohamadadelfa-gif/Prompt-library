@@ -581,8 +581,89 @@ A statement such as “memory checked” is not sufficient.
 
 ---
 
+# 14. A World from the World — Series Memory
+
+The recurring series formerly called **A Line for Today** is now named:
+
+**A World from the World**
+
+This is an approved human naming decision and supersedes the former active series name.
+
+Current system file:
+
+`00_workflow/knowledge/project/EBL_a_world_from_the_world_system.md`
+
+The series is not a generic quote format. Its function is:
+
+```text
+SMALL LANGUAGE / CULTURAL FRAGMENT
+→ LARGER CONTEXT
+→ EBL INTERPRETATION / TEACHING
+→ INDEPENDENT PARTICIPATION
+```
+
+Default production chain:
+
+```text
+SOURCE SELECTION
+→ VERIFICATION
+→ COPYRIGHT / RIGHTS CONTEXT
+→ INTERPRETATION / TEACHING PURPOSE
+→ WRITING LOCK
+→ STORY / FEED DESIGN
+→ QC
+→ HUMAN FINAL REVIEW
+```
+
+For film clips, film audio, soundtrack, quotations, or background music, retrieve:
+
+`00_workflow/knowledge/project/EBL_copyright_rules.md`
+
+Core copyright shorthand:
+
+```text
+USE ONLY WHAT YOU NEED
+→ TRANSFORM IT
+→ TEACH / COMMENT ON IT
+→ DO NOT REPLACE THE ORIGINAL
+```
+
+---
+
+# 15. Launch Calendar Memory — Weeks 01–02
+
+Launch date:
+
+**Saturday, 22 August 2026**
+
+Current launch-calendar record:
+
+`00_workflow/knowledge/project/EBL_launch_calendar_weeks_01_02.md`
+
+Daily Story rhythm during the recorded first launch period:
+
+```text
+MORNING = A WORLD FROM THE WORLD
+EVENING = VOCABULARY
+```
+
+Feed progression:
+
+```text
+HOW WE BUILD ENGLISH INDEPENDENCE
+→ TELL
+→ EXPLAIN
+→ ARGUE
+→ PARTICIPATE
+→ KEYVAN INTRODUCTORY VIDEO
+```
+
+Do not infer later dates beyond the recorded calendar without a new human-approved schedule.
+
+---
+
 ## Status
 
 This file is the current durable project memory for English Beyond Language.
 
-Updated: 2026-08-16
+Updated: 2026-08-17
