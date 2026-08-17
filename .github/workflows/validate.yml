@@ -2,9 +2,9 @@ name: Prompt Library Validation
 
 on:
   push:
-    branches: ["main", "production-candidate-v1"]
+    branches: ["main"]
   pull_request:
-    branches: ["main", "production-candidate-v1"]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -30,6 +30,9 @@ jobs:
 
       - name: Validate Design production process
         run: python tests/validate_process.py
+
+      - name: Validate cross-registry architecture consistency
+        run: python tests/validate_architecture_consistency.py
 
       - name: Validate Writing workflow architecture and prompts
         run: python tests/validate_writing.py
