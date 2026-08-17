@@ -10,6 +10,16 @@ Structural CI checks whether the repository is internally valid. Semantic tests 
 
 Checks IDs, stages, versions, required sections, deprecated files, and workflow references.
 
+`validate_presentation_layout_guard.py` also verifies that the presentation source guard accepts a minimally safe deck and rejects a known P0 layout failure.
+
+`validate_evaluator_contract.py` verifies the versioned LLM-evaluator evidence contract, failure taxonomy, calibration state and preserved human-decision authority.
+
+`validate_carousel_exporter.py` verifies Instagram format dimensions, aspect-ratio safety and a side-effect-free exporter preflight without installing Playwright or downloading Chromium.
+
+`validate_design_system_references.py` verifies unique reference IDs, official HTTPS sources, and the mandatory freshness and no-automatic-adoption safeguards.
+
+`validate_design_token_system.py` verifies the Learn–Structure–Refine token template, tiered names, reference resolution, theme parity, component states, and raw-value safeguards.
+
 ### Level 2 — Contract
 
 Checks that each task declares required inputs, boundaries, outputs, provenance, confidence, unknown handling, gate, and handoff.
@@ -41,6 +51,8 @@ A test must distinguish:
 - evaluator failure
 
 A semantic test must never mark an invented answer correct merely because it sounds plausible.
+
+LLM-as-judge evidence must additionally identify evaluator, rubric, judge model/settings, calibration state, candidate excerpts, uncertainty, failure class and revision route. Evaluator evidence supports—but never replaces—the final human decision.
 
 ## Required Test Artifacts
 

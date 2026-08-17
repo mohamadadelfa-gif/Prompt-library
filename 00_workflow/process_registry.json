@@ -26,7 +26,7 @@
       "depends_on": ["01"],
       "condition": "ALWAYS",
       "tasks": ["RES-001", "RES-002", "RES-003", "RES-004", "RES-005", "RES-006"],
-      "protocols": [],
+      "protocols": ["00_workflow/design_system_reference_protocol.md", "00_workflow/design_system_reference_registry.json"],
       "output_artifacts": ["RESEARCH_SYNTHESIS"],
       "gates": ["PASS", "CONDITIONAL", "BLOCKED"],
       "memory_effect": "Adds sourced project and external evidence; unsupported conclusions remain UNKNOWN."
@@ -98,8 +98,8 @@
       "depends_on": ["05", "06", "07"],
       "condition": "WHEN_TARGET_PLATFORM_REQUIRES_TEMPLATE",
       "tasks": [],
-      "protocols": ["00_workflow/instagram_template_synthesis.md", "00_workflow/template_extraction.md", "00_workflow/content_template_record.json"],
-      "output_artifacts": ["APPROVED_TEMPLATE_CANDIDATE"],
+      "protocols": ["00_workflow/instagram_template_synthesis.md", "00_workflow/presentation_design_dna_protocol.md", "00_workflow/presentation_design_profile_schema.json", "00_workflow/html_visual_production_protocol.md", "00_workflow/producer_handoff_schema.json", "00_workflow/design_md_generation_protocol.md", "00_workflow/design_md_token_schema.json", "assets/templates/DESIGN_MD_TEMPLATE.md", "00_workflow/design_token_system_protocol.md", "00_workflow/design_token_system_schema.json", "assets/templates/DESIGN_TOKEN_SYSTEM_TEMPLATE.json", "00_workflow/template_extraction.md", "00_workflow/content_template_record.json"],
+      "output_artifacts": ["APPROVED_TEMPLATE_CANDIDATE", "CONDITIONAL_PRESENTATION_DESIGN_SYSTEM", "CONDITIONAL_HTML_PRODUCTION_SYSTEM", "CONDITIONAL_DESIGN_MD_SYSTEM", "CONTROLLED_DESIGN_TOKEN_SYSTEM"],
       "gates": ["PASS", "CONDITIONAL", "BLOCKED", "APPROVE", "REVISE", "REJECT"],
       "memory_effect": "Creates reusable structure only; campaign content and old project assumptions cannot transfer."
     },
@@ -122,7 +122,7 @@
       "depends_on": ["09"],
       "condition": "ALWAYS",
       "tasks": ["GEN-001", "GEN-002"],
-      "protocols": [],
+      "protocols": ["00_workflow/instagram_html_export_protocol.md", "scripts/export_instagram_carousel.py"],
       "output_artifacts": ["GENERATION_SPECIFICATION", "GENERATION_PROMPT", "GENERATED_OUTPUT"],
       "gates": ["READY", "BLOCKED"],
       "memory_effect": "Creates OUTPUT artifacts only; a generated result is not automatically knowledge or a requirement."
@@ -146,7 +146,7 @@
       "depends_on": ["10", "11"],
       "condition": "WHEN_HUMAN_REVISION_OCCURS",
       "tasks": [],
-      "protocols": ["00_workflow/human_feedback_style_learning.md", "00_workflow/style_memory_schema.json", "00_workflow/style_memory_record_template.md"],
+      "protocols": ["00_workflow/human_feedback_style_learning.md", "00_workflow/style_memory_schema.json", "00_workflow/style_memory_record_template.md", "00_workflow/knowledge_relationship_protocol.md", "00_workflow/knowledge/knowledge_relationship_schema.json", "00_workflow/knowledge/knowledge_relationships.json"],
       "output_artifacts": ["REVISION_RECORD", "APPROVED_OUTPUT", "OPTIONAL_STYLE_MEMORY"],
       "gates": ["APPROVE", "REVISE", "REJECT"],
       "memory_effect": "May create project references or rules; system promotion requires explicit human authority and evidence."
@@ -182,7 +182,7 @@
       "depends_on": ["09", "10", "11", "12", "13", "14"],
       "condition": "ALWAYS_WITH_APPLICABLE_STAGE_OUTPUTS",
       "tasks": ["QC-001", "QC-002", "QC-003"],
-      "protocols": ["00_workflow/stepwise_creative_review.md", "00_workflow/qc/QC-IG-001_instagram_visual_qc.md", "00_workflow/qc/QC-AUD-001_audience_catcher_qc.md", "00_workflow/qc/QC-IQA-001_technical_image_quality_qc.md", "00_workflow/qc/HEAVY-QC-001_human_triggered_ensemble.md", "00_workflow/qc/QC-SOC-001_social_visual_audience_gate.md", "00_workflow/qc/qc_knowledge_schema.json"],
+      "protocols": ["00_workflow/stepwise_creative_review.md", "00_workflow/llm_evaluator_protocol.md", "00_workflow/qc/llm_evaluator_evidence_schema.json", "00_workflow/qc/QC-IG-001_instagram_visual_qc.md", "00_workflow/qc/QC-AUD-001_audience_catcher_qc.md", "00_workflow/qc/QC-IQA-001_technical_image_quality_qc.md", "00_workflow/qc/QC-PRES-001_presentation_layout_qc.md", "00_workflow/qc/QC-HTML-001_originality_anti_slop_qc.md", "00_workflow/qc/HEAVY-QC-001_human_triggered_ensemble.md", "00_workflow/qc/QC-SOC-001_social_visual_audience_gate.md", "00_workflow/qc/qc_knowledge_schema.json"],
       "output_artifacts": ["FINAL_APPROVAL_OR_REVISION_ROUTE", "QC_KNOWLEDGE_PACKAGE"],
       "gates": ["APPROVE", "REVISE", "REGENERATE", "BLOCKED"],
       "memory_effect": "Records quality evidence and revision routing; scores cannot override critical failures."

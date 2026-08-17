@@ -6,6 +6,10 @@ The Prompt Library uses separated knowledge layers so project-specific knowledge
 
 The machine-readable index is `00_workflow/knowledge/knowledge_registry.json`. Every active knowledge source must declare its scope, approval state, promotion state, permitted task consumers, provenance requirement, and unknown-handling requirement there.
 
+Material relationships between knowledge, tasks, protocols, artifacts, decisions, outputs, and QC evidence are stored separately in `00_workflow/knowledge/knowledge_relationships.json` under `knowledge_relationship_schema.json`. Use `knowledge_relationship_protocol.md` to add, traverse, promote, supersede, revise, or resolve graph relationships without changing endpoint information states.
+
+The node registry and edge registry are separate authorities: nodes describe what a record is; edges describe how records relate. An edge never turns evidence into a decision, an inference into a fact, or an output into a requirement.
+
 ## Knowledge Domains
 
 ### 1. Project Knowledge — EBL
@@ -14,170 +18,34 @@ The client/project knowledge base is the authoritative store for approved Englis
 
 It may contain:
 
-- customer brief;
-- brand purpose and positioning;
-- audience definition;
-- TEAP framework;
-- approved platform requirements;
-- approved typography and visual preferences;
-- approved human revisions;
-- decisions and exclusions;
-- content-specific requirements;
-- chosen identity assets;
-- project-specific QC rules;
-- durable production memory;
-- negative/failure memory;
-- visual calibration examples;
-- task-specific retrieval rules.
+- customer brief
+- brand purpose and positioning
+- audience definition
+- TEAP framework
+- launch strategy
+- content pillars
+- posting rhythm
+- promotional model
+- approved platform requirements
+- approved typography preferences
+- approved visual preferences
+- approved tone and emotional objectives
+- approved template decisions
+- approved human revisions
+- client feedback
+- decisions and exclusions
+- content-specific requirements
 
 Project knowledge must be scoped to EBL and must not become system-wide knowledge unless explicitly promoted.
 
-#### Durable EBL project memory — mandatory retrieval
-
-Registered in:
-
-`00_workflow/knowledge/project/EBL_project_memory.md`
-
-Source ID: `EBL-MEM-001`.
-
-This durable project-memory layer records:
-
-- public brand-name preference;
-- core communication direction;
-- chosen Geometric Reader Integrated Logo;
-- primary-master versus production-signature distinction;
-- visual-language memory;
-- semantic typography rules;
-- raster typography repair learning;
-- human revision preservation;
-- final-AI closed-loop behavior;
-- Story-template principles and current candidate status;
-- master-versus-platform-output handling.
-
-Every EBL visual production/revision task must retrieve this memory before applying project-specific creative decisions.
-
-#### EBL operational memory system
-
-EBL memory is not treated as one large prose file. It is separated into operational memory classes:
-
-```text
-EBL_memory_registry.json
-→ EBL_project_memory.md
-→ EBL_decision_log.md
-→ EBL_asset_registry.json
-→ EBL_failure_memory.md
-→ EBL_visual_examples.md
-→ EBL_retrieval_map.md
-→ QC-EBL-MEM-001
-→ QC-EBL-001
-```
-
-Roles:
-
-- `EBL_memory_registry.json` — machine-readable memory inventory, status, scope and required consumers;
-- `EBL_project_memory.md` — durable project synthesis;
-- `EBL_decision_log.md` — what was decided, why, scope, status and supersession;
-- `EBL_asset_registry.json` — canonical asset IDs, fingerprints, parent/variant relationships and unresolved metadata;
-- `EBL_failure_memory.md` — negative memory / known failure patterns;
-- `EBL_visual_examples.md` — approved, rejected and candidate visual calibration index;
-- `EBL_retrieval_map.md` — task-specific memory routing;
-- `QC-EBL-MEM-001_memory_compliance_qc.md` — verifies memory was retrieved and applied correctly;
-- `QC-EBL-001_project_master_qc.md` — verifies the actual EBL asset after memory compliance.
-
-Core principle:
-
-```text
-MEMORY EXISTS
-≠ MEMORY RETRIEVED
-≠ MEMORY APPLIED CORRECTLY
-```
-
-All three must be verified.
-
-#### Canonical asset discipline
-
-Identity assets use explicit asset IDs.
-
-Current chosen logo:
-
-`EBL-ASSET-LOGO-001 — Geometric Reader Integrated Logo`
-
-The source binary fingerprint has been verified and is stored in `EBL_asset_registry.json`, while the repository binary path remains unresolved. Missing repository path must not be invented.
-
-A written logo description is memory, not a substitute for the exact canonical binary when exact placement is required.
-
 #### Active EBL project package
 
-Current EBL production knowledge includes:
+Current human-approved EBL production knowledge is registered in:
 
-- `00_workflow/knowledge/project/EBL_memory_registry.json`
-- `00_workflow/knowledge/project/EBL_project_memory.md`
 - `00_workflow/knowledge/project/EBL_approved_project_rules.md`
-- `00_workflow/knowledge/project/EBL_decision_log.md`
-- `00_workflow/knowledge/project/EBL_asset_registry.json`
-- `00_workflow/knowledge/project/EBL_failure_memory.md`
-- `00_workflow/knowledge/project/EBL_visual_examples.md`
-- `00_workflow/knowledge/project/EBL_retrieval_map.md`
-- `00_workflow/knowledge/project/EBL_logo_application_rules.md`
 - `00_workflow/knowledge/project/EBL_post_01_approved_decisions.md`
-- `00_workflow/knowledge/project/EBL_story_template_rules.md`
 
-Post-specific copy/layout decisions must not be silently generalized to future posts.
-
-The exact current Story template remains a `PROJECT_REFERENCE / REVIEW_CANDIDATE` until explicit human approval promotes it.
-
-#### EBL memory compliance QC
-
-Registered in:
-
-`00_workflow/qc/QC-EBL-MEM-001_memory_compliance_qc.md`
-
-This QC verifies:
-
-- correct memory registry loaded;
-- task-specific retrieval set loaded;
-- current human instruction has highest priority;
-- newest non-superseded decisions used;
-- canonical asset IDs/states respected;
-- missing metadata not invented;
-- candidate vs approved states preserved;
-- failure memory checked;
-- memory-to-QC trace recorded.
-
-A memory-compliance failure blocks final project QC.
-
-#### EBL project master QC
-
-Registered in:
-
-`00_workflow/qc/QC-EBL-001_project_master_qc.md`
-
-This QC is project-specific and mandatory for EBL final visual review. It orchestrates specialized QC modules and checks:
-
-- memory compliance;
-- content/meaning fidelity;
-- public brand name;
-- chosen-logo fidelity;
-- visual identity;
-- meaning-to-form synthesis;
-- semantic typography;
-- painterly/material integrity;
-- known failure memory;
-- artifact/repair integrity;
-- carousel/system consistency;
-- Story-specific behavior;
-- export/master/derivative handling;
-- final-AI closed-loop compliance;
-- evidence package completeness;
-- human final approval state.
-
-For EBL run:
-
-```text
-QC-EBL-MEM-001
-→ specialized asset QC
-→ QC-EBL-001
-```
+Use the first file for reusable EBL project rules and the second for Post 01-specific decisions. Post-specific copy/layout decisions must not be silently generalized to future posts.
 
 #### Active supplied EBL brief
 
@@ -193,13 +61,13 @@ Stores knowledge about artists, movements, books, articles, exhibitions, profess
 
 Examples:
 
-- Paul Klee;
-- Bauhaus;
-- museum publications;
-- academic books/articles;
-- artist interviews;
-- professional typography/layout guidance;
-- platform-owner publishing guidance.
+- Paul Klee
+- Bauhaus
+- museum publications
+- academic books/articles
+- artist interviews
+- professional typography/layout guidance
+- platform-owner publishing guidance
 
 External knowledge requires source provenance.
 
@@ -223,20 +91,29 @@ Registered in:
 
 `00_workflow/knowledge/external/creative_synthesis_sources.md`
 
-The package currently includes source-derived guidance from Adobe, Meta, MoMA and The Met.
+The package currently includes source-derived guidance from:
+
+- Adobe layout principles;
+- Adobe typesetting / reading-experience guidance;
+- Meta visual / carousel / resolution guidance;
+- MoMA curatorial interpretation of Klee line, color, movement, and multiple readings;
+- The Met curatorial interpretation of Klee's changing line character according to subject.
 
 These sources may improve late-stage creative judgment, but they do **not** override:
 
 1. current human instruction;
-2. approved project memory/rules;
+2. approved project rules;
 3. approved content / artifacts;
 4. supplied project sources.
 
+Their main consumers are:
+
+- `FINAL-AI-001 — Creative AI Final Edit`;
+- `FINAL-AI-002 — Creative Synthesis, Heavy QC & Final Output`.
+
 ### 3. Project Reference Knowledge
 
-Stores observations extracted from project-supplied visual references, audio, video, screenshots, moodboards, approved output candidates, and other reference material.
-
-A candidate may inform later work without automatically becoming an approved reusable rule.
+Stores observations extracted from project-supplied visual references, audio, video, screenshots, moodboards, and other reference material.
 
 ### 4. Derived Creative Knowledge
 
@@ -244,11 +121,11 @@ Stores approved interpretations and transferable principles derived from the abo
 
 Examples:
 
-- EBL style rules;
-- motif classifications;
-- approved visual grammar;
-- reusable Instagram template rules;
-- source-informed creative synthesis heuristics.
+- EBL style rules
+- motif classifications
+- approved visual grammar
+- reusable Instagram template rules
+- source-informed creative synthesis heuristics
 
 ### 5. System Workflow Knowledge
 
@@ -271,23 +148,55 @@ Registered in:
 
 `00_workflow/knowledge/system/final_ai_production_learnings.md`
 
+This file contains approved cross-project lessons from the finalization workflow, including:
+
+- preservation as a valid final-edit decision;
+- cleanest-approved-source-first repair;
+- mandatory-defect precedence over optional polish;
+- semantic consistency over mechanical uniformity;
+- local failure → local fix + global re-check;
+- master-first / derivative-once production;
+- QC evidence as part of production;
+- AI production pass ≠ human final approval;
+- finalization as a closed loop.
+
 Its orchestration protocol is:
 
 `00_workflow/final_ai_closed_loop_production.md`
 
-### 6. External Technical Knowledge
+### 5. External Technical Knowledge
 
 Stores authoritative tooling and production references that may support evidence-based execution without becoming aesthetic or project rules.
 
-Current references include:
+Current font-engineering reference:
 
-- `gftools_font_engineering.md`;
-- `awesome_typography_resource_index.md`;
-- `github_persian_font_topic.md`;
-- `font_store_persian_fonts.md`;
-- `awesome_persian_resource_index.md`.
+`00_workflow/knowledge/external/gftools_font_engineering.md`
 
-Treat discovery indexes as routes to primary sources rather than primary evidence.
+Source ID: `GFTOOLS-SRC-001`. Retrieve it for VIS-005 or QC-001 only when actual font files are available and technical font inspection or QA is relevant. It is not a base runtime dependency, does not identify fonts from raster images by itself, and does not authorize font modification or establish licensing.
+
+Current digital-typography discovery index:
+
+`00_workflow/knowledge/external/awesome_typography_resource_index.md`
+
+Source ID: `TYPO-INDEX-001`. Retrieve it for RES-005 or VIS-005 when a typography question would benefit from specialist specifications, tools, libraries, validators, books, or videos. Treat it as a route to primary sources, not as primary evidence or authorization to adopt a linked resource.
+
+Current Persian/Farsi font discovery index:
+
+`00_workflow/knowledge/external/github_persian_font_topic.md`
+
+Source ID: `FA-FONT-INDEX-001`. Retrieve it for RES-005 or VIS-005 when Persian/Farsi, Arabic-script, RTL, or bilingual Persian/Latin typography is in scope. The GitHub topic is dynamic and self-tagged: verify every candidate repository, font file, license, Persian coverage, shaping behavior, provenance, and target-platform compatibility independently.
+
+Current focused Persian/Farsi font collection:
+
+`00_workflow/knowledge/external/font_store_persian_fonts.md`
+
+Source ID: `FA-FONT-COLLECTION-001`. Retrieve it alongside `FA-FONT-INDEX-001` when a focused Perso-Arabic foundry collection would improve candidate discovery. Verify whether each repository is canonical, forked, modified, mirrored, or packaged; confirm its actual font license and provenance before use.
+
+Current broad Persian-language resource index:
+
+`00_workflow/knowledge/external/awesome_persian_resource_index.md`
+
+Source ID: `FA-RESOURCE-INDEX-001`. Retrieve it for RES-005 or VIS-005 when Persian typography research also requires RTL frameworks, CSS, text normalization, Unicode handling, Persian numerals, interface guidance, localization, or other implementation context. Verify each linked primary source; the list itself is not implementation evidence and its repository-level license was unknown at review time.
 
 ## Source Separation
 
@@ -304,28 +213,51 @@ APPROVED_RULE
 
 The system must never present a model inference as a client fact or source fact.
 
-## Unknown Discipline
+## EBL Knowledge Record
 
-Never fabricate unknown canonical metadata.
-
-Use explicit values such as:
+Each EBL record should contain:
 
 ```text
-UNKNOWN
-PENDING_VERIFICATION
-null
+KB_ID
+PROJECT_ID
+KNOWLEDGE_TYPE
+TITLE
+CONTENT
+SOURCE_ID
+SOURCE_SCOPE
+STATUS
+SCOPE
+APPROVAL_STATUS
+VERSION
+CREATED_AT
+UPDATED_AT
+PROVENANCE
+NOTES
 ```
 
-for unresolved:
+## External Source Record
 
-- asset paths;
-- hashes;
-- dimensions;
-- provenance;
-- licenses;
-- approval states.
+Each external/named-style source should contain:
 
-If an unknown blocks exact execution, surface the blocker.
+```text
+KB_ID
+KNOWLEDGE_TYPE
+AUTHOR / CREATOR
+TITLE
+PUBLISHER / INSTITUTION
+YEAR
+SOURCE_FORMAT
+SOURCE_ID
+STATUS
+SCOPE
+AUTHORITY
+APPROVAL_STATUS
+PROVENANCE
+SOURCE_SUPPORTED_THEMES
+PROJECT_USE_CAUTION
+```
+
+When the source is a broad catalogue or compilation rather than a scholarly interpretive source, record that authority difference explicitly.
 
 ## Knowledge Promotion
 
@@ -349,79 +281,107 @@ Project-specific knowledge must not become a system rule automatically.
 
 For workflow learning, explicit human instructions such as **learn**, **structuralize**, **refine the process**, or **promote this as a reusable rule** may authorize promotion when the lesson is truly cross-project and privacy-safe.
 
+## Named-Style Source Promotion Rule
+
+For named-style work such as Paul Klee:
+
+```text
+EXTERNAL SOURCE
+    ↓
+SOURCE_FACT / SOURCE_DERIVED
+    ↓
+NAMED STYLE STUDY
+    ↓
+MOTIF / SIGN EXTRACTION
+    ↓
+PROJECT INTERPRETATION
+    ↓
+HUMAN REVIEW
+    ↓
+APPROVED EBL RULE
+```
+
+Do not copy source artworks literally. Historical description, interpretation, project derivation, and final visual rule must remain distinguishable.
+
 ## Retrieval Rule
 
-### Any EBL visual task
+Tasks should retrieve knowledge from the appropriate domain before execution:
 
 ```text
-EBL_memory_registry.json
-→ EBL_retrieval_map.md
-→ EBL_project_memory.md
-→ EBL_approved_project_rules.md
-→ EBL_decision_log.md
-→ EBL_failure_memory.md
-→ task-specific asset/content/platform memory
-→ QC-EBL-MEM-001
-→ specialized QC
-→ QC-EBL-001
-```
+EBL task
+  → EBL_approved_project_rules.md
+  → EBL Project Knowledge
 
-### EBL logo task
+EBL Post 01 task
+  → EBL_approved_project_rules.md
+  → EBL_post_01_approved_decisions.md
 
-Add:
+EBL profile-picture task
+  → EBL_approved_project_rules.md
+  → QC-IG-PROFILE-001_instagram_profile_picture_qc.md
 
-```text
-EBL_asset_registry.json
-→ EBL_logo_application_rules.md
-→ QC-LOGO-001
-```
+Named artist task
+  → External / Named-Style Knowledge
 
-### EBL Story task
+Paul Klee-informed task
+  → paul_klee_sources.md + approved Klee-derived project rules
 
-Add:
+Reference analysis
+  → Project Reference Knowledge
 
-```text
-EBL_story_template_rules.md
-→ EBL_asset_registry.json
-→ Story content objective
-```
+Template / production task
+  → Approved Project Rules + Platform Rules
 
-### EBL typography repair
+Creative AI Final Edit
+  → final_ai_production_learnings.md
+  → final_ai_closed_loop_production.md
+  → approved project rules
+  → content-specific decisions
+  → approved artifact / visual DNA / revision history
+  → applicable QC findings
+  → creative_synthesis_sources.md
 
-Add:
+Final AI Creative Synthesis + Heavy QC
+  → final_ai_production_learnings.md
+  → final_ai_closed_loop_production.md
+  → FINAL-AI-001 candidate
+  → all approved project/context sources
+  → creative_synthesis_sources.md
+  → all applicable mandatory QC modules
+  → platform export requirements
 
-```text
-exact content decision
-→ QC-TYPE-001
-→ typography_native_reconstruction.md
-→ cleanest approved source/textless master
-```
+Font-file inspection / technical typography QA
+  → gftools_font_engineering.md + actual font binaries + recorded tool evidence
 
-### EBL Final AI / Heavy QC
+Digital-typography source/tool discovery
+  → awesome_typography_resource_index.md → verified primary source
 
-Add:
+Persian/Farsi font discovery
+  → github_persian_font_topic.md → candidate repository → license + Persian shaping verification
 
-```text
-EBL_visual_examples.md
-→ final_ai_production_learnings.md
-→ final_ai_closed_loop_production.md
-→ creative_synthesis_sources.md
-→ all applicable QC
+Focused Farsi Font Store discovery
+  → font_store_persian_fonts.md → canonical-status check → repository/license + Persian shaping verification
+
+Broad Persian-language production discovery
+  → awesome_persian_resource_index.md → verified primary source → target-environment test
+
+Heavy QC aesthetic evidence
+  → image_aesthetics_assessment_sources.md
+  → same-model, same-asset-class approved calibration examples
+  → QC-AES-001 + HEAVY-QC-001
+  → authorized human decision
 ```
 
 ## Priority Rule
 
 When sources conflict:
 
-1. explicit current human decision;
-2. newest non-superseded approved project decision;
-3. approved project memory / project rule;
-4. canonical asset registry;
-5. content-specific approved decision;
-6. approved system workflow rule for process behavior;
-7. supplied project source evidence;
-8. authoritative external source;
-9. model inference.
+1. explicit current client decision;
+2. approved project rule;
+3. approved system workflow rule for process behavior;
+4. supplied project source evidence;
+5. authoritative external source;
+6. model inference.
 
 A system workflow rule controls **how the process is executed**; it must not override project-specific creative/content decisions.
 
@@ -433,16 +393,16 @@ Human-directed output revision is governed by:
 
 `00_workflow/human_feedback_style_learning.md`
 
+The governing relationship is:
+
 ```text
 HUMAN = decides WHAT to edit
 REFERENCE = informs HOW the requested edit should look
 AI = applies the requested edit
 ```
 
-A specific aesthetic correction becomes reusable style knowledge only through the normal approval/promotion process.
+Revision behavior itself is a workflow rule. A specific aesthetic correction becomes reusable style knowledge only through the normal approval/promotion process.
 
 ## Privacy / Scope
 
 Client knowledge must remain project-scoped. Do not promote confidential client information into the global/system knowledge layer.
-
-Updated: 2026-08-16

@@ -1,232 +1,200 @@
-# Prompt Library v3 — Controlled Dual-Workflow Production System
+# Prompt Library v3 — Controlled Creative Production System
 
-A version-controlled production system in which Writing and Design operate as separate workflows with explicit inputs, outputs, provenance, handoffs, approvals, quality gates, and revision routing.
+A version-controlled creative-production system in which prompts are executable tasks with defined inputs, boundaries, outputs, provenance, confidence, handoffs, and decision gates.
 
-## Architecture
+## Workflow
 
-```text
-                     SHARED KNOWLEDGE
-                    /                \
-           WRITING WORKFLOW      DESIGN WORKFLOW
-                    \                /
-                 EXPLICIT VERSIONED HANDOFF
-                           ↓
-                 COMBINED CONTENT PACKAGE
-                           ↓
-                    HUMAN FINAL APPROVAL
-```
-
-Core governance:
-
-```text
-SHARE EVIDENCE.
-SHARE KNOWLEDGE.
-SHARE TOOLS.
-DO NOT SHARE AUTHORITY SILENTLY.
-```
-
-Writing owns meaning, claims, language, textual structure, captions, CTAs, and source-grounded content decisions.
-
-Design owns visual communication, visual systems, art direction, generation, layout, typography implementation, production implementation, and visual QC.
-
-## Writing Workflow
-
-Canonical architecture:
-
-- `00_workflow/workflows/writing_workflow.md`
-- `00_workflow/writing_task_registry.json`
-- `00_workflow/writing_task_contracts.json`
-- `00_workflow/writing_process_registry.json`
-- `tests/validate_writing.py`
-- `tests/writing_evaluation_rubric.md`
-
-Canonical stages:
-
-```text
-01 WST    Writing Strategy
-02 WRES   Textual Research
-03 WAN    Source Analysis
-04 WSYN   Content Synthesis
-05 WSTR   Content Structure
-06 WDR    Drafting
-07 WLANG  Language Adaptation
-08 WQC    Writing Quality Control
-09 WAPP   Human Content Approval
-10 WHOFF  Design Handoff
-```
-
-The Writing architecture is active and validated. Its prompt library is intentionally still empty; new Writing prompts must be registered in the Writing task registry and contracts before CI will accept them.
-
-## Design Workflow
-
-Canonical architecture:
-
-- `00_workflow/workflows/design_workflow.md`
-- `00_workflow/task_registry.json`
-- `00_workflow/task_contracts.json`
-- `00_workflow/process_registry.json`
-- `tests/validate_library.py`
-- `tests/validate_process.py`
-
-The established Design production pipeline remains active:
-
-```text
-Strategy
+Customer Information
+→ Strategy
 → Research
 → Visual Analysis
-→ Conditional Style / Motif Study
+→ Conditional Style Study and Motif Extraction
 → Reference Style Synthesis
 → Visual DNA
 → Platform / Template Synthesis
 → Art Direction
 → Generation
-→ Content Package Assembly
+→ Content Package
 → Human Revision / Style Learning
 → Conditional Editable Reconstruction
-→ Figma / Production Implementation
-→ Visual QC / Final Approval
-```
+→ Figma Implementation
+→ Quality Control / Final Approval
 
-Design must not silently re-author approved Writing content.
+## Control Layer
 
-## Cross-Workflow Handoff
+The orchestration rules live in `00_workflow/`:
 
-Canonical contract:
+- `workflow.md` — execution pipeline and revision routing
+- `task_contract.md` — universal executable-task standard
+- `task_contracts.json` — canonical task-level dependencies, gates, approvals, and revision policy
+- `stage_registry.md` — stage responsibilities and active tasks
+- `handoff_contract.md` — controlled transfer between stages
+- `decision_gates.md` — canonical gate vocabulary and approval rules
+- `information_model.md` — SOURCE / DERIVED / DECISION / OUTPUT states
+- `task_registry.json` — machine-readable stage/task index
+- `process_registry.json` — canonical 15-stage production process, including goals, conditions, artifacts, gates, protocols, and memory effects
 
-`00_workflow/workflows/cross_workflow_handoff_contract.md`
-
-### Writing → Design
-
-Transfers the exact approved Writing version, content purpose, audience, language level, locked/flexible wording, semantic hierarchy, caption/CTA state, source/fact status, and unresolved unknowns.
-
-### Design → Writing
-
-Transfers visual/platform constraints that require a new Writing decision, such as text-area limits, reading-order constraints, density problems, maximum recommended length, or semantic emphasis needs.
-
-A rewrite creates a **new Writing version**. Design never overwrites the earlier approved version.
-
-## Shared Knowledge Layer
-
-Canonical architecture:
-
-`00_workflow/workflows/shared_knowledge_layer.md`
-
-Both workflows may share:
-
-- project briefs;
-- audience/cultural research;
-- brand memory;
-- approved project rules;
-- terminology;
-- factual sources;
-- external references;
-- platform constraints;
-- typography/readability knowledge;
-- tools and technical methods;
-- provenance records.
-
-Shared knowledge should identify workflow usefulness and authority scope where helpful. Evidence may cross workflows; approval does not.
-
-## Content Package
-
-Canonical contract:
-
-`00_workflow/content_package_contract.md`
-
-The Content Package is an assembly and final-QC layer, not a second authoring workflow.
-
-Writing owns authored text. Design owns visual implementation. The combined package links exact approved versions and creates final publishing/accessibility metadata from both.
-
-## Information Model
-
-Every important item remains identifiable as:
-
-- `SOURCE` — supplied or observed evidence;
-- `DERIVED` — analysis/inference based on source;
-- `DECISION` — explicit approved project/creative choice;
-- `OUTPUT` — execution result.
-
-Forbidden silent transitions include:
-
-- DERIVED → SOURCE;
-- ASSUMPTION → FACT;
-- OUTPUT → REQUIREMENT;
-- SOURCE → DECISION without an explicit decision step.
-
-These rules apply independently inside Writing and Design.
+The knowledge layer also includes a validated relationship graph connecting registered sources and rules to authorized tasks, protocols, artifacts, decisions, outputs, and QC evidence without collapsing their information states.
 
 ## Canonical Gate Vocabulary
 
+All active prompts and task contracts use only:
+
 `PASS` · `CONDITIONAL` · `BLOCKED` · `APPROVE` · `REVISE` · `REJECT` · `READY` · `REGENERATE`
 
-Maximum automatic revision cycles: **3**. After the third unsuccessful cycle, route to `HUMAN_REVIEW`.
+Natural-language explanations may accompany a gate, but the final status must use the canonical value.
 
-## Testing and CI
+## Active Prompt Sequence
 
-The real `Prompt Library Validation` workflow runs on pushes and pull requests to `main` and `production-candidate-v1`.
+### 01 — Strategy
+- STR-001 — Customer Analysis
+- STR-002 — Brief Analysis
+- STR-003 — Requirement Extraction
+- STR-004 — Clarification Questions
+- STR-005 — Project Reconciliation
 
-It validates:
+### 02 — Research
+- RES-001 — Research Strategy
+- RES-002 — Audience Research
+- RES-003 — Competitor & Market Research
+- RES-004 — Cultural & Context Research
+- RES-005 — Visual Reference Research
+- RES-006 — Research Synthesis
 
-- Design prompt structure and contracts;
-- Design process integrity;
-- Writing workflow architecture and future Writing prompts;
-- controlled knowledge registry consumers across both workflows;
-- QC knowledge controls;
-- Python compilation;
-- required semantic-test rubrics and fixtures.
+### 03 — Visual Analysis
+- VIS-001 — Composition Analysis
+- VIS-002 — Color Analysis
+- VIS-003 — Shape & Form Analysis
+- VIS-004 — Texture & Material Analysis
+- VIS-005 — Typography & Graphic Language
+- VIS-006 — Lighting, Mood & Atmosphere Analysis
 
-The old placeholder Hello World CI workflow has been removed so a green repository check represents meaningful validation.
+### 04 — Visual DNA
+- VDNA-001 — Visual DNA Extraction & Synthesis
 
-Semantic model execution remains a separate release gate. Structural CI verifies the system, not whether a selected model produces a high-quality semantic result.
+### 05 — Art Direction
+- ART-001 — Creative Concept Generation
+- ART-002 — Concept Evaluation & Selection
+- ART-003 — Art Direction Development
 
-## Writing Quality Standard
+### 06 — Generation
+- GEN-001 — Generation Specification
+- GEN-002 — Prompt Construction
 
-Writing QC covers at minimum:
+### 07 — Quality Control
+- QC-001 — Generated Image Evaluation
+- QC-002 — Revision Strategy
+- QC-003 — QC Knowledge Synthesis
 
-- source quality;
-- factual accuracy;
-- claim-evidence relationship;
-- unknown handling;
-- purpose/relevance;
-- audience fit;
-- language-level fit;
-- meaning preservation;
-- clarity/structure;
-- tone/voice;
-- grammar/style;
-- project-specific rules;
-- downstream handoff quality.
+## Runtime
 
-Critical failures override numerical averages.
+The optional `runtime/` package turns a prompt file into an auditable model execution. It is not required for structural consistency validation.
 
-## English Beyond Language
+### Human-triggered Heavy QC
 
-EBL now routes content tasks through Writing rules and visual tasks through Design rules. The retrieval map explicitly includes the approved content/communication rules for Writing and for Design whenever meaningful text is present.
+Heavy QC is an optional local PyIQA ensemble for aesthetic, no-reference technical, and full-reference evidence. It runs only after an authorized human explicitly asks for `heavy QC`; its output always remains `AWAITING_HUMAN_DECISION`.
 
-Current EBL content constraints include non-elitist positioning, realistic learner motivation, purposeful/non-random content, and approximately B1 public-facing language by default while preserving intellectual substance.
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-heavy-qc.txt
+.\.venv\Scripts\python.exe runtime\heavy_qc.py <candidate-image> --approval HEAVY_QC_APPROVED
+```
 
-Regression fixtures:
+Add `--reference <approved-source-image>` for SSIM, LPIPS, and PSNR comparisons. Runtime evidence is stored under ignored `runs/`; pretrained weights remain in the local user cache and must not be committed. Review the upstream PyIQA and model licenses before commercial use.
 
-`tests/fixtures/english_beyond_language/writing_regression_cases.md`
+### Presentation Design DNA
 
-## Versioning
+Presentation, PPT/PPTX, and HTML-deck work can use the conditional protocol in `00_workflow/presentation_design_dna_protocol.md`. It extends approved Visual DNA into a scenario-specific Design Contract, Blueprint, per-slide Page Specs, optional reusable Design Profiles, and mechanical layout safety checks without bypassing the existing production pipeline.
 
-Top-level architecture version:
+Reference images remain style evidence unless explicitly approved as slide content. HTML decks require the presentation layout QC module and a passing source-level layout-guard report when Node is available.
 
-**3.3-controlled-dual-workflow**
+The presentation protocol and layout guard include Apache-2.0-licensed adaptations from PPT-Design-DNA; see `THIRD_PARTY_NOTICES.md`.
 
-Design and Writing subworkflow registries maintain their own internal workflow/process versions. These subworkflow versions are intentionally independent from the top-level architecture version.
+### Instagram HTML Carousel Export
+
+The optional controlled exporter in `scripts/export_instagram_carousel.py` renders approved HTML slides to exact square, portrait or story PNG dimensions. It never installs dependencies automatically, supports side-effect-free preflight, creates non-destructive run directories, verifies dimensions, hashes sources and outputs, and leaves every export awaiting mandatory Instagram, image, typography, logo and audience QC as applicable.
+
+External design-system precedents are governed by `00_workflow/design_system_reference_protocol.md` and its curated registry. References must be verified at use time and can support derived principles, but they never become target tokens or brand assets automatically.
+
+Approved design decisions can be operationalized through the Learn–Structure–Refine token system. It separates Global primitives, Alias semantics, and Component states; validates theme parity and references; and requires versioned human approval before release.
+
+### HTML Visual Production
+
+The conditional protocol in `00_workflow/html_visual_production_protocol.md` converts an approved Producer Handoff, Visual DNA package or standalone approved brief into an original browser-rendered artifact. It provides medium routing, optional brand integration, real-context priority, originality controls and anti-slop QC for pages, interfaces, dashboards, prototypes, posters and cards.
+
+### DESIGN.md Generation
+
+`00_workflow/design_md_generation_protocol.md` converts inspected website or interface evidence into an agent-readable design system. It records exact source observations separately from transferable principles and approved target tokens, documents responsive behavior and component states, and uses `assets/templates/DESIGN_MD_TEMPLATE.md` as the canonical handoff format.
+
+## Testing
+
+### Structural CI
+
+`tests/validate_library.py` validates:
+
+- active prompt IDs and stage prefixes
+- exact match between active prompts and task contracts
+- task-level dependencies and next-task references
+- canonical gate vocabulary
+- lifecycle status
+- deprecated/retired references
+- domain-specific leakage
+- required task-contract metadata
+- canonical 15-stage process order, task coverage, protocol paths, stage dependencies, gates, artifacts, and memory effects
+
+### Semantic validation
+
+The semantic framework in `tests/` evaluates task adherence, source fidelity, unknown handling, completeness, classification, traceability, contract compliance, and handoff quality against controlled fixtures.
+
+Semantic execution remains a separate release gate because it depends on a selected model/runtime.
+
+The optional LLM-evaluator protocol adds versioned rubrics, calibration status, evidence-citing judgments, judge disagreement, failure classification and graph-compatible QC evidence. Structural CI validates the contract without making paid provider calls.
+
+## Deprecated
+
+`02_research/reference_selection.md` is retained only as a migration note. It is not an active task and is excluded from validation.
+
+## Information Rules
+
+Every important item must remain identifiable as one of:
+
+- SOURCE — supplied or observed evidence
+- DERIVED — analysis or inference supported by source
+- DECISION — explicit approved project or creative choice
+- OUTPUT — generated execution result
+
+Forbidden silent transitions include:
+
+- DERIVED → SOURCE
+- ASSUMPTION → FACT
+- OUTPUT → REQUIREMENT
+- SOURCE → DECISION without an explicit decision step
+
+## Revision Control
+
+Maximum automatic revision cycles: **3**. After the third unsuccessful cycle, route to **HUMAN_REVIEW** rather than continuing automatically.
+
+## Production Release Rule
+
+A production release requires:
+
+1. Structural CI PASS.
+2. No duplicate or invalid IDs.
+3. Exact task-contract alignment.
+4. No unresolved critical workflow dependency.
+5. Production-eligible prompt version/status.
+6. Relevant semantic tests PASS with the selected model/runtime.
+7. Required human approvals recorded.
+8. Release artifact records prompt versions, model/runtime, and test results.
 
 ## Status
 
-**Controlled dual-workflow architecture active.**
+Production Candidate — consistency controls hardened; semantic release gate remains separate.
 
-- Design workflow: established production branch.
-- Writing workflow: machine-controlled architecture ready for prompt development.
-- Shared knowledge: active with explicit authority boundaries.
-- Cross-workflow handoff: explicit and versioned.
-- CI: validates both workflow control layers on `main`.
+## Version
+
+3.1-production-candidate
 
 ## Core Principle
 
-**Research → Structure → Create → Evaluate → Revise — with evidence shared and authority preserved.**
+**Analyze → Structure → Research → Synthesize → Direct → Generate → Evaluate → Revise**

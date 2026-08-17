@@ -131,6 +131,38 @@ For painterly or artist-derived references, think in terms of **composition, vis
 
 See `instagram_template_synthesis.md` and `figma_output_contract.md`.
 
+## Presentation Design DNA Checkpoint
+
+When the destination is a presentation, slide deck, PPT/PPTX, or HTML deck, translate the approved Visual DNA through:
+
+`presentation_design_dna_protocol.md`
+
+The presentation path must preserve the existing upstream evidence and approval chain. It adds a presentation-specific Design DNA confirmation gate, requirement gate, scenario-fit Adapter, Design Contract, Blueprint, per-slide Page Specs, mechanical layout budgets, and source-level layout guard.
+
+Reference images remain style evidence unless explicitly approved as content assets. Reusable Presentation Design Profiles are opt-in, versioned artifacts governed by `presentation_design_profile_schema.json`; they are never saved automatically.
+
+HTML presentation delivery requires `QC-PRES-001_presentation_layout_qc.md` and a passing layout-guard report when Node is available. Screenshots and file-existence checks do not replace the source-level guard.
+
+## HTML Visual Production Checkpoint
+
+When an approved design must become a website, landing page, interface, dashboard, prototype, poster, card set or other browser-rendered artifact, run:
+
+`html_visual_production_protocol.md`
+
+The protocol routes the target medium, creates an approved `PRODUCER_HANDOFF`, resolves `BRANDLESS` or `BRAND_ON`, preserves real target context, and applies originality plus anti-slop gates. The handoff follows `producer_handoff_schema.json`.
+
+Visual DNA transfers as abstract direction, not as a source template. Source identity and target-brand identity remain separate. Unsupported claims, fake metrics, filler content and generic AI decoration are blocking or revision-triggering failures under `QC-HTML-001_originality_anti_slop_qc.md`.
+
+## DESIGN.md Generation Checkpoint
+
+When a website, interface, screenshot or CSS/DOM source must become an agent-readable design-system document, run:
+
+`design_md_generation_protocol.md`
+
+The protocol captures implementation evidence and enforces three distinct layers: observed source tokens, derived transferable principles and explicitly approved target tokens. Use `design_md_token_schema.json` for machine-readable records and `assets/templates/DESIGN_MD_TEMPLATE.md` for the human-readable handoff.
+
+Exact source values remain evidence until approved. Third-party identity, proprietary components and distinctive layouts cannot silently transfer into the target design system.
+
 ## Stepwise Human Review
 
 Creative work must be inspectable at controlled checkpoints. Do not generate the full downstream chain before a required checkpoint is approved.
@@ -282,6 +314,9 @@ When QC identifies a failure, route the failure to the earliest responsible stag
 - Motif extraction failure → Motif & Sign Extraction
 - Visual rule failure → Visual DNA
 - Platform/template structure failure → Platform / Instagram Template Synthesis
+- Presentation profile, adapter, blueprint, page-spec, or layout-budget failure → Presentation Design DNA Protocol
+- HTML route, brand-mode, producer-handoff, originality, or anti-slop failure → HTML Visual Production Protocol
+- DESIGN.md evidence, token-layer, responsive-state, or target-token approval failure → DESIGN.md Generation Protocol
 - Creative decision failure → Art Direction
 - Specification / prompt failure → Generation
 - Model execution failure → Generation
@@ -304,6 +339,10 @@ A Motif & Sign Extraction is complete only when the motif library is evidence-ba
 A style reference or style rule is complete only when approval metadata, scope, provenance, and version are complete.
 
 A reusable Instagram template is complete only when its platform structure, communication hierarchy, component behavior, approved motif usage, editable/controlled/locked fields, Figma implementation, provenance, and approval status are complete.
+
+A presentation design system is complete only when its approved Design Contract, Blueprint, Page Specs, content-asset roles, reference-subject firewall, mechanical layout budgets, provenance, and applicable layout-guard evidence are complete.
+
+An HTML production system is complete only when its approved Producer Handoff, target route, real-context inventory, brand mode, originality firewall, engineering checks, provenance and anti-slop evidence are complete.
 
 An Editable Reconstruction Package is complete only when the approved raster source is preserved, textless artwork passes QC, reconstructed regions are classified as DERIVED, editable elements are mapped, typography uncertainty is recorded, and the Figma handoff package is complete.
 

@@ -17,10 +17,16 @@ This release packages the controlled creative-production workflow, executable ru
 - Semantic evaluation CLI and controlled evaluation rubric.
 - Automated repository validation in GitHub Actions.
 - Synthetic semantic-test fixture for regression testing.
+- Controlled HTML-to-Instagram carousel export with exact-size verification, provenance manifests, and mandatory QC routing.
+- Curated official design-system reference registry with freshness, applicability, licensing, and originality controls.
+- Learn–Structure–Refine design-token architecture with Global, Alias, and Component tiers.
+- Light, dark, and high-contrast theme parity plus token naming, reference, cycle, and component-state validation.
 
 ## Known Boundary
 
 Structural CI and runtime smoke tests validate repository and execution infrastructure. They do not prove semantic quality for a specific model configuration. A semantic release test requires an API credential, approved model, controlled fixture, and evaluator run.
+
+The optional carousel renderer requires an explicit Playwright and Chromium installation. Offline CI validates its contract and side-effect-free preflight but does not execute browser rendering.
 
 ## Release Gate
 

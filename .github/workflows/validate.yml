@@ -2,9 +2,9 @@ name: Prompt Library Validation
 
 on:
   push:
-    branches: ["main", "production-candidate-v1"]
+    branches: ["production-candidate-v1"]
   pull_request:
-    branches: ["main", "production-candidate-v1"]
+    branches: ["production-candidate-v1", "main"]
   workflow_dispatch:
 
 permissions:
@@ -25,14 +25,11 @@ jobs:
       - name: Install runtime dependencies
         run: python -m pip install --disable-pip-version-check -r requirements.txt
 
-      - name: Validate Design prompts
+      - name: Validate active prompts
         run: python tests/validate_library.py
 
-      - name: Validate Design production process
+      - name: Validate canonical production process
         run: python tests/validate_process.py
-
-      - name: Validate Writing workflow architecture and prompts
-        run: python tests/validate_writing.py
 
       - name: Validate controlled knowledge registry
         run: python tests/validate_knowledge.py
@@ -40,20 +37,31 @@ jobs:
       - name: Validate QC knowledge learning controls
         run: python tests/validate_qc_knowledge.py
 
+      - name: Validate presentation layout guard
+        run: python tests/validate_presentation_layout_guard.py
+
+      - name: Validate LLM evaluator contract
+        run: python tests/validate_evaluator_contract.py
+
+      - name: Validate controlled carousel exporter
+        run: python tests/validate_carousel_exporter.py
+
+      - name: Validate design-system references
+        run: python tests/validate_design_system_references.py
+
+      - name: Validate design-token system
+        run: python tests/validate_design_token_system.py
+
       - name: Compile runtime and test modules
         run: python -m compileall -q runtime tests
 
-      - name: Validate semantic-test fixtures and rubrics
+      - name: Validate synthetic fixture and rubric
         run: |
           python - <<'PY'
           from pathlib import Path
-          required = [
-              Path("tests/fixtures/noura_coffee/project_input.md"),
-              Path("tests/evaluation_rubric.md"),
-              Path("tests/writing_evaluation_rubric.md"),
-              Path("tests/fixtures/english_beyond_language/writing_regression_cases.md"),
-          ]
-          for path in required:
-              assert path.exists() and path.stat().st_size > 0, f"Missing or empty test asset: {path}"
-          print("Structural and semantic-test assets: PASS")
+          fixture = Path("tests/fixtures/noura_coffee/project_input.md")
+          rubric = Path("tests/evaluation_rubric.md")
+          assert fixture.exists() and fixture.stat().st_size > 0
+          assert rubric.exists() and rubric.stat().st_size > 0
+          print("Synthetic semantic-test assets: PASS")
           PY
