@@ -2,7 +2,7 @@
 
 ## Status
 
-Current approved launch calendar.
+Current revised launch calendar.
 
 Launch date: **Saturday, 22 August 2026**
 
@@ -10,19 +10,19 @@ This file stores the operational publishing schedule. It does not replace conten
 
 ---
 
-| Date | Feed Post | Morning Story | Evening Story |
-|---|---|---|---|
-| Sat 22 Aug 2026 | Post 2 — How We Build English Independence | A World from the World | Vocabulary |
-| Sun 23 Aug 2026 | — | A World from the World | Vocabulary |
-| Mon 24 Aug 2026 | Post 3 — Tell | A World from the World | Vocabulary |
-| Tue 25 Aug 2026 | — | A World from the World | Vocabulary |
-| Wed 26 Aug 2026 | Post 4 — Explain | A World from the World | Vocabulary |
-| Thu 27 Aug 2026 | — | A World from the World | Vocabulary |
-| Fri 28 Aug 2026 | Post 5 — Argue | A World from the World | Vocabulary |
-| Sat 29 Aug 2026 | — | A World from the World | Vocabulary |
-| Sun 30 Aug 2026 | Post 6 — Participate | A World from the World | Vocabulary |
-| Mon 31 Aug 2026 | — | A World from the World | Vocabulary |
-| Tue 1 Sep 2026 | Post 7 — Keyvan introductory video | A World from the World | Vocabulary |
+| Date | Feed Post | Morning Story |
+|---|---|---|
+| Sat 22 Aug 2026 | Post 2 — How We Build English Independence | A World from the World |
+| Sun 23 Aug 2026 | — | A World from the World |
+| Mon 24 Aug 2026 | Post 3 — Tell | A World from the World |
+| Tue 25 Aug 2026 | — | A World from the World |
+| Wed 26 Aug 2026 | Post 4 — Explain | A World from the World |
+| Thu 27 Aug 2026 | — | A World from the World |
+| Fri 28 Aug 2026 | Post 5 — Argue | A World from the World |
+| Sat 29 Aug 2026 | — | A World from the World |
+| Sun 30 Aug 2026 | Post 6 — Participate | A World from the World |
+| Mon 31 Aug 2026 | — | A World from the World |
+| Tue 1 Sep 2026 | Post 7 — Keyvan introductory video | A World from the World |
 
 ---
 
@@ -39,14 +39,13 @@ HOW WE BUILD ENGLISH INDEPENDENCE
 → KEYVAN INTRODUCTION
 ```
 
-Daily Story rhythm:
+Daily Story rhythm for the current launch plan:
 
 ```text
-MORNING  = A WORLD FROM THE WORLD
-EVENING  = VOCABULARY
+MORNING = A WORLD FROM THE WORLD
 ```
 
-The morning Story provides cultural/language encounter and interpretive context. The evening Story provides a lighter recurring vocabulary-learning touchpoint.
+The previously planned recurring **Vocabulary** evening Story is removed from the launch calendar for now. It may be reintroduced later only through a new human-approved calendar revision.
 
 ---
 
