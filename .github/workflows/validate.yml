@@ -26,27 +26,43 @@ jobs:
         run: python -m pip install --disable-pip-version-check -r requirements.txt
 
       - name: Validate Design prompts
+        id: validate_library
+        continue-on-error: true
         run: python tests/validate_library.py
 
       - name: Validate Design production process
+        id: validate_process
+        continue-on-error: true
         run: python tests/validate_process.py
 
       - name: Validate cross-registry architecture consistency
+        id: validate_architecture
+        continue-on-error: true
         run: python tests/validate_architecture_consistency.py
 
       - name: Validate Writing workflow architecture and prompts
+        id: validate_writing
+        continue-on-error: true
         run: python tests/validate_writing.py
 
       - name: Validate controlled knowledge registry
+        id: validate_knowledge
+        continue-on-error: true
         run: python tests/validate_knowledge.py
 
       - name: Validate QC knowledge learning controls
+        id: validate_qc_knowledge
+        continue-on-error: true
         run: python tests/validate_qc_knowledge.py
 
       - name: Compile runtime and test modules
+        id: compile_modules
+        continue-on-error: true
         run: python -m compileall -q runtime tests
 
       - name: Validate semantic-test fixtures and rubrics
+        id: validate_fixtures
+        continue-on-error: true
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -60,3 +76,28 @@ jobs:
               assert path.exists() and path.stat().st_size > 0, f"Missing or empty test asset: {path}"
           print("Structural and semantic-test assets: PASS")
           PY
+
+      - name: Fail job if any validation failed
+        if: always()
+        run: |
+          failures=0
+          for result in \
+            "${{ steps.validate_library.outcome }}" \
+            "${{ steps.validate_process.outcome }}" \
+            "${{ steps.validate_architecture.outcome }}" \
+            "${{ steps.validate_writing.outcome }}" \
+            "${{ steps.validate_knowledge.outcome }}" \
+            "${{ steps.validate_qc_knowledge.outcome }}" \
+            "${{ steps.compile_modules.outcome }}" \
+            "${{ steps.validate_fixtures.outcome }}"; do
+            if [ "$result" != "success" ]; then
+              failures=$((failures + 1))
+            fi
+          done
+
+          if [ "$failures" -gt 0 ]; then
+            echo "$failures validation step(s) failed. See the individual step logs above."
+            exit 1
+          fi
+
+          echo "All validation steps passed."
